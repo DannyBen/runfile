@@ -7,6 +7,10 @@ Gem::Specification.new do |s|
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
   s.files       = ["lib/run.rb"]
+  s.executables = ["run"]
   s.homepage    = 'http://sector-seven.net'
   s.license     = 'MIT'
+
+  s.add_runtime_dependency 'colones', '~> 0'
+  s.add_runtime_dependency 'docopt', '~> 0.5'
 end

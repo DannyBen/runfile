@@ -91,12 +91,3 @@ module Run
 		@runner.summary = text
 	end
 end
-
-include Run
-@runner = Runner.new
-
-abort "Runfile not found" unless File.exist? 'Runfile'
-load 'Runfile'
-
-@runner.run *ARGV
-

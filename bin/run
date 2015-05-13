@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'run'
+include Run
+
+@runner = Runner.new
+
+abort "Runfile not found" unless File.exist? 'Runfile'
+load 'Runfile'
+
+@runner.run *ARGV
+
