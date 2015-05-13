@@ -3,7 +3,7 @@ version "0.1.0"
 
 usage  "greet <name> [--long]"
 help   "Say hello to <name>. Use --long to show a longer greeting, and this line -is long on purpose to see how it is displayed."
-# option "--long", "Show a longer greeting"
+option "--long", "Show a longer greeting"
 
 action :greet do |args|
 	if args['--long'] 

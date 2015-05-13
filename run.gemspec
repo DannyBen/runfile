@@ -6,7 +6,12 @@ Gem::Specification.new do |s|
   s.description = "An easy way to create project specific command line utilities"
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
-  s.files       = ["lib/run.rb"]
+  s.files       = [
+    "lib/run.rb", 
+    "lib/run/action.rb", 
+    "lib/run/runner.rb",
+    "lib/run/dsl.rb",
+  ]
   s.executables = ["run"]
   s.homepage    = 'http://sector-seven.net'
   s.license     = 'MIT'
