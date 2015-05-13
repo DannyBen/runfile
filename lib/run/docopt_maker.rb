@@ -17,13 +17,13 @@ module Run
 			doc += "#{@summary} \n" if @summary
 			doc += "\nUsage:\n";
 			@actions.each do |name, action|
-				doc += "  run #{action.usage}"
+				doc += "  run #{action.usage}\n"
 			end
-			doc += "\n  run (-h | --help | --version)"
+			doc += "  run (-h | --help | --version)\n\n"
 			caption_printed = false
 			@actions.each do |name, action|
 				action.help or next
-				doc += "\n\nCommands:\n" unless caption_printed
+				doc += "Commands:\n" unless caption_printed
 				caption_printed = true
 				helpline = "      #{action.help}"
 				wrapped  = word_wrap helpline, width
