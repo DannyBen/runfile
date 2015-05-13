@@ -1,14 +1,16 @@
 summary "The first ever Runfile program"
 version "0.1.0"
 
-usage  "greet <name> [--long]"
+usage  "greet <name> [--long --color]"
 help   "Say hello to <name>. Use --long to show a longer greeting, and this line -is long on purpose to see how it is displayed."
 option "--long", "Show a longer greeting"
+option "--color", "Use colored output"
 
 action :greet do |args|
+	color = args['--color'] ? '!txtgrn!' : ""
 	if args['--long'] 
-		puts "Hello #{args['<name>']}, welcome back"
+		say "#{color}Hello #{args['<name>']}, welcome back"
 	else 
-		puts "Hello #{args['<name>']}" 
+		say "#{color}Hello #{args['<name>']}" 
 	end
 end

@@ -1,0 +1,4 @@
+usage  "greet <name>"
+action :greet do |args|
+	puts "Hello #{args['<name>']}" 
+end
