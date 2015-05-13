@@ -3,10 +3,11 @@ require "docopt"
 
 module Run
 	class Action
-		attr :usage
+		attr :usage, :help
 
-		def initialize(block, usage)
+		def initialize(block, usage, help)
 			@usage = usage
+			@help  = "#{usage}\n      #{help}"
 			@block = block
 		end
 
@@ -16,35 +17,27 @@ module Run
 	end
 
 	class Runner
-		@@last_usage = nil
-		@@actions = {}
-		@@version = "0.0.0"
-		@@summary = false
+		attr_writer :last_usage, :last_help, :version, :summary
 
-		def self.last_usage=(text)
-			@@last_usage = text
+		def initialize
+			@last_usage = nil
+			@last_help = nil
+			@actions = {}
+			@version = "0.0.0"
+			@summary = false
 		end
 
-		def self.add_action(name, &block)
-			@@actions[name] = Action.new(block, @@last_usage)
-			@@last_usage = nil
+		def add_action(name, &block)
+			@actions[name] = Action.new(block, @last_usage, @last_help)
+			@last_usage = nil
+			@last_help = nil
 		end
 
-		def self.version=(ver)
-			@@version = ver
-		end
-
-		def self.summary=(text)
-			@@summary = text
-		end
-
-		def self.run(*argv)
+		def run(*argv)
 			action = argv[0]
-			doc = prepare_doc
 			begin
-				args = Docopt::docopt(doc, version: @@version, argv:argv)
-				# send(ARGV[0], args)
-				@@actions[action.to_sym].execute args
+				args = Docopt::docopt(docopt, version: @version, argv:argv)
+				@actions[action.to_sym].execute args
 			rescue Docopt::Exit => e
 				puts e.message
 			end
@@ -52,41 +45,51 @@ module Run
 
 		private
 
-		def self.prepare_doc
-			doc = "Runfile\n#{@@summary}\n\nUsage:\n";
-			@@actions.each do |name, action|
+		def docopt
+			doc = "Runfile #{@version}\n#{@summary} \n\nUsage:\n";
+			@actions.each do |name, action|
 				doc += "  run #{action.usage}"
 			end
 			doc += "\n\n"
-			doc += "Options:\n  -h --help  :\n      Show this screen"
-			doc += " --version  :\n      Show version"
+			doc += "Commands:\n"
+			@actions.each do |name, action|
+				doc += "  #{action.help}"
+			end
+			doc += "\n\n"
+			doc += "Options:\n"
+			doc += "  -h --help  :\n      Show this screen\n\n"
+			doc += "  --version  :\n      Show version\n\n"
 			doc
 		end
 	end
-
+	
 	def version(ver)
-		Runner.version = ver
+		@runner.version = ver
 	end
 
 	def usage(text)
-		Runner.last_usage = text
+		@runner.last_usage = text
 	end
 
-	# def help(text)
-	# 	Runner.last_help = text
-	# end
+	def help(text)
+		@runner.last_help = text
+	end
 
 	def action(name, &block) 
-		Runner.add_action name, &block
+		@runner.add_action name, &block
 	end
 
 	def summary(text)
-		Runner.summary = text
+		@runner.summary = text
 	end
 
+	
+
 end
-self.extend Run
+
+include Run
+@runner = Runner.new
 
 load 'Runfile'
 
-Run::Runner.run *ARGV
+@runner.run *ARGV
