@@ -4,6 +4,8 @@ module Run
 	class Runner
 		attr_writer :last_usage, :last_help, :version, :summary
 
+		@@instance = nil
+
 		def initialize
 			@last_usage = nil
 			@last_help = nil
@@ -11,6 +13,17 @@ module Run
 			@options = {}
 			@version = "0.0.0"
 			@summary = false
+		end
+
+		def self.instance
+			@@instance = self.new if @@instance.nil?
+			@@instance
+		end
+
+		def execute(argv)
+			File.exist? 'Runfile' or abort "Runfile not found"
+			load 'Runfile'
+			@@instance.run *argv
 		end
 
 		def add_action(name, &block)
