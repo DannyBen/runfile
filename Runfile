@@ -1,0 +1,9 @@
+summary "The first ever Runfile program"
+version "0.1.0"
+
+usage  "greet <name>"
+# help   "Say hello to <name>"
+action :greet do |args|
+	puts "Hello #{args['<name>']}"
+end
+
