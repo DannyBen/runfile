@@ -1,9 +1,14 @@
 summary "The first ever Runfile program"
 version "0.1.0"
 
-usage  "greet <name>"
-help   "Say hello to <name>"
-action :greet do |args|
-	puts "Hello #{args['<name>']}"
-end
+usage  "greet <name> [--long]"
+help   "Say hello to <name>. Use --long to show a longer greeting, and this line -is long on purpose to see how it is displayed."
+# option "--long", "Show a longer greeting"
 
+action :greet do |args|
+	if args['--long'] 
+		puts "Hello #{args['<name>']}, welcome back"
+	else 
+		puts "Hello #{args['<name>']}" 
+	end
+end
