@@ -1,9 +1,5 @@
-Run
-===
+Run - If Rake and Docopt had a baby
+===================================
 
-Gem Development
----------------
+An easy way to create project specific command line utilities
 
-	$ bundle exec run ...
-
-	

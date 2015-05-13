@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.files       = [
     "lib/run.rb", 
     "lib/run/action.rb", 
+    "lib/run/docopt_maker.rb",
     "lib/run/runner.rb",
     "lib/run/dsl.rb",
   ]
