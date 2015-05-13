@@ -82,14 +82,11 @@ module Run
 	def summary(text)
 		@runner.summary = text
 	end
-
-	
-
 end
 
 include Run
 @runner = Runner.new
 
-load 'Runfile'
+load 'Runfilea'
 
 @runner.run *ARGV
