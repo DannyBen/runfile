@@ -1,11 +1,14 @@
+# define the application itself
 summary "The first ever Runfile program"
 version "0.1.0"
 
+# define the `greet` command syntax and options
 usage  "greet <name> [--long --color]"
-help   "Say hello to <name>. Use --long to show a longer greeting, and this line -is long on purpose to see how it is displayed."
+help   "Say hello to <name>"
 option "--long", "Show a longer greeting"
 option "--color", "Use colored output"
 
+# define the `greet` command action
 action :greet do |args|
 	color = args['--color'] ? '!txtgrn!' : ""
 	if args['--long'] 

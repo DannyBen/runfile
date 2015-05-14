@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
-  s.name        = 'Runfile'
-  s.version     = '0.1.0.pre'
-  s.date        = '2015-05-13'
+  s.name        = 'runfile'
+  s.version     = '0.1.1.pre'
+  s.date        = '2015-05-14'
   s.summary     = "If Rake and Docopt had a baby"
   s.description = "An easy way to create project specific command line utilities"
   s.authors     = ["Danny Ben Shitrit"]
@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
     "lib/runfile/dsl.rb",
   ]
   s.executables = ["run"]
-  s.homepage    = 'http://sector-seven.net'
+  s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
 
-  s.add_runtime_dependency 'colsole', '~> 0'
+  s.add_runtime_dependency 'colsole', '> 0'
   s.add_runtime_dependency 'docopt', '~> 0.5'
 end
