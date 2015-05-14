@@ -23,7 +23,7 @@ usage  "greet <name> [--long --color]"
 # help sets the short description of this command.
 # longer lines will be automatically wrapped based on the width of 
 # the terminal
-help   "Say hello to <name>. Use --long to show a longer greeting, and this line -is long on purpose to see how it is displayed."
+help   "Say hello to <name>. Use --long to show a longer greeting, and this line is long on purpose to see how it is displayed."
 
 # option sets the help text of --flags.
 # the command accepts two parameters: the flag syntax and the help 

@@ -68,4 +68,5 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 ## Todo
 	
 - Consider supporting user and system level Runfiles
+- Tests
 
