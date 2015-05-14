@@ -1,8 +1,8 @@
 require 'docopt'
-require 'colones'
+require 'colsole'
 
-module Run
-	include Colones
+module Runfile
+	include Colsole
 	class DocoptMaker
 		def initialize(version, summary, actions, options)
 			@version = version

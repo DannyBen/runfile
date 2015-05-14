@@ -1,6 +1,6 @@
 require 'docopt'
 
-module Run
+module Runfile
 	class Runner
 		attr_writer :last_usage, :last_help, :version, :summary
 

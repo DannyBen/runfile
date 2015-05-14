@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'run'
-include Run
+require 'runfile'
+include Runfile
 
 Runner.instance.execute ARGV

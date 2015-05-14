@@ -1,4 +1,4 @@
-module Run
+module Runfile
 	def version(ver)
 		Runner.instance.version = ver
 	end

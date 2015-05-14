@@ -1,4 +1,4 @@
-module Run
+module Runfile
 	class Action
 		attr :usage, :help
 
