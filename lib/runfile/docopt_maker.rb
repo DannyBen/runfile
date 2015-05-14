@@ -3,6 +3,9 @@ require 'colsole'
 
 module Runfile
 	include Colsole
+
+	# The DocoptMaker class handles the dynamic generation of the docopt
+	# document.
 	class DocoptMaker
 		def initialize(version, summary, actions, options)
 			@version = version
@@ -11,6 +14,8 @@ module Runfile
 			@options = options
 		end
 
+		# Generate a document based on all the actions, help messages
+		# and options we have collected from the Runfile DSL.
 		def make
 			width, height = detect_terminal_size
 			doc = "Runfile #{@version}\n"

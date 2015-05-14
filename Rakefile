@@ -10,10 +10,15 @@ Rake::TestTask.new {|t| t.libs << 'test'}
 
 # rdoc tasks
 Rake::RDocTask.new do |rdoc|
-	files = ['README.md', 'lib/colsole.rb']
+	files = [
+		'README.md', 'lib/runfile/action.rb', 
+		'lib/runfile/docopt_maker.rb', 'lib/runfile/dsl.rb', 
+		'lib/runfile/runner.rb'
+	]
+
 	rdoc.rdoc_files.add(files)
 	rdoc.main = "README.md"
-	rdoc.title = "Colsole Docs"
+	rdoc.title = "Runfile Docs"
 	rdoc.rdoc_dir = 'doc/rdoc'
 
 	rdoc.options << '--line-numbers'
