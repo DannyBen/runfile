@@ -10,6 +10,9 @@ An easy way to create project specific command line utilities
 to [Rake](https://github.com/ruby/rake), but with the full power of 
 [Docopt](http://docopt.org/) command line options.
 
+You create a `Runfile`, and execute commands with 
+`run command arguments -and --flags`.
+
 
 ## Install
 
@@ -69,4 +72,10 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 	
 - Consider supporting user and system level Runfiles
 - Tests
+- See if we can support subcommands gracefully (for example, to 
+  provide namespace like functionality, `run theme watch`)
+- See if we can suport commands with-dashes
+- Can we have a colored docopt? Would be nice...
+- Can we have a colored docopt error? ("-a is not recognized")
+
 

@@ -34,6 +34,7 @@ module Runfile
 		# Add an action to the @actions array, and use the last known
 		# usage and help messages sent by the DSL.
 		def add_action(name, &block)
+			@last_usage = name if @last_usage.nil?
 			@actions[name] = Action.new(block, @last_usage, @last_help)
 			@last_usage = nil
 			@last_help = nil

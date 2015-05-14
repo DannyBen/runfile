@@ -1,6 +1,6 @@
 #---
 # Global Commands
-# Each Runfile may have a summary and a version.
+# each Runfile may have a summary and a version. Both are optional.
 #---
 
 # summary sets the one line description of the application.
@@ -11,19 +11,21 @@ version "0.1.0"
 
 
 #---
-# Each action must have a 'usage' line, and an action block.
-# In addition, you may use the 'help' command, which descibes the 
+# each action must have an action block.
+# if the action requires arguments, it also must have a 'usage' block.
+# in addition, you may use the 'help' command, which descibes the 
 # action and zero or more 'option' commands that set the format and 
 # help text of option flags.
 #---
 
-# usage sets the one line usage pattern of this command
-usage  "greet <name> [--long --color]"
+# usage sets the one line usage pattern of this command.
+# optional for commands without any arguments.
+usage "greet <name> [--long --color]"
 
 # help sets the short description of this command.
 # longer lines will be automatically wrapped based on the width of 
-# the terminal
-help   "Say hello to <name>. Use --long to show a longer greeting, and this line is long on purpose to see how it is displayed."
+# the terminal.
+help "Say hello to <name>. Use --long to show a longer greeting, and this line is long on purpose to see how it is displayed."
 
 # option sets the help text of --flags.
 # the command accepts two parameters: the flag syntax and the help 
@@ -34,8 +36,8 @@ option "-c --color", "Use colored output"
 # action block defines what to do when this command is called
 # the :symbol name should match the first string defined in the usage
 # command. 
-# the block recieves a single argument 'args' which will include all
-# the arguments passed from the command line.
+# the block recieves a single argument 'args' which includes all the
+# arguments passed from the command line.
 # you do not need to worry about parameters that do not exist - docopt
 # already takes care of this (through our 'usage' patterns).
 action :greet do |args|
