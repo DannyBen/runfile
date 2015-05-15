@@ -1,0 +1,27 @@
+# this is a globel action
+action :greet do
+	say "Hello"
+end
+
+# define a "super command" (namespace).
+# any action below it will be preceded by "make" automatically.
+command "make"
+
+# the usage string will actually be "make custard" and the action
+# will be stored as ":make_custard".
+usage  "custard"
+action :custard do
+	say "Making custard..." 
+end
+
+usage  "jam"
+action :jam do
+	say "Making jam..." 
+end
+
+usage  "meat [--mix]"
+option "--mix", "Mix all the ingredients. Good."
+action :meat do |args|
+	say "Making meat..." 
+	say "...and mixing it all up" if args['--mix']
+end

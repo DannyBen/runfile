@@ -34,4 +34,8 @@ module Runfile
 	def action(name, &block) 
 		Runner.instance.add_action name, &block
 	end
+
+	def command(name)
+		Runner.instance.namespace = name
+	end
 end
