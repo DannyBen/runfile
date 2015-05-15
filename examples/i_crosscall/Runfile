@@ -1,0 +1,35 @@
+# you can easily call actions from other actions ("cross call").
+# use the `call` command. the syntax is exactly the same as if you 
+# run it from the command prompt.
+
+action :jog do
+	say "jog"
+end
+
+usage "jump [--high --twice]"
+action :jump do |args|
+	word = args['--high'] ? "JUMP" : "jump"
+	say word
+	say word if args['--twice']
+end
+
+# this action calls other actions, including one in a different
+# command namespace ("eat")
+action :exercise do
+	call "jump --high --twice"
+	call "jog"
+	call "eat cake"
+end
+
+command "eat"
+
+action :cake do
+	say "time for cake"
+end
+
+action :'two-cakes' do
+	call "eat cake"
+	call "eat cake"
+	call "jog"
+end
+

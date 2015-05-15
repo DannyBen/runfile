@@ -71,7 +71,6 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 ## Todo
 	
 - Add ability to call another action from an action
-- (Colsole) add auto indentation to #say
 - Consider adding a namespace-ending command (either empty `command`)
   or `endcommand`)
 - Tests

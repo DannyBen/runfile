@@ -57,11 +57,23 @@ module Runfile
 		def run(*argv)
 			action = find_action argv
 			begin
-				args = Docopt::docopt(docopt, version: @version, argv:argv)
-				action or abort "Runfile error: Action not found"
-				@actions[action].execute args
+				docopt_exec action, argv
 			rescue Docopt::Exit => e
 				puts e.message
+			end
+		end
+
+		# Invoke action from another action. Used by the DSL's #call 
+		# function. Expects to get a single string that looks as if
+		# it was typed in the command prompt.
+		def cross_call(command_string) 
+			argv = command_string.split /\s(?=(?:[^"]|"[^"]*")*$)/
+			action = find_action argv
+			begin
+				docopt_exec action, argv
+			rescue Docopt::Exit => e
+				puts "Cross call failed: #{command_string}"
+				abort e.message
 			end
 		end
 
@@ -71,6 +83,16 @@ module Runfile
 		def docopt
 			maker = DocoptMaker.new(@version, @summary, @actions, @options)
 			maker.make
+		end
+
+		# Call the docopt parser and execute the action with the 
+		# parsed arguments.
+		# This should always be called in a begin...rescue block and
+		# you should handle the Docopt::Exit exception.
+		def docopt_exec(action, argv)
+			args = Docopt::docopt(docopt, version: @version, argv:argv)
+			action or abort "Runfile error: Action not found"
+			@actions[action].execute args
 		end
 
 		# Inspect the first two arguments in the argv and look for
@@ -90,6 +112,9 @@ module Runfile
 			return false
 		end
 
+		# Handle the case when `run` is called without a Runfile 
+		# present. We will let the user know they can type `run make`
+		# to create a new sample Runfile.
 		def handle_no_runfile(argv)
 			if argv[0] == "make"
 				sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"

@@ -35,7 +35,12 @@ module Runfile
 		Runner.instance.add_action name, &block
 	end
 
+	# Define a new command namespace
 	def command(name)
 		Runner.instance.namespace = name
+	end
+
+	def call(command_string)
+		Runner.instance.cross_call command_string
 	end
 end
