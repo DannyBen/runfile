@@ -70,11 +70,13 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 
 ## Todo
 	
-- See if we can suport commands with-dashes
+- (Colsole) add auto indentation to #say
 - Tests
+- Add newline detection in wordwrap (i.e. add indentation spaces 
+  after newline)
 - Consider supporting user and system level Runfiles
 - Wiki
 - GitHub pages
-- Can we have a colored docopt? Would be nice...
-- Can we have a colored docopt error? ("-a is not recognized")
+- Can we have a colored docopt? Would be nice... 
+  (working, but causing some issues, will probably abandon).
 

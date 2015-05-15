@@ -1,0 +1,12 @@
+
+
+usage  "jump-around [--up --down]"
+help   "Jump around, with optional jumping up and getting down"
+option "-u --up"  , "Also jump up"
+option "-d --down", "Get down after jump"
+
+action :'jump-around' do |args|
+	say "Jump around"
+	say "Jump up jump up" if args['--up']
+	say "and get down" if args['--down']
+end
