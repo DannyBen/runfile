@@ -9,7 +9,7 @@ module Runfile
 
 		@@instance = nil
 
-		# Initialize all variables to a sensible default.
+		# Initialize all variables to sensible defaults.
 		def initialize
 			@last_usage = nil
 			@last_help = nil
@@ -28,7 +28,7 @@ module Runfile
 
 		# Load and execute a Runfile call.
 		def execute(argv)
-			File.exist? 'Runfile' or abort "Runfile not found"
+			File.exist? 'Runfile' or handle_no_runfile argv
 			load 'Runfile'
 			@@instance.run *argv
 		end
@@ -88,6 +88,17 @@ module Runfile
 				return action if @actions.has_key? action
 			end
 			return false
+		end
+
+		def handle_no_runfile(argv)
+			if argv[0] == "make"
+				sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"
+				dest   = Dir.pwd + "/Runfile"
+				File.write(dest, File.read(sample))
+				abort "Runfile created."
+			else
+				abort "Runfile not found.\nUse 'run make' to create one."
+			end
 		end
 	end
 end

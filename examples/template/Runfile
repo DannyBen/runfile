@@ -1,0 +1,9 @@
+summary "Application description"
+version "0.1.0"
+
+usage  "command <arg> [--flag]"
+help   "Help line for command"
+option "-f --flag", "Help text for option"
+action :command do |args|
+	say "Command running..."
+end

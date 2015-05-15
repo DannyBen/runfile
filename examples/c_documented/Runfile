@@ -48,3 +48,20 @@ action :greet do |args|
 		say "#{color}Hello #{args['<name>']}" 
 	end
 end
+
+# the command 'command' defines a "super command" (namespace).
+# any action below it will be preceded by it automatically.
+command "jump"
+
+# usage will be "jump around"
+action :around do
+	say "Jump around" 
+end
+
+# usage will be "jump up [--high]"
+usage  "up [--high]"
+action :up do |args|
+	say "Jump up jump up " 
+	say args['--high'] ? "\b..." : "and get down."
+end
+
