@@ -36,10 +36,11 @@ module Runfile
 	end
 
 	# Define a new command namespace
-	def command(name)
+	def command(name=nil)
 		Runner.instance.namespace = name
 	end
 
+	# Cross-call another action
 	def call(command_string)
 		Runner.instance.cross_call command_string
 	end

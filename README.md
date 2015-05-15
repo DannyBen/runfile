@@ -70,9 +70,6 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 
 ## Todo
 	
-- Add ability to call another action from an action
-- Consider adding a namespace-ending command (either empty `command`)
-  or `endcommand`)
 - Tests
 - Add newline detection in wordwrap (i.e. add indentation spaces 
   after newline)

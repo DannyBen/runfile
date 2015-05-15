@@ -25,3 +25,10 @@ action :meat do |args|
 	say "Making meat..." 
 	say "...and mixing it all up" if args['--mix']
 end
+
+# return back to global namespace
+command
+
+action :eat do
+	say "Custard? Good! Jam? Good! Meat? Good!!!"
+end
