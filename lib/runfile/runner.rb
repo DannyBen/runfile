@@ -33,8 +33,8 @@ module Runfile
 			File.file? filename or handle_no_runfile argv
 			begin
 				load filename
-			rescue
-				abort "Failed loading file '#{filename}'.\nIs it a valid Runfile?"
+			rescue => e
+				abort "Runfile error:\n#{e.message}"
 			end
 			@@instance.run *argv
 		end
