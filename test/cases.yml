@@ -27,7 +27,7 @@
 
       --version
           Show version
-- dir: f_subcommands
+- dir: f_namespace
   cmd: run
   out: |-
     Usage:
@@ -37,10 +37,10 @@
       run make meat [--mix]
       run eat
       run (-h | --help | --version)
-- dir: f_subcommands
+- dir: f_namespace
   cmd: run make jam
   out: Making jam...
-- dir: f_subcommands
+- dir: f_namespace
   cmd: run eat
   out: Custard? Good! Jam? Good! Meat? Good!!!
 - dir: g_overloading
