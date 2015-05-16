@@ -16,7 +16,7 @@ You create a `Runfile`, and execute commands with
 
 ## Install
 
-	$ gem install runfile --pre
+	$ gem install runfile
 
 
 ## Example
