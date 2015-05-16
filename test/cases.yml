@@ -92,3 +92,16 @@
     time for cake
     time for cake
     jog
+- dir: j_customname
+  cmd: run
+  out: Did you mean 'run greet'
+- dir: j_customname
+  cmd: run greet
+  out: |-
+    Usage:
+      run greet me
+      run greet everybody
+      run (-h | --help | --version)
+- dir: j_customname
+  cmd: run greet me
+  out: Hey you

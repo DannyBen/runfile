@@ -64,16 +64,20 @@ Options:
       Show version
 ```
 
-See more examples in the [examples folder](https://github.com/DannyBen/runfile/tree/master/examples)
+## Documentation 
 
+- [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
+- [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
 
 
 ## Todo
 
-- Add newline detection in wordwrap (i.e. add indentation spaces 
+- Add documentation for `*.runfile` form files
+- Make `*.runfiles` form files support namespaces as well
+- (Colsole) Add newline detection in wordwrap (i.e. add indentation spaces 
   after newline)
-- Consider supporting user and system level Runfiles
-- Wiki
+- Consider supporting user and system level `*.runfiles`
+- Wiki (in progress)
 - GitHub pages
 - Can we have a colored docopt? Would be nice... 
   (working, but causing some issues, will probably abandon)

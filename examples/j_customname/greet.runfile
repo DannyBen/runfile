@@ -1,0 +1,21 @@
+# this examples shows how to use a filename that is not named
+# 'Runfile'.
+# any file with a '.runfile' extension can be used.
+
+summary "Non-Runfile Runfile"
+
+action :me do
+	say "Hey you"
+end
+
+action :everybody do
+	say "Hello everybody"
+end
+
+# namespaces in a .runfile file are not yet supported
+
+# command "and"
+
+# action :meet do
+# 	say "Meet"
+# end

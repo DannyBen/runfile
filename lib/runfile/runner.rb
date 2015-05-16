@@ -27,9 +27,9 @@ module Runfile
 		end
 
 		# Load and execute a Runfile call.
-		def execute(argv)
-			File.exist? 'Runfile' or handle_no_runfile argv
-			load 'Runfile'
+		def execute(argv, filename='Runfile')
+			File.exist? filename or handle_no_runfile argv
+			load filename
 			@@instance.run *argv
 		end
 
@@ -115,15 +115,29 @@ module Runfile
 		# Handle the case when `run` is called without a Runfile 
 		# present. We will let the user know they can type `run make`
 		# to create a new sample Runfile.
+		# If the first argument matches the name of a *.runfile name,
+		# we will execute it.
 		def handle_no_runfile(argv)
 			if argv[0] == "make"
 				sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"
 				dest   = Dir.pwd + "/Runfile"
 				File.write(dest, File.read(sample))
 				abort "Runfile created."
+			elsif argv[0] and File.exist? "#{argv[0]}.runfile"
+				@namespace = argv[0]
+				execute argv, "#{argv[0]}.runfile"
 			else
-				abort "Runfile not found.\nUse 'run make' to create one."
+				runfiles = Dir['*.runfile']
+				if runfiles
+					runfiles.each do |f|
+						f.slice! '.runfile'
+						puts "Did you mean 'run #{f}'"
+					end
+				else 
+					abort "Runfile not found.\nUse 'run make' to create one."
+				end
 			end
+			exit
 		end
 	end
 end
