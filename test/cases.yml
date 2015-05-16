@@ -1,0 +1,94 @@
+---
+- dir: a_minimal
+  cmd: run
+  out: |-
+    Usage:
+      run greet <name>
+      run (-h | --help | --version)
+- dir: a_minimal
+  cmd: run greet danny
+  out: Hello danny
+- dir: a_minimal
+  cmd: run -h
+  out: |-
+    Runfile 0.0.0
+
+    Usage:
+      run greet <name>
+      run (-h | --help | --version)
+
+    Commands:
+      greet <name>
+          Say hello to <name>
+
+    Options:
+      -h --help
+          Show this screen
+
+      --version
+          Show version
+- dir: f_subcommands
+  cmd: run
+  out: |-
+    Usage:
+      run greet
+      run make custard
+      run make jam
+      run make meat [--mix]
+      run eat
+      run (-h | --help | --version)
+- dir: f_subcommands
+  cmd: run make jam
+  out: Making jam...
+- dir: f_subcommands
+  cmd: run eat
+  out: Custard? Good! Jam? Good! Meat? Good!!!
+- dir: g_overloading
+  cmd: run
+  out: |-
+    Usage:
+      run jump
+      run jump around
+      run jump up
+      run (-h | --help | --version)
+- dir: g_overloading
+  cmd: run jump
+  out: Jump!
+- dir: g_overloading
+  cmd: run jump around
+  out: Jump around
+- dir: h_hyphen
+  cmd: run
+  out: |-
+    Usage:
+      run jump-around [--up --down]
+      run (-h | --help | --version)
+- dir: h_hyphen
+  cmd: run jump-around --up --down
+  out: |-
+    Jump around
+    Jump up jump up
+    and get down
+- dir: i_crosscall
+  cmd: run
+  out: |-
+    Usage:
+      run jog
+      run jump [--high --twice]
+      run exercise
+      run eat cake
+      run eat two-cakes
+      run (-h | --help | --version)
+- dir: i_crosscall
+  cmd: run exercise
+  out: |-
+    JUMP
+    JUMP
+    jog
+    time for cake
+- dir: i_crosscall
+  cmd: run eat two-cakes
+  out: |-
+    time for cake
+    time for cake
+    jog

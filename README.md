@@ -69,8 +69,7 @@ See more examples in the [examples folder](https://github.com/DannyBen/runfile/t
 
 
 ## Todo
-	
-- Tests
+
 - Add newline detection in wordwrap (i.e. add indentation spaces 
   after newline)
 - Consider supporting user and system level Runfiles

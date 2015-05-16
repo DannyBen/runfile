@@ -1,5 +1,6 @@
 require 'rake/testtask'
 require 'rdoc/task'
+require 'yaml'
 
 task :default do 
 	system "rake -T"
@@ -31,4 +32,18 @@ task :build do
 	system "gem build runfile.gemspec"	
 	files = Dir["*.gem"]
 	files.each {|f| mv f, "gems" }
+end
+
+desc "Add example case to test/case.yml"
+task :addtest, :dir, :cmd do |t, args|
+	casefile = 'test/cases.yml'
+	args[:dir] and args[:cmd] or abort "Please provide dir and cmd\nExample: rake addtest[b_basic,\"run greet danny\"]"
+	cases = YAML.load_file casefile
+	cases or cases = []
+	new_case = {'dir' => args[:dir], 'cmd' => args[:cmd]}
+	Dir.chdir "examples/#{args[:dir]}" do
+		new_case['out'] = `#{args[:cmd]}`.strip
+	end
+	cases << new_case
+	File.write(casefile, YAML.dump(cases))
 end
