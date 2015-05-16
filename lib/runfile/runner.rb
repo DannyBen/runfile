@@ -131,7 +131,7 @@ module Runfile
 				execute argv, "#{argv[0]}.runfile"
 			else
 				runfiles = Dir['*.runfile']
-				runfiles.empty? and abort "Runfile not found.\nUse 'run make' to create one."
+				runfiles.empty? and abort "Runfile engine v#{Runfile::VERSION}\n\nRunfile not found.\nUse 'run make' to create one."
 				runfiles.each do |f|
 					f.slice! '.runfile'
 					puts "Did you mean 'run #{f}'"

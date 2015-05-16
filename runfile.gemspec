@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'runfile'
-  s.version     = '0.2.0'
+  s.version     = '0.2.1'
   s.date        = '2015-05-16'
   s.summary     = "If Rake and Docopt had a baby"
   s.description = "An easy way to create project specific command line utilities"
