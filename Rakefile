@@ -34,6 +34,15 @@ task :build do
 	files.each {|f| mv f, "gems" }
 end
 
+desc "Install local gem"
+task :install, :ver do |t, args|
+	args[:ver] or abort "Please specify a version\nExample rake install[0.1.2]"
+	gemfile = "gems/runfile-#{args[:ver]}.gem"
+	cmd = "gem install #{gemfile}"
+	puts "Running: #{cmd}"
+	system cmd
+end
+
 desc "Publish gem"
 task :publish, :ver do |t, args|
 	args[:ver] or abort "Please specify a version\nExample rake publish[0.1.2]"
