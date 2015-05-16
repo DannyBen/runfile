@@ -68,6 +68,7 @@ Options:
 
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
+- [More about Runfile](https://github.com/DannyBen/runfile/wiki)
 
 ## Test
 
