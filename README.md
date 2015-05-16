@@ -72,7 +72,7 @@ Options:
 
 ## Test
 
-  $ rake test
+	$ rake test
 
 
 ## Todo
