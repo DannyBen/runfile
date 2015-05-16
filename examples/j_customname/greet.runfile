@@ -1,5 +1,7 @@
 # this examples shows how to use a filename that is not named
 # 'Runfile'. any file with a '.runfile' extension can be used.
+# This is a completely standard Runfile. All the actions and command 
+# namespaces will be automatically preceded by the name of the file.
 
 usage "hello [<name>]"
 action :hello do |args|
