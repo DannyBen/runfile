@@ -32,7 +32,7 @@ module Runfile
 
 		# Load and execute a Runfile call.
 		def execute(argv, filename='Runfile')
-			File.file? filename or handle_no_runfile argv
+			File.file?(filename) or handle_no_runfile argv
 			begin
 				load filename
 			rescue => e
@@ -127,24 +127,55 @@ module Runfile
 		# If the first argument matches the name of a *.runfile name,
 		# we will execute it.
 		def handle_no_runfile(argv)
+			# make a new runfile
 			if argv[0] == "make"
-				sample = File.expand_path("../templates/Runfile", __FILE__)
-				outfile = argv[1] ? "#{argv[1]}.runfile" : "Runfile"
-				dest   = "#{Dir.pwd}/#{outfile}"
-				File.write(dest, File.read(sample))
-				abort "#{outfile} created."
-			elsif argv[0] and File.exist? "#{argv[0]}.runfile"
-				@superspace = argv[0]
-				execute argv, "#{argv[0]}.runfile"
-			else
-				runfiles = Dir['*.runfile']
-				runfiles.empty? and abort "Runfile engine v#{Runfile::VERSION}\n\nRunfile not found.\nUse 'run make' to create 'Runfile'.\nUse 'run make name' to create 'name.runfile'."
-				runfiles.each do |f|
-					f.slice! '.runfile'
-					puts "Did you mean 'run #{f}'"
+				make_runfile argv[1]
+				exit
+			end
+
+			# get a list of *.runfile path-wide
+			runfiles = find_runfiles || []
+
+			# if first arg is a valid *.runfile, run it
+			if argv[0] 
+				runfile = runfiles.select { |f| f[/#{argv[0]}.runfile/] }.first
+				if runfile
+					@superspace = argv[0]
+					execute argv, runfile
+					exit
 				end
 			end
+
+			# if we are here, offer some help and advice
+			say "!txtpur!Runfile engine v#{Runfile::VERSION}\n"
+			runfiles.empty? and say "!txtred!Runfile not found."
+			runfiles.each do |f|
+				f[/([^\/]+).runfile$/]
+				say "Did you mean '!txtgrn!run #{$1}!txtrst!' (#{f})"
+			end
+			say "\nUse '!txtblu!run make!txtrst!' to create 'Runfile'.\nUse '!txtblu!run make name!txtrst!' to create 'name.runfile'.\nPlace named.runfiles anywhere in the path for global access.\n"
 			exit
+
+		end
+
+		# Create a new runfile in the current directory. We can either
+		# create a standard 'Runfile' or a 'named.runfile'.
+		def make_runfile(name=nil)
+			name = 'Runfile' if name.nil?
+			template = File.expand_path("../templates/Runfile", __FILE__)
+			name += ".runfile" unless name == 'Runfile'
+			dest = "#{Dir.pwd}/#{name}"
+			begin
+				File.write(dest, File.read(template))
+				puts "#{name} created."
+			rescue => e
+				abort "Failed creating #{name}\n#{e.message}"
+			end
+		end
+
+		# Find all *.runfiles path-wide
+		def find_runfiles
+			find_all_in_path '*.runfile'
 		end
 	end
 end
