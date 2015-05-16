@@ -30,8 +30,12 @@ module Runfile
 
 		# Load and execute a Runfile call.
 		def execute(argv, filename='Runfile')
-			File.exist? filename or handle_no_runfile argv
-			load filename
+			File.file? filename or handle_no_runfile argv
+			begin
+				load filename
+			rescue
+				abort "Failed loading file '#{filename}'.\nIs it a valid Runfile?"
+			end
 			@@instance.run *argv
 		end
 
