@@ -1,19 +1,4 @@
 ---
-- dir: template
-  cmd: run
-  out: |-
-    Usage:
-      run command <arg> [--flag]
-      run (-h | --help | --version)
-- dir: template
-  cmd: run command arg --flag
-  out: Command running...
-- dir: a_minimal
-  cmd: run
-  out: |-
-    Usage:
-      run greet <name>
-      run (-h | --help | --version)
 - dir: a_minimal
   cmd: run greet danny
   out: Hello danny

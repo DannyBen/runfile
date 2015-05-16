@@ -128,7 +128,8 @@ module Runfile
 		# we will execute it.
 		def handle_no_runfile(argv)
 			if argv[0] == "make"
-				sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"
+				# sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"
+				sample = File.expand_path("../templates/Runfile", __FILE__)
 				dest   = Dir.pwd + "/Runfile"
 				File.write(dest, File.read(sample))
 				abort "Runfile created."
