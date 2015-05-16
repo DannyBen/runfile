@@ -34,6 +34,16 @@ task :build do
 	files.each {|f| mv f, "gems" }
 end
 
+desc "Publish gem"
+task :publish, :ver do |t, args|
+	args[:ver] or abort "Please specify a version\nExample rake publish[0.1.2]"
+	gemfile = "gems/runfile-#{args[:ver]}.gem"
+	File.exist? gemfile or abort "File not found #{gemfile}"
+	cmd = "gem push #{gemfile}"
+	puts "Running: #{cmd}"
+	system cmd
+end
+
 desc "Add example case to test/case.yml"
 task :addtest, :dir, :cmd do |t, args|
 	casefile = 'test/cases.yml'
