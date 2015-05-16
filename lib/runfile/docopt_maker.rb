@@ -7,7 +7,8 @@ module Runfile
 	# The DocoptMaker class handles the dynamic generation of the docopt
 	# document.
 	class DocoptMaker
-		def initialize(version, summary, actions, options)
+		def initialize(name, version, summary, actions, options)
+			@name    = name
 			@version = version
 			@summary = summary
 			@actions = actions
@@ -18,7 +19,7 @@ module Runfile
 		# and options we have collected from the Runfile DSL.
 		def make
 			width, height = detect_terminal_size
-			doc = "Runfile #{@version}\n"
+			doc = "#{@name} #{@version}\n"
 			doc += "#{@summary} \n" if @summary
 			doc += "\nUsage:\n";
 			@actions.each do |name, action|

@@ -6,20 +6,22 @@ module Runfile
 	# The Runner class is the main workhorse behind Runfile.
 	# It handles all the Runfile DSL commands and executes the Runfile.
 	class Runner
-		attr_accessor :last_usage, :last_help, :version, :summary, :namespace, :superspace
+		attr_accessor :last_usage, :last_help, :name, :version, 
+			:summary, :namespace, :superspace
 
 		@@instance = nil
 
 		# Initialize all variables to sensible defaults.
 		def initialize
-			@last_usage = nil  # dsl: usage
-			@last_help  = nil  # dsl: help
-			@superspace = nil  # used when filename != Runfile
-			@namespace  = nil  # dsl: #command
-			@actions = {}      # dsl: action
-			@options = {}      # dsl: option
-			@version = "0.0.0" # dsl: version
-			@summary = false   # dsl: summary
+			@superspace = nil    # used when filename != Runfile
+			@last_usage = nil    # dsl: usage
+			@last_help  = nil    # dsl: help
+			@namespace  = nil    # dsl: #command
+			@actions = {}        # dsl: action
+			@options = {}        # dsl: option
+			@name    = "Runfile" # dsl: name
+			@version = "0.0.0"   # dsl: version
+			@summary = false     # dsl: summary
 		end
 
 		# Return a singleton Runner instance.
@@ -89,7 +91,7 @@ module Runfile
 
 		# Dynamically generate the docopt document.
 		def docopt
-			maker = DocoptMaker.new(@version, @summary, @actions, @options)
+			maker = DocoptMaker.new(@name, @version, @summary, @actions, @options)
 			maker.make
 		end
 

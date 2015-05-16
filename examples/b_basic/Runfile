@@ -1,4 +1,5 @@
 # define the application itself
+name    "Runner"
 summary "The first ever Runfile program"
 version "0.1.0"
 

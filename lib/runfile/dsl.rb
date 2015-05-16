@@ -3,6 +3,11 @@
 # for handling.
 
 module Runfile
+	# Set the name of your Runfile program
+	def name(name)
+		Runner.instance.name = name
+	end
+
 	# Set the version of your Runfile program
 	def version(ver)
 		Runner.instance.version = ver

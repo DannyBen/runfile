@@ -36,6 +36,13 @@
 
       --version
           Show version
+- dir: b_basic
+  cmd: run -h
+  out: "Runner 0.1.0\nThe first ever Runfile program \n\nUsage:\n  run greet <name>
+    [--long --color]\n  run (-h | --help | --version)\n\nCommands:\n  greet <name>
+    [--long --color]\n      Say hello to <name>\n\nOptions:\n  -h --help\n      Show
+    this screen\n\n  --version\n      Show version\n\n  --long\n      Show a longer
+    greeting\n\n  --color\n      Use colored output"
 - dir: f_namespace
   cmd: run
   out: |-
