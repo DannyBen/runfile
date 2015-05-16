@@ -128,17 +128,17 @@ module Runfile
 		# we will execute it.
 		def handle_no_runfile(argv)
 			if argv[0] == "make"
-				# sample = File.dirname(__FILE__) + "/../../examples/template/Runfile"
 				sample = File.expand_path("../templates/Runfile", __FILE__)
-				dest   = Dir.pwd + "/Runfile"
+				outfile = argv[1] ? "#{argv[1]}.runfile" : "Runfile"
+				dest   = "#{Dir.pwd}/#{outfile}"
 				File.write(dest, File.read(sample))
-				abort "Runfile created."
+				abort "#{outfile} created."
 			elsif argv[0] and File.exist? "#{argv[0]}.runfile"
 				@superspace = argv[0]
 				execute argv, "#{argv[0]}.runfile"
 			else
 				runfiles = Dir['*.runfile']
-				runfiles.empty? and abort "Runfile engine v#{Runfile::VERSION}\n\nRunfile not found.\nUse 'run make' to create one."
+				runfiles.empty? and abort "Runfile engine v#{Runfile::VERSION}\n\nRunfile not found.\nUse 'run make' to create 'Runfile'.\nUse 'run make name' to create 'name.runfile'."
 				runfiles.each do |f|
 					f.slice! '.runfile'
 					puts "Did you mean 'run #{f}'"
