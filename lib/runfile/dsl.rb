@@ -3,7 +3,6 @@
 # for handling.
 
 module Runfile
-
 	# Set the version of your Runfile program
 	def version(ver)
 		Runner.instance.version = ver
@@ -44,4 +43,8 @@ module Runfile
 	def call(command_string)
 		Runner.instance.cross_call command_string
 	end
+
+	# Also allow to use 'endcommand' instead of 'command' to end
+	# a command namespace definition
+	alias_method :endcommand, :command
 end

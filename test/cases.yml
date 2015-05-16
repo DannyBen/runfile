@@ -116,3 +116,16 @@
 - dir: j_customname
   cmd: run greet bye
   out: bye
+- dir: k_endcommand
+  cmd: run
+  out: |-
+    Usage:
+      run drink beer
+      run eat
+      run (-h | --help | --version)
+- dir: k_endcommand
+  cmd: run drink beer
+  out: drink beer
+- dir: k_endcommand
+  cmd: run eat
+  out: eat

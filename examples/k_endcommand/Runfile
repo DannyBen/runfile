@@ -1,0 +1,13 @@
+command "drink"
+
+action :beer do
+	say "drink beer"
+end
+
+# this is an alias to 'command', you can use either an empty call to
+# 'command' or 'endcommand' to go back to the global namespace
+endcommand
+
+action :eat do
+	say "eat"
+end
