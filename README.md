@@ -77,7 +77,6 @@ Options:
 ## Todo
 
 - Add documentation for `*.runfile` form files
-- Make `*.runfiles` form files support namespaces as well
 - (Colsole) Add newline detection in wordwrap (i.e. add indentation spaces 
   after newline)
 - Consider supporting user and system level `*.runfiles`

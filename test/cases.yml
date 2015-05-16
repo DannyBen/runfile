@@ -1,4 +1,13 @@
 ---
+- dir: template
+  cmd: run
+  out: |-
+    Usage:
+      run command <arg> [--flag]
+      run (-h | --help | --version)
+- dir: template
+  cmd: run command arg --flag
+  out: Command running...
 - dir: a_minimal
   cmd: run
   out: |-
@@ -96,12 +105,14 @@
   cmd: run
   out: Did you mean 'run greet'
 - dir: j_customname
-  cmd: run greet
-  out: |-
-    Usage:
-      run greet me
-      run greet everybody
-      run (-h | --help | --version)
+  cmd: run greet hello
+  out: hello
 - dir: j_customname
-  cmd: run greet me
-  out: Hey you
+  cmd: run greet spanish hello jack
+  out: hola jack
+- dir: j_customname
+  cmd: run greet french hello jill
+  out: bonjour jill
+- dir: j_customname
+  cmd: run greet bye
+  out: bye

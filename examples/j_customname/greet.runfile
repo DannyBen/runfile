@@ -1,21 +1,27 @@
 # this examples shows how to use a filename that is not named
-# 'Runfile'.
-# any file with a '.runfile' extension can be used.
+# 'Runfile'. any file with a '.runfile' extension can be used.
 
-summary "Non-Runfile Runfile"
-
-action :me do
-	say "Hey you"
+usage "hello [<name>]"
+action :hello do |args|
+	say "hello #{args['<name>']}"
 end
 
-action :everybody do
-	say "Hello everybody"
+command "spanish"
+
+usage "hello [<name>]"
+action :hello do |args|
+	say "hola #{args['<name>']}"
 end
 
-# namespaces in a .runfile file are not yet supported
+command "french"
 
-# command "and"
+usage "hello [<name>]"
+action :hello do |args|
+	say "bonjour #{args['<name>']}"
+end
 
-# action :meet do
-# 	say "Meet"
-# end
+command
+
+action :bye do
+	say "bye"
+end

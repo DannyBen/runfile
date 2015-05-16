@@ -11,7 +11,7 @@ class ColsoleTest < Minitest::Test
 		conf = YAML.load_file 'test/cases.yml'
 		conf.each do |test|
 			Dir.chdir "examples/#{test['dir']}" do
-				say "!txtpur!#{test['dir']} : #{test['cmd']}"
+				say "!txtpur!#{test['dir'].rjust 15} : #{test['cmd']}"
 				output = `#{test['cmd']}`.strip
 				assert_equal test['out'], output
 			end

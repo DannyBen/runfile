@@ -1,23 +1,25 @@
 require 'docopt'
+require 'pp'
 
 module Runfile
 
 	# The Runner class is the main workhorse behind Runfile.
 	# It handles all the Runfile DSL commands and executes the Runfile.
 	class Runner
-		attr_accessor :last_usage, :last_help, :version, :summary, :namespace
+		attr_accessor :last_usage, :last_help, :version, :summary, :namespace, :superspace
 
 		@@instance = nil
 
 		# Initialize all variables to sensible defaults.
 		def initialize
-			@last_usage = nil
-			@last_help = nil
-			@namespace = nil
-			@actions = {}
-			@options = {}
-			@version = "0.0.0"
-			@summary = false
+			@last_usage = nil  # dsl: usage
+			@last_help  = nil  # dsl: help
+			@superspace = nil  # used when filename != Runfile
+			@namespace  = nil  # dsl: #command
+			@actions = {}      # dsl: action
+			@options = {}      # dsl: option
+			@version = "0.0.0" # dsl: version
+			@summary = false   # dsl: summary
 		end
 
 		# Return a singleton Runner instance.
@@ -41,6 +43,10 @@ module Runfile
 				name = "#{namespace}_#{name}".to_sym
 				@last_usage = "#{@namespace} #{@last_usage}"
 			end
+			if @superspace 
+				name = "#{superspace}_#{name}".to_sym
+				@last_usage = "#{@superspace} #{@last_usage}"
+			end
 			@actions[name] = Action.new(block, @last_usage, @last_help)
 			@last_usage = nil
 			@last_help = nil
@@ -55,9 +61,8 @@ module Runfile
 		# generate the docopt document on the fly, using all the 
 		# information collected so far.
 		def run(*argv)
-			action = find_action argv
 			begin
-				docopt_exec action, argv
+				docopt_exec argv
 			rescue Docopt::Exit => e
 				puts e.message
 			end
@@ -68,9 +73,8 @@ module Runfile
 		# it was typed in the command prompt.
 		def cross_call(command_string) 
 			argv = command_string.split /\s(?=(?:[^"]|"[^"]*")*$)/
-			action = find_action argv
 			begin
-				docopt_exec action, argv
+				docopt_exec argv
 			rescue Docopt::Exit => e
 				puts "Cross call failed: #{command_string}"
 				abort e.message
@@ -89,24 +93,23 @@ module Runfile
 		# parsed arguments.
 		# This should always be called in a begin...rescue block and
 		# you should handle the Docopt::Exit exception.
-		def docopt_exec(action, argv)
+		def docopt_exec(argv)
 			args = Docopt::docopt(docopt, version: @version, argv:argv)
+			action = find_action argv
 			action or abort "Runfile error: Action not found"
 			@actions[action].execute args
 		end
 
-		# Inspect the first two arguments in the argv and look for
-		# a matching action or command_action.
-		# We give priority to the second form (:make_jam) in order to
-		# also allow "overloading" of the command as an action 
-		# (e.g. also allow a global action called :make).
+		# Inspect the first three arguments in the argv and look for
+		# a matching action.
+		# We will first look for a_b_c action, then for a_b and 
+		# finally for a. This is intended to allow "overloading" of 
+		# the command as an action (e.g. also allow a global action 
+		# called 'a').
 		def find_action(argv)
-			if argv.size >= 2
-				action = "#{argv[0]}_#{argv[1]}".to_sym
-				return action if @actions.has_key? action
-			end
-			if argv.size >= 1
-				action = argv[0].to_sym
+			3.downto(1).each do |n|
+				next unless argv.size >= n 
+				action = argv[0..n-1].join('_').to_sym
 				return action if @actions.has_key? action
 			end
 			return false
@@ -124,17 +127,14 @@ module Runfile
 				File.write(dest, File.read(sample))
 				abort "Runfile created."
 			elsif argv[0] and File.exist? "#{argv[0]}.runfile"
-				@namespace = argv[0]
+				@superspace = argv[0]
 				execute argv, "#{argv[0]}.runfile"
 			else
 				runfiles = Dir['*.runfile']
-				if runfiles
-					runfiles.each do |f|
-						f.slice! '.runfile'
-						puts "Did you mean 'run #{f}'"
-					end
-				else 
-					abort "Runfile not found.\nUse 'run make' to create one."
+				runfiles.empty? and abort "Runfile not found.\nUse 'run make' to create one."
+				runfiles.each do |f|
+					f.slice! '.runfile'
+					puts "Did you mean 'run #{f}'"
 				end
 			end
 			exit
