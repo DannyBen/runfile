@@ -13,6 +13,8 @@ to [Rake](https://github.com/ruby/rake), but with the full power of
 You create a `Runfile`, and execute commands with 
 `run command arguments -and --flags`.
 
+[Learn More in the Wiki](https://github.com/DannyBen/runfile/wiki)
+
 
 ## Install
 
@@ -70,6 +72,7 @@ Options:
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
 - [More about Runfile](https://github.com/DannyBen/runfile/wiki)
 
+
 ## Test
 
 	$ rake test
@@ -77,12 +80,8 @@ Options:
 
 ## Todo
 
-- Add documentation for `*.runfile` form files
 - (Colsole) Add newline detection in wordwrap (i.e. add indentation spaces 
   after newline)
-- Consider supporting user and system level `*.runfiles`
-- Wiki (in progress)
 - GitHub pages
 - Can we have a colored docopt? Would be nice... 
   (working, but causing some issues, will probably abandon)
-

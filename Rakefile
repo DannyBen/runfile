@@ -1,6 +1,9 @@
 require 'rake/testtask'
 require 'rdoc/task'
 require 'yaml'
+require_relative "rakegem"
+
+$GEMNAME = "runfile"
 
 task :default do 
 	system "rake -T"
@@ -25,32 +28,6 @@ Rake::RDocTask.new do |rdoc|
 	rdoc.options << '--line-numbers'
 	rdoc.options << '--all'
 	# rdoc.options << '--ri'
-end
-
-desc "Build gem"
-task :build do
-	system "gem build runfile.gemspec"	
-	files = Dir["*.gem"]
-	files.each {|f| mv f, "gems" }
-end
-
-desc "Install local gem"
-task :install, :ver do |t, args|
-	args[:ver] or abort "Please specify a version\nExample rake install[0.1.2]"
-	gemfile = "gems/runfile-#{args[:ver]}.gem"
-	cmd = "gem install #{gemfile}"
-	puts "Running: #{cmd}"
-	system cmd
-end
-
-desc "Publish gem"
-task :publish, :ver do |t, args|
-	args[:ver] or abort "Please specify a version\nExample rake publish[0.1.2]"
-	gemfile = "gems/runfile-#{args[:ver]}.gem"
-	File.exist? gemfile or abort "File not found #{gemfile}"
-	cmd = "gem push #{gemfile}"
-	puts "Running: #{cmd}"
-	system cmd
 end
 
 desc "Add example case to test/case.yml"

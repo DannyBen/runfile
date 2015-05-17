@@ -3,7 +3,7 @@ require_relative 'lib/runfile/version'
 Gem::Specification.new do |s|
   s.name        = 'runfile'
   s.version     = Runfile::VERSION
-  s.date        = '2015-05-16'
+  s.date        = Date.today.to_s
   s.summary     = "If Rake and Docopt had a baby"
   s.description = "An easy way to create project specific command line utilities"
   s.authors     = ["Danny Ben Shitrit"]

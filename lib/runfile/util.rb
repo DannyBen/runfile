@@ -24,6 +24,6 @@ module Runfile
 			found = Dir[File.join(d, pattern)]
 			result << found unless found.empty?
 		end
-		return result.empty? ? false : result.flatten
+		return result.empty? ? false : result.flatten.uniq
 	end
 end
