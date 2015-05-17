@@ -70,7 +70,8 @@ Options:
 
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
-- [More in the Wiki](https://github.com/DannyBen/runfile/wiki)
+- [Wiki](https://github.com/DannyBen/runfile/wiki)
+- [Rubydoc](http://www.rubydoc.info/gems/runfile)
 
 
 ## Test
