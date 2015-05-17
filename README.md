@@ -1,7 +1,8 @@
 Runfile - If Rake and Docopt had a baby
 =======================================
 
-An easy way to create project specific command line utilities
+A beautiful command line application framework.  
+Rake-inspired, Docopt inside.
 
 
 ## Wait, What?
@@ -19,6 +20,13 @@ You create a `Runfile`, and execute commands with
 ## Install
 
 	$ gem install runfile
+
+
+## Quick Start
+
+	$ run make
+	$ run --help
+	$ vi Runfile
 
 
 ## Example
@@ -72,11 +80,6 @@ Options:
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
 - [Wiki](https://github.com/DannyBen/runfile/wiki)
 - [Rubydoc](http://www.rubydoc.info/gems/runfile)
-
-
-## Test
-
-	$ rake test
 
 
 ## Todo
