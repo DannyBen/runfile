@@ -1,6 +1,8 @@
 Runfile - If Rake and Docopt had a baby
 =======================================
 
+[![Gem Version](https://badge.fury.io/rb/runfile.svg)](http://badge.fury.io/rb/runfile)
+
 A beautiful command line application framework.  
 Rake-inspired, Docopt inside.
 
@@ -81,9 +83,3 @@ Options:
 - [Wiki](https://github.com/DannyBen/runfile/wiki)
 - [Rubydoc](http://www.rubydoc.info/gems/runfile)
 
-
-## Todo
-
-- GitHub pages
-- Can we have a colored docopt? Would be nice... 
-  (working, but causing some issues, will probably abandon)
