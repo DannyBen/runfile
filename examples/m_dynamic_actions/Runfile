@@ -21,10 +21,10 @@ command "git"
 
 actions    = [:commit, :push, :pull, :branch, :log]
 usage_text = "( #{actions.join ' | '} )"
+help "Execute a git command"
 
 actions.each do |act|
 	usage usage_text 
-	help "Execute a git command"
 	usage_text = false
 	action act do 
 		say "git #{act}"
