@@ -12,7 +12,7 @@ class ColsoleTest < Minitest::Test
 		conf = YAML.load_file 'test/cases.yml'
 		conf.each do |test|
 			Dir.chdir "examples/#{test['dir']}" do
-				say "!txtpur!#{test['dir'].rjust 15} : !txtgrn!#{test['cmd']}"
+				say "!txtpur!#{test['dir'].rjust 20} : !txtgrn!#{test['cmd']}"
 				output = `#{test['cmd']}`.strip 
 				expected = test['out'] % { version: Runfile::VERSION }
 				assert_equal expected, output

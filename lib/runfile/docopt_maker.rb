@@ -23,7 +23,7 @@ module Runfile
 			doc += "#{@summary} \n" if @summary
 			doc += "\nUsage:\n";
 			@actions.each do |name, action|
-				doc += "  run #{action.usage}\n"
+				doc += "  run #{action.usage}\n" unless action.usage == false
 			end
 			doc += "  run (-h | --help | --version)\n\n"
 			caption_printed = false

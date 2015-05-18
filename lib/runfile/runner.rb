@@ -47,11 +47,11 @@ module Runfile
 			@last_usage = name if @last_usage.nil?
 			if @namespace 
 				name = "#{namespace}_#{name}".to_sym
-				@last_usage = "#{@namespace} #{@last_usage}"
+				@last_usage = "#{@namespace} #{@last_usage}" unless @last_usage == false
 			end
 			if @superspace 
 				name = "#{superspace}_#{name}".to_sym
-				@last_usage = "#{@superspace} #{@last_usage}"
+				@last_usage = "#{@superspace} #{@last_usage}" unless @last_usage == false
 			end
 			@actions[name] = Action.new(block, @last_usage, @last_help)
 			@last_usage = nil

@@ -128,3 +128,16 @@
 - dir: k_endcommand
   cmd: run eat
   out: eat
+- dir: l_compact_usage
+  cmd: run
+  out: |-
+    Usage:
+      run ( wakeup | code | sleep )
+      run weekend ( wakeup | play | sleep )
+      run (-h | --help | --version)
+- dir: l_compact_usage
+  cmd: run wakeup
+  out: wakeup
+- dir: l_compact_usage
+  cmd: run weekend wakeup
+  out: wakeup early
