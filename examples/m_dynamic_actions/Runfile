@@ -1,0 +1,32 @@
+# create actions dynamically
+
+# example 1: each action will have its own usage line
+
+command "watch"
+
+actions = [:css, :js, :'a-movie', :'friends-again']
+
+actions.each do |act|
+	help "Watch files of type #{act}"
+	action act do 
+		say act.to_s
+	end
+end
+
+
+# example 2: use compact actions by setting usage to false
+# to all but the first action
+
+command "git"
+
+actions    = [:commit, :push, :pull, :branch, :log]
+usage_text = "( #{actions.join ' | '} )"
+
+actions.each do |act|
+	usage usage_text 
+	help "Execute a git command"
+	usage_text = false
+	action act do 
+		say "git #{act}"
+	end
+end

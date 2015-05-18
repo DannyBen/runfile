@@ -33,7 +33,7 @@ module Runfile
 				caption_printed = true
 				helpline = "      #{action.help}"
 				wrapped  = word_wrap helpline, width
-				doc += "  #{action.usage}\n#{wrapped}\n\n"
+				doc += "  #{action.usage}\n#{wrapped}\n\n" unless action.usage == false
 			end
 			doc += "Options:\n"
 			doc += "  -h --help\n      Show this screen\n\n"

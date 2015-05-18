@@ -141,3 +141,54 @@
 - dir: l_compact_usage
   cmd: run weekend wakeup
   out: wakeup early
+- dir: m_dynamic_actions
+  cmd: run
+  out: |-
+    Usage:
+      run watch css
+      run watch js
+      run watch a-movie
+      run watch friends-again
+      run git ( commit | push | pull | branch | log )
+      run (-h | --help | --version)
+- dir: m_dynamic_actions
+  cmd: run watch a-movie
+  out: a-movie
+- dir: m_dynamic_actions
+  cmd: run git commit
+  out: git commit
+- dir: m_dynamic_actions
+  cmd: run --help
+  out: |-
+    Runfile 0.0.0
+
+    Usage:
+      run watch css
+      run watch js
+      run watch a-movie
+      run watch friends-again
+      run git ( commit | push | pull | branch | log )
+      run (-h | --help | --version)
+
+    Commands:
+      watch css
+          Watch files of type css
+
+      watch js
+          Watch files of type js
+
+      watch a-movie
+          Watch files of type a-movie
+
+      watch friends-again
+          Watch files of type friends-again
+
+      git ( commit | push | pull | branch | log )
+          Execute a git command
+
+    Options:
+      -h --help
+          Show this screen
+
+      --version
+          Show version
