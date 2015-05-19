@@ -1,9 +1,13 @@
-summary "Application description"
+name    "Greeter"
+summary "A sample Runfile"
 version "0.1.0"
 
-usage  "command <arg> [--flag]"
-help   "Help line for command"
-option "-f --flag", "Help text for option"
-action :command do |args|
-	say "Command running..."
+usage  "greet [<arg> --color]"
+help   "Say hello"
+option "-c --color", "Greet with color"
+action :greet do |args|
+	if args['--color']
+		say "!txtgrn!Hello #{args['<name>']}"
+	else
+		say "Hello #{args['<name>']}"
 end
