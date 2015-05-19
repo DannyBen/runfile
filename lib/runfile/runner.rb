@@ -121,61 +121,18 @@ module Runfile
 			return false
 		end
 
-		# Handle the case when `run` is called without a Runfile 
-		# present. We will let the user know they can type `run make`
-		# to create a new sample Runfile.
-		# If the first argument matches the name of a *.runfile name,
-		# we will execute it.
+		# When `run` is called without a natural Runfile, hand over 
+		# handling to the RunfileMaker class.
+		# If will either return false if no further handling is needed
+		# on our part, or the name of a runfile to execute.
 		def handle_no_runfile(argv)
-			# make a new runfile
-			if argv[0] == "make"
-				make_runfile argv[1]
-				exit
+			maker = RunfileMaker.new
+			runfile = maker.handle argv
+			if runfile
+				@superspace = argv[0]
+				execute argv, runfile
 			end
-
-			# get a list of *.runfile path-wide
-			runfiles = find_runfiles || []
-
-			# if first arg is a valid *.runfile, run it
-			if argv[0] 
-				runfile = runfiles.select { |f| f[/#{argv[0]}.runfile/] }.first
-				if runfile
-					@superspace = argv[0]
-					execute argv, runfile
-					exit
-				end
-			end
-
-			# if we are here, offer some help and advice
-			say "!txtpur!Runfile engine v#{Runfile::VERSION}\n"
-			runfiles.empty? and say "!txtred!Runfile not found."
-			runfiles.each do |f|
-				f[/([^\/]+).runfile$/]
-				say "Did you mean '!txtgrn!run #{$1}!txtrst!' (#{f})"
-			end
-			say "\nUse '!txtblu!run make!txtrst!' to create 'Runfile'.\nUse '!txtblu!run make name!txtrst!' to create 'name.runfile'.\nPlace named.runfiles anywhere in the path for global access.\n"
 			exit
-
-		end
-
-		# Create a new runfile in the current directory. We can either
-		# create a standard 'Runfile' or a 'named.runfile'.
-		def make_runfile(name=nil)
-			name = 'Runfile' if name.nil?
-			template = File.expand_path("../templates/Runfile", __FILE__)
-			name += ".runfile" unless name == 'Runfile'
-			dest = "#{Dir.pwd}/#{name}"
-			begin
-				File.write(dest, File.read(template))
-				puts "#{name} created."
-			rescue => e
-				abort "Failed creating #{name}\n#{e.message}"
-			end
-		end
-
-		# Find all *.runfiles path-wide
-		def find_runfiles
-			find_all_in_path '*.runfile'
 		end
 	end
 end

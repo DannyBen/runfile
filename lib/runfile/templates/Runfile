@@ -2,12 +2,13 @@ name    "Greeter"
 summary "A sample Runfile"
 version "0.1.0"
 
-usage  "greet [<arg> --color]"
+usage  "hello [<name> --color]"
 help   "Say hello"
 option "-c --color", "Greet with color"
-action :greet do |args|
+action :hello do |args|
 	if args['--color']
 		say "!txtgrn!Hello #{args['<name>']}"
 	else
 		say "Hello #{args['<name>']}"
+	end
 end
