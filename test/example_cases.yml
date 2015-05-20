@@ -9,7 +9,7 @@
 
     Usage:
       run greet <name>
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 
     Commands:
       greet <name>
@@ -24,7 +24,7 @@
 - dir: b_basic
   cmd: run -h
   out: "Runner 0.1.0\nThe first ever Runfile program \n\nUsage:\n  run greet <name>
-    [--long --color]\n  run (-h | --help | --version)\n\nCommands:\n  greet <name>
+    [--long --color]\n  run ( -h | --help | --version )\n\nCommands:\n  greet <name>
     [--long --color]\n      Say hello to <name>\n\nOptions:\n  -h --help\n      Show
     this screen\n\n  --version\n      Show version\n\n  --long\n      Show a longer
     greeting\n\n  --color\n      Use colored output"
@@ -37,7 +37,7 @@
       run make jam
       run make meat [--mix]
       run eat
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: f_namespace
   cmd: run make jam
   out: Making jam...
@@ -51,7 +51,7 @@
       run jump
       run jump around
       run jump up
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: g_overloading
   cmd: run jump
   out: Jump!
@@ -63,7 +63,7 @@
   out: |-
     Usage:
       run jump-around [--up --down]
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: h_hyphen
   cmd: run jump-around --up --down
   out: |-
@@ -79,7 +79,7 @@
       run exercise
       run eat cake
       run eat two-cakes
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: i_crosscall
   cmd: run exercise
   out: |-
@@ -121,7 +121,7 @@
     Usage:
       run drink beer
       run eat
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: k_endcommand
   cmd: run drink beer
   out: drink beer
@@ -134,7 +134,7 @@
     Usage:
       run ( wakeup | code | sleep )
       run weekend ( wakeup | play | sleep )
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: l_compact_usage
   cmd: run wakeup
   out: wakeup
@@ -150,7 +150,7 @@
       run watch a-movie
       run watch friends-again
       run git ( commit | push | pull | branch | log )
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 - dir: m_dynamic_actions
   cmd: run watch a-movie
   out: a-movie
@@ -168,7 +168,7 @@
       run watch a-movie
       run watch friends-again
       run git ( commit | push | pull | branch | log )
-      run (-h | --help | --version)
+      run ( -h | --help | --version )
 
     Commands:
       watch css

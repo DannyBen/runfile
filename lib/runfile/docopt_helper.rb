@@ -31,7 +31,7 @@ module Runfile
 			@actions.each do |name, action|
 				doc += "  run #{action.usage}\n" unless action.usage == false
 			end
-			doc += "  run (-h | --help | --version)\n\n"
+			doc += "  run ( -h | --help | --version )\n\n"
 			caption_printed = false
 			@actions.each do |name, action|
 				action.help or next
