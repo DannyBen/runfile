@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'runfile/version'
-require 'runfile/docopt_maker'
-require 'runfile/runfile_maker'
+require 'runfile/docopt_helper'
+require 'runfile/runfile_helper'
 require 'runfile/action'
 require 'runfile/runner'
 require 'runfile/dsl'

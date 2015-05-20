@@ -3,7 +3,12 @@ require 'pp'
 
 module Runfile
 
-	class RunfileMaker
+	# The RunfileHelper class assists in:
+	# 1. Finding named.runfiles
+	# 2. Creating new runfiles (`run make`)
+	# 3. Showing a list of found system runfiles in a colorful help
+	class RunfileHelper
+		
 		# Handle the case when `run` is called without a Runfile 
 		# present. We will let the user know they can type `run make`
 		# to create a new sample Runfile.

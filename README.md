@@ -82,4 +82,3 @@ Options:
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
 - [Wiki](https://github.com/DannyBen/runfile/wiki)
 - [Rubydoc](http://www.rubydoc.info/gems/runfile)
-

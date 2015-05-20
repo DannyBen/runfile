@@ -4,7 +4,10 @@ require 'pp'
 module Runfile
 
 	# The Runner class is the main workhorse behind Runfile.
-	# It handles all the Runfile DSL commands and executes the Runfile.
+	# It handles all the Runfile DSL commands and executes the 
+	# Runfile with the help of two more specialized classes:
+	# 1. DocoptHelper - for deeper docopt related actions
+	# 2. RunfileHelper - for Runfile creation and system wide search
 	class Runner
 		attr_accessor :last_usage, :last_help, :name, :version, 
 			:summary, :namespace, :superspace
@@ -89,18 +92,13 @@ module Runfile
 
 		private
 
-		# Dynamically generate the docopt document.
-		def docopt
-			maker = DocoptMaker.new(@name, @version, @summary, @actions, @options)
-			maker.make
-		end
-
 		# Call the docopt parser and execute the action with the 
 		# parsed arguments.
 		# This should always be called in a begin...rescue block and
 		# you should handle the Docopt::Exit exception.
 		def docopt_exec(argv)
-			args = Docopt::docopt(docopt, version: @version, argv:argv)
+			helper = DocoptHelper.new(@name, @version, @summary, @actions, @options)
+			args   = helper.args argv
 			action = find_action argv
 			action or abort "Runfile error: Action not found"
 			@actions[action].execute args
@@ -121,12 +119,12 @@ module Runfile
 			return false
 		end
 
-		# When `run` is called without a natural Runfile, hand over 
-		# handling to the RunfileMaker class.
+		# When `run` is called without a Runfile (or runfile not 
+		# found), hand over handling to the RunfileHelper class.
 		# If will either return false if no further handling is needed
 		# on our part, or the name of a runfile to execute.
 		def handle_no_runfile(argv)
-			maker = RunfileMaker.new
+			maker = RunfileHelper.new
 			runfile = maker.handle argv
 			if runfile
 				@superspace = argv[0]

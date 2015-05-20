@@ -12,6 +12,13 @@ end
 # test task
 Rake::TestTask.new {|t| t.libs << 'test'}
 
+desc "Test a single test file"
+task :testone, :name do |t, args|
+	cmd = "rake test TEST=test/test_#{args[:name]}.rb"
+	puts cmd
+	system cmd
+end
+
 # rdoc tasks
 Rake::RDocTask.new do |rdoc|
 	files = [
@@ -30,14 +37,28 @@ Rake::RDocTask.new do |rdoc|
 	# rdoc.options << '--ri'
 end
 
-desc "Add example case to test/case.yml"
+desc "Add example case to test/example_cases.yml"
 task :addtest, :dir, :cmd do |t, args|
-	casefile = 'test/cases.yml'
+	casefile = 'test/example_cases.yml'
 	args[:dir] and args[:cmd] or abort "Please provide dir and cmd\nExample: rake addtest[b_basic,\"run greet danny\"]"
 	cases = YAML.load_file casefile
 	cases or cases = []
 	new_case = {'dir' => args[:dir], 'cmd' => args[:cmd]}
 	Dir.chdir "examples/#{args[:dir]}" do
+		new_case['out'] = `#{args[:cmd]}`.strip
+	end
+	cases << new_case
+	File.write(casefile, YAML.dump(cases))
+end
+
+desc "Add example case to test/maker_cases.yml"
+task :addtest2, :cmd do |t, args|
+	casefile = 'test/maker_cases.yml'
+	args[:cmd] or abort "Please provide cmd\nExample: rake addtest2[\"run greet danny\"]"
+	cases = YAML.load_file casefile
+	cases or cases = []
+	new_case = {'cmd' => args[:cmd], }
+	Dir.chdir "dev" do
 		new_case['out'] = `#{args[:cmd]}`.strip
 	end
 	cases << new_case

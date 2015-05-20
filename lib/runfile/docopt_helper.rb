@@ -4,9 +4,15 @@ require 'colsole'
 module Runfile
 	include Colsole
 
-	# The DocoptMaker class handles the dynamic generation of the docopt
-	# document.
-	class DocoptMaker
+	# The DocoptHelper class handles the dynamic generation of the 
+	# docopt document and the docopt part of the execution (meaning,
+	# to call Docopt so it returns the parsed arguments or halts with
+	# usage message).
+	class DocoptHelper
+
+		# The constructor expects to get all the textual details
+		# needed to generate a docopt document (name, version, 
+		# summary, options) and an array of Action objects.
 		def initialize(name, version, summary, actions, options)
 			@name    = name
 			@version = version
@@ -17,7 +23,7 @@ module Runfile
 
 		# Generate a document based on all the actions, help messages
 		# and options we have collected from the Runfile DSL.
-		def make
+		def docopt
 			width, height = detect_terminal_size
 			doc = "#{@name} #{@version}\n"
 			doc += "#{@summary} \n" if @summary
@@ -44,6 +50,12 @@ module Runfile
 				doc += "  #{flag}\n#{wrapped}\n\n"
 			end
 			doc
+		end
+
+		# Calls the docopt handler, which will either return a parsed
+		# arguments list, or halt execution and show usage.
+		def args(argv)
+			Docopt::docopt(docopt, version: @version, argv:argv)
 		end
 	end
 end

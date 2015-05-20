@@ -95,14 +95,14 @@
     jog
 - dir: j_customname
   cmd: run
+  chk: regex
   out: |-
     Runfile engine v%{version}
 
-    Did you mean 'run greet' (/vagrant/gems/runfile/examples/j_customname/greet.runfile)
+    Tip:  Type 'run make' or 'run make name' to create a runfile.
+          Place named.runfiles anywhere in the PATH for global access.
 
-    Use 'run make' to create 'Runfile'.
-    Use 'run make name' to create 'name.runfile'.
-    Place named.runfiles anywhere in the path for global access.
+      run greet \.* .*/greet.runfile
 - dir: j_customname
   cmd: run greet hello
   out: hello
