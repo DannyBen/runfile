@@ -10,6 +10,7 @@ class RunfileExampleTest < Minitest::Test
 	include Colsole
 	def test_examples
 		conf = YAML.load_file 'test/example_cases.yml'
+		say "\n\n!txtpur!Starting example tests"
 		conf.each do |test|
 			Dir.chdir "examples/#{test['dir']}" do
 				say "!txtpur!#{test['dir'].rjust 20} : !txtgrn!#{test['cmd']}"

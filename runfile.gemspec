@@ -1,4 +1,6 @@
-require_relative 'lib/runfile/version'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'runfile/version'
 
 Gem::Specification.new do |s|
   s.name        = 'runfile'
@@ -15,4 +17,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'colsole', '~> 0'
   s.add_runtime_dependency 'docopt', '~> 0.5'
+
+  s.add_development_dependency 'minitest', '~> 5.6'
 end
