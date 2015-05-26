@@ -39,7 +39,7 @@ module Runfile
 			begin
 				load filename
 			rescue => e
-				abort "Runfile error:\n#{e.message}"
+				abort "Runfile error:\n#{e.message}\n#{e.backtrace[0]}"
 			end
 			@@instance.run *argv
 		end
