@@ -42,8 +42,8 @@
   out: |-
     Runfile engine v%{version}
 
-      run five \.+ /.*five.runfile
-      run four \.+ /.*four.runfile
-      run one \.+ /.*one.runfile
-      run three \.+ /.*three.runfile
-      run two \.+ /.*two.runfile
+      run .*?\.runfile
+      run .*?\.runfile
+      run .*?\.runfile
+      run .*?\.runfile
+      run .*?\.runfile
