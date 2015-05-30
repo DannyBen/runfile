@@ -2,6 +2,7 @@ Runfile - If Rake and Docopt had a baby
 =======================================
 
 [![Gem Version](https://badge.fury.io/rb/runfile.svg)](http://badge.fury.io/rb/runfile)
+[![Build Status](https://travis-ci.org/DannyBen/runfile.svg?branch=master)](https://travis-ci.org/DannyBen/runfile)
 
 A beautiful command line application framework.  
 Rake-inspired, Docopt inside.
