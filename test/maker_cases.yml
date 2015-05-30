@@ -31,10 +31,10 @@
     Tip:  Type 'run make' or 'run make name' to create a runfile.
           Place named.runfiles anywhere in the PATH for global access.
 
-      run four \.+ /.*four.runfile
-      run one \.+ /.*one.runfile
-      run three \.+ /.*three.runfile
-      run two \.+ /.*two.runfile
+      run .*\.runfile
+      run .*\.runfile
+      run .*\.runfile
+      run .*\.runfile
 - cmd: run make five
   out: five.runfile created.
 - cmd: run
