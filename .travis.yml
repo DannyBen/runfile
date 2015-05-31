@@ -1,4 +1,7 @@
 language: ruby
+notifications:
+  email: false
+
 # rvm:
 #   - "1.8.7"
 #   - "1.9.2"
@@ -8,3 +11,12 @@ language: ruby
 #   - rbx
 # custom test script
 # script: bundle exec rspec spec
+
+# notifications:
+#   email:
+#     recipients:
+#       - one@example.com
+#       - other@example.com
+#     on_success: [always|never|change] # default: change
+#     on_failure: [always|never|change] # default: always
+
