@@ -99,8 +99,8 @@
   out: |-
     Runfile engine v%{version}
 
-    Tip:  Type 'run make' or 'run make name' to create a runfile.
-          Place named.runfiles anywhere in the PATH for global access.
+    Tip: Type 'run make' or 'run make name' to create a runfile.
+    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
 
       run greet \.* .*/greet.runfile
 - dir: j_customname

@@ -7,8 +7,8 @@
   out: |-
     Runfile engine v%{version}
 
-    Tip:  Type 'run make' or 'run make name' to create a runfile.
-          Place named.runfiles anywhere in the PATH for global access.
+    Tip: Type 'run make' or 'run make name' to create a runfile.
+    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
 
     Runfile not found.
 - cmd: run make one
@@ -17,33 +17,23 @@
 - cmd: run make two
   out: two.runfile created.
   has: two.runfile
+- cmd: run
+  chk: regex
+  out: |-
+    Runfile engine v%{version}
+
+    Tip: Type 'run make' or 'run make name' to create a runfile.
+    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
+
+      run .*\.runfile
+      run .*\.runfile
 - cmd: run make three
   out: three.runfile created.
-  has: three.runfile
-- cmd: run make four
-  out: four.runfile created.
-  has: four.runfile
 - cmd: run
   chk: regex
   out: |-
     Runfile engine v%{version}
 
-    Tip:  Type 'run make' or 'run make name' to create a runfile.
-          Place named.runfiles anywhere in the PATH for global access.
-
-      run .*\.runfile
-      run .*\.runfile
-      run .*\.runfile
-      run .*\.runfile
-- cmd: run make five
-  out: five.runfile created.
-- cmd: run
-  chk: regex
-  out: |-
-    Runfile engine v%{version}
-
-      run .*?\.runfile
-      run .*?\.runfile
       run .*?\.runfile
       run .*?\.runfile
       run .*?\.runfile

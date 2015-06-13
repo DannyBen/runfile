@@ -53,15 +53,21 @@ module Runfile
 			end
 		end
 
-		# Find all *.runfiles path-wide
+		# Find all *.runfile files in in our search difrectories
 		def find_runfiles
-			find_all_in_path '*.runfile'
+			result = []
+			dirs = runfile_folders
+			dirs.each do |d|
+				found = Dir[File.join(d, '*.runfile')]
+				result << found unless found.empty?
+			end
+			return result.empty? ? false : result.flatten.uniq
 		end
 
 		# Show some helpful tips, and a list of available runfiles
 		def show_make_help(runfiles)
 			say "!txtpur!Runfile engine v#{Runfile::VERSION}"
-			runfiles.size < 5 and say "\nTip:  Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\n      Place !txtblu!named.runfiles!txtrst! anywhere in the PATH for global access."
+			runfiles.size < 3 and say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH."
 			if runfiles.empty? 
 				say "\n!txtred!Runfile not found."
 			else
@@ -78,5 +84,13 @@ module Runfile
 				end
 			end
 		end
+
+		# Return array of folders we should search for runfiles
+		def runfile_folders
+			dirs = path_dirs
+			dirs.insert 0, Dir.pwd, "#{Dir.home}/runfile", "/etc/runfile"
+			dirs
+		end
+
 	end
 end
