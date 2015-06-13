@@ -19,7 +19,7 @@ module Runfile
 			@superspace = nil    # used when filename != Runfile
 			@last_usage = nil    # dsl: usage
 			@last_help  = nil    # dsl: help
-			@namespace  = nil    # dsl: #command
+			@namespace  = nil    # dsl: command
 			@actions = {}        # dsl: action
 			@options = {}        # dsl: option
 			@name    = "Runfile" # dsl: name
