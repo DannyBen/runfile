@@ -100,6 +100,7 @@ module Runfile
 			helper = DocoptHelper.new(@name, @version, @summary, @actions, @options)
 			args   = helper.args argv
 			action = find_action argv
+			# d action
 			action or abort "Runfile error: Action not found"
 			@actions[action].execute args
 		end
@@ -110,12 +111,16 @@ module Runfile
 		# finally for a. This is intended to allow "overloading" of 
 		# the command as an action (e.g. also allow a global action 
 		# called 'a').
+		# if no command us found, but we have a :global command, 
+		# assume this is the requested one (since we will not reach 
+		# this point unless the usage pattern matches).
 		def find_action(argv)
 			3.downto(1).each do |n|
 				next unless argv.size >= n 
 				action = argv[0..n-1].join('_').to_sym
 				return action if @actions.has_key? action
 			end
+			return :global if @actions.has_key? :global 
 			return false
 		end
 

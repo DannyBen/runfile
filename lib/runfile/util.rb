@@ -1,7 +1,7 @@
 module Runfile
 	# Debug print and exit
 	def d(obj)
-		p obj 
+		pp obj 
 		exit
 	end
 

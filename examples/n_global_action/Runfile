@@ -1,0 +1,23 @@
+# this example shows how to add actions without a preceding command.
+# the global action will be called only if:
+# 1. the executed command matches the usage pattern 
+# 2. AND it does not match any other command in the file
+
+usage  "<file> <user> [--color]"
+help   "This is an action without a command"
+option "--color", "Use color"
+action :global do |args|
+	color = args['--color'] ? '!txtgrn!' : ""
+	say "#{color}This is a global action with file=#{args['<file>']} and user=#{args['<user>']}"
+end
+
+# this is a "regular" action. although the command 'run copy file'
+# may also match the global pattern 'run <file> <user>', this action
+# will take precedence over the global action.
+usage  "copy <file>"
+help   "This is an action with a 'copy' command"
+action :copy do
+	say "When I say COPY you say PASTE."
+	say "COPY ..."
+	say "COPY ..."
+end

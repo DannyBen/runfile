@@ -192,3 +192,45 @@
 
       --version
           Show version
+- dir: n_global_action
+  cmd: run
+  out: |-
+    Usage:
+      run <file> <user> [--color]
+      run copy <file>
+      run ( -h | --help | --version )
+- dir: n_global_action
+  cmd: run somefile someuser
+  out: This is a global action with file=somefile and user=someuser
+- dir: n_global_action
+  cmd: run copy somefile
+  out: |-
+    When I say COPY you say PASTE.
+    COPY ...
+    COPY ...
+- dir: n_global_action
+  cmd: run --help
+  out: |-
+    Runfile 0.0.0
+
+    Usage:
+      run <file> <user> [--color]
+      run copy <file>
+      run ( -h | --help | --version )
+
+    Commands:
+      <file> <user> [--color]
+          This is an action without a command
+
+      copy <file>
+          This is an action with a 'copy' command
+
+    Options:
+      -h --help
+          Show this screen
+
+      --version
+          Show version
+
+      --color
+          Use color
