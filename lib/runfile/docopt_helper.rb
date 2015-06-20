@@ -25,31 +25,32 @@ module Runfile
 		# and options we have collected from the Runfile DSL.
 		def docopt
 			width, height = detect_terminal_size
-			doc = "#{@name} #{@version}\n"
-			doc += "#{@summary} \n" if @summary
-			doc += "\nUsage:\n";
+			doc = []
+			doc << "#{@name} #{@version}"
+			doc << "#{@summary}" if @summary
+			doc << "\nUsage:";
 			@actions.each do |name, action|
-				doc += "  run #{action.usage}\n" unless action.usage == false
+				doc << "  run #{action.usage}" unless action.usage == false
 			end
-			doc += "  run ( -h | --help | --version )\n\n"
+			doc << "  run ( -h | --help | --version )\n"
 			caption_printed = false
 			@actions.each do |name, action|
 				action.help or next
-				doc += "Commands:\n" unless caption_printed
+				doc << "Commands:" unless caption_printed
 				caption_printed = true
 				helpline = "      #{action.help}"
 				wrapped  = word_wrap helpline, width
-				doc += "  #{action.usage}\n#{wrapped}\n\n" unless action.usage == false
+				doc << "  #{action.usage}\n#{wrapped}\n" unless action.usage == false
 			end
-			doc += "Options:\n"
-			doc += "  -h --help\n      Show this screen\n\n"
-			doc += "  --version\n      Show version\n\n"
+			doc << "Options:"
+			doc << "  -h --help\n      Show this screen\n"
+			doc << "  --version\n      Show version\n"
 			@options.each do |flag, text|
 				helpline = "      #{text}"
 				wrapped  = word_wrap helpline, width
-				doc += "  #{flag}\n#{wrapped}\n\n"
+				doc << "  #{flag}\n#{wrapped}\n"
 			end
-			doc
+			doc.join "\n"
 		end
 
 		# Calls the docopt handler, which will either return a parsed
