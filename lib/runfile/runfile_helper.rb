@@ -72,16 +72,7 @@ module Runfile
 				say "\n!txtred!Runfile not found."
 			else
 				say ""
-				max = runfiles.max_by(&:length).size
-				width, height = detect_terminal_size
-				runfiles.each do |f|
-					f[/([^\/]+).runfile$/]
-					command  = "run #{$1}"
-					spacer_size = width - max - command.size - 6
-					spacer_size = [1, spacer_size].max
-					spacer = '.' * spacer_size
-					say "  !txtgrn!#{command}!txtrst! #{spacer} #{f}"
-				end
+				say_runfile_list runfiles
 			end
 		end
 
@@ -90,6 +81,20 @@ module Runfile
 			dirs = path_dirs
 			dirs.insert 0, Dir.pwd, "#{Dir.home}/runfile", "/etc/runfile"
 			dirs
+		end
+
+		# Output the list of available runfiles
+		def say_runfile_list(runfiles)
+			max = runfiles.max_by(&:length).size
+			width, height = detect_terminal_size
+			runfiles.each do |f|
+				f[/([^\/]+).runfile$/]
+				command  = "run #{$1}"
+				spacer_size = width - max - command.size - 6
+				spacer_size = [1, spacer_size].max
+				spacer = '.' * spacer_size
+				say "  !txtgrn!#{command}!txtrst! #{spacer} #{f}"
+			end
 		end
 
 	end
