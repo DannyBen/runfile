@@ -253,12 +253,6 @@
 
       --version
           Show version number
-- dir: x_graceful_error
-  cmd: run 2>&1
-  out: |-
-    Runfile error:
-    undefined local variable or method `boo' for main:Object
-    Runfile:3:in `<top (required)>'
 - dir: o_options_label
   cmd: run -h
   out: |-
@@ -287,3 +281,9 @@
 
       --version
           Show version number
+- dir: x_graceful_error
+  cmd: run 2>&1
+  out: |-
+    Runfile error:
+    undefined local variable or method `boo' for main:Object
+    Runfile:3:in `<top (required)>'
