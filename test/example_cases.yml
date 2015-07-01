@@ -23,11 +23,30 @@
           Show version
 - dir: b_basic
   cmd: run -h
-  out: "Runner 0.1.0\nThe first ever Runfile program\n\nUsage:\n  run greet <name>
-    [--long --color]\n  run ( -h | --help | --version )\n\nCommands:\n  greet <name>
-    [--long --color]\n      Say hello to <name>\n\nOptions:\n  -h --help\n      Show
-    this screen\n\n  --version\n      Show version\n\n  --long\n      Show a longer
-    greeting\n\n  --color\n      Use colored output"
+  out: |-
+    Runner 0.1.0
+    The first ever Runfile program
+
+    Usage:
+      run greet <name> [--long --color]
+      run ( -h | --help | --version )
+
+    Commands:
+      greet <name> [--long --color]
+          Say hello to <name>
+
+    Options:
+      -h --help
+          Show this screen
+
+      --version
+          Show version
+
+      --long
+          Show a longer greeting
+
+      --color
+          Use colored output
 - dir: f_namespace
   cmd: run
   out: |-
@@ -234,3 +253,9 @@
 
       --color
           Use color
+- dir: x_graceful_error
+  cmd: run 2>&1
+  out: |-
+    Runfile error:
+    undefined local variable or method `boo' for main:Object
+    Runfile:3:in `<top (required)>'

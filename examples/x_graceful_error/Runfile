@@ -1,0 +1,8 @@
+# this example is used by the test script to graceful errors
+
+i made a boo boo
+
+action :global do
+
+end
+
