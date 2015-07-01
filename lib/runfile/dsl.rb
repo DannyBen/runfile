@@ -30,8 +30,8 @@ module Runfile
 
 	# Add an option/flag to the next action (can be called multiple
 	# times)
-	def option(flag, text)
-		Runner.instance.add_option flag, text
+	def option(flag, text, scope=nil)
+		Runner.instance.add_option flag, text, scope
 	end
 
 	# Define the action

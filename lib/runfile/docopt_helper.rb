@@ -58,16 +58,20 @@ module Runfile
 			doc
 		end
 
-		# Return all docopt lines for the 'Options' section
+		# Return all docopt lines for the various 'Options' sections
 		def docopt_options(width)
+			@options['Options'] = {} unless @options['Options']
+			@options['Options']['-h --help'] = 'Show this screen'
+			@options['Options']['--version'] = 'Show version number'
+
 			doc = []
-			doc << "Options:"
-			doc << "  -h --help\n      Show this screen\n"
-			doc << "  --version\n      Show version\n"
-			@options.each do |flag, text|
-				helpline = "      #{text}"
-				wrapped  = word_wrap helpline, width
-				doc << "  #{flag}\n#{wrapped}\n"
+			@options.each do |scope, values|
+				doc << "#{scope}:"
+				values.each do |flag, text|
+					helpline = "      #{text}"
+					wrapped  = word_wrap helpline, width
+					doc << "  #{flag}\n#{wrapped}\n"
+				end
 			end
 			doc
 		end

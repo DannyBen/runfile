@@ -1,0 +1,26 @@
+# this example shows how to add different captions to groups of
+# options.
+# if a string is provided as the 3rd argument to the 'option' 
+# command, the option will be added under this label.
+# 
+# run 'run -h' to see how it works
+
+usage  "copy <file> [--force]"
+option "--force", "Overwrite target", "Copy Options"
+action :copy do |args|
+	say "Copying #{args['<file>']}"
+end
+
+usage  "rename <file> [--yes]"
+option "--yes", "Rename even if read only", "Rename Options"
+action :rename do |args|
+	say "Renaming #{args['<file>']}"
+end
+
+# the option below will be added as usual, to the 'Options:' group
+
+usage  "show [--all]"
+option "--all", "Show all"
+action :all do
+	say "Showing all"
+end

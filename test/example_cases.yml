@@ -20,7 +20,7 @@
           Show this screen
 
       --version
-          Show version
+          Show version number
 - dir: b_basic
   cmd: run -h
   out: |-
@@ -36,17 +36,17 @@
           Say hello to <name>
 
     Options:
-      -h --help
-          Show this screen
-
-      --version
-          Show version
-
       --long
           Show a longer greeting
 
       --color
           Use colored output
+
+      -h --help
+          Show this screen
+
+      --version
+          Show version number
 - dir: f_namespace
   cmd: run
   out: |-
@@ -210,7 +210,7 @@
           Show this screen
 
       --version
-          Show version
+          Show version number
 - dir: n_global_action
   cmd: run
   out: |-
@@ -245,17 +245,45 @@
           This is an action with a 'copy' command
 
     Options:
+      --color
+          Use color
+
       -h --help
           Show this screen
 
       --version
-          Show version
-
-      --color
-          Use color
+          Show version number
 - dir: x_graceful_error
   cmd: run 2>&1
   out: |-
     Runfile error:
     undefined local variable or method `boo' for main:Object
     Runfile:3:in `<top (required)>'
+- dir: o_options_label
+  cmd: run -h
+  out: |-
+    Runfile 0.0.0
+
+    Usage:
+      run copy <file> [--force]
+      run rename <file> [--yes]
+      run show [--all]
+      run ( -h | --help | --version )
+
+    Copy Options:
+      --force
+          Overwrite target
+
+    Rename Options:
+      --yes
+          Rename even if read only
+
+    Options:
+      --all
+          Show all
+
+      -h --help
+          Show this screen
+
+      --version
+          Show version number

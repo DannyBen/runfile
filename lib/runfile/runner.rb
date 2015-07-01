@@ -60,8 +60,10 @@ module Runfile
 		end
 
 		# Add an option flag and its help text.
-		def add_option(flag, text)
-			@options[flag] = text
+		def add_option(flag, text, scope=nil)
+			scope or scope = 'Options'
+			@options[scope] = {} unless @options[scope]
+			@options[scope][flag] = text
 		end
 
 		# Run the command. This is a wrapper around docopt. It will 
