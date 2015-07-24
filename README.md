@@ -5,7 +5,7 @@ Runfile - If Rake and Docopt had a baby
 [![Build Status](https://travis-ci.org/DannyBen/runfile.svg?branch=master)](https://travis-ci.org/DannyBen/runfile)
 [![Code Climate](https://codeclimate.com/github/DannyBen/runfile/badges/gpa.svg)](https://codeclimate.com/github/DannyBen/runfile)
 [![Dependency Status](https://gemnasium.com/DannyBen/runfile.svg)](https://gemnasium.com/DannyBen/runfile)
-[![Gem](https://img.shields.io/gem/dt/runfile.svg)](https://rubygems.org/gems/runfile)
+<!-- [![Gem](https://img.shields.io/gem/dt/runfile.svg)](https://rubygems.org/gems/runfile) -->
 
 A beautiful command line application framework.  
 Rake-inspired, Docopt inside.
