@@ -287,3 +287,50 @@
     Runfile error:
     undefined local variable or method `boo' for main:Object
     Runfile:3:in `<top (required)>'
+- dir: p_alias
+  cmd: run
+  out: |-
+    Usage:
+      run ( server | s )
+      run ( greet | g ) <name>
+      run watch ( dog | d )
+      run ( -h | --help | --version )
+- dir: p_alias
+  cmd: run s
+  out: Running server...
+- dir: p_alias
+  cmd: run server
+  out: Running server...
+- dir: p_alias
+  cmd: run g danny
+  out: Hello danny
+- dir: p_alias
+  cmd: run greet danny
+  out: Hello danny
+- dir: p_alias
+  cmd: run watch d
+  out: Watch dog
+- dir: p_alias
+  cmd: run watch dog
+  out: Watch dog
+- dir: p_alias
+  cmd: run -h
+  out: |-
+    Runfile 0.0.0
+
+    Usage:
+      run ( server | s )
+      run ( greet | g ) <name>
+      run watch ( dog | d )
+      run ( -h | --help | --version )
+
+    Commands:
+      ( greet | g ) <name>
+          Say hello to <name>
+
+    Options:
+      -h --help
+          Show this screen
+
+      --version
+          Show version number

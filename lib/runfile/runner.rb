@@ -46,8 +46,10 @@ module Runfile
 
 		# Add an action to the @actions array, and use the last known
 		# usage and help messages sent by the DSL.
-		def add_action(name, &block)
-			@last_usage = name if @last_usage.nil?
+		def add_action(name, altname=nil, &block)
+			if @last_usage.nil?
+				@last_usage = altname ? "( #{name} | #{altname} )" : name 
+			end
 			[@namespace, @superspace].each do |prefix|
 				prefix or next
 				name = "#{prefix}_#{name}"
@@ -57,6 +59,10 @@ module Runfile
 			@actions[name] = Action.new(block, @last_usage, @last_help)
 			@last_usage = nil
 			@last_help = nil
+			if altname 
+				@last_usage = false
+				add_action(altname, nil, &block)
+			end
 		end
 
 		# Add an option flag and its help text.

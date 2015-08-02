@@ -1,0 +1,23 @@
+# This example shows how to use an alias (shortcut) for a command.
+
+# In the most simple case, just add the alias to the action call:
+# The usage pattern will be generated automatically as 
+# "( server | s )"
+action :server, :s do
+  say "Running server..." 
+end
+
+# For cases with other patameters, specify the usage pattern:
+usage  "( greet | g ) <name>"
+help   "Say hello to <name>"
+action :greet, :g do |args|
+	say "Hello #{args['<name>']}" 
+end
+
+# Start a namespace, to ensure this works in a napespaced form
+command "watch"
+
+action :dog, :d do
+  say "Watch dog"
+end
+

@@ -35,8 +35,8 @@ module Runfile
 	end
 
 	# Define the action
-	def action(name, &block) 
-		Runner.instance.add_action name, &block
+	def action(name, altname=nil, &block) 
+		Runner.instance.add_action name, altname, &block
 	end
 
 	# Define a new command namespace
