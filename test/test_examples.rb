@@ -12,16 +12,26 @@ class RunfileExampleTest < Minitest::Test
 		conf = YAML.load_file 'test/example_cases.yml'
 		say "\n\n!txtpur!Starting example tests"
 		conf.each do |test|
-			Dir.chdir "examples/#{test['dir']}" do
-				say "!txtpur!#{test['dir'].rjust 20} : !txtgrn!#{test['cmd']}"
-				output = `#{test['cmd']}`.strip 
-				expected = test['out'] % { version: Runfile::VERSION }
-				if test['chk'] == 'regex'
-					assert_match /#{expected}/, output
-				else
-					assert_equal expected, output
-				end
+			run_dir_test test
+		end
+	end
+
+	# Smells of :reek:TooManyStatements, :reek:FeatureEnvy
+	def run_dir_test(test) 
+		dir = test['dir']
+		Dir.chdir "examples/#{dir}" do
+			actual = execute(dir, test['cmd'])
+			expected = test['out'] % { version: Runfile::VERSION }
+			if test['chk'] == 'regex'
+				assert_match /#{expected}/, actual
+			else
+				assert_equal expected, actual
 			end
 		end
+	end
+
+	def execute(dir, cmd) 
+		say "!txtpur!#{dir.rjust 20} : !txtgrn!#{cmd}"
+		`#{cmd}`.strip 
 	end
 end

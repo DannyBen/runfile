@@ -2,6 +2,7 @@
 # All commands are immediately handed over to the Runner instance
 # for handling.
 
+# Smells of :reek:UtilityFunction
 module Runfile
 	# Set the name of your Runfile program
 	def name(name)

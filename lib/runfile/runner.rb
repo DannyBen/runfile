@@ -38,8 +38,8 @@ module Runfile
 			File.file?(filename) or handle_no_runfile argv
 			begin
 				load filename
-			rescue => e
-				abort "Runfile error:\n#{e.message}\n#{e.backtrace[0]}"
+			rescue => ex
+				abort "Runfile error:\n#{ex.message}\n#{ex.backtrace[0]}"
 			end
 			@@instance.run *argv
 		end
@@ -68,7 +68,7 @@ module Runfile
 		# Add an option flag and its help text.
 		def add_option(flag, text, scope=nil)
 			scope or scope = 'Options'
-			@options[scope] = {} unless @options[scope]
+			@options[scope] ||= {}
 			@options[scope][flag] = text
 		end
 
@@ -78,8 +78,8 @@ module Runfile
 		def run(*argv)
 			begin
 				docopt_exec argv
-			rescue Docopt::Exit => e
-				puts e.message
+			rescue Docopt::Exit => ex
+				puts ex.message
 			end
 		end
 
@@ -90,9 +90,9 @@ module Runfile
 			argv = command_string.split /\s(?=(?:[^"]|"[^"]*")*$)/
 			begin
 				docopt_exec argv
-			rescue Docopt::Exit => e
+			rescue Docopt::Exit => ex
 				puts "Cross call failed: #{command_string}"
-				abort e.message
+				abort ex.message
 			end
 		end
 
@@ -120,9 +120,9 @@ module Runfile
 		# assume this is the requested one (since we will not reach 
 		# this point unless the usage pattern matches).
 		def find_action(argv)
-			3.downto(1).each do |n|
-				next unless argv.size >= n 
-				action = argv[0..n-1].join('_').to_sym
+			3.downto(1).each do |count|
+				next unless argv.size >= count 
+				action = argv[0..count-1].join('_').to_sym
 				return action if @actions.has_key? action
 			end
 			return :global if @actions.has_key? :global 
