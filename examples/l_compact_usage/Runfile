@@ -5,17 +5,17 @@
 
 usage "( wakeup | code | sleep )"
 action :wakeup do
-	say "wakeup"
+  say "wakeup"
 end
 
 usage false
 action :code do
-	say "code"
+  say "code"
 end
 
 usage false
 action :sleep do
-	say "sleep"
+  say "sleep"
 end
 
 # this works exactly the same for a namespaced command 
@@ -25,16 +25,16 @@ command "weekend"
 
 usage "( wakeup | play | sleep )"
 action :wakeup do
-	say "wakeup early"
+  say "wakeup early"
 end
 
 usage false
 action :play do
-	say "play"
+  say "play"
 end
 
 usage false
 action :sleep do 
-	say "sleep late"
+  say "sleep late"
 end
 

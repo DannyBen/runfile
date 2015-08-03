@@ -7,10 +7,10 @@ command "watch"
 actions = [:css, :js, :'a-movie', :'friends-again']
 
 actions.each do |act|
-	help "Watch files of type #{act}"
-	action act do 
-		say act.to_s
-	end
+  help "Watch files of type #{act}"
+  action act do 
+    say act.to_s
+  end
 end
 
 
@@ -24,9 +24,9 @@ usage_text = "( #{actions.join ' | '} )"
 help "Execute a git command"
 
 actions.each do |act|
-	usage usage_text 
-	usage_text = false
-	action act do 
-		say "git #{act}"
-	end
+  usage usage_text 
+  usage_text = false
+  action act do 
+    say "git #{act}"
+  end
 end

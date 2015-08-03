@@ -7,8 +7,8 @@ usage  "<file> <user> [--color]"
 help   "This is an action without a command"
 option "--color", "Use color"
 action :global do |args|
-	color = args['--color'] ? '!txtgrn!' : ""
-	say "#{color}This is a global action with file=#{args['<file>']} and user=#{args['<user>']}"
+  color = args['--color'] ? '!txtgrn!' : ""
+  say "#{color}This is a global action with file=#{args['<file>']} and user=#{args['<user>']}"
 end
 
 # this is a "regular" action. although the command 'run copy file'
@@ -17,7 +17,7 @@ end
 usage  "copy <file>"
 help   "This is an action with a 'copy' command"
 action :copy do
-	say "When I say COPY you say PASTE."
-	say "COPY ..."
-	say "COPY ..."
+  say "When I say COPY you say PASTE."
+  say "COPY ..."
+  say "COPY ..."
 end

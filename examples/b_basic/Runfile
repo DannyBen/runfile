@@ -11,10 +11,10 @@ option "--color", "Use colored output"
 
 # define the `greet` command action
 action :greet do |args|
-	color = args['--color'] ? '!txtgrn!' : ""
-	if args['--long'] 
-		say "#{color}Hello #{args['<name>']}, welcome back"
-	else 
-		say "#{color}Hello #{args['<name>']}" 
-	end
+  color = args['--color'] ? '!txtgrn!' : ""
+  if args['--long'] 
+    say "#{color}Hello #{args['<name>']}, welcome back"
+  else 
+    say "#{color}Hello #{args['<name>']}" 
+  end
 end

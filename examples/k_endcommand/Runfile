@@ -1,7 +1,7 @@
 command "drink"
 
 action :beer do
-	say "drink beer"
+  say "drink beer"
 end
 
 # this is an alias to 'command', you can use either an empty call to
@@ -9,5 +9,5 @@ end
 endcommand
 
 action :eat do
-	say "eat"
+  say "eat"
 end

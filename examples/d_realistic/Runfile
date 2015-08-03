@@ -5,10 +5,10 @@ usage  "compile <source> <dest> [--quick]"
 help   "Compile <source> to <dest>"
 option "-q --quick", "Make everything quicker"
 action :compile do |args|
-	say "!txtred!Compiling #{args['<source>']}... "
-	sleep 3 unless args['--quick']
-	say "!txtgrn!done"
-	say "Output is saved to #{args['<dest>']}"
+  say "!txtred!Compiling #{args['<source>']}... "
+  sleep 3 unless args['--quick']
+  say "!txtgrn!done"
+  say "Output is saved to #{args['<dest>']}"
 end
 
 usage  "download <url> [<outfile>] [-CIq]"
@@ -16,8 +16,8 @@ help   "Download HTML and images from <url>. Use the --quick flag to download qu
 option "-C --no-cache", "Bypass cache" 
 option "-I --no-img"  , "Do not download images"
 action :download do |args|
-	say "!txtred!Downloading #{args['<url>']}... "
-	sleep 3 unless args['--quick']
-	say "!txtgrn!downloaded"
-	say "!txtred!cache was bypassed" if args['--no-cache']
+  say "!txtred!Downloading #{args['<url>']}... "
+  sleep 3 unless args['--quick']
+  say "!txtgrn!downloaded"
+  say "!txtred!cache was bypassed" if args['--no-cache']
 end

@@ -12,27 +12,27 @@ RunGemDev::rdoc_tasks
 usage  "addtest <dir> <command>"
 help   "Add example case to test/example_cases.yml"
 action :addtest do |args|
-	casefile = 'test/example_cases.yml'
-	cases = YAML.load_file casefile
-	cases or cases = []
-	new_case = {'dir' => args['<dir>'], 'cmd' => args['<command>']}
-	Dir.chdir "examples/#{args['<dir>']}" do
-		new_case['out'] = `#{args['<command>']}`.strip
-	end
-	cases << new_case
-	File.write(casefile, YAML.dump(cases))
+  casefile = 'test/example_cases.yml'
+  cases = YAML.load_file casefile
+  cases or cases = []
+  new_case = {'dir' => args['<dir>'], 'cmd' => args['<command>']}
+  Dir.chdir "examples/#{args['<dir>']}" do
+    new_case['out'] = `#{args['<command>']}`.strip
+  end
+  cases << new_case
+  File.write(casefile, YAML.dump(cases))
 end
 
 usage  "addtest2 <command>"
 help   "Add example case to test/maker_cases.yml"
 action :addtest2 do |args|
-	casefile = 'test/maker_cases.yml'
-	cases = YAML.load_file casefile
-	cases or cases = []
-	new_case = {'cmd' => args['<command>'], }
-	Dir.chdir "dev" do
-		new_case['out'] = `#{args['<command>']}`.strip
-	end
-	cases << new_case
-	File.write(casefile, YAML.dump(cases))
+  casefile = 'test/maker_cases.yml'
+  cases = YAML.load_file casefile
+  cases or cases = []
+  new_case = {'cmd' => args['<command>'], }
+  Dir.chdir "dev" do
+    new_case['out'] = `#{args['<command>']}`.strip
+  end
+  cases << new_case
+  File.write(casefile, YAML.dump(cases))
 end

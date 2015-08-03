@@ -44,12 +44,12 @@ option "-c --color", "Use colored output"
 # you do not need to worry about parameters that do not exist - docopt
 # already takes care of this (through our 'usage' patterns).
 action :greet do |args|
-	color = args['--color'] ? '!txtgrn!' : ""
-	if args['--long'] 
-		say "#{color}Hello #{args['<name>']}, welcome back"
-	else 
-		say "#{color}Hello #{args['<name>']}" 
-	end
+  color = args['--color'] ? '!txtgrn!' : ""
+  if args['--long'] 
+    say "#{color}Hello #{args['<name>']}, welcome back"
+  else 
+    say "#{color}Hello #{args['<name>']}" 
+  end
 end
 
 # the command 'command' defines a "super command" (namespace).
@@ -58,13 +58,13 @@ command "jump"
 
 # usage will be "jump around"
 action :around do
-	say "Jump around" 
+  say "Jump around" 
 end
 
 # usage will be "jump up [--high]"
 usage  "up [--high]"
 action :up do |args|
-	say "Jump up jump up " 
-	say args['--high'] ? "\b..." : "and get down."
+  say "Jump up jump up " 
+  say args['--high'] ? "\b..." : "and get down."
 end
 

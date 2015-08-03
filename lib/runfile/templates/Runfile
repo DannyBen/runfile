@@ -6,9 +6,9 @@ usage  "hello [<name> --color]"
 help   "Say hello"
 option "-c --color", "Greet with color"
 action :hello do |args|
-	if args['--color']
-		say "!txtgrn!Hello #{args['<name>']}"
-	else
-		say "Hello #{args['<name>']}"
-	end
+  if args['--color']
+    say "!txtgrn!Hello #{args['<name>']}"
+  else
+    say "Hello #{args['<name>']}"
+  end
 end

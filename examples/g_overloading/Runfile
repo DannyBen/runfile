@@ -2,7 +2,7 @@
 
 # this is a globel action
 action :jump do
-	say "Jump!"
+  say "Jump!"
 end
 
 # define a namespace with the same name as the global action
@@ -11,12 +11,12 @@ command "jump"
 # this will be "jump around"
 usage  "around"
 action :around do
-	say "Jump around" 
+  say "Jump around" 
 end
 
 # this will be "jump up"
 usage  "up"
 action :up do
-	say "Jump up jump up and get down" 
+  say "Jump up jump up and get down" 
 end
 

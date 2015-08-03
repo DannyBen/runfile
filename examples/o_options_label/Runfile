@@ -8,13 +8,13 @@
 usage  "copy <file> [--force]"
 option "--force", "Overwrite target", "Copy Options"
 action :copy do |args|
-	say "Copying #{args['<file>']}"
+  say "Copying #{args['<file>']}"
 end
 
 usage  "rename <file> [--yes]"
 option "--yes", "Rename even if read only", "Rename Options"
 action :rename do |args|
-	say "Renaming #{args['<file>']}"
+  say "Renaming #{args['<file>']}"
 end
 
 # the option below will be added as usual, to the 'Options:' group
@@ -22,5 +22,5 @@ end
 usage  "show [--all]"
 option "--all", "Show all"
 action :all do
-	say "Showing all"
+  say "Showing all"
 end

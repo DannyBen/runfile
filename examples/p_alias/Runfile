@@ -11,7 +11,7 @@ end
 usage  "( greet | g ) <name>"
 help   "Say hello to <name>"
 action :greet, :g do |args|
-	say "Hello #{args['<name>']}" 
+  say "Hello #{args['<name>']}" 
 end
 
 # Start a namespace, to ensure this works in a napespaced form
