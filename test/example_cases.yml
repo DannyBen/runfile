@@ -9,7 +9,7 @@
 
     Usage:
       run greet <name>
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 
     Commands:
       greet <name>
@@ -29,7 +29,7 @@
 
     Usage:
       run greet <name> [--long --color]
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 
     Commands:
       greet <name> [--long --color]
@@ -56,7 +56,7 @@
       run make jam
       run make meat [--mix]
       run eat
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: f_namespace
   cmd: run make jam
   out: Making jam...
@@ -70,7 +70,7 @@
       run jump
       run jump around
       run jump up
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: g_overloading
   cmd: run jump
   out: Jump!
@@ -82,7 +82,7 @@
   out: |-
     Usage:
       run jump-around [--up --down]
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: h_hyphen
   cmd: run jump-around --up --down
   out: |-
@@ -98,7 +98,7 @@
       run exercise
       run eat cake
       run eat two-cakes
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: i_crosscall
   cmd: run exercise
   out: |-
@@ -140,7 +140,7 @@
     Usage:
       run drink beer
       run eat
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: k_endcommand
   cmd: run drink beer
   out: drink beer
@@ -151,9 +151,9 @@
   cmd: run
   out: |-
     Usage:
-      run ( wakeup | code | sleep )
-      run weekend ( wakeup | play | sleep )
-      run ( -h | --help | --version )
+      run (wakeup|code|sleep)
+      run weekend (wakeup|play|sleep)
+      run (-h|--help|--version)
 - dir: l_compact_usage
   cmd: run wakeup
   out: wakeup
@@ -168,8 +168,8 @@
       run watch js
       run watch a-movie
       run watch friends-again
-      run git ( commit | push | pull | branch | log )
-      run ( -h | --help | --version )
+      run git (commit|push|pull|branch|log)
+      run (-h|--help|--version)
 - dir: m_dynamic_actions
   cmd: run watch a-movie
   out: a-movie
@@ -186,8 +186,8 @@
       run watch js
       run watch a-movie
       run watch friends-again
-      run git ( commit | push | pull | branch | log )
-      run ( -h | --help | --version )
+      run git (commit|push|pull|branch|log)
+      run (-h|--help|--version)
 
     Commands:
       watch css
@@ -202,7 +202,7 @@
       watch friends-again
           Watch files of type friends-again
 
-      git ( commit | push | pull | branch | log )
+      git (commit|push|pull|branch|log)
           Execute a git command
 
     Options:
@@ -217,7 +217,7 @@
     Usage:
       run <file> <user> [--color]
       run copy <file>
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - dir: n_global_action
   cmd: run somefile someuser
   out: This is a global action with file=somefile and user=someuser
@@ -235,7 +235,7 @@
     Usage:
       run <file> <user> [--color]
       run copy <file>
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 
     Commands:
       <file> <user> [--color]
@@ -262,7 +262,7 @@
       run copy <file> [--force]
       run rename <file> [--yes]
       run show [--all]
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 
     Copy Options:
       --force
@@ -291,10 +291,10 @@
   cmd: run
   out: |-
     Usage:
-      run ( server | s )
-      run ( greet | g ) <name>
-      run watch ( dog | d )
-      run ( -h | --help | --version )
+      run (server|s)
+      run (greet|g) <name>
+      run watch (dog|d)
+      run (-h|--help|--version)
 - dir: p_alias
   cmd: run s
   out: Running server...
@@ -319,13 +319,13 @@
     Runfile 0.0.0
 
     Usage:
-      run ( server | s )
-      run ( greet | g ) <name>
-      run watch ( dog | d )
-      run ( -h | --help | --version )
+      run (server|s)
+      run (greet|g) <name>
+      run watch (dog|d)
+      run (-h|--help|--version)
 
     Commands:
-      ( greet | g ) <name>
+      (greet|g) <name>
           Say hello to <name>
 
     Options:

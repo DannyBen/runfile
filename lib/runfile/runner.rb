@@ -48,7 +48,7 @@ module Runfile
     # usage and help messages sent by the DSL.
     def add_action(name, altname=nil, &block)
       if @last_usage.nil?
-        @last_usage = altname ? "( #{name} | #{altname} )" : name 
+        @last_usage = altname ? "(#{name}|#{altname})" : name 
       end
       [@namespace, @superspace].each do |prefix|
         prefix or next

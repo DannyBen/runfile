@@ -3,7 +3,7 @@
 # define your combined usage first, and for subsequent actions,
 # set usage to false.
 
-usage "( wakeup | code | sleep )"
+usage "(wakeup|code|sleep)"
 action :wakeup do
   say "wakeup"
 end
@@ -23,7 +23,7 @@ end
 
 command "weekend"
 
-usage "( wakeup | play | sleep )"
+usage "(wakeup|play|sleep)"
 action :wakeup do
   say "wakeup early"
 end

@@ -59,7 +59,7 @@ Executing `run` without parameters, will show the usage patterns:
 $ run
 Usage:
   run greet <name>
-  run (-h | --help | --version)
+  run (-h|--help|--version)
 ```
 
 Executing `run --help` will show the full help document (docopt)
@@ -70,7 +70,7 @@ Runfile 0.0.0
 
 Usage:
   run greet <name>
-  run (-h | --help | --version)
+  run (-h|--help|--version)
 
 Options:
   -h --help

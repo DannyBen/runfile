@@ -20,7 +20,7 @@ end
 command "git"
 
 actions    = [:commit, :push, :pull, :branch, :log]
-usage_text = "( #{actions.join ' | '} )"
+usage_text = "(#{actions.join '|'})"
 help "Execute a git command"
 
 actions.each do |act|

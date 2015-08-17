@@ -39,7 +39,7 @@ module Runfile
       @actions.each do |name, action|
         doc << "  run #{action.usage}" unless action.usage == false
       end
-      doc << "  run ( -h | --help | --version )\n"
+      doc << "  run (-h|--help|--version)\n"
       doc
     end
 
