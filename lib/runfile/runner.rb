@@ -103,7 +103,7 @@ module Runfile
     # This should always be called in a begin...rescue block and
     # you should handle the Docopt::Exit exception.
     def docopt_exec(argv)
-      helper = DocoptHelper.new(@name, @version, @summary, @actions, @options)
+      helper = DocoptHelper.new(@superspace, @name, @version, @summary, @actions, @options)
       args   = helper.args argv
       action = find_action argv
       action or abort "Runfile error: Action not found"

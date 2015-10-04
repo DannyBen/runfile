@@ -13,12 +13,16 @@ module Runfile
     # The constructor expects to get all the textual details
     # needed to generate a docopt document (name, version, 
     # summary, options) and an array of Action objects.
-    def initialize(name, version, summary, actions, options)
-      @name    = name
-      @version = version
-      @summary = summary
-      @actions = actions
-      @options = options
+    # The superspace argument will be the name of runfile, in case we
+    # are running a named.runfile. It is only needed to generate the 
+    # proper `run superspace (-h|--help|--version)` line
+    def initialize(superspace, name, version, summary, actions, options)
+      @superspace = superspace
+      @name       = name
+      @version    = version
+      @summary    = summary
+      @actions    = actions
+      @options    = options
     end
 
     # Generate a document based on all the actions, help messages
@@ -39,7 +43,11 @@ module Runfile
       @actions.each do |name, action|
         doc << "  run #{action.usage}" unless action.usage == false
       end
-      doc << "  run (-h|--help|--version)\n"
+      if @superspace
+        doc << "  run #{@superspace} (-h|--help|--version)\n"
+      else
+        doc << "  run (-h|--help|--version)\n"
+      end
       doc
     end
 
