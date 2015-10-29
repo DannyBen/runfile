@@ -35,7 +35,7 @@ module Runfile
 
     # Load and execute a Runfile call.
     def execute(argv, filename='Runfile')
-      File.file?(filename) or handle_no_runfile argv
+      filename and File.file?(filename) or handle_no_runfile argv
       begin
         load filename
       rescue => ex

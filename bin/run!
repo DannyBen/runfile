@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require 'runfile'
+
+# for dev
+# require File.dirname(__FILE__) + "/../lib/runfile"
+
+include Runfile
+
+Runner.instance.execute ARGV, false

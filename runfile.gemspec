@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*.rb', 'lib/runfile/templates/*']
-  s.executables = ["run"]
+  s.executables = ["run", "run!"]
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
 
