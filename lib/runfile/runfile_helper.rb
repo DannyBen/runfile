@@ -85,7 +85,8 @@ module Runfile
 
     # Output the list of available runfiles
     def say_runfile_list(runfiles)
-      max = runfiles.max_by(&:length).size
+      runfile_paths = runfiles.map { |f| File.dirname f }
+      max = runfile_paths.max_by(&:length).size
       width, height = detect_terminal_size
       runfiles.each do |f|
         f[/([^\/]+).runfile$/]
@@ -93,7 +94,7 @@ module Runfile
         spacer_size = width - max - command.size - 6
         spacer_size = [1, spacer_size].max
         spacer = '.' * spacer_size
-        say "  !txtgrn!#{command}!txtrst! #{spacer} #{f}"
+        say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
       end
     end
 
