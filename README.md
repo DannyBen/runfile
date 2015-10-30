@@ -11,7 +11,7 @@ A beautiful command line application framework.
 Rake-inspired, Docopt inside.
 
 
-## Wait, What?
+## Wait, What? ##
 
 **Runfile** lets you create command line applications in a way similar 
 to [Rake](https://github.com/ruby/rake), but with the full power of 
@@ -23,19 +23,22 @@ You create a `Runfile`, and execute commands with
 [Learn More in the Wiki](https://github.com/DannyBen/runfile/wiki)
 
 
-## Install
+
+## Install ##
 
 	$ gem install runfile
 
 
-## Quick Start
 
-	$ run make
-	$ run --help
-	$ vi Runfile
+## Quick Start ##
+
+	$ run make       # create a new Runfile
+	$ run --help     # show the usage patterns
+	$ vi Runfile     # edit the Runfile
 
 
-## Example
+
+## Example ##
 
 The most minimal `Runfile` looks like this:
 
@@ -80,7 +83,30 @@ Options:
       Show version
 ```
 
-## Documentation 
+
+
+## Runfile per project or global Runfiles ##
+
+In addition to the per project `Runfile` files, it is also possible to 
+create global runfiles that are accessible to you only or to anybody on 
+the system.
+
+When you execute `run`, we will look for files in this order:
+
+- `Runfile` in the current directory
+- `*.runfile` in the current folder or sub folders
+- `~/runfile/**/*.runfile`
+- `/etc/runfile/**/*.runfile`
+- Anywhere else in the PATH (or sub folders)
+
+When you execute `run!`, we will ignore the local Runfile (if present) and 
+only search for global (named) runfiles.
+
+Read more in the [Runfile Location and Filename wiki page](https://github.com/DannyBen/runfile/wiki/Runfile-Location-and-Filename)
+
+
+
+## Documentation ##
 
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
