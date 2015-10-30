@@ -58,7 +58,7 @@ module Runfile
       result = []
       dirs = runfile_folders
       dirs.each do |d|
-        found = Dir[File.join(d, '*.runfile')]
+        found = Dir[File.join(d, '**/*.runfile')]
         result << found unless found.empty?
       end
       return result.empty? ? false : result.flatten.uniq
