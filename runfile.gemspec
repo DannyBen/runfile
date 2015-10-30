@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Runfile::VERSION
   s.date        = Date.today.to_s
   s.summary     = "If Rake and Docopt had a baby"
-  s.description = "A beautiful command line application framework. Rake-inspired, Docopt inside."
+  s.description = "Build command line applications per project with ease. Rake-inspired, Docopt inside."
   s.authors     = ["Danny Ben Shitrit"]
   s.email       = 'db@dannyben.com'
   s.files       = Dir['README.md', 'lib/**/*.rb', 'lib/runfile/templates/*']

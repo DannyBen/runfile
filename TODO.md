@@ -1,4 +1,4 @@
 Todo
 ====
 
-* Consider allowing `call` to pass args
+- [ ] Consider allowing `call` to pass args
