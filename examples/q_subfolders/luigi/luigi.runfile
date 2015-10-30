@@ -1,0 +1,18 @@
+# this examples shows that named.runfiles can be placed in subfolders.
+# The runfile search path includes:
+#   - all the folders in the PATH environment variable
+#   - ~/runfile
+#   - /etc/runfile
+#   - The current folder
+# 
+# Any *.runfile in these folder or subfolders will be available when running
+# `run` in a folder without a runfile.
+#
+# Tip: If you wish to use named.runfiles in a folder that DOES contain a local
+#      project `Runfile`, simply use the command `run!` instead.
+#
+
+usage "hello"
+action :hello do
+  say "hello my name is Luigi"
+end

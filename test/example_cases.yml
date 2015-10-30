@@ -121,7 +121,7 @@
     Tip: Type 'run make' or 'run make name' to create a runfile.
     For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
 
-      run greet \.* .*/greet.runfile
+      run greet \.* .*/examples/j_customname
 - dir: j_customname
   cmd: run greet hello
   out: hello
@@ -343,3 +343,8 @@
     For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
 
     Runfile not found.
+- dir: q_subfolders
+  cmd: run mario hello
+  out: |-
+    hello my name is Mario and I loaded some content from my local file
+    Loaded content said: Subfolders are a good way to organize larger runfiles

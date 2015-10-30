@@ -25,8 +25,8 @@
     Tip: Type 'run make' or 'run make name' to create a runfile.
     For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
 
-      run .*\.runfile
-      run .*\.runfile
+      run .*runfile_testbox
+      run .*runfile_testbox
 - cmd: run make three
   out: three.runfile created.
 - cmd: run
@@ -34,6 +34,6 @@
   out: |-
     Runfile engine v%{version}
 
-      run .*?\.runfile
-      run .*?\.runfile
-      run .*?\.runfile
+      run .*runfile_testbox
+      run .*runfile_testbox
+      run .*runfile_testbox
