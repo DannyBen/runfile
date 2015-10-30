@@ -67,7 +67,7 @@ module Runfile
     # Show some helpful tips, and a list of available runfiles
     def show_make_help(runfiles)
       say "!txtpur!Runfile engine v#{Runfile::VERSION}"
-      runfiles.size < 3 and say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH."
+      runfiles.size < 3 and say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
       if runfiles.empty? 
         say "\n!txtred!Runfile not found."
       else
@@ -78,6 +78,11 @@ module Runfile
 
     # Return array of folders we should search for runfiles
     def runfile_folders
+      [Dir.pwd, "#{Dir.home}/runfile", "/etc/runfile"]
+    end
+    
+    # [UNUSED] Same as runfile_folders, but including PATH
+    def runfile_folders_with_path
       dirs = path_dirs
       dirs.insert 0, Dir.pwd, "#{Dir.home}/runfile", "/etc/runfile"
       dirs

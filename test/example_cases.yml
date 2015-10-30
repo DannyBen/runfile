@@ -119,7 +119,7 @@
     Runfile engine v%{version}
 
     Tip: Type 'run make' or 'run make name' to create a runfile.
-    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
+    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/.
 
       run greet \.* .*/examples/j_customname
 - dir: j_customname
@@ -340,7 +340,7 @@
     Runfile engine v%{version}
 
     Tip: Type 'run make' or 'run make name' to create a runfile.
-    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/ or anywhere in the PATH.
+    For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/.
 
     Runfile not found.
 - dir: q_subfolders

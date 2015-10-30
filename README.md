@@ -97,7 +97,6 @@ When you execute `run`, we will look for files in this order:
 - `*.runfile` in the current folder or sub folders
 - `~/runfile/**/*.runfile`
 - `/etc/runfile/**/*.runfile`
-- Anywhere else in the PATH (or sub folders)
 
 When you execute `run!`, we will ignore the local Runfile (if present) and 
 only search for global (named) runfiles.
