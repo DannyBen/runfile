@@ -5,11 +5,11 @@
 - dir: a_minimal
   cmd: run -h
   out: |-
-    Runfile 0.0.0
+    Runfile
 
     Usage:
       run greet <name>
-      run (-h|--help|--version)
+      run (-h|--help)
 
     Commands:
       greet <name>
@@ -18,9 +18,6 @@
     Options:
       -h --help
           Show this screen
-
-      --version
-          Show version number
 - dir: b_basic
   cmd: run -h
   out: |-
@@ -56,7 +53,7 @@
       run make jam
       run make meat [--mix]
       run eat
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: f_namespace
   cmd: run make jam
   out: Making jam...
@@ -70,7 +67,7 @@
       run jump
       run jump around
       run jump up
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: g_overloading
   cmd: run jump
   out: Jump!
@@ -82,7 +79,7 @@
   out: |-
     Usage:
       run jump-around [--up --down]
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: h_hyphen
   cmd: run jump-around --up --down
   out: |-
@@ -98,7 +95,7 @@
       run exercise
       run eat cake
       run eat two-cakes
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: i_crosscall
   cmd: run exercise
   out: |-
@@ -140,7 +137,7 @@
     Usage:
       run drink beer
       run eat
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: k_endcommand
   cmd: run drink beer
   out: drink beer
@@ -153,7 +150,7 @@
     Usage:
       run (wakeup|code|sleep)
       run weekend (wakeup|play|sleep)
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: l_compact_usage
   cmd: run wakeup
   out: wakeup
@@ -169,7 +166,7 @@
       run watch a-movie
       run watch friends-again
       run git (commit|push|pull|branch|log)
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: m_dynamic_actions
   cmd: run watch a-movie
   out: a-movie
@@ -179,7 +176,7 @@
 - dir: m_dynamic_actions
   cmd: run --help
   out: |-
-    Runfile 0.0.0
+    Runfile
 
     Usage:
       run watch css
@@ -187,7 +184,7 @@
       run watch a-movie
       run watch friends-again
       run git (commit|push|pull|branch|log)
-      run (-h|--help|--version)
+      run (-h|--help)
 
     Commands:
       watch css
@@ -208,16 +205,13 @@
     Options:
       -h --help
           Show this screen
-
-      --version
-          Show version number
 - dir: n_global_action
   cmd: run
   out: |-
     Usage:
       run <file> <user> [--color]
       run copy <file>
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: n_global_action
   cmd: run somefile someuser
   out: This is a global action with file=somefile and user=someuser
@@ -230,12 +224,12 @@
 - dir: n_global_action
   cmd: run --help
   out: |-
-    Runfile 0.0.0
+    Runfile
 
     Usage:
       run <file> <user> [--color]
       run copy <file>
-      run (-h|--help|--version)
+      run (-h|--help)
 
     Commands:
       <file> <user> [--color]
@@ -250,19 +244,16 @@
 
       -h --help
           Show this screen
-
-      --version
-          Show version number
 - dir: o_options_label
   cmd: run -h
   out: |-
-    Runfile 0.0.0
+    Runfile
 
     Usage:
       run copy <file> [--force]
       run rename <file> [--yes]
       run show [--all]
-      run (-h|--help|--version)
+      run (-h|--help)
 
     Copy Options:
       --force
@@ -278,9 +269,6 @@
 
       -h --help
           Show this screen
-
-      --version
-          Show version number
 - dir: x_graceful_error
   cmd: run 2>&1
   out: |-
@@ -294,7 +282,7 @@
       run (server|s)
       run (greet|g) <name>
       run watch (dog|d)
-      run (-h|--help|--version)
+      run (-h|--help)
 - dir: p_alias
   cmd: run s
   out: Running server...
@@ -316,13 +304,13 @@
 - dir: p_alias
   cmd: run -h
   out: |-
-    Runfile 0.0.0
+    Runfile
 
     Usage:
       run (server|s)
       run (greet|g) <name>
       run watch (dog|d)
-      run (-h|--help|--version)
+      run (-h|--help)
 
     Commands:
       (greet|g) <name>
@@ -331,9 +319,6 @@
     Options:
       -h --help
           Show this screen
-
-      --version
-          Show version number
 - dir: a_minimal
   cmd: run!
   out: |-
