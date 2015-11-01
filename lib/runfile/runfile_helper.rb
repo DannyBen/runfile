@@ -58,7 +58,7 @@ module Runfile
       result = []
       dirs = runfile_folders
       dirs.each do |d|
-        found = Dir[File.join(d, '**/*.runfile')]
+        found = Dir[File.join(d, '*.runfile')]
         result << found unless found.empty?
       end
       return result.empty? ? false : result.flatten.uniq
@@ -76,9 +76,12 @@ module Runfile
       end
     end
 
-    # Return array of folders we should search for runfiles
+    # Return array of folders we should search in for runfiles.
     def runfile_folders
-      [Dir.pwd, "#{Dir.home}/runfile", "/etc/runfile"]
+      # This trick allows searching in subfolders recursively, including
+      # one level of symlinked folder
+      subdirs = '**{,/*/**}'
+      [Dir.pwd, "#{Dir.home}/runfile/#{subdirs}", "/etc/runfile/#{subdirs}"]
     end
     
     # [UNUSED] Same as runfile_folders, but including PATH

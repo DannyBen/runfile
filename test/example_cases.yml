@@ -343,8 +343,3 @@
     For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/.
 
     Runfile not found.
-- dir: q_subfolders
-  cmd: run mario hello
-  out: |-
-    hello my name is Mario and I loaded some content from my local file
-    Loaded content said: Subfolders are a good way to organize larger runfiles
