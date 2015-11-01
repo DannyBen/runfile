@@ -23,7 +23,7 @@ module Runfile
       @actions = {}        # dsl: action
       @options = {}        # dsl: option
       @name    = "Runfile" # dsl: name
-      @version = "0.0.0"   # dsl: version
+      @version = false     # dsl: version
       @summary = false     # dsl: summary
     end
 

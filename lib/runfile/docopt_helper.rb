@@ -29,7 +29,8 @@ module Runfile
     # and options we have collected from the Runfile DSL.
     def docopt
       width, height = detect_terminal_size
-      doc = ["#{@name} #{@version}"]
+      doc = []
+      doc << (@version ? "#{@name} #{@version}" : "#{@name}")
       doc << "#{@summary}" if @summary
       doc += docopt_usage
       doc += docopt_commands width
@@ -43,10 +44,11 @@ module Runfile
       @actions.each do |name, action|
         doc << "  run #{action.usage}" unless action.usage == false
       end
+      basic_flags = @version ? "(-h|--help|--version)" : "(-h|--help)"
       if @superspace
-        doc << "  run #{@superspace} (-h|--help|--version)\n"
+        doc << "  run #{@superspace} #{basic_flags}\n"
       else
-        doc << "  run (-h|--help|--version)\n"
+        doc << "  run #{basic_flags}\n"
       end
       doc
     end
@@ -70,7 +72,7 @@ module Runfile
     def docopt_options(width)
       @options['Options'] = {} unless @options['Options']
       @options['Options']['-h --help'] = 'Show this screen'
-      @options['Options']['--version'] = 'Show version number'
+      @options['Options']['--version'] = 'Show version number' if @version
 
       doc = []
       @options.each do |scope, values|
