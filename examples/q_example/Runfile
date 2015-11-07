@@ -1,0 +1,12 @@
+# this example shows how to add example commands
+#
+# run 'run -h' to see how it works
+
+usage   "copy <file> [--force]"
+option  "--force", "Overwrite target", "Copy Options"
+example "copy somefile.txt --force"
+example "copy somefile.txt"
+action :copy do |args|
+  say "Copying #{args['<file>']}"
+end
+

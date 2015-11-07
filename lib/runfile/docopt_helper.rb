@@ -16,13 +16,14 @@ module Runfile
     # The superspace argument will be the name of runfile, in case we
     # are running a named.runfile. It is only needed to generate the 
     # proper `run superspace (-h|--help|--version)` line
-    def initialize(superspace, name, version, summary, actions, options)
+    def initialize(superspace, name, version, summary, actions, options, examples)
       @superspace = superspace
       @name       = name
       @version    = version
       @summary    = summary
       @actions    = actions
       @options    = options
+      @examples   = examples
     end
 
     # Generate a document based on all the actions, help messages
@@ -35,6 +36,7 @@ module Runfile
       doc += docopt_usage
       doc += docopt_commands width
       doc += docopt_options width
+      doc += docopt_examples width
       doc.join "\n"
     end
 
@@ -85,6 +87,21 @@ module Runfile
       end
       doc
     end
+
+    # Return all docopt lines for the 'Examples' section
+    def docopt_examples(width)
+      return [] if @examples.empty?
+
+      doc = ["Examples:"]
+      base_command = @superspace ? "run #{@superspace}" : "run"
+      @examples.each do |command|
+        helpline = "  #{base_command} #{command}"
+        wrapped  = word_wrap helpline, width
+        doc << "#{wrapped}"
+      end
+      doc
+    end
+
 
     # Call the docopt handler, which will either return a parsed
     # arguments list, or halt execution and show usage.

@@ -35,6 +35,11 @@ module Runfile
     Runner.instance.add_option flag, text, scope
   end
 
+  # Set an example command (can be called multiple times)
+  def example(text)
+    Runner.instance.add_example text
+  end
+
   # Define the action
   def action(name, altname=nil, &block) 
     Runner.instance.add_action name, altname, &block

@@ -328,3 +328,23 @@
     For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/.
 
     Runfile not found.
+- dir: q_example
+  cmd: run -h
+  out: |-
+    Runfile
+
+    Usage:
+      run copy <file> [--force]
+      run (-h|--help)
+
+    Copy Options:
+      --force
+          Overwrite target
+
+    Options:
+      -h --help
+          Show this screen
+
+    Examples:
+      run copy somefile.txt --force
+      run copy somefile.txt

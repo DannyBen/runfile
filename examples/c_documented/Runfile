@@ -36,6 +36,12 @@ help "Say hello to <name>. Use --long to show a longer greeting, and this line i
 option "--long", "Show a longer greeting"
 option "-c --color", "Use colored output"
 
+# example adds an example command.
+# the command accepts one parameter: the example command.
+# you do not need to include "run" at the beginning of your example, it will 
+# be added automatically.
+example "greet Danny --color"
+
 # action block defines what to do when this command is called
 # the :symbol name should match the first string defined in the usage
 # command. 

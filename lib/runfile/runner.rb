@@ -16,15 +16,16 @@ module Runfile
 
     # Initialize all variables to sensible defaults.
     def initialize
-      @superspace = nil    # used when filename != Runfile
-      @last_usage = nil    # dsl: usage
-      @last_help  = nil    # dsl: help
-      @namespace  = nil    # dsl: command
-      @actions = {}        # dsl: action
-      @options = {}        # dsl: option
-      @name    = "Runfile" # dsl: name
-      @version = false     # dsl: version
-      @summary = false     # dsl: summary
+      @superspace = nil     # used when filename != Runfile
+      @last_usage = nil     # dsl: usage
+      @last_help  = nil     # dsl: help
+      @namespace  = nil     # dsl: command
+      @actions  = {}        # dsl: action
+      @options  = {}        # dsl: option
+      @examples = []        # dsl: example
+      @name     = "Runfile" # dsl: name
+      @version  = false     # dsl: version
+      @summary  = false     # dsl: summary
     end
 
     # Return a singleton Runner instance.
@@ -72,6 +73,11 @@ module Runfile
       @options[scope][flag] = text
     end
 
+    # Add example command.
+    def add_example(command)
+      @examples << command
+    end
+
     # Run the command. This is a wrapper around docopt. It will 
     # generate the docopt document on the fly, using all the 
     # information collected so far.
@@ -103,7 +109,7 @@ module Runfile
     # This should always be called in a begin...rescue block and
     # you should handle the Docopt::Exit exception.
     def docopt_exec(argv)
-      helper = DocoptHelper.new(@superspace, @name, @version, @summary, @actions, @options)
+      helper = DocoptHelper.new(@superspace, @name, @version, @summary, @actions, @options, @examples)
       args   = helper.args argv
       action = find_action argv
       action or abort "Runfile error: Action not found"
