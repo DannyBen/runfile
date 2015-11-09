@@ -27,7 +27,7 @@ module Runfile
 
       # if first arg is a valid *.runfile, run it
       if argv[0] 
-        runfile = runfiles.select { |f| f[/#{argv[0]}.runfile/] }.first
+        runfile = runfiles.select { |f| f[/\/#{argv[0]}.runfile/] }.first
         runfile and return runfile
       end
 
