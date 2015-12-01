@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'runfile/version'
 require 'runfile/docopt_helper'
 require 'runfile/runfile_helper'
