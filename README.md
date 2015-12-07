@@ -94,7 +94,7 @@ the system.
 When you execute `run`, we will look for files in this order:
 
 - `Runfile` in the current directory
-- `*.runfile` in the current folder or sub folders
+- `*.runfile` in the current folder
 - `~/runfile/**/*.runfile`
 - `/etc/runfile/**/*.runfile`
 
