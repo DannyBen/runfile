@@ -2,6 +2,9 @@
 #
 # run 'run -h' to see how it works
 
+# Example 1: Not namespaced
+# Examples will be preceded by "run ..."
+
 usage   "copy <file> [--force]"
 option  "--force", "Overwrite target", "Copy Options"
 example "copy somefile.txt --force"
@@ -10,3 +13,17 @@ action :copy do |args|
   say "Copying #{args['<file>']}"
 end
 
+# Example 2: Namespaced
+# Examples will be preceded by "run server ..."
+
+command "server"
+
+usage   "start [--daemon]"
+option  "--daemon", "Start in the background", "Server options"
+example "start"
+example "start --daemon"
+action :start do |args|
+  say "Starting server..."
+end
+
+endcommand

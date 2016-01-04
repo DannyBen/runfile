@@ -12,3 +12,5 @@ To see how they work:
 	$ run --help
 	$ vi Runfile
 
+
+The examples in this folder are also used for testing purposes.

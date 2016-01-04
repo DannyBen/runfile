@@ -335,11 +335,16 @@
 
     Usage:
       run copy <file> [--force]
+      run server start [--daemon]
       run (-h|--help)
 
     Copy Options:
       --force
           Overwrite target
+
+    Server options:
+      --daemon
+          Start in the background
 
     Options:
       -h --help
@@ -348,3 +353,5 @@
     Examples:
       run copy somefile.txt --force
       run copy somefile.txt
+      run server start
+      run server start --daemon

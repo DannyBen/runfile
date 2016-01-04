@@ -75,7 +75,7 @@ module Runfile
 
     # Add example command.
     def add_example(command)
-      @examples << command
+      @examples << (@namespace ? "#{@namespace} #{command}" : command)
     end
 
     # Run the command. This is a wrapper around docopt. It will 
