@@ -94,12 +94,12 @@ the system.
 When you execute `run`, we will look for files in this order:
 
 - `Runfile` in the current directory
-- `*.runfile` in the current folder
+- `*.runfile` in the current directory
 - `~/runfile/**/*.runfile`
 - `/etc/runfile/**/*.runfile`
 
-When you execute `run!`, we will ignore the local Runfile (if present) and 
-only search for global (named) runfiles.
+When you execute `run!`, we will ignore any local Runfile and only search 
+for global (named) runfiles.
 
 Read more in the [Runfile Location and Filename wiki page](https://github.com/DannyBen/runfile/wiki/Runfile-Location-and-Filename)
 
