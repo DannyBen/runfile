@@ -1,0 +1,7 @@
+Usage:
+  run greet
+  run make custard
+  run make jam
+  run make meat [--mix]
+  run eat
+  run (-h|--help)

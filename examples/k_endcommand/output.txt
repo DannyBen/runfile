@@ -1,0 +1,4 @@
+Usage:
+  run drink beer
+  run eat
+  run (-h|--help)

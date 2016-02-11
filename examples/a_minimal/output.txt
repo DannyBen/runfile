@@ -1,0 +1,13 @@
+Runfile
+
+Usage:
+  run greet <name>
+  run (-h|--help)
+
+Commands:
+  greet <name>
+      Say hello to <name>
+
+Options:
+  -h --help
+      Show this screen
