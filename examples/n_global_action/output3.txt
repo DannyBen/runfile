@@ -1,0 +1,20 @@
+Runfile
+
+Usage:
+  run <file> <user> [--color]
+  run copy <file>
+  run (-h|--help)
+
+Commands:
+  <file> <user> [--color]
+      This is an action without a command
+
+  copy <file>
+      This is an action with a 'copy' command
+
+Options:
+  --color
+      Use color
+
+  -h --help
+      Show this screen
