@@ -1,0 +1,15 @@
+Runfile
+
+Usage:
+  run (server|s)
+  run (greet|g) <name>
+  run watch (dog|d)
+  run (-h|--help)
+
+Commands:
+  (greet|g) <name>
+      Say hello to <name>
+
+Options:
+  -h --help
+      Show this screen

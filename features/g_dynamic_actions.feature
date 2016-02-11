@@ -1,4 +1,6 @@
 Feature: Dynamic Actions
+  In order to avoid repetition
+  Users can define actions in a programmatic manner
 
 Scenario: Show dynamically generated actions
   Given I am in the "examples/m_dynamic_actions" folder

@@ -1,4 +1,7 @@
 Feature: Global Action
+  In order to allow more natural commands
+  Users can create actions wher ethe first argument is not an ation
+  Like "run <file>"
 
 Scenario: Show proper usage
   Given I am in the "examples/n_global_action" folder

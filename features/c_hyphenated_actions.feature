@@ -1,4 +1,7 @@
-Feature: Runfile
+Feature: Hyphenated Actions
+  In order to provide more flexibility when naming actions
+  Users can define hyphenated-actions
+  Like "run puma-server"
 
 Scenario: See usage of hyphenated runfile
   Given I am in the "examples/h_hyphen" folder

@@ -1,0 +1,22 @@
+Runfile
+
+Usage:
+  run copy <file> [--force]
+  run rename <file> [--yes]
+  run show [--all]
+  run (-h|--help)
+
+Copy Options:
+  --force
+      Overwrite target
+
+Rename Options:
+  --yes
+      Rename even if read only
+
+Options:
+  --all
+      Show all
+
+  -h --help
+      Show this screen

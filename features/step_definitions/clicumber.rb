@@ -1,3 +1,6 @@
+# Stepdefs courtesy of Clicumber
+# https://github.com/DannyBen/clicumber
+
 # Hooks
 
 # Undo the "change dir" step if needed
@@ -42,18 +45,28 @@ end
 
 # Then
 
-Then(/^the output should (not )?(?:contain|have|say|be) "([^"]*)"( exactly)?$/) do |negate, expected, exact|
+Then(/^the (error )?output should (not )?be like "([^"]*)"$/) do |stderr, negate, file|
+  stream = stderr ? @stderr : @stdout
+  if negate
+    expect(stream).to_not eq File.read(file)
+  else
+    expect(stream).to eq File.read(file)
+  end
+end
+
+Then(/^the (error )?output should (not )?(?:contain|have|say|be|read) "([^"]*)"( exactly)?$/) do |stderr, negate, expected, exact|
+  stream = stderr ? @stderr : @stdout
   if negate
     if exact
-      expect(@stdout.strip).to_not eq expected
+      expect(stream.strip).to_not eq expected
     else
-      expect(@stdout).to_not match /#{expected}/im
+      expect(stream).to_not match /#{expected}/im
     end
   else
     if exact
-      expect(@stdout.strip).to eq expected
+      expect(stream.strip).to eq expected
     else
-      expect(@stdout).to match /#{expected}/im 
+      expect(stream).to match /#{expected}/im 
     end
   end
 end
@@ -82,10 +95,3 @@ Then(/^the file "([^"]*)" should (not )?contain "([^"]*)"$/) do |file, negate, r
   end
 end
 
-Then(/^the output should (not )?be like "([^"]*)"$/) do |negate, file|
-  if negate
-    expect(@stdout).to_not eq File.read(file)
-  else
-    expect(@stdout).to eq File.read(file)
-  end
-end

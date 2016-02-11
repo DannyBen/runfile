@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colsole', '~> 0.2'
   s.add_runtime_dependency 'docopt', '~> 0.5'
 
-  s.add_development_dependency 'minitest', '~> 5.8'
   s.add_development_dependency 'run-gem-dev', '~> 0.2'
+  s.add_development_dependency 'cucumber', '~> 2.3'
+  s.add_development_dependency 'rspec-expectations', '~> 3.4'
 end

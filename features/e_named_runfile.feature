@@ -1,4 +1,8 @@
 Feature: Named Runfiles
+  In order to allow dealing with many runfiles
+  And in order to allow globally accessible runfiles
+  Users can define a named Runfile
+  Like "server.runfile"
 
 Scenario: See usage in a named runfile 
   Given I am in the "examples/j_customname" folder

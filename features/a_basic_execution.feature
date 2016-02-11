@@ -1,4 +1,6 @@
 Feature: Basic Runfile execution
+  Executing the runfile should show usage and help 
+  and it should execute the defined actions
 
 Scenario: Execute a minimal runfile
   Given I am in the "examples/a_minimal" folder

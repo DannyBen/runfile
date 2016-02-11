@@ -1,4 +1,7 @@
 Feature: Namespaced Commands
+  In order to keep actions organized
+  Users can define a string that will precede all actions
+  Like "run server start" and "run server stop"
 
 Scenario: Use namespaced commands
   Given I am in the "examples/f_namespace" folder

@@ -1,4 +1,7 @@
 Feature: Compact Usage
+  In order to allow a shorter usage output
+  Users can request to squash the usage line for several actions
+  Liks showing "run (wakeup|code|sleep)" instead of showing 3 lines
 
 Scenario: Compact usage
   Given I am in the "examples/l_compact_usage" folder
