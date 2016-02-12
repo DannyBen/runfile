@@ -15,3 +15,11 @@ action :test do |args|
   cmd = "#{cmd} --tags @current" if args['current']
   exec cmd
 end
+
+help   "Download a fresh copy of clicumber stepdefs"
+action :clicumber do
+  file = "features/step_definitions/clicumber.rb"
+  url  = "https://raw.githubusercontent.com/DannyBen/clicumber/master/features/step_definitions/clicumber.rb"
+  exec "curl -o '#{file}' #{url}"
+end
+

@@ -17,7 +17,7 @@ Given(/^I am in the "([^"]+)" (?:folder|dir|directory)$/) do |dir|
   Dir.chdir dir
 end
 
-Given(/^the (?:folder|dir|directory) "([^"]*)" (does not )?exists$/) do |dir, negate|
+Given(/^the (?:folder|dir|directory) "([^"]*)" (does not )?exists?$/) do |dir, negate|
   if negate
     Dir.rm_rf(dir) if Dir.exist? dir
   else
@@ -43,7 +43,7 @@ Given(/^the file "([^"]*)" (does not )?exists?$/) do |file, negate|
   end
 end
 
-Given(/^the file "([^"]*)" has the content "([^"]*)"$/) do |file, content|
+Given(/^the file "([^"]*)" (?:contains|has the content) "([^"]*)"$/) do |file, content|
   File.write(file, content)
 end
 
@@ -140,5 +140,23 @@ Then(/^the (?:folder|dir|directory) "([^"]*)" should (not )?exist$/) do |dir, ne
     expect(Dir).to_not exist(dir)
   else
     expect(Dir).to exist(dir)
+  end
+end
+
+Then(/^the (?:folder|dir|directory) should (not )?be empty$/) do |negate|
+  if negate
+    expect(Dir['*']).to_not be_empty
+  else
+    expect(Dir['*']).to be_empty
+  end
+end
+
+# Then...exit code
+
+Then(/^the (?:status|exit) code should (not )?be "([^"]*)"$/) do |negate, code|
+  if negate
+    expect(@status.to_i).to_not eq code.to_i
+  else
+    expect(@status.to_i).to eq code.to_i
   end
 end
