@@ -1,0 +1,58 @@
+include Runfile::Exec
+
+# this example uses the Runfile::Exec extension which provides
+# additional commands such as 'run' and 'run_bg' for executing external
+# commands
+#
+# run 'run -h' to see how it works
+
+action :solve do
+  run "echo \"If there was a problem, yo, I'll solve it\""
+end
+
+action :behind do
+  run_bg "ls"
+end
+
+action :pid do
+  run_bg "ls", pid: 'ls'
+end
+
+action :piddir do
+  Exec.pid_dir = 'tmp'
+  run_bg "ls", pid: 'pidfile'
+  Exec.pid_dir = nil # just reset to default for other tests
+end
+
+action :log do
+  run_bg "pwd", log: 'pwd.log'
+end
+
+usage  "sleep [--stop]"
+action :sleep do |args|
+  if args['--stop']
+    stop_bg 'sleeper'
+  else
+    run_bg "sleep 10", pid: 'sleeper'
+  end
+end
+
+action :error do
+  stop_bg 'no-such-pid-file'
+end
+
+# Optional Hooks
+
+# Will be called before each call to run, run! and run_bg
+# Should return the command, or a modified version of it, or false to abort
+before_run do |command|
+  puts "BEFORE #{command}"
+  command
+end
+
+# Will be called after each call to run, run! and run_bg
+after_run do |command|
+  puts "AFTER #{command}"
+end
+
+
