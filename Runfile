@@ -1,20 +1,13 @@
-require "run-gem-dev"
+require "runfile-tasks"
 require "yaml"
 
 name    "Runfile Runfile"
 summary "Runfile tasks for building the Runfile gem"
 version Runfile::VERSION
 
-RunGemDev::gem_tasks 'runfile'
-RunGemDev::rdoc_tasks
-
-usage  "test [current]"
-help   "Run cucumber feature tests"
-action :test do |args|
-  cmd = "cucumber"
-  cmd = "#{cmd} --tags @current" if args['current']
-  exec cmd
-end
+RunfileTasks::RubyGems.all 'runfile'
+RunfileTasks::Testing.cucumber
+RunfileTasks::Docs.rdoc
 
 help   "Download a fresh copy of clicumber stepdefs"
 action :clicumber do

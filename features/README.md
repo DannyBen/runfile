@@ -4,7 +4,7 @@ Runfile Feature Tests
 To run all features:
 
 	$ cd /repository/root/folder
-	$ run test
+	$ run feature
 
 > **Note:** 
 > If you have a `~/runfile` or `/etc/runfile` folder in your system, you
