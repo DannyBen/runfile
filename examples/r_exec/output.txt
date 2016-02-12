@@ -1,0 +1,4 @@
+BEFORE echo "If there was a problem, yo, I'll solve it"
+> echo "If there was a problem, yo, I'll solve it"
+If there was a problem, yo, I'll solve it
+AFTER echo "If there was a problem, yo, I'll solve it"
