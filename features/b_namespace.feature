@@ -21,7 +21,7 @@ Scenario: Execute namespaced command
 Scenario: Execute a non namespaced command in a namespaced file
   Given I am in the "examples/f_namespace" folder
    When I run "run eat"
-   Then the output should be "Custard? Good! Jam? Good! Meat? Good!!!" exactly
+   Then the output should be "Custard? Good! Jam? Good! Meat? Good!!!"
 
 Scenario: Execute a file with namespace overloading
   Given I am in the "examples/g_overloading" folder
@@ -46,5 +46,5 @@ Scenario: Use the endcommand alias
 Scenario: Execute a command placed after the endcommand marker
   Given I am in the "examples/k_endcommand" folder
    When I run "run eat"
-   Then the output should be "eat" exactly
+   Then the output should be "eat"
 
