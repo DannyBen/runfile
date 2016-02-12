@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.executables = ["run", "run!"]
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
+  s.required_ruby_version = ">= 2.0.0"
 
   s.add_runtime_dependency 'colsole', '~> 0.2'
   s.add_runtime_dependency 'docopt', '~> 0.5'
