@@ -5,6 +5,7 @@ Feature: Exec Extension
 
 Background:
   Given I am in the "examples/r_exec" folder
+    And the folder "tmp" exists
 
 Scenario: "Run an external command"
     When I run "run solve"
