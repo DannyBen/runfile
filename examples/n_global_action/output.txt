@@ -1,0 +1,4 @@
+Usage:
+  run <file> <user> [--color]
+  run copy <file>
+  run (-h|--help)

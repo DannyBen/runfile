@@ -1,0 +1,3 @@
+Usage:
+  run jump-around [--up --down]
+  run (-h|--help)

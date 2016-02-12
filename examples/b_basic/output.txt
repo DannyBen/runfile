@@ -1,0 +1,23 @@
+Runner 0.1.0
+The first ever Runfile program
+
+Usage:
+  run greet <name> [--long --color]
+  run (-h|--help|--version)
+
+Commands:
+  greet <name> [--long --color]
+      Say hello to <name>
+
+Options:
+  --long
+      Show a longer greeting
+
+  --color
+      Use colored output
+
+  -h --help
+      Show this screen
+
+  --version
+      Show version number

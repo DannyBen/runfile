@@ -1,7 +1,7 @@
-Runfile Tests
-=============
+Runfile Feature Tests
+=====================
 
-To run all tests:
+To run all features:
 
 	$ cd /repository/root/folder
 	$ run test

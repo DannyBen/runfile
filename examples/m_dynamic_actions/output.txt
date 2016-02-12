@@ -1,0 +1,7 @@
+Usage:
+  run watch css
+  run watch js
+  run watch a-movie
+  run watch friends-again
+  run git (commit|push|pull|branch|log)
+  run (-h|--help)

@@ -1,0 +1,3 @@
+Runfile error:
+undefined local variable or method `boo' for main:Object
+Runfile:3:in `<top (required)>'

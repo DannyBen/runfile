@@ -6,33 +6,12 @@ summary "Runfile tasks for building the Runfile gem"
 version Runfile::VERSION
 
 RunGemDev::gem_tasks 'runfile'
-RunGemDev::minitest_tasks
 RunGemDev::rdoc_tasks
 
-usage  "addtest <dir> <command>"
-help   "Add example case to test/example_cases.yml"
-action :addtest do |args|
-  casefile = 'test/example_cases.yml'
-  cases = YAML.load_file casefile
-  cases or cases = []
-  new_case = {'dir' => args['<dir>'], 'cmd' => args['<command>']}
-  Dir.chdir "examples/#{args['<dir>']}" do
-    new_case['out'] = `#{args['<command>']}`.strip
-  end
-  cases << new_case
-  File.write(casefile, YAML.dump(cases))
-end
-
-usage  "addtest2 <command>"
-help   "Add example case to test/maker_cases.yml"
-action :addtest2 do |args|
-  casefile = 'test/maker_cases.yml'
-  cases = YAML.load_file casefile
-  cases or cases = []
-  new_case = {'cmd' => args['<command>'], }
-  Dir.chdir "dev" do
-    new_case['out'] = `#{args['<command>']}`.strip
-  end
-  cases << new_case
-  File.write(casefile, YAML.dump(cases))
+usage  "test [current]"
+help   "Run cucumber feature tests"
+action :test do |args|
+  cmd = "cucumber"
+  cmd = "#{cmd} --tags @current" if args['current']
+  exec cmd
 end
