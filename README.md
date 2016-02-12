@@ -7,11 +7,12 @@ Runfile - If Rake and Docopt had a baby
 [![Dependency Status](https://gemnasium.com/DannyBen/runfile.svg)](https://gemnasium.com/DannyBen/runfile)
 <!-- [![Gem](https://img.shields.io/gem/dt/runfile.svg)](https://rubygems.org/gems/runfile) -->
 
+---
+
 A beautiful command line application framework.  
 Rake-inspired, Docopt inside.
 
-
-## Wait, What? ##
+---
 
 **Runfile** lets you create command line applications in a way similar 
 to [Rake](https://github.com/ruby/rake), but with the full power of 
@@ -22,7 +23,7 @@ You create a `Runfile`, and execute commands with
 
 [Learn More in the Wiki](https://github.com/DannyBen/runfile/wiki)
 
-
+---
 
 ## Install ##
 
