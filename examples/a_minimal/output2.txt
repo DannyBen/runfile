@@ -1,4 +1,4 @@
-Runfile engine v0.5.4
+Runfile engine v0.6.0
 
 Tip: Type 'run make' or 'run make name' to create a runfile.
 For global access, place named.runfiles in ~/runfile/ or in /etc/runfile/.
