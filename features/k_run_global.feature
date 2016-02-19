@@ -6,5 +6,5 @@ Feature: Run Global (Bang)
 Scenario: Show proper usage
   Given I am in the "examples/a_minimal" folder
    When I run "run!"
-   Then the output should be like "output2.txt"
+   Then the output should resemble "output2.txt"
 
