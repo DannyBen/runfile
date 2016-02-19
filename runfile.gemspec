@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'cucumber', '~> 2.3'
   s.add_development_dependency 'rspec-expectations', '~> 3.4'
   s.add_development_dependency 'rdoc', '~> 4.2'
+  s.add_development_dependency 'similar_text', '~> 0.0.4'
 end

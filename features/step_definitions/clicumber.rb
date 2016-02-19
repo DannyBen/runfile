@@ -10,10 +10,10 @@ After do
   $original_dir = nil
 end
 
-# Given...dir
+## Given...dir
 
 Given(/^I am in the "([^"]+)" (?:folder|dir|directory)$/) do |dir|
-  $original_dir = Dir.pwd
+  $original_dir = Dir.pwd unless $original_dir
   Dir.chdir dir
 end
 
@@ -33,7 +33,12 @@ Given(/^the (?:folder|dir|directory) is (not )?empty$/) do |negate|
   end
 end
 
-# Given...file
+Given(/^the (?:folder|dir|directory) "([^"]*)" is like "([^"]*)"$/) do |target, source|
+  FileUtils.cp_r source, target
+end
+
+
+## Given...file
 
 Given(/^the file "([^"]*)" (does not )?exists?$/) do |file, negate|
   if negate
@@ -51,7 +56,7 @@ Given(/^the file "([^"]*)" is like "([^"]*)"$/) do |target, source|
   FileUtils.cp source, target
 end
 
-# When...run
+## When...run
 
 When(/^I run: (.+)$/) do |command|
   @stdout, @stderr, @status = Open3.capture3 command
@@ -61,7 +66,14 @@ When(/^I run "([^"]+)"$/) do |command|
   @stdout, @stderr, @status = Open3.capture3 command
 end
 
-# Then...output
+## When...dir
+
+When(/^I go into the "([^"]*)" (?:folder|dir|directory)$/) do |dir|
+  $original_dir = Dir.pwd unless $original_dir
+  Dir.chdir dir
+end
+
+## Then...output
 
 Then(/^the (error )?output should (not )?be like "([^"]*)"$/) do |stderr, negate, file|
   stream = stderr ? @stderr : @stdout
@@ -69,6 +81,17 @@ Then(/^the (error )?output should (not )?be like "([^"]*)"$/) do |stderr, negate
     expect(stream).to_not eq File.read(file)
   else
     expect(stream).to eq File.read(file)
+  end
+end
+
+Then(/^the (error )?output should (not )?resemble "([^"]*)"(?: by "(\d{1,2})%?")?$/) do |stderr, negate, file, percentage|
+  stream = stderr ? @stderr : @stdout
+  similarity = stream.similar File.read(file)
+  percentage ||= 90
+  if negate
+    expect(similarity).to_not be >= percentage.to_f
+  else
+    expect(similarity).to be >= percentage.to_f
   end
 end
 
@@ -99,7 +122,7 @@ Then(/^the (error )?output should (not )?(?:be|equal) "([^"]*)"$/) do |stderr, n
   end
 end
 
-# Then...file
+## Then...file
 
 Then(/^the file "([^"]*)" should (not )?exist$/) do |file, negate|
   if negate
@@ -133,7 +156,7 @@ Then(/^the file "([^"]*)" should (not )?(?:be|equal) "([^"]*)"$/) do |file, nega
   end
 end
 
-# Then...dir
+## Then...dir
 
 Then(/^the (?:folder|dir|directory) "([^"]*)" should (not )?exist$/) do |dir, negate|
   if negate
@@ -151,7 +174,7 @@ Then(/^the (?:folder|dir|directory) should (not )?be empty$/) do |negate|
   end
 end
 
-# Then...exit code
+## Then...exit code
 
 Then(/^the (?:status|exit) code should (not )?be "([^"]*)"$/) do |negate, code|
   if negate
