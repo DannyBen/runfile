@@ -1,6 +1,6 @@
 Feature: Global Action
   In order to allow more natural commands
-  Users can create actions wher ethe first argument is not an ation
+  Users can create actions where the first argument is not an ation
   Like "run <file>"
 
 Scenario: Show proper usage
@@ -22,3 +22,13 @@ Scenario: Execute the other actions in the runfile
   Given I am in the "examples/n_global_action" folder
    When I run "run copy somefile"
    Then the output should be like "output2.txt"
+
+Scenario: Execute a global action in a named runfile
+  Given I am in the "examples/t_global_actions_named" folder
+   When I run "run one"
+   Then the output should say "domination"
+
+Scenario: Execute a regular action in a named runfile
+  Given I am in the "examples/t_global_actions_named" folder
+   When I run "run one peter"
+   Then the output should say "pan"

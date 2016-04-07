@@ -132,6 +132,7 @@ module Runfile
         return action if @actions.has_key? action
       end
       return :global if @actions.has_key? :global 
+      return "#{superspace}_global".to_sym if @superspace and @actions.has_key? "#{superspace}_global".to_sym
       return false
     end
 

@@ -1,0 +1,19 @@
+# this example shows how to add actions without a preceding command
+# to a named runfile. 
+# see also: examples/n_global_action
+# run 'run one' to see how it works, or 'run one -h' for usage.
+
+usage "peter"
+action :peter do
+  say "pan"
+end
+
+usage "james"
+action :james do
+  say "bond"
+end
+
+usage ""
+action :global do
+  say "domination"
+end
