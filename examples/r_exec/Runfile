@@ -25,7 +25,7 @@ action :piddir do
 end
 
 action :log do
-  run_bg "pwd", log: 'pwd.log'
+  run_bg "echo 'logged'", log: 'log.log'
 end
 
 usage  "sleep [--stop]"

@@ -1,0 +1,6 @@
+name    "Beer"
+summary "A sample Runfile"
+
+action :drink do
+  say "Drink Beer"
+end

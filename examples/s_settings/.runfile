@@ -1,0 +1,4 @@
+---
+# A settings YAML file to define folder to search in
+
+folder: commands

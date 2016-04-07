@@ -31,9 +31,14 @@ module Runfile
         runfile and return runfile
       end
 
-      # if we are here, offer some help and advice
-      show_make_help runfiles
+      # if we are here, offer some help and advice and show a list
+      # of possible runfiles to run.
+      show_make_help runfiles, settings.folder
       return false
+    end
+
+    def purge_settings
+      @settings = OpenStruct.new
     end
 
     private
@@ -53,7 +58,7 @@ module Runfile
       end
     end
 
-    # Find all *.runfile files in in our search difrectories
+    # Find all *.runfile files in our search difrectories
     def find_runfiles
       result = []
       dirs = runfile_folders
@@ -65,14 +70,16 @@ module Runfile
     end
 
     # Show some helpful tips, and a list of available runfiles
-    def show_make_help(runfiles)
-      say "!txtpur!Runfile engine v#{Runfile::VERSION}"
-      runfiles.size < 3 and say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
+    def show_make_help(runfiles, compact=false)
+      say "!txtpur!Runfile engine v#{Runfile::VERSION}" unless compact
+      if runfiles.size < 3 and !compact
+        say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
+      end
       if runfiles.empty? 
         say "\n!txtred!Runfile not found."
       else
         say ""
-        say_runfile_list runfiles
+        say_runfile_list runfiles, compact
       end
     end
 
@@ -81,7 +88,14 @@ module Runfile
       # This trick allows searching in subfolders recursively, including
       # one level of symlinked folder
       subdirs = '**{,/*/**}'
-      [Dir.pwd, "#{Dir.home}/runfile/#{subdirs}", "/etc/runfile/#{subdirs}"]
+      
+      # If there is a '.runfile' settings file with a folder definition
+      # in it, use it. Otherwise, search globally.
+      if settings.folder
+        ["#{settings.folder}/#{subdirs}"]
+      else
+        [Dir.pwd, "#{Dir.home}/runfile/#{subdirs}", "/etc/runfile/#{subdirs}"]
+      end
     end
     
     # [UNUSED] Same as runfile_folders, but including PATH
@@ -92,18 +106,26 @@ module Runfile
     end
 
     # Output the list of available runfiles
-    def say_runfile_list(runfiles)
+    def say_runfile_list(runfiles, compact=false)
       runfile_paths = runfiles.map { |f| File.dirname f }
       max = runfile_paths.max_by(&:length).size
       width, height = detect_terminal_size
       runfiles.each do |f|
         f[/([^\/]+).runfile$/]
         command  = "run #{$1}"
-        spacer_size = width - max - command.size - 6
-        spacer_size = [1, spacer_size].max
-        spacer = '.' * spacer_size
-        say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
+        if compact
+          say "  !txtgrn!#{command}!txtrst!"
+        else
+          spacer_size = width - max - command.size - 6
+          spacer_size = [1, spacer_size].max
+          spacer = '.' * spacer_size
+          say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
+        end
       end
+    end
+
+    def settings
+      @settings ||= Settings.new.as_struct
     end
 
   end

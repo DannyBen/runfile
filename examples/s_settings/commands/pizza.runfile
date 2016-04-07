@@ -1,0 +1,6 @@
+name    "Pizza"
+summary "A sample Runfile"
+
+action :order do
+  say "Order Pizza"
+end
