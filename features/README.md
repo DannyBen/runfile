@@ -1,6 +1,9 @@
 Runfile Feature Tests
 =====================
 
+Runfile tests are built with Cucumber, and with the 
+[Clicumber step definitions](https://github.com/DannyBen/clicumber)
+
 To run all features:
 
 	$ cd /repository/root/folder
