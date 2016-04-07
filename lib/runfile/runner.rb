@@ -30,8 +30,7 @@ module Runfile
 
     # Return a singleton Runner instance.
     def self.instance
-      @@instance = self.new if @@instance.nil?
-      @@instance
+      @@instance ||= self.new
     end
 
     # Load and execute a Runfile call.
