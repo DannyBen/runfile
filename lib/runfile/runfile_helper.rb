@@ -37,6 +37,10 @@ module Runfile
       return false
     end
 
+    def purge_settings
+      @settings = OpenStruct.new
+    end
+
     private
 
     # Create a new runfile in the current directory. We can either

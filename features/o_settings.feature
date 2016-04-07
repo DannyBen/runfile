@@ -18,3 +18,7 @@ Scenario: See usage of a runfile in the folder
 Scenario: Execute a runfile in the folder
    When I run "run pizza order"
    Then the output should be "Order Pizza"
+
+Scenario: Execute run bang in a folder with settings
+   When I run "run!"
+   Then the output should match "Tip: Type 'run make' or 'run make name'..."

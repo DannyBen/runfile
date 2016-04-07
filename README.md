@@ -1,5 +1,5 @@
 Runfile - If Rake and Docopt had a baby
-=======================================
+==================================================
 
 [![Gem Version](https://badge.fury.io/rb/runfile.svg)](http://badge.fury.io/rb/runfile)
 [![Build Status](https://travis-ci.org/DannyBen/runfile.svg?branch=master)](https://travis-ci.org/DannyBen/runfile)
@@ -25,21 +25,22 @@ You create a `Runfile`, and execute commands with
 
 ---
 
-## Install ##
+Install
+--------------------------------------------------
 
 	$ gem install runfile
 
 
-
-## Quick Start ##
+Quick Start
+--------------------------------------------------
 
 	$ run make       # create a new Runfile
 	$ run --help     # show the usage patterns
 	$ vi Runfile     # edit the Runfile
 
 
-
-## Example ##
+Example
+--------------------------------------------------
 
 The most minimal `Runfile` looks like this:
 
@@ -85,8 +86,8 @@ Options:
 ```
 
 
-
-## Runfile per project or global Runfiles ##
+Runfile per project or global Runfiles
+--------------------------------------------------
 
 In addition to the per project `Runfile` files, it is also possible to 
 create global runfiles that are accessible to you only or to anybody on 
@@ -105,8 +106,8 @@ for global (named) runfiles.
 Read more in the [Runfile Location and Filename wiki page](https://github.com/DannyBen/runfile/wiki/Runfile-Location-and-Filename)
 
 
-
-## Documentation ##
+Documentation
+--------------------------------------------------
 
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
 - [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)

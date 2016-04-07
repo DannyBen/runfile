@@ -35,6 +35,7 @@ module Runfile
 
     # Load and execute a Runfile call.
     def execute(argv, filename='Runfile')
+      @ignore_settings = !filename
       filename and File.file?(filename) or handle_no_runfile argv
       begin
         load filename
@@ -140,6 +141,7 @@ module Runfile
     # on our part, or the name of a runfile to execute.
     def handle_no_runfile(argv)
       maker = RunfileHelper.new
+      maker.purge_settings if @ignore_settings
       runfile = maker.handle argv
       if runfile
         @superspace = argv[0]
