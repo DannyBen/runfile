@@ -67,7 +67,7 @@ module Runfile
 
     # Show some helpful tips, and a list of available runfiles
     def show_make_help(runfiles, compact=false)
-      say "!txtpur!Runfile engine v#{Runfile::VERSION}"
+      say "!txtpur!Runfile engine v#{Runfile::VERSION}" unless compact
       if runfiles.size < 3 and !compact
         say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
       end
@@ -88,7 +88,7 @@ module Runfile
       # If there is a '.runfile' settings file with a folder definition
       # in it, use it. Otherwise, search globally.
       if settings.folder
-        ["lib/#{subdirs}"]
+        ["#{settings.folder}/#{subdirs}"]
       else
         [Dir.pwd, "#{Dir.home}/runfile/#{subdirs}", "/etc/runfile/#{subdirs}"]
       end
