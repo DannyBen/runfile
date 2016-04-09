@@ -80,7 +80,7 @@ module Runfile
         say "\n!txtred!Runfile not found."
       else
         say ""
-        say_runfile_list runfiles, compact
+        compact ? say_runfile_usage(runfiles) : say_runfile_list(runfiles)
       end
     end
 
@@ -107,21 +107,26 @@ module Runfile
     end
 
     # Output the list of available runfiles
-    def say_runfile_list(runfiles, compact=false)
+    def say_runfile_list(runfiles)
       runfile_paths = runfiles.map { |f| File.dirname f }
       max = runfile_paths.max_by(&:length).size
       width, height = detect_terminal_size
       runfiles.each do |f|
         f[/([^\/]+).runfile$/]
         command  = "run #{$1}"
-        if compact
-          say "  !txtgrn!#{command}!txtrst!"
-        else
-          spacer_size = width - max - command.size - 6
-          spacer_size = [1, spacer_size].max
-          spacer = '.' * spacer_size
-          say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
-        end
+        spacer_size = width - max - command.size - 6
+        spacer_size = [1, spacer_size].max
+        spacer = '.' * spacer_size
+        say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
+      end
+    end
+
+    # Output the list of available runfiles without filename
+    def say_runfile_usage(runfiles)
+      runfiles.each do |f|
+        f[/([^\/]+).runfile$/]
+        command  = "run #{$1}"
+        say "  !txtgrn!#{command}!txtrst!"
       end
     end
 
