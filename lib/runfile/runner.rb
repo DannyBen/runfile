@@ -34,7 +34,7 @@ module Runfile
       @ignore_settings = !filename
       filename and File.file?(filename) or handle_no_runfile argv
       begin
-        load settings.load if settings.load
+        load settings.helper if settings.helper
         load filename
       rescue => ex
         abort "Runfile error:\n#{ex.message}\n#{ex.backtrace[0]}"

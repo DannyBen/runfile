@@ -1,4 +1,9 @@
 ---
-# A settings YAML file to define folder to search in
+# Runfile settings YAML
 
+# Define the folder where *.runfile files reside
 folder: commands
+
+# Optionally, load this file before loading any other runfile
+# Consider this your "helper" file.
+helper: helper.rb
