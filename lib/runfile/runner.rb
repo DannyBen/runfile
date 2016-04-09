@@ -1,5 +1,5 @@
+require 'singleton'
 require 'docopt'
-require 'pp'
 
 module Runfile
 
@@ -9,10 +9,10 @@ module Runfile
   # 1. DocoptHelper - for deeper docopt related actions
   # 2. RunfileHelper - for Runfile creation and system wide search
   class Runner
+    include Singleton
+
     attr_accessor :last_usage, :last_help, :name, :version, 
       :summary, :namespace, :superspace
-
-    @@instance = nil
 
     # Initialize all variables to sensible defaults.
     def initialize
@@ -28,11 +28,6 @@ module Runfile
       @summary  = false     # dsl: summary
     end
 
-    # Return a singleton Runner instance.
-    def self.instance
-      @@instance ||= self.new
-    end
-
     # Load and execute a Runfile call.
     def execute(argv, filename='Runfile')
       @ignore_settings = !filename
@@ -42,7 +37,7 @@ module Runfile
       rescue => ex
         abort "Runfile error:\n#{ex.message}\n#{ex.backtrace[0]}"
       end
-      @@instance.run *argv
+      run *argv
     end
 
     # Add an action to the @actions array, and use the last known
