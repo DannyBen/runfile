@@ -6,9 +6,6 @@ module Runfile
   # The Settings class handles '.runfile' YAML config files.
   # If found in the current directory, we will use their content.
   class Settings
-    def initialize
-    end
-
     def as_struct
       OpenStruct.new settings
     end
@@ -21,6 +18,12 @@ module Runfile
 
     def settings!
       File.file?('.runfile') ? YAML.load_file('.runfile') : {}
+    end
+  end
+
+  module SettingsMixin
+    def settings
+      @settings ||= Settings.new.as_struct
     end
   end
 

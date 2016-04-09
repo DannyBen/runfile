@@ -8,6 +8,7 @@ module Runfile
   # 2. Creating new runfiles (`run make`)
   # 3. Showing a list of found system runfiles in a colorful help
   class RunfileHelper
+    include SettingsMixin
     
     # Handle the case when `run` is called without a Runfile 
     # present. We will let the user know they can type `run make`
@@ -122,10 +123,6 @@ module Runfile
           say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
         end
       end
-    end
-
-    def settings
-      @settings ||= Settings.new.as_struct
     end
 
   end

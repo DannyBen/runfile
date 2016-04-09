@@ -10,6 +10,7 @@ module Runfile
   # 2. RunfileHelper - for Runfile creation and system wide search
   class Runner
     include Singleton
+    include SettingsMixin
 
     attr_accessor :last_usage, :last_help, :name, :version, 
       :summary, :namespace, :superspace
@@ -33,6 +34,7 @@ module Runfile
       @ignore_settings = !filename
       filename and File.file?(filename) or handle_no_runfile argv
       begin
+        load settings.load if settings.load
         load filename
       rescue => ex
         abort "Runfile error:\n#{ex.message}\n#{ex.backtrace[0]}"
