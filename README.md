@@ -1,11 +1,11 @@
 Runfile - If Rake and Docopt had a baby
 ==================================================
 
-[![Gem Version](https://badge.fury.io/rb/runfile.svg)](http://badge.fury.io/rb/runfile)
-[![Build Status](https://travis-ci.org/DannyBen/runfile.svg?branch=master)](https://travis-ci.org/DannyBen/runfile)
-[![Code Climate](https://codeclimate.com/github/DannyBen/runfile/badges/gpa.svg)](https://codeclimate.com/github/DannyBen/runfile)
-[![Dependency Status](https://gemnasium.com/DannyBen/runfile.svg)](https://gemnasium.com/DannyBen/runfile)
-<!-- [![Gem](https://img.shields.io/gem/dt/runfile.svg)](https://rubygems.org/gems/runfile) -->
+[![Gem](https://img.shields.io/gem/v/runfile.svg?style=flat-square)](https://rubygems.org/gems/runfile)
+[![Travis](https://img.shields.io/travis/DannyBen/runfile.svg?style=flat-square)](https://travis-ci.org/DannyBen/runfile)
+[![Code Climate](https://img.shields.io/codeclimate/github/DannyBen/runfile.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/runfile)
+[![Gemnasium](https://img.shields.io/gemnasium/DannyBen/runfile.svg?style=flat-square)](https://gemnasium.com/DannyBen/runfile)
+[![Gem](https://img.shields.io/gem/dt/runfile.svg?style=flat-square)](https://rubygems.org/gems/runfile)
 
 ---
 
