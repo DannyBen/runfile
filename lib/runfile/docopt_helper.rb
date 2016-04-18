@@ -29,7 +29,7 @@ module Runfile
     # Generate a document based on all the actions, help messages
     # and options we have collected from the Runfile DSL.
     def docopt
-      width, height = detect_terminal_size
+      width = detect_terminal_size[0]
       doc = []
       doc << (@version ? "#{@name} #{@version}" : "#{@name}")
       doc << "#{@summary}" if @summary

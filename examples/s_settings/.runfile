@@ -4,6 +4,10 @@
 # Define the folder where *.runfile files reside
 folder: commands
 
-# Optionally, load this file before loading any other runfile
+# Optional: File to load before any runfile
 # Consider this your "helper" file.
 helper: helper.rb
+
+# Optional: Message to show before the list of files
+# This string supports color markers
+intro: "!txtgrn!My Command Line"

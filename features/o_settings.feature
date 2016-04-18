@@ -8,8 +8,8 @@ Background:
 
 Scenario: See list of runfiles in the configured folder
    When I run "run"
-   Then the output should match "run beer"
-    And the output should match "run pizza"
+   Then the output should match "Usage: run <file>"
+    And the output should match "beer.*pizza"
 
 Scenario: See usage of a runfile in the folder
    When I run "run pizza"
@@ -26,3 +26,7 @@ Scenario: Execute run bang in a folder with settings
 Scenario: Autoload helper file
    When I run "run loadchecker check"
    Then the output should be "This message came from helper.rb"
+
+Scenario: Show intro line
+   When I run "run"
+   Then the output should match "My Command Line"
