@@ -123,11 +123,14 @@ module Runfile
 
     # Output the list of available runfiles without filename
     def say_runfile_usage(runfiles)
-      runfiles.each do |f|
-        f[/([^\/]+).runfile$/]
-        command  = "run #{$1}"
-        say "  !txtgrn!#{command}!txtrst!"
-      end
+      namelist = runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
+      width = detect_terminal_size[0]
+      max = namelist.max_by(&:length).length
+      message = "  " + namelist.map {|f| f.ljust max+1 }.join(' ')
+      
+      say "#{settings.intro}\n" if settings.intro
+      say "Usage: run <file>"
+      say word_wrap(message, width)
     end
 
   end

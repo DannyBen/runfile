@@ -73,6 +73,11 @@ When(/^I go into the "([^"]*)" (?:folder|dir|directory)$/) do |dir|
   Dir.chdir dir
 end
 
+## When...wait
+When(/^I wait (?:for )?"([^"]*)" seconds?$/) do |seconds|
+  sleep seconds.to_f
+end
+
 ## Then...output
 
 Then(/^the (error )?output should (not )?be like "([^"]*)"$/) do |stderr, negate, file|

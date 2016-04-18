@@ -35,6 +35,7 @@ Scenario: "Execute a background job storing pid in another folder"
 Scenario: "Execute a background job and direct output to a log"
   Given the file "log.log" does not exist
    When I run "run log"
+    And I wait "1" second
    Then the file "log.log" should exist
     And the file "log.log" should match "logged"
 

@@ -16,3 +16,16 @@ action :clicumber do
   exec "curl -o '#{file}' #{url}"
 end
 
+help   "Rename (toggle) the ~/runfile folder so we can run tests"
+action :pretest do
+  if File.directory? "#{Dir.home}/runfile"
+    File.rename "#{Dir.home}/runfile", "#{Dir.home}/runfile_"
+    say "Global runfiles !txtred!disabled"
+  elsif File.directory? "#{Dir.home}/runfile_"
+    File.rename "#{Dir.home}/runfile_", "#{Dir.home}/runfile"
+    say "Global runfiles !txtgrn!enabled"
+  end
+
+end
+
+
