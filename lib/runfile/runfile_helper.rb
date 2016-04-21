@@ -144,11 +144,15 @@ module Runfile
     # Returns the list of runfiles, organized as columns based on the
     # current terminal width
     def get_runfiles_as_columns(runfiles)
-      namelist = runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
+      namelist = runfile_names runfiles
       width = detect_terminal_size[0]
       max = namelist.max_by(&:length).length
       message = "  " + namelist.map {|f| f.ljust max+1 }.join(' ')
       word_wrap message, width
+    end
+
+    def runfile_names(runfiles)
+      runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
     end
 
   end
