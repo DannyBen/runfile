@@ -123,24 +123,32 @@ module Runfile
 
     # Output the list of available runfiles without filename
     def say_runfile_usage(runfiles)
-      namelist = runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
-      width = detect_terminal_size[0]
-      max = namelist.max_by(&:length).length
-      message = "  " + namelist.map {|f| f.ljust max+1 }.join(' ')
+      runfiles_as_columns = get_runfiles_as_columns runfiles
       
       say "#{settings.intro}\n" if settings.intro
       say "Usage: run <file>"
-      say word_wrap(message, width)
+      say runfiles_as_columns
 
       show_shortcuts if settings.shortcuts
     end
 
+    # Prints a friendly output of the shortcut list
     def show_shortcuts
       say "\nShortcuts:"
       max = settings.shortcuts.keys.max_by(&:length).length
       settings.shortcuts.each_pair do |shortcut, command|
         say "  #{shortcut.rjust max} : #{command}"
       end
+    end
+
+    # Returns the list of runfiles, organized as columns based on the
+    # current terminal width
+    def get_runfiles_as_columns(runfiles)
+      namelist = runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
+      width = detect_terminal_size[0]
+      max = namelist.max_by(&:length).length
+      message = "  " + namelist.map {|f| f.ljust max+1 }.join(' ')
+      word_wrap message, width
     end
 
   end
