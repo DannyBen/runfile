@@ -32,7 +32,9 @@ module Runfile
     # Load and execute a Runfile call.
     def execute(argv, filename='Runfile')
       @ignore_settings = !filename
+      argv = expand_shortcuts argv
       filename and File.file?(filename) or handle_no_runfile argv
+
       begin
         load settings.helper if settings.helper
         load filename
@@ -146,6 +148,18 @@ module Runfile
         execute argv, runfile
       end
       exit
+    end
+
+    def expand_shortcuts(argv)
+      possible_candidate = argv[0]
+      if settings.shortcuts and settings.shortcuts[possible_candidate]
+        shortcut_value = settings.shortcuts[argv[0]]
+        expanded = shortcut_value.split ' '
+        say "!txtblu!# #{possible_candidate} > #{shortcut_value}"
+        argv.shift
+        argv = expanded + argv
+      end
+      argv
     end
   end
 end
