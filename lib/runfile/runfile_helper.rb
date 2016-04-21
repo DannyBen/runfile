@@ -131,6 +131,16 @@ module Runfile
       say "#{settings.intro}\n" if settings.intro
       say "Usage: run <file>"
       say word_wrap(message, width)
+
+      show_shortcuts if settings.shortcuts
+    end
+
+    def show_shortcuts
+      say "\nShortcuts:"
+      max = settings.shortcuts.keys.max_by(&:length).length
+      settings.shortcuts.each_pair do |shortcut, command|
+        say "  #{shortcut.rjust max} : #{command}"
+      end
     end
 
   end

@@ -30,3 +30,18 @@ Scenario: Autoload helper file
 Scenario: Show intro line
    When I run "run"
    Then the output should match "My Command Line"
+
+Scenario: Execute through a shortcut
+   When I run "run s"
+   Then the output should match "# s > server start"
+   Then the output should match "Started in the foreground"
+
+Scenario: Execute through a shortcut with argument
+   When I run "run stat prod"
+   Then the output should match "Status of prod is A-OK"
+
+Scenario: See list of shortcuts in the configured folder
+   When I run "run"
+   Then the output should match "Shortcuts:"
+    And the output should match "s : server start"
+    And the output should match "sd : server start --daemon"

@@ -11,3 +11,13 @@ helper: helper.rb
 # Optional: Message to show before the list of files
 # This string supports color markers
 intro: "!txtgrn!My Command Line"
+
+# Optional: An array of shortcut commands
+# Each of the keys here will be expanded to their values before Runfile
+# tries to move on to the execution stage. In other words, if you have
+# a shortcut saying "s: server --daemon", and you run "run s" it is
+# exactly like you run "run server --daemon".
+shortcuts:
+  s: server start
+  sd: server start --daemon
+  stat: server status
