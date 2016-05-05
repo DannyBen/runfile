@@ -152,7 +152,7 @@ module Runfile
     end
 
     def runfile_names(runfiles)
-      runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }
+      runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }.sort
     end
 
   end
