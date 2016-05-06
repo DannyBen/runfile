@@ -41,6 +41,21 @@ action :error do
   stop_bg 'no-such-pid-file'
 end
 
+action :quiet do
+  Exec.quiet = true
+  run "echo quietly"
+  Exec.quiet = false
+end
+
+action :'block-config' do
+  Exec.setup do |config|
+    config.pid_dir = 'what-a-lovely-folder'
+  end
+  say "pid_dir = #{Exec.pid_dir}"
+
+  Exec.pid_dir = nil # just reset to default for other tests
+end
+
 # Optional Hooks
 
 # Will be called before each call to run, run! and run_bg
