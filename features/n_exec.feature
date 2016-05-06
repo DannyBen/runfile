@@ -25,7 +25,6 @@ Scenario: "Execute a background job with a given pid alias"
     And the file "ls.pid" should exist
     And the file "ls.pid" should match "\d+"
 
-@current
 Scenario: "Execute a background job storing pid in another folder"
   Given the file "tmp/pidfile.pid" does not exist
    When I run "run piddir"
@@ -49,4 +48,8 @@ Scenario: "Stop a background job"
 Scenario: "Stop a non existing background job"
    When I run "run error"
    Then the output should say "PID file not found"
+
+Scenario: "Configure with a block"
+   When I run "run block-config"
+   Then the output should say "pid_dir = what-a-lovely-folder"
 
