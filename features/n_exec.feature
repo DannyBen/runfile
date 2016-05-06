@@ -53,3 +53,6 @@ Scenario: "Configure with a block"
    When I run "run block-config"
    Then the output should say "pid_dir = what-a-lovely-folder"
 
+Scenario: "Run without showing the command"
+   When I run "run quiet"
+   Then the output should match "BEFORE echo quietly\nquietly\nAFTER echo quietly"
