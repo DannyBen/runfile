@@ -25,6 +25,7 @@ Scenario: "Execute a background job with a given pid alias"
     And the file "ls.pid" should exist
     And the file "ls.pid" should match "\d+"
 
+@current
 Scenario: "Execute a background job storing pid in another folder"
   Given the file "tmp/pidfile.pid" does not exist
    When I run "run piddir"

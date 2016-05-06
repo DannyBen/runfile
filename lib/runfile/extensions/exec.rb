@@ -5,12 +5,12 @@
 
 module Runfile
   module Exec
-    def self.pid_dir=(dir)
-      @@pid_dir = dir
-    end
+    class << self
+      attr_accessor :pid_dir
 
-    def self.pid_dir
-      @@pid_dir
+      def setup
+        yield self
+      end
     end
 
     # Run a command, wait until it is done and continue
@@ -66,10 +66,8 @@ module Runfile
       @after_run_block = block
     end
 
-    private
-
     def pid_dir
-      defined?(@@pid_dir) ? @@pid_dir : nil
+      defined?(Exec.pid_dir) ? Exec.pid_dir : nil
     end
 
     def pidfile(pid)
