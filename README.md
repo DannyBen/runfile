@@ -21,7 +21,7 @@ to [Rake](https://github.com/ruby/rake), but with the full power of
 You create a `Runfile`, and execute commands with 
 `run command arguments -and --flags`.
 
-![Runfile Demo](https://raw.githubusercontent.com/DannyBen/runfile/dev/demo.png "Runfile Demo")
+![Runfile Demo](https://raw.githubusercontent.com/DannyBen/runfile/dev/demo.gif "Runfile Demo")
 
 [Learn More in the Wiki](https://github.com/DannyBen/runfile/wiki)
 
