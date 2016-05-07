@@ -1,5 +1,7 @@
 module Runfile
 
+  # The Runfile::Exec module is derecated. It is kept here so that those
+  # who include it in the past will know what to do.
   module Exec
     def self.included(base)
       say! "!txtred!Runfile::Exec is deprecated. You should change your Runfile:"
