@@ -1,23 +1,19 @@
-# This module provides methods for easily and politely run shell commands
-# through a Runfile action.
-# It is mainly a convenient wrapper around `system` and `exec` and it also
-# adds functions for running background tasks with ease.
+require 'singleton'
 
 module Runfile
-  module Exec
-    class << self
-      attr_accessor :pid_dir, :quiet
 
-      def setup
-        yield self
-      end
-    end
+  # This class provides methods for easily and politely run shell commands
+  # through a Runfile action.
+  # It is mainly a convenient wrapper around `system` and `exec` and it also
+  # adds functions for running background tasks with ease.
+  class ExecHandler
+    include Singleton
 
     # Run a command, wait until it is done and continue
     def run(cmd)
       cmd = @before_run_block.call(cmd) if @before_run_block
       return false unless cmd
-      say "!txtgrn!> #{cmd}" unless Exec.quiet
+      say "!txtgrn!> #{cmd}" unless Runfile.quiet
       system cmd
       @after_run_block.call(cmd) if @after_run_block
     end
@@ -26,7 +22,7 @@ module Runfile
     def run!(cmd)
       cmd = @before_run_block.call(cmd) if @before_run_block
       return false unless cmd
-      say "!txtgrn!> #{cmd}" unless Exec.quiet
+      say "!txtgrn!> #{cmd}" unless Runfile.quiet
       exec cmd
     end
 
@@ -36,7 +32,7 @@ module Runfile
       cmd = @before_run_block.call(cmd) if @before_run_block
       return false unless cmd
       full_cmd = "exec #{cmd} >#{log} 2>&1"
-      say "!txtgrn!> #{full_cmd}" unless Exec.quiet
+      say "!txtgrn!> #{full_cmd}" unless Runfile.quiet
       process = IO.popen "exec #{cmd} >#{log} 2>&1"
       File.write pidfile(pid), process.pid if pid
       @after_run_block.call(cmd) if @after_run_block
@@ -52,7 +48,7 @@ module Runfile
         File.delete file
         run "kill -s TERM #{pid}"
       else
-        say "!txtred!PID file not found." unless Exec.quiet
+        say "!txtred!PID file not found." unless Runfile.quiet
       end
     end
 
@@ -66,8 +62,10 @@ module Runfile
       @after_run_block = block
     end
 
+    private
+
     def pid_dir
-      defined?(Exec.pid_dir) ? Exec.pid_dir : nil
+      defined?(Runfile.pid_dir) ? Runfile.pid_dir : nil
     end
 
     def pidfile(pid)
@@ -75,5 +73,4 @@ module Runfile
     end
 
   end
-
 end
