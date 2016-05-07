@@ -155,5 +155,10 @@ module Runfile
       runfiles.map {|f| /([^\/]+).runfile$/.match(f)[1] }.sort
     end
 
+    # Returns an array of path directories
+    def path_dirs
+      ENV['PATH'].split(File::PATH_SEPARATOR)
+    end
+
   end
 end
