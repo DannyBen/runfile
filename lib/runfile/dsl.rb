@@ -55,6 +55,38 @@ module Runfile
     Runner.instance.cross_call command_string
   end
 
+  # Run a command, wait until it is done and continue
+  def run(*args)
+    ExecHandler.instance.run *args
+  end
+
+  # Run a command, wait until it is done, then exit
+  def run!(*args)
+    ExecHandler.instance.run! *args
+  end
+
+  # Run a command in the background, optionally log to a log file and save
+  # the process ID in a pid file
+  def run_bg(*args)
+    ExecHandler.instance.run_bg *args
+  end
+
+  # Stop a command started with 'run_bg'. Provide the name of he pid file you 
+  # used in 'run_bg'
+  def stop_bg(*args)
+    ExecHandler.instance.stop_bg *args
+  end
+
+  # Set a block to be called before each run
+  def before_run(&block)
+    ExecHandler.instance.before_run &block
+  end
+
+  # Set a block to be called after each run
+  def after_run(&block)
+    ExecHandler.instance.after_run &block
+  end
+
   # Also allow to use 'endcommand' instead of 'command' to end
   # a command namespace definition
   alias_method :endcommand, :command

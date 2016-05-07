@@ -1,8 +1,4 @@
-include Runfile::Exec
-
-# this example uses the Runfile::Exec extension which provides
-# additional commands such as 'run' and 'run_bg' for executing external
-# commands
+# this example uses the run* utility commands to run external commands
 #
 # run 'run -h' to see how it works
 
@@ -19,9 +15,9 @@ action :pid do
 end
 
 action :piddir do
-  Exec.pid_dir = 'tmp'
+  Runfile.pid_dir = 'tmp'
   run_bg "ls", pid: 'pidfile'
-  Exec.pid_dir = nil # just reset to default for other tests
+  Runfile.pid_dir = nil # just reset to default for other tests
 end
 
 action :log do
@@ -42,18 +38,18 @@ action :error do
 end
 
 action :quiet do
-  Exec.quiet = true
+  Runfile.quiet = true
   run "echo quietly"
-  Exec.quiet = false
+  Runfile.quiet = false
 end
 
 action :'block-config' do
-  Exec.setup do |config|
+  Runfile.setup do |config|
     config.pid_dir = 'what-a-lovely-folder'
   end
-  say "pid_dir = #{Exec.pid_dir}"
+  say "pid_dir = #{Runfile.pid_dir}"
 
-  Exec.pid_dir = nil # just reset to default for other tests
+  Runfile.pid_dir = nil # just reset to default for other tests
 end
 
 # Optional Hooks
