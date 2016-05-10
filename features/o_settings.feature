@@ -21,7 +21,7 @@ Scenario: Execute a runfile in the folder
 
 Scenario: Execute run bang in a folder with settings
    When I run "run!"
-   Then the output should match "Tip: Type 'run make' or 'run make name'..."
+   Then the output should match "Tip: Type 'run new' or 'run new name'..."
 
 Scenario: Autoload helper file
    When I run "run loadchecker check"
