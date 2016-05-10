@@ -36,7 +36,7 @@ Install
 Quick Start
 --------------------------------------------------
 
-	$ run make       # create a new Runfile
+	$ run new        # create a new Runfile
 	$ run --help     # show the usage patterns
 	$ vi Runfile     # edit the Runfile
 

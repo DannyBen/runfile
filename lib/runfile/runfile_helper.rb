@@ -5,20 +5,20 @@ module Runfile
 
   # The RunfileHelper class assists in:
   # 1. Finding named.runfiles
-  # 2. Creating new runfiles (`run make`)
+  # 2. Creating new runfiles (`run new`)
   # 3. Showing a list of found system runfiles in a colorful help
   class RunfileHelper
     include SettingsMixin
     
     # Handle the case when `run` is called without a Runfile 
-    # present. We will let the user know they can type `run make`
+    # present. We will let the user know they can type `run new`
     # to create a new sample Runfile.
     # If the first argument matches the name of a *.runfile name,
     # we will return it to the caller. Otherwise, we return false
     # to indicate "no further handling is needed".
     def handle(argv)
       # make a new runfile
-      if argv[0] == "make"
+      if argv[0] == "new" && !settings_present?
         make_runfile argv[1]
         return false
       end
@@ -74,7 +74,7 @@ module Runfile
     def show_make_help(runfiles, compact=false)
       say "!txtpur!Runfile engine v#{Runfile::VERSION}" unless compact
       if runfiles.size < 3 and !compact
-        say "\nTip: Type '!txtblu!run make!txtrst!' or '!txtblu!run make name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
+        say "\nTip: Type '!txtblu!run new!txtrst!' or '!txtblu!run new name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
       end
       if runfiles.empty? 
         say "\n!txtred!Runfile not found."

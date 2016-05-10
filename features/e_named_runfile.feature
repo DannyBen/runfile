@@ -7,7 +7,7 @@ Feature: Named Runfiles
 Scenario: See usage in a named runfile 
   Given I am in the "examples/j_customname" folder
    When I run "run"
-   Then the output should match "Tip: Type 'run make' or 'run make name'..."
+   Then the output should match "Tip: Type 'run new' or 'run new name'..."
     And the output should match "For global access, place named.runfiles in..."
     And the output should match "run greet \.* .*/examples/j_customname"
 
