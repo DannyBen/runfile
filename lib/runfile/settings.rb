@@ -25,6 +25,10 @@ module Runfile
     def settings
       @settings ||= Settings.new.as_struct
     end
+
+    def settings_present?
+      File.file?('.runfile')
+    end
   end
 
 end

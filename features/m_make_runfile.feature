@@ -41,3 +41,9 @@ Scenario: "Dont show the make tip if the user is already trained"
    When I run "run"
    Then the output should not match "Tip: Type 'run make' or 'run make name'..."
   
+Scenario: "Dont show the make tip if .runfile is present"
+  Given I am in the "examples/s_settings" folder
+   When I run "run make"
+   Then the output should match "Usage: run <file>"
+    And the output should not match "Type 'run make'"
+  

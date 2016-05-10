@@ -18,7 +18,7 @@ module Runfile
     # to indicate "no further handling is needed".
     def handle(argv)
       # make a new runfile
-      if argv[0] == "make"
+      if argv[0] == "make" && !settings_present?
         make_runfile argv[1]
         return false
       end
