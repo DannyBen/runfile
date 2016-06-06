@@ -63,8 +63,8 @@ module Runfile
   end
 
   # Cross-call another action
-  #   call 'other_action'
-  def call(command_string)
+  #   execute 'other_action'
+  def execute(command_string)
     Runner.instance.cross_call command_string
   end
 

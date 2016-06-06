@@ -16,9 +16,9 @@ end
 # this action calls other actions, including one in a different
 # command namespace ("eat")
 action :exercise do
-  call "jump --high --twice"
-  call "jog"
-  call "eat cake"
+  execute "jump --high --twice"
+  execute "jog"
+  execute "eat cake"
 end
 
 command "eat"
@@ -28,8 +28,8 @@ action :cake do
 end
 
 action :'two-cakes' do
-  call "eat cake"
-  call "eat cake"
-  call "jog"
+  execute "eat cake"
+  execute "eat cake"
+  execute "jog"
 end
 

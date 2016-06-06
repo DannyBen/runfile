@@ -88,7 +88,7 @@ module Runfile
       end
     end
 
-    # Invoke action from another action. Used by the DSL's #call 
+    # Invoke action from another action. Used by the DSL's #execute 
     # function. Expects to get a single string that looks as if
     # it was typed in the command prompt.
     def cross_call(command_string) 
