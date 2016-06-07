@@ -1,0 +1,13 @@
+# in this example we have also added the '.scoped-runfile' file.
+# this will prevent the `run` command from automatically including
+# the Runfile module which may cause namespace conflicts if your 
+# Runfile is more complex. 
+# when using this method, you need to `include Runfile` in your Runfile
+
+include Runfile
+
+name 'Scoping Test'
+
+action :functional do
+  say "yes"
+end
