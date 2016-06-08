@@ -5,7 +5,7 @@ require 'runfile'
 # for dev
 # require File.dirname(__FILE__) + "/../lib/runfile"
 
-include Runfile
+include Runfile unless File.exist? '.scoped-runfile'
 
 # This is needed in cases when you are running "run!" from a folder
 # that contains a Gemfile on a machine with RVM.
@@ -13,4 +13,4 @@ include Runfile
 # Source: https://rvm.io/integration/bundler
 ENV['NOEXEC_DISABLE'] = '1'
 
-Runner.instance.execute ARGV, false
+Runfile::Runner.instance.execute ARGV, false
