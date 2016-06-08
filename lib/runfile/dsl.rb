@@ -3,6 +3,8 @@
 # for handling.
 
 module Runfile
+  private
+
   # Set the name of your Runfile program
   #   name 'My Runfile'
   def name(name)
