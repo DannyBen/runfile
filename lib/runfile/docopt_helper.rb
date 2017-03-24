@@ -2,13 +2,12 @@ require 'docopt'
 require 'colsole'
 
 module Runfile
-  include Colsole
-
   # The DocoptHelper class handles the dynamic generation of the 
   # docopt document and the docopt part of the execution (meaning,
   # to call Docopt so it returns the parsed arguments or halts with
   # usage message).
   class DocoptHelper
+    include Colsole
 
     # The constructor expects to get all the textual details
     # needed to generate a docopt document (name, version, 

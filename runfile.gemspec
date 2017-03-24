@@ -17,12 +17,13 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.required_ruby_version = ">= 2.0.0"
 
-  s.add_runtime_dependency 'colsole', '~> 0.3'
+  s.add_runtime_dependency 'colsole', '~> 0.4'
   s.add_runtime_dependency 'docopt', '~> 0.5'
 
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
-  s.add_development_dependency 'cucumber', '~> 2.3'
-  s.add_development_dependency 'rspec-expectations', '~> 3.4'
-  s.add_development_dependency 'rdoc', '~> 4.2'
+  s.add_development_dependency 'cucumber', '~> 2.4'
+  s.add_development_dependency 'rspec-expectations', '~> 3.5'
+  s.add_development_dependency 'rdoc', '~> 4.3'
   s.add_development_dependency 'similar_text', '~> 0.0.4'
+  s.add_development_dependency 'byebug', '~> 9.0'
 end
