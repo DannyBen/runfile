@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-expectations', '~> 3.5'
   s.add_development_dependency 'rdoc', '~> 4.3'
   s.add_development_dependency 'similar_text', '~> 0.0.4'
+  s.add_development_dependency 'byebug', '~> 9.0'
 end
