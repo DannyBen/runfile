@@ -3,8 +3,8 @@
 # each Runfile may have a summary and a version. Both are optional.
 #---
 
-# name sets the title of the application (default: 'Runfile').
-name "Runner"
+# title sets the title of the application (default: 'Runfile').
+title "Runner"
 
 # summary sets the one line description of the application.
 summary "The first ever Runfile program"

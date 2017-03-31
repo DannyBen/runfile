@@ -7,8 +7,8 @@ module Runfile
     private
 
     # Set the name of your Runfile program
-    #   name 'My Runfile'
-    def name(name)
+    #   title 'My Runfile'
+    def title(name)
       Runner.instance.name = name
     end
 

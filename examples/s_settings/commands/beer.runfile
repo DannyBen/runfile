@@ -1,4 +1,4 @@
-name    "Beer"
+title   "Beer"
 summary "A sample Runfile"
 
 action :drink do

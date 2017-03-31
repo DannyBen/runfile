@@ -1,4 +1,4 @@
-name    "Load Checker"
+title   "Load Checker"
 summary "Test that our helper was loaded"
 
 action :check do
