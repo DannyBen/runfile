@@ -1,4 +1,4 @@
-name    "Pizza"
+title   "Pizza"
 summary "A sample Runfile"
 
 action :order do

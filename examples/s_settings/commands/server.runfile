@@ -1,4 +1,4 @@
-name    "Server"
+title   "Server"
 summary "A Sample Server"
 
 usage  "start [--daemon]"

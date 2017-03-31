@@ -1,4 +1,4 @@
-name    "Greeter"
+title   "Greeter"
 summary "A sample Runfile"
 version "0.1.0"
 

@@ -1,14 +1,11 @@
 module Runfile
 
-  # The Runfile::Exec module is derecated. It is kept here so that those
-  # who include it in the past will know what to do.
-  module Exec
-    def self.included(base)
-      say! "!txtred!Runfile::Exec is deprecated. You should change your Runfile:"
-      say! "!txtred!  1. There is no need to include Runfile::Exec, it is already included."
-      say! "!txtred!  2. Change any configuration from Runfile::Exec.pid_dir to Runfile.pid_dir"
-      abort
+  module DSL
+    # The name 'name' was causing some issues in some debugging sessions 
+    # with pry and some other issues. It is replaced with 'title'
+    def name(name=nil)
+      say! "!txtred!Warning:\n  You are using the deprecated directive 'name' in your Runfile.\n  Use 'title' instead.\n"
+      Runner.instance.name = name if name
     end
   end
-
 end
