@@ -27,6 +27,11 @@ You create a `Runfile`, and execute commands with
 
 ---
 
+**Upgrade Notice:** If you are upgrading to 0.9.x - the `name` command
+was replaced with `title`.
+
+---
+
 Install
 --------------------------------------------------
 
