@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'docopt', '~> 0.5'
 
   s.add_development_dependency 'runfile-tasks', '~> 0.4'
-  s.add_development_dependency 'cucumber', '~> 2.4'
+  s.add_development_dependency 'cucumber', '~> 3.0'
   s.add_development_dependency 'rspec-expectations', '~> 3.5'
   s.add_development_dependency 'rdoc', '~> 5.1'
   s.add_development_dependency 'similar_text', '~> 0.0.4'
