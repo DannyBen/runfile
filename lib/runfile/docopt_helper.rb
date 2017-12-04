@@ -42,7 +42,7 @@ module Runfile
     # Return all docopt lines for the 'Usage' section
     def docopt_usage 
       doc = ["\nUsage:"];
-      @actions.each do |name, action|
+      @actions.each do |_name, action|
         doc << "  run #{action.usage}" unless action.usage == false
       end
       basic_flags = @version ? "(-h|--help|--version)" : "(-h|--help)"
@@ -104,7 +104,7 @@ module Runfile
     # Call the docopt handler, which will either return a parsed
     # arguments list, or halt execution and show usage.
     def args(argv)
-      Docopt::docopt(docopt, version: @version, argv:argv)
+      Docopt.docopt(docopt, version: @version, argv:argv)
     end
   end
 end

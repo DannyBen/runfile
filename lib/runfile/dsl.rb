@@ -74,27 +74,27 @@ module Runfile
     # Run a command, wait until it is done and continue
     #   run 'rails server'
     def run(*args)
-      ExecHandler.instance.run *args
+      ExecHandler.instance.run(*args)
     end
 
     # Run a command, wait until it is done, then exit
     #   run! 'rails server'
     def run!(*args)
-      ExecHandler.instance.run! *args
+      ExecHandler.instance.run!(*args)
     end
 
     # Run a command in the background, optionally log to a log file and save
     # the process ID in a pid file
     #   run_bg 'rails server', pid: 'rails', log: 'tmp/log.log'
     def run_bg(*args)
-      ExecHandler.instance.run_bg *args
+      ExecHandler.instance.run_bg(*args)
     end
 
     # Stop a command started with 'run_bg'. Provide the name of he pid file you 
     # used in 'run_bg'
     #   stop_bg 'rails'
     def stop_bg(*args)
-      ExecHandler.instance.stop_bg *args
+      ExecHandler.instance.stop_bg(*args)
     end
 
     # Set a block to be called before each run. The block should return
@@ -105,7 +105,7 @@ module Runfile
     #     command
     #   end
     def before_run(&block)
-      ExecHandler.instance.before_run &block
+      ExecHandler.instance.before_run(&block)
     end
 
     # Set a block to be called after each run
@@ -113,7 +113,7 @@ module Runfile
     #     puts "AFTER #{command}"
     #   end
     def after_run(&block)
-      ExecHandler.instance.after_run &block
+      ExecHandler.instance.after_run(&block)
     end
 
     # Also allow to use 'endcommand' instead of 'command' to end
