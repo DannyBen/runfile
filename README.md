@@ -5,7 +5,7 @@ Runfile - If Rake and Docopt had a baby
 [![Downloads](https://img.shields.io/gem/dt/runfile.svg?style=flat-square)](https://rubygems.org/gems/runfile)
 [![Build](https://img.shields.io/travis/DannyBen/runfile.svg?style=flat-square)](https://travis-ci.org/DannyBen/runfile)
 [![Dependencies](https://img.shields.io/gemnasium/DannyBen/runfile.svg?style=flat-square)](https://gemnasium.com/DannyBen/runfile)
-[![Code QUality](https://img.shields.io/codacy/grade/55cf6df171234931b1781db7921ff68e.svg?style=flat-square)](https://www.codacy.com/app/db/runfile)
+[![Code Quality](https://img.shields.io/codacy/grade/55cf6df171234931b1781db7921ff68e.svg?style=flat-square)](https://www.codacy.com/app/db/runfile)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/DannyBen/runfile.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/runfile)
 [![Issues](https://img.shields.io/codeclimate/issues/github/DannyBen/runfile.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/runfile)
 
