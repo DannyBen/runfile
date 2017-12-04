@@ -19,7 +19,7 @@ end
 
 Given(/^the (?:folder|dir|directory) "([^"]*)" (does not )?exists?$/) do |dir, negate|
   if negate
-    Dir.rm_rf(dir) if Dir.exist? dir
+    FileUtils.rm_rf(dir) if Dir.exist? dir
   else
     Dir.mkdir(dir) unless Dir.exist? dir
   end
@@ -37,7 +37,6 @@ Given(/^the (?:folder|dir|directory) "([^"]*)" is like "([^"]*)"$/) do |target, 
   FileUtils.cp_r source, target
 end
 
-
 ## Given...file
 
 Given(/^the file "([^"]*)" (does not )?exists?$/) do |file, negate|
@@ -54,6 +53,22 @@ end
 
 Given(/^the file "([^"]*)" is like "([^"]*)"$/) do |target, source|
   FileUtils.cp source, target
+end
+
+## Given...environment
+
+Given(/^the variable "([^"]*)" is (not )?"([^"]*)"$/) do |name, negate, value|
+  if negate
+    ENV[name] = "not_#{value}"
+  else
+    ENV[name] = value
+  end
+end
+
+## Given...ran
+
+Given(/^I have already ran "([^"]*)"$/) do |command|
+  @stdout, @stderr, @status = Open3.capture3 command
 end
 
 ## When...run
@@ -103,9 +118,9 @@ end
 Then(/^the (error )?output should (not )?match "([^"]*)"$/) do |stderr, negate, content|
   stream = stderr ? @stderr : @stdout
   if negate
-    expect(stream).to_not match /#{content}/im
+    expect(stream).to_not match(/#{content}/im)
   else
-    expect(stream).to match /#{content}/im 
+    expect(stream).to match(/#{content}/im)
   end
 end
 
@@ -139,9 +154,9 @@ end
 
 Then(/^the file "([^"]*)" should (not )?match "([^"]*)"$/) do |file, negate, content|
   if negate
-    expect(File.read file).to_not match /#{content}/im
+    expect(File.read file).to_not match(/#{content}/im)
   else
-    expect(File.read file).to match /#{content}/im
+    expect(File.read file).to match(/#{content}/im)
   end
 end
 
@@ -158,6 +173,14 @@ Then(/^the file "([^"]*)" should (not )?(?:be|equal) "([^"]*)"$/) do |file, nega
     expect(File.read(file).strip).to_not eq content
   else
     expect(File.read(file).strip).to eq content
+  end
+end
+
+Then(/^the file "([^"]*)" should (not )?be like "([^"]*)"$/) do |file1, negate, file2|
+  if negate
+    expect(File.read(file1).strip).to_not eq File.read(file2).strip
+  else
+    expect(File.read(file1).strip).to eq File.read(file2).strip
   end
 end
 
@@ -179,12 +202,26 @@ Then(/^the (?:folder|dir|directory) should (not )?be empty$/) do |negate|
   end
 end
 
+## Then...debug
+
+Then(/^stop for debug$/) do
+  byebug
+end
+
 ## Then...exit code
 
-Then(/^the (?:status|exit) code should (not )?be "([^"]*)"$/) do |negate, code|
+Then(/^the (?:status|exit) code should (not )?be "([^"]+)"$/) do |negate, code|
   if negate
-    expect(@status.to_i).to_not eq code.to_i
+    expect(@status.exitstatus).to_not eq code.to_i
   else
-    expect(@status.to_i).to eq code.to_i
+    expect(@status.exitstatus).to eq code.to_i
+  end
+end
+
+Then(/^the (?:status|exit) code should mean (success|failure)$/) do |type|
+  if type == "failure"
+    expect(@status.success?).to_not be true
+  else
+    expect(@status.success?).to be true
   end
 end
