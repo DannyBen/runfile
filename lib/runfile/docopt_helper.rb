@@ -9,20 +9,20 @@ module Runfile
   class DocoptHelper
     include Colsole
 
-    # The constructor expects to get all the textual details
-    # needed to generate a docopt document (name, version, 
+    # The constructor expects to an object that responds to all the 
+    # textual details needed to generate a docopt document (name, version, 
     # summary, options) and an array of Action objects.
     # The superspace argument will be the name of runfile, in case we
     # are running a named.runfile. It is only needed to generate the 
     # proper `run superspace (-h|--help|--version)` line
-    def initialize(superspace, name, version, summary, actions, options, examples)
-      @superspace = superspace
-      @name       = name
-      @version    = version
-      @summary    = summary
-      @actions    = actions
-      @options    = options
-      @examples   = examples
+    def initialize(options)
+      @superspace = options.superspace
+      @name       = options.name
+      @version    = options.version
+      @summary    = options.summary
+      @actions    = options.actions
+      @options    = options.options
+      @examples   = options.examples
     end
 
     # Generate a document based on all the actions, help messages
@@ -100,7 +100,6 @@ module Runfile
       end
       doc
     end
-
 
     # Call the docopt handler, which will either return a parsed
     # arguments list, or halt execution and show usage.
