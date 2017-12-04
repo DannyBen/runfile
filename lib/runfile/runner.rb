@@ -41,7 +41,7 @@ module Runfile
       rescue => ex
         abort "Runfile error:\n#{ex.message}\n#{ex.backtrace[0]}"
       end
-      run *argv
+      run(*argv)
     end
 
     # Add an action to the @actions array, and use the last known
@@ -92,7 +92,7 @@ module Runfile
     # function. Expects to get a single string that looks as if
     # it was typed in the command prompt.
     def cross_call(command_string) 
-      argv = command_string.split /\s(?=(?:[^"]|"[^"]*")*$)/
+      argv = command_string.split(/\s(?=(?:[^"]|"[^"]*")*$)/)
       begin
         docopt_exec argv
       rescue Docopt::Exit => ex
