@@ -9,20 +9,20 @@ module Runfile
   class DocoptHelper
     include Colsole
 
-    # The constructor expects to get all the textual details
-    # needed to generate a docopt document (name, version, 
+    # The constructor expects to an object that responds to all the 
+    # textual details needed to generate a docopt document (name, version, 
     # summary, options) and an array of Action objects.
     # The superspace argument will be the name of runfile, in case we
     # are running a named.runfile. It is only needed to generate the 
     # proper `run superspace (-h|--help|--version)` line
-    def initialize(superspace, name, version, summary, actions, options, examples)
-      @superspace = superspace
-      @name       = name
-      @version    = version
-      @summary    = summary
-      @actions    = actions
-      @options    = options
-      @examples   = examples
+    def initialize(options)
+      @superspace = options.superspace
+      @name       = options.name
+      @version    = options.version
+      @summary    = options.summary
+      @actions    = options.actions
+      @options    = options.options
+      @examples   = options.examples
     end
 
     # Generate a document based on all the actions, help messages
@@ -42,7 +42,7 @@ module Runfile
     # Return all docopt lines for the 'Usage' section
     def docopt_usage 
       doc = ["\nUsage:"];
-      @actions.each do |name, action|
+      @actions.each do |_name, action|
         doc << "  run #{action.usage}" unless action.usage == false
       end
       basic_flags = @version ? "(-h|--help|--version)" : "(-h|--help)"
@@ -101,11 +101,10 @@ module Runfile
       doc
     end
 
-
     # Call the docopt handler, which will either return a parsed
     # arguments list, or halt execution and show usage.
     def args(argv)
-      Docopt::docopt(docopt, version: @version, argv:argv)
+      Docopt.docopt(docopt, version: @version, argv:argv)
     end
   end
 end
