@@ -110,7 +110,7 @@ module Runfile
     def say_runfile_list(runfiles)
       runfile_paths = runfiles.map { |f| File.dirname f }
       max = runfile_paths.max_by(&:length).size
-      width, height = detect_terminal_size
+      width = detect_terminal_size[0]
       runfiles.each do |f|
         f[/([^\/]+).runfile$/]
         command  = "run #{$1}"

@@ -118,6 +118,6 @@ module Runfile
 
     # Also allow to use 'endcommand' instead of 'command' to end
     # a command namespace definition
-    alias_method :endcommand, :command
+    alias :endcommand, :command
   end
 end
