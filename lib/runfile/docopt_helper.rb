@@ -58,7 +58,7 @@ module Runfile
     def docopt_commands(width)
       doc = []
       caption_printed = false
-      @actions.each do |name, action|
+      @actions.each do |_name, action|
         action.help or next
         doc << "Commands:" unless caption_printed
         caption_printed = true
