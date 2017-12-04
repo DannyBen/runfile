@@ -6,6 +6,7 @@ Runfile - If Rake and Docopt had a baby
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/DannyBen/runfile.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/runfile)
 [![Issues](https://img.shields.io/codeclimate/issues/github/DannyBen/runfile.svg?style=flat-square)](https://codeclimate.com/github/DannyBen/runfile)
 [![Gemnasium](https://img.shields.io/gemnasium/DannyBen/runfile.svg?style=flat-square)](https://gemnasium.com/DannyBen/runfile)
+[![Gem](https://img.shields.io/gem/dt/runfile.svg?style=flat-square)](https://rubygems.org/gems/runfile)
 
 ---
 
