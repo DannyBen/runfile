@@ -2,6 +2,5 @@ dev
 sandbox
 doc
 gems
-Gemfile.lock
 *.gem
 .yardoc
