@@ -1,11 +1,13 @@
 # Change Log
 
-## [Unreleased](https://github.com/DannyBen/runfile/tree/HEAD)
-
-[Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.0...HEAD)
+## [v0.10.1](https://github.com/DannyBen/runfile/tree/v0.10.1) (2018-03-21)
+[Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.0...v0.10.1)
 
 **Merged pull requests:**
 
+- Fix `run!` when using RVM in a Gemfiled folder [\#31](https://github.com/DannyBen/runfile/pull/31) ([DannyBen](https://github.com/DannyBen))
+- Test against ruby 2.5 [\#29](https://github.com/DannyBen/runfile/pull/29) ([DannyBen](https://github.com/DannyBen))
+- Improve static code review issues [\#24](https://github.com/DannyBen/runfile/pull/24) ([DannyBen](https://github.com/DannyBen))
 - Upgrade cucumber to version 3.0.2 [\#23](https://github.com/DannyBen/runfile/pull/23) ([depfu[bot]](https://github.com/apps/depfu))
 
 ## [v0.10.0](https://github.com/DannyBen/runfile/tree/v0.10.0) (2017-06-09)
