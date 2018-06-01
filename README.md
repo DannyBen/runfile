@@ -35,15 +35,15 @@ with `title`.
 Install
 --------------------------------------------------
 
-	$ gem install runfile
+  $ gem install runfile
 
 
 Quick Start
 --------------------------------------------------
 
-	$ run new        # create a new Runfile
-	$ run --help     # show the usage patterns
-	$ vi Runfile     # edit the Runfile
+  $ run new        # create a new Runfile
+  $ run --help     # show the usage patterns
+  $ vi Runfile     # edit the Runfile
 
 
 Example
@@ -54,7 +54,7 @@ The most minimal `Runfile` looks like this:
 ```ruby
 usage  "greet <name>"
 action :greet do |args|
-	puts "Hello #{args['<name>']}" 
+  puts "Hello #{args['<name>']}" 
 end
 ```
 
