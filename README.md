@@ -2,7 +2,7 @@ Runfile - If Rake and Docopt had a baby
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/runfile.svg)](https://badge.fury.io/rb/runfile)
-[![Build Status](https://travis-ci.org/DannyBen/runfile.svg?branch=master)](https://travis-ci.org/DannyBen/runfile)
+[![Build Status](https://travis-ci.com/DannyBen/runfile.svg?branch=master)](https://travis-ci.com/DannyBen/runfile)
 [![BCH compliance](https://bettercodehub.com/edge/badge/DannyBen/runfile?branch=master)](https://bettercodehub.com/results/DannyBen/runfile)
 [![Maintainability](https://api.codeclimate.com/v1/badges/81cf02ccfcc8531cb09f/maintainability)](https://codeclimate.com/github/DannyBen/runfile/maintainability)
 
