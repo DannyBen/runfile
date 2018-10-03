@@ -85,6 +85,7 @@ module Runfile
         docopt_exec argv
       rescue Docopt::Exit => ex
         puts ex.message
+        exit 1
       end
     end
 
