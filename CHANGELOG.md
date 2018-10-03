@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.10.2](https://github.com/DannyBen/runfile/tree/v0.10.2) (2018-10-03)
+[Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.1...v0.10.2)
+
+**Merged pull requests:**
+
+- Exit with non zero code when showing usage [\#36](https://github.com/DannyBen/runfile/pull/36) ([DannyBen](https://github.com/DannyBen))
+- Remove shields.io [\#34](https://github.com/DannyBen/runfile/pull/34) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.10.1](https://github.com/DannyBen/runfile/tree/v0.10.1) (2018-03-21)
 [Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.0...v0.10.1)
 
