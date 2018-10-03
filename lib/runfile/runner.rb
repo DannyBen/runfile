@@ -148,7 +148,7 @@ module Runfile
         @superspace = argv[0]
         execute argv, runfile
       end
-      exit
+      exit 1
     end
 
     def expand_shortcuts(argv)
