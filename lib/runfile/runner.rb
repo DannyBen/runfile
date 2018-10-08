@@ -144,13 +144,12 @@ module Runfile
       maker = RunfileHelper.new
       maker.purge_settings if @ignore_settings
       runfile = maker.handle argv
-      if runfile
-        @superspace = argv[0]
-        execute argv, runfile
-        exit
-      else
-        exit 3
-      end
+
+      exit 3 unless runfile
+
+      @superspace = argv[0]
+      execute argv, runfile
+      exit
     end
 
     def expand_shortcuts(argv)
