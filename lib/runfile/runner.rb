@@ -85,7 +85,7 @@ module Runfile
         docopt_exec argv
       rescue Docopt::Exit => ex
         puts ex.message
-        exit 1
+        exit 2
       end
     end
 
@@ -147,8 +147,10 @@ module Runfile
       if runfile
         @superspace = argv[0]
         execute argv, runfile
+        exit
+      else
+        exit 3
       end
-      exit 1
     end
 
     def expand_shortcuts(argv)
