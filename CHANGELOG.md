@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.10.3](https://github.com/DannyBen/runfile/tree/v0.10.3) (2018-10-08)
+[Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.2...v0.10.3)
+
+**Merged pull requests:**
+
+- Fix invalid exit code in certain situations [\#37](https://github.com/DannyBen/runfile/pull/37) ([DannyBen](https://github.com/DannyBen))
+
 ## [v0.10.2](https://github.com/DannyBen/runfile/tree/v0.10.2) (2018-10-03)
 [Full Changelog](https://github.com/DannyBen/runfile/compare/v0.10.1...v0.10.2)
 
