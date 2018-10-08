@@ -85,7 +85,7 @@ module Runfile
         docopt_exec argv
       rescue Docopt::Exit => ex
         puts ex.message
-        exit 1
+        exit 2
       end
     end
 
@@ -144,11 +144,12 @@ module Runfile
       maker = RunfileHelper.new
       maker.purge_settings if @ignore_settings
       runfile = maker.handle argv
-      if runfile
-        @superspace = argv[0]
-        execute argv, runfile
-      end
-      exit 1
+
+      exit 3 unless runfile
+
+      @superspace = argv[0]
+      execute argv, runfile
+      exit
     end
 
     def expand_shortcuts(argv)
