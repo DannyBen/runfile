@@ -76,31 +76,12 @@ module Runfile
       @options['Options'] = {} unless @options['Options']
       @options['Options']['-h --help'] = 'Show this screen'
       @options['Options']['--version'] = 'Show version number' if @version
-
-      doc = []
-      @options.each do |scope, values|
-        doc << "#{scope}:"
-        values.each do |flag, text|
-          helpline = "      #{text}"
-          wrapped  = word_wrap helpline, width
-          doc << "  #{flag}\n#{wrapped}\n"
-        end
-      end
-      doc
+      section_block @options, width
     end
 
     # Return all docopt params for 'Params' section
     def docopt_params(width)
-      doc = []
-      @params.each do |scope, values|
-        doc << "#{scope}:"
-        values.each do |name, text|
-          helpline = "      #{text}"
-          wrapped  = word_wrap helpline, width
-          doc << "  #{name}\n#{wrapped}\n"
-        end
-      end
-      doc
+      section_block @params, width
     end
 
     # Return all docopt lines for the 'Examples' section
@@ -113,6 +94,21 @@ module Runfile
         helpline = "  #{base_command} #{command}"
         wrapped  = word_wrap helpline, width
         doc << "#{wrapped}"
+      end
+      doc
+    end
+
+    # Return a generic block containing scope section (e.g. "Options"), 
+    # followed by key value paragraphs.
+    def section_block(definitions, width)
+      doc = []
+      definitions.each do |scope, values|
+        doc << "#{scope}:"
+        values.each do |label, text|
+          helpline = "      #{text}"
+          wrapped  = word_wrap helpline, width
+          doc << "  #{label}\n#{wrapped}\n"
+        end
       end
       doc
     end
