@@ -22,6 +22,7 @@ module Runfile
       @summary    = options.summary
       @actions    = options.actions
       @options    = options.options
+      @params     = options.params
       @examples   = options.examples
     end
 
@@ -35,6 +36,7 @@ module Runfile
       doc += docopt_usage
       doc += docopt_commands width
       doc += docopt_options width
+      doc += docopt_params width
       doc += docopt_examples width
       doc.join "\n"
     end
@@ -82,6 +84,20 @@ module Runfile
           helpline = "      #{text}"
           wrapped  = word_wrap helpline, width
           doc << "  #{flag}\n#{wrapped}\n"
+        end
+      end
+      doc
+    end
+
+    # Return all docopt params for 'Params' section
+    def docopt_params(width)
+      doc = []
+      @params.each do |scope, values|
+        doc << "#{scope}:"
+        values.each do |name, text|
+          helpline = "      #{text}"
+          wrapped  = word_wrap helpline, width
+          doc << "  #{name}\n#{wrapped}\n"
         end
       end
       doc

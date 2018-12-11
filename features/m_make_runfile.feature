@@ -6,7 +6,7 @@ Feature: Make Runfile
 Background:
   Given the folder "sandbox" exists
 
-Scenario: "Show help when running without a Runfile"
+Scenario: Show help when running without a Runfile
   Given I am in the "sandbox" folder
     And the folder is empty
    When I run "run"
@@ -22,7 +22,7 @@ Scenario: Create a runfile
     And the file "Runfile" should exist
     And the file "Runfile" should contain "hello [<name> --color]"
 
-Scenario: "Create a named runfile"
+Scenario: Create a named runfile
   Given I am in the "sandbox" folder
     And the folder is empty
    When I run "run new one"
@@ -33,7 +33,7 @@ Scenario: "Create a named runfile"
     And the output should match "Tip: Type 'run new'..."
     And the output should match "run .*sandbox"
 
-Scenario: "Dont show the new tip if the user is already trained"
+Scenario: Dont show the new tip if the user is already trained
   Given I am in the "sandbox" folder
     And the file "one.runfile" exists
     And the file "two.runfile" exists
@@ -41,7 +41,7 @@ Scenario: "Dont show the new tip if the user is already trained"
    When I run "run"
    Then the output should not match "Tip: Type 'run new' or 'run new name'..."
   
-Scenario: "Dont show the new tip if .runfile is present"
+Scenario: Dont show the new tip if .runfile is present
   Given I am in the "examples/s_settings" folder
    When I run "run new"
    Then the output should match "Usage: run <file>"
