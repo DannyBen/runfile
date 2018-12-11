@@ -43,6 +43,12 @@ module Runfile
       Runner.instance.add_option flag, text, scope
     end
 
+    # Add a parameter (can be called multiple times)
+    #   param 'FOLDER', 'Folder to copy'
+    def param(name, text, scope=nil)
+      Runner.instance.add_param name, text, scope
+    end
+
     # Set an example command (can be called multiple times)
     #   example 'server --background'
     def example(text)

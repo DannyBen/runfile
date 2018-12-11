@@ -13,7 +13,8 @@ module Runfile
     include SettingsMixin
 
     attr_accessor :last_usage, :last_help, :name, :version, 
-      :summary, :namespace, :superspace, :actions, :examples, :options
+      :summary, :namespace, :superspace, :actions, :examples, :options, 
+      :params
 
     # Initialize all variables to sensible defaults.
     def initialize
@@ -23,6 +24,7 @@ module Runfile
       @namespace  = nil     # dsl: command
       @actions  = {}        # dsl: action
       @options  = {}        # dsl: option
+      @params   = {}        # dsl: param
       @examples = []        # dsl: example
       @name     = "Runfile" # dsl: name
       @version  = false     # dsl: version
@@ -70,6 +72,13 @@ module Runfile
       scope or scope = 'Options'
       @options[scope] ||= {}
       @options[scope][flag] = text
+    end
+
+    # Add a patameter and its help text.
+    def add_param(name, text, scope=nil)
+      scope or scope = 'Parameters'
+      @params[scope] ||= {}
+      @params[scope][name] = text
     end
 
     # Add example command.

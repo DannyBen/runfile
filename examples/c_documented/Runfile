@@ -1,5 +1,5 @@
 #---
-# Global Commands
+# Global Definitions
 # each Runfile may have a summary and a version. Both are optional.
 #---
 
@@ -35,6 +35,18 @@ help "Say hello to <name>. Use --long to show a longer greeting, and this line i
 # text.
 option "--long", "Show a longer greeting"
 option "-c --color", "Use colored output"
+
+# the third optional parameter can be used to specify a different 
+# (additional) title that will appear above all options
+option "--quiet", "Do not output anything", "Special Options"
+
+# param adds a help text for a positional parameter under the Parameters 
+# section.
+param "SOURCE", "Source file to copy"
+
+# the third optional parameter can be used to specify a different title, in
+# a way similar to the 'option' command.
+param "SOURCE", "Source file to copy", "Copy Options"
 
 # example adds an example command.
 # the command accepts one parameter: the example command.
@@ -74,3 +86,7 @@ action :up do |args|
   say args['--high'] ? "\b..." : "and get down."
 end
 
+# the optional command 'endcommand' closes any 'command' block that 
+# was opened. it can be used to create several namespaces in the same 
+# Runfile.
+endcommand

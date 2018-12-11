@@ -1,0 +1,24 @@
+Runfile
+
+Usage:
+  run connect HOST PORT
+  run ssh USER PASS
+  run (-h|--help)
+
+Options:
+  -h --help
+      Show this screen
+
+Parameters:
+  HOST
+      Host to connect to
+
+  PORT
+      Port to connect to
+
+SSH Parameters:
+  USER
+      SSH user
+
+  PASS
+      SSH password
