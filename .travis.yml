@@ -3,8 +3,13 @@ language: ruby
 cache: bundler
 
 rvm:
-  - "2.0.0"
-  - "2.4.2"
-  - "2.5.0"
+- "2.3.0"
+- "2.4.0"
+- "2.5.0"
+- "2.6.0"
 
-script: bundle exec cucumber
+before_install:
+- gem install bundler
+
+script:
+- bundle exec cucumber
