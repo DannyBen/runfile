@@ -22,7 +22,7 @@ You create a `Runfile`, and execute commands with
 
 ![Runfile Demo](https://raw.githubusercontent.com/DannyBen/runfile/master/demo.gif "Runfile Demo")
 
-[Learn More in the Wiki](https://github.com/DannyBen/runfile/wiki)
+[Learn More in the User Guide](https://runfile.dannyb.co)
 
 ---
 
@@ -114,7 +114,7 @@ When you execute `run`, we will look for files in this order:
 When you execute `run!`, we will ignore any local Runfile and only search 
 for global (named) runfiles.
 
-Read more in the [Runfile Location and Filename wiki page](https://github.com/DannyBen/runfile/wiki/Runfile-Location-and-Filename)
+Read more on [Runfile Location and Filename](https://runfile.dannyb.co/Runfile-Location-and-Filename)
 
 
 Documentation
