@@ -120,7 +120,6 @@ Read more in the [Runfile Location and Filename wiki page](https://github.com/Da
 Documentation
 --------------------------------------------------
 
+- [User Guide](https://runfile.dannyb.co)
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
-- [Runfile Command Reference](https://github.com/DannyBen/runfile/wiki/Runfile-Command-Reference)
-- [Wiki](https://github.com/DannyBen/runfile/wiki)
 - [Rubydoc](http://www.rubydoc.info/gems/runfile)
