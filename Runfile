@@ -8,6 +8,7 @@ version Runfile::VERSION
 RunfileTasks::RubyGems.all 'runfile'
 RunfileTasks::Testing.cucumber
 RunfileTasks::Docs.rdoc
+RunfileTasks::Changelog.generator 'DannyBen/runfile'
 
 help   "Download a fresh copy of clicumber stepdefs"
 action :clicumber do
