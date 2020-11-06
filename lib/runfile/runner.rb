@@ -14,7 +14,7 @@ module Runfile
 
     attr_accessor :last_usage, :last_help, :name, :version, 
       :summary, :namespace, :superspace, :actions, :examples, :options, 
-      :params
+      :params, :env_vars
 
     # Initialize all variables to sensible defaults.
     def initialize
@@ -26,6 +26,7 @@ module Runfile
       @options  = {}        # dsl: option
       @params   = {}        # dsl: param
       @examples = []        # dsl: example
+      @env_vars = {}        # dsl: env_var
       @name     = "Runfile" # dsl: name
       @version  = false     # dsl: version
       @summary  = false     # dsl: summary
@@ -48,7 +49,7 @@ module Runfile
 
     # Add an action to the @actions array, and use the last known
     # usage and help messages sent by the DSL.
-    def add_action(name, altname=nil, &block)
+    def add_action(name, altname = nil, &block)
       if @last_usage.nil?
         @last_usage = altname ? "(#{name}|#{altname})" : name 
       end
@@ -68,17 +69,24 @@ module Runfile
     end
 
     # Add an option flag and its help text.
-    def add_option(flag, text, scope=nil)
-      scope or scope = 'Options'
+    def add_option(flag, text, scope = nil)
+      scope ||= 'Options'
       @options[scope] ||= {}
       @options[scope][flag] = text
     end
 
     # Add a patameter and its help text.
-    def add_param(name, text, scope=nil)
-      scope or scope = 'Parameters'
+    def add_param(name, text, scope = nil)
+      scope ||= 'Parameters'
       @params[scope] ||= {}
       @params[scope][name] = text
+    end
+
+    # Add env_var command.
+    def add_env_var(name, text, scope = nil)
+      scope ||= 'Environment Variables'
+      @env_vars[scope] ||= {}
+      @env_vars[scope][name] = text
     end
 
     # Add example command.

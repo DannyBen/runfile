@@ -49,6 +49,12 @@ module Runfile
       Runner.instance.add_param name, text, scope
     end
 
+    # Set an environment variable (can be called multiple times)
+    #   env_var 'USER', 'Set the user (same as --user)'
+    def env_var(name, text, scope = nil)
+      Runner.instance.add_env_var name, text, scope
+    end
+
     # Set an example command (can be called multiple times)
     #   example 'server --background'
     def example(text)
