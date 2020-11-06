@@ -17,3 +17,8 @@ Scenario: Show a more detailed help
    When I run "run -h"
    Then the output should be like "output.txt"
 
+Scenario: Show an evem more detailed help
+  Given I am in the "examples/c_documented" folder
+   When I run "run -h"
+   Then the output should be like "output.txt"
+

@@ -48,6 +48,13 @@ param "SOURCE", "Source file to copy"
 # a way similar to the 'option' command.
 param "SOURCE", "Source file to copy", "Copy Options"
 
+# env_vars adds a help text for specifying which environment variables can
+# be set to influence the output.
+env_var "HEADER", "Set the display header"
+
+# the third optional parameter can be used to specify a different title.
+env_var "HEADER", "Set the display header", "Layout Environment Variables"
+
 # example adds an example command.
 # the command accepts one parameter: the example command.
 # you do not need to include "run" at the beginning of your example, it will 

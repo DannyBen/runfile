@@ -23,6 +23,7 @@ module Runfile
       @actions    = options.actions
       @options    = options.options
       @params     = options.params
+      @env_vars   = options.env_vars
       @examples   = options.examples
     end
 
@@ -37,6 +38,7 @@ module Runfile
       doc += docopt_commands width
       doc += docopt_options width
       doc += docopt_params width
+      doc += docopt_env_vars width
       doc += docopt_examples width
       doc.join "\n"
     end
@@ -82,6 +84,11 @@ module Runfile
     # Return all docopt params for 'Params' section
     def docopt_params(width)
       section_block @params, width
+    end
+
+    # Return all docopt params for 'Environment Variables' section
+    def docopt_env_vars(width)
+      section_block @env_vars, width
     end
 
     # Return all docopt lines for the 'Examples' section

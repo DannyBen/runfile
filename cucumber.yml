@@ -2,5 +2,5 @@
   std_opts = "--format #{ENV['CUCUMBER_FORMAT'] || 'pretty'} --strict"
 %>
 
-default: --no-source <%= std_opts %> features
+default: --publish-quiet --no-source <%= std_opts %> features
 
