@@ -6,7 +6,7 @@ Usage:
   run (-h|--help)
 
 Options:
-  -h --help
+  -h, --help
       Show this screen
 
 Parameters:

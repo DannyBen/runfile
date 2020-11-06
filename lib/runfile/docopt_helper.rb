@@ -76,7 +76,7 @@ module Runfile
     # Return all docopt lines for the various 'Options' sections
     def docopt_options(width)
       @options['Options'] = {} unless @options['Options']
-      @options['Options']['-h --help'] = 'Show this screen'
+      @options['Options']['-h, --help'] = 'Show this screen'
       @options['Options']['--version'] = 'Show version number' if @version
       section_block @options, width
     end

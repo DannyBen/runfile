@@ -88,7 +88,7 @@ Usage:
   run (-h|--help|--version)
 
 Options:
-  -h --help
+  -h, --help
       Show this screen
 
   --version

@@ -18,5 +18,5 @@ Options:
   --all
       Show all
 
-  -h --help
+  -h, --help
       Show this screen

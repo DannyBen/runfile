@@ -16,5 +16,5 @@ Options:
   --color
       Use color
 
-  -h --help
+  -h, --help
       Show this screen

@@ -16,7 +16,7 @@ Options:
   --color
       Use colored output
 
-  -h --help
+  -h, --help
       Show this screen
 
   --version

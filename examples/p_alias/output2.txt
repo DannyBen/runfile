@@ -11,5 +11,5 @@ Commands:
       Say hello to <name>
 
 Options:
-  -h --help
+  -h, --help
       Show this screen
