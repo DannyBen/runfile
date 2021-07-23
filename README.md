@@ -8,8 +8,8 @@
 
 ---
 
-A beautiful command line application framework.  
-Rake-inspired, Docopt inside.
+A beautiful command line application framework  
+Rake-inspired - Docopt inside
 
 ---
 
