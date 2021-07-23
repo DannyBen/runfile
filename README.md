@@ -1,5 +1,6 @@
-Runfile - If Rake and Docopt had a baby
-==================================================
+<div align='center'>
+
+# Runfile - command line for your projects
 
 [![Gem Version](https://badge.fury.io/rb/runfile.svg)](https://badge.fury.io/rb/runfile)
 [![Build Status](https://github.com/DannyBen/runfile/workflows/Test/badge.svg)](https://github.com/DannyBen/runfile/actions?query=workflow%3ATest)
@@ -12,6 +13,8 @@ Rake-inspired, Docopt inside.
 
 ---
 
+</div>
+
 **Runfile** lets you create command line applications in a way similar 
 to [Rake](https://github.com/ruby/rake), but with the full power of 
 [Docopt](http://docopt.org/) command line options.
@@ -21,26 +24,7 @@ You create a `Runfile`, and execute commands with
 
 ![Runfile Demo](demo.svg "Runfile Demo")
 
-[Learn More in the User Guide](https://runfile.dannyb.co)
-
----
-
-**Upgrade Notice:**  
-If you are upgrading to 0.9.x - the `name` command was replaced 
-with `title`.
-
----
-
-Install
---------------------------------------------------
-
-```shell
-$ gem install runfile
-```
-
-
-Quick Start
---------------------------------------------------
+## Quick Start
 
 ```shell
 $ run new        # create a new Runfile
@@ -49,8 +33,7 @@ $ vi Runfile     # edit the Runfile
 ```
 
 
-Example
---------------------------------------------------
+## Example
 
 The most minimal `Runfile` looks like this:
 
@@ -63,14 +46,14 @@ end
 
 You can then run it by executing this command:
 
-```
+```shell
 $ run greet Luke
 Hello Luke
 ```
 
 Executing `run` without parameters, will show the usage patterns:
 
-```
+```shell
 $ run
 Usage:
   run greet <name>
@@ -79,7 +62,7 @@ Usage:
 
 Executing `run --help` will show the full help document (docopt)
 
-```
+```shell
 $ run --help
 Runfile 0.0.0
 
@@ -95,30 +78,13 @@ Options:
       Show version
 ```
 
+## Documentation
 
-Runfile per project or global Runfiles
---------------------------------------------------
+- [User Guide](https://runfile.dannyb.co/)
+- [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples#readme)
 
-In addition to the per project `Runfile` files, it is also possible to 
-create global runfiles that are accessible to you only or to anybody on 
-the system.
+## Contributing / Support
 
-When you execute `run`, we will look for files in this order:
+If you experience any issue, have a question or a suggestion, or if you wish
+to contribute, feel free to [open an issue](https://github.com/DannyBen/runfile/issues).
 
-- `Runfile` in the current directory
-- `*.runfile` in the current directory
-- `~/runfile/**/*.runfile`
-- `/etc/runfile/**/*.runfile`
-
-When you execute `run!`, we will ignore any local Runfile and only search 
-for global (named) runfiles.
-
-Read more on [Runfile Location and Filename](https://runfile.dannyb.co/Runfile-Location-and-Filename)
-
-
-Documentation
---------------------------------------------------
-
-- [User Guide](https://runfile.dannyb.co)
-- [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples)
-- [Rubydoc](http://www.rubydoc.info/gems/runfile)
