@@ -1,7 +1,7 @@
-dev
-sandbox
-doc
-gems
-Gemfile.lock
 *.gem
 .yardoc
+/dev
+/doc
+/gems
+/sandbox
+Gemfile.lock
