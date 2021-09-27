@@ -4,20 +4,20 @@
 # The usage pattern will be generated automatically as 
 # "(server|s)"
 action :server, :s do
-  say "Running server..." 
+  puts "Running server..." 
 end
 
 # For cases with other patameters, specify the usage pattern:
 usage  "(greet|g) <name>"
 help   "Say hello to <name>"
 action :greet, :g do |args|
-  say "Hello #{args['<name>']}" 
+  puts "Hello #{args['<name>']}" 
 end
 
 # Start a namespace, to ensure this works in a napespaced form
 command "watch"
 
 action :dog, :d do
-  say "Watch dog"
+  puts "Watch dog"
 end
 

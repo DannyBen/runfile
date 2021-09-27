@@ -1,3 +1,7 @@
+# include colsole, for easy color output
+require 'colsole'
+include Colsole
+
 # define the application itself
 title   "Runner"
 summary "The first ever Runfile program"

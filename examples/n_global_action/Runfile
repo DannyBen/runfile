@@ -3,6 +3,10 @@
 # 1. the executed command matches the usage pattern 
 # 2. AND it does not match any other command in the file
 
+# Just so we can 'say' with colors
+require 'colsole'
+include Colsole
+
 usage  "<file> <user> [--color]"
 help   "This is an action without a command"
 option "--color", "Use color"

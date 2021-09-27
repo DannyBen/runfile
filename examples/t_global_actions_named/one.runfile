@@ -5,15 +5,15 @@
 
 usage "peter"
 action :peter do
-  say "pan"
+  puts "pan"
 end
 
 usage "james"
 action :james do
-  say "bond"
+  puts "bond"
 end
 
 usage ""
 action :global do
-  say "domination"
+  puts "domination"
 end

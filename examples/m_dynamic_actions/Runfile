@@ -9,7 +9,7 @@ actions = [:css, :js, :'a-movie', :'friends-again']
 actions.each do |act|
   help "Watch files of type #{act}"
   action act do 
-    say act.to_s
+    puts act.to_s
   end
 end
 
@@ -27,6 +27,6 @@ actions.each do |act|
   usage usage_text 
   usage_text = false
   action act do 
-    say "git #{act}"
+    puts "git #{act}"
   end
 end

@@ -2,13 +2,15 @@ title   "Greeter"
 summary "A sample Runfile"
 version "0.1.0"
 
-usage  "hello [<name> --color]"
+usage  "hello [<name> --shout]"
 help   "Say hello"
-option "-c --color", "Greet with color"
+option "-s --shout", "Greet louder"
 action :hello do |args|
-  if args['--color']
-    say "!txtgrn!Hello #{args['<name>']}"
+  message = "Hello #{args['<name>']}"
+  
+  if args['--shout']
+    puts message.upcase
   else
-    say "Hello #{args['<name>']}"
+    puts message
   end
 end

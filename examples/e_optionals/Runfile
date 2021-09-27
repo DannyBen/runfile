@@ -1,15 +1,14 @@
 action :explain do
-  say "Actions without arguments do not need 'usage'"
+  puts "Actions without arguments do not need 'usage'"
 end
 
 usage "greet <name>"
 action :greet do |args|
-  say "Hello #{args['<name>']}" 
+  puts "Hello #{args['<name>']}" 
 end
 
 help "Say bye"
 action :bye do
-  say "Here we added help to an action without usage... "
-  say "!txtgrn!and it works!"
+  puts "Here we added help to an action without usage... "
 end
 

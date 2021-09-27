@@ -5,25 +5,25 @@
 
 usage "hello [<name>]"
 action :hello do |args|
-  say "hello #{args['<name>']}"
+  puts "hello #{args['<name>']}"
 end
 
 command "spanish"
 
 usage "hello [<name>]"
 action :hello do |args|
-  say "hola #{args['<name>']}"
+  puts "hola #{args['<name>']}"
 end
 
 command "french"
 
 usage "hello [<name>]"
 action :hello do |args|
-  say "bonjour #{args['<name>']}"
+  puts "bonjour #{args['<name>']}"
 end
 
 command
 
 action :bye do
-  say "bye"
+  puts "bye"
 end

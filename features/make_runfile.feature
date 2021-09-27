@@ -20,7 +20,7 @@ Scenario: Create a runfile
    When I run "run new"
    Then the output should read "Runfile created"
     And the file "Runfile" should exist
-    And the file "Runfile" should contain "hello [<name> --color]"
+    And the file "Runfile" should contain "hello [<name> --shout]"
 
 Scenario: Create a named runfile
   Given I am in the "sandbox" folder

@@ -3,11 +3,11 @@ summary "A Sample Server"
 
 usage  "start [--daemon]"
 action :start do |args|
-  say "Started in the "
-  say args['--daemon'] ? "background" : "foreground"
+  puts "Started in the "
+  puts args['--daemon'] ? "background" : "foreground"
 end
 
 usage  "status <env>"
 action :status do |args|
-  say "Status of #{args['<env>']} is A-OK"
+  puts "Status of #{args['<env>']} is A-OK"
 end

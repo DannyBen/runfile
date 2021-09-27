@@ -8,7 +8,7 @@ usage  "connect HOST PORT"
 param  "HOST", "Host to connect to"
 param  "PORT", "Port to connect to"
 action :connect do |args|
-  say "Connecting #{args['HOST']}:#{args['PORT']}"
+  puts "Connecting #{args['HOST']}:#{args['PORT']}"
 end
 
 # specifying a third parameter to the `param` command, will add it under a 
@@ -18,5 +18,5 @@ usage  "ssh USER PASS"
 param  "USER", "SSH user", "SSH Parameters"
 param  "PASS", "SSH password", "SSH Parameters"
 action :ssh do |args|
-  say "Connecting as #{args['USER']}:#{args['PASS']}"
+  puts "Connecting as #{args['USER']}:#{args['PASS']}"
 end

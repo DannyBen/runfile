@@ -33,7 +33,6 @@ Scenario: Show intro line
 
 Scenario: Execute through a shortcut
    When I run "run s"
-   Then the output should match "# s > server start"
    Then the output should match "Started in the\s*foreground"
 
 Scenario: Execute through a shortcut with argument

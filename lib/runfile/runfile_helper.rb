@@ -8,6 +8,7 @@ module Runfile
   # 2. Creating new runfiles (`run new`)
   # 3. Showing a list of found system runfiles in a colorful help
   class RunfileHelper
+    using Refinements
     include SettingsMixin
     
     # Handle the case when `run` is called without a Runfile 
@@ -72,14 +73,14 @@ module Runfile
 
     # Show some helpful tips, and a list of available runfiles
     def show_make_help(runfiles, compact=false)
-      say "!txtpur!Runfile engine v#{Runfile::VERSION}" unless compact
+      puts "Runfile engine v#{Runfile::VERSION}" unless compact
       if runfiles.size < 3 and !compact
-        say "\nTip: Type '!txtblu!run new!txtrst!' or '!txtblu!run new name!txtrst!' to create a runfile.\nFor global access, place !txtblu!named.runfiles!txtrst! in ~/runfile/ or in /etc/runfile/."
+        puts "\nTip: Type 'run new' or 'run new name' to create a runfile.\nFor global access, place named.runfiles in ~/runfile/ or in /etc/runfile/."
       end
       if runfiles.empty? 
-        say "\n!txtred!Runfile not found."
+        puts "\nRunfile not found."
       else
-        say ""
+        puts ""
         compact ? say_runfile_usage(runfiles) : say_runfile_list(runfiles)
       end
     end
@@ -110,14 +111,14 @@ module Runfile
     def say_runfile_list(runfiles)
       runfile_paths = runfiles.map { |f| File.dirname f }
       max = runfile_paths.max_by(&:length).size
-      width = detect_terminal_size[0]
+      width = Terminal.width
       runfiles.each do |f|
         f[/([^\/]+).runfile$/]
         command  = "run #{$1}"
         spacer_size = width - max - command.size - 6
         spacer_size = [1, spacer_size].max
         spacer = '.' * spacer_size
-        say "  !txtgrn!#{command}!txtrst! #{spacer} #{File.dirname f}"
+        puts "  #{command} #{spacer} #{File.dirname f}"
       end
     end
 
@@ -125,19 +126,19 @@ module Runfile
     def say_runfile_usage(runfiles)
       runfiles_as_columns = get_runfiles_as_columns runfiles
       
-      say "#{settings.intro}\n" if settings.intro
-      say "Usage: run <file>"
-      say runfiles_as_columns
+      puts "#{settings.intro}\n" if settings.intro
+      puts "Usage: run <file>"
+      puts runfiles_as_columns
 
       show_shortcuts if settings.shortcuts
     end
 
     # Prints a friendly output of the shortcut list
     def show_shortcuts
-      say "\nShortcuts:"
+      puts "\nShortcuts:"
       max = settings.shortcuts.keys.max_by(&:length).length
       settings.shortcuts.each_pair do |shortcut, command|
-        say "  #{shortcut.rjust max} : #{command}"
+        puts "  #{shortcut.rjust max} : #{command}"
       end
     end
 
@@ -145,10 +146,10 @@ module Runfile
     # current terminal width
     def get_runfiles_as_columns(runfiles)
       namelist = runfile_names runfiles
-      width = detect_terminal_size[0]
+      width = Terminal.width
       max = namelist.max_by(&:length).length
       message = "  " + namelist.map {|f| f.ljust max+1 }.join(' ')
-      word_wrap message, width
+      message.word_wrap width
     end
 
     def runfile_names(runfiles)
