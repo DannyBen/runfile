@@ -10,7 +10,7 @@ option  "--force", "Overwrite target", "Copy Options"
 example "copy somefile.txt --force"
 example "copy somefile.txt"
 action :copy do |args|
-  say "Copying #{args['<file>']}"
+  puts "Copying #{args['<file>']}"
 end
 
 # Example 2: Namespaced
@@ -23,7 +23,7 @@ option  "--daemon", "Start in the background", "Server options"
 example "start"
 example "start --daemon"
 action :start do |args|
-  say "Starting server..."
+  puts "Starting server..."
 end
 
 endcommand

@@ -1,5 +1,9 @@
 require "runfile-tasks"
 require "yaml"
+require "colsole"
+require "byebug"
+
+include Colsole
 
 title   "Runfile Runfile"
 summary "Runfile tasks for building the Runfile gem"

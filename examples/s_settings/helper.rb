@@ -3,5 +3,5 @@
 # calling any named runfile.
 
 def find_me_in_helper
-  say "This message came from helper.rb"
+  puts "This message came from helper.rb"
 end

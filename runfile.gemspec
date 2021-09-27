@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.executables = ["run", "run!"]
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.0.0"
+  s.required_ruby_version = ">= 2.4.0"
+
   s.metadata    = {
     "homepage_uri"    => "https://github.com/DannyBen/runfile",
     "changelog_uri"   => "https://github.com/DannyBen/runfile/blob/master/CHANGELOG.md",
@@ -23,6 +24,5 @@ Gem::Specification.new do |s|
     "bug_tracker_uri" => "https://github.com/DannyBen/runfile/issues"
   }
 
-  s.add_runtime_dependency 'colsole', '~> 0.5'
   s.add_runtime_dependency 'docopt', '~> 0.5'
 end

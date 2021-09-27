@@ -9,9 +9,9 @@ env_var  "HOST", "Host address to listen on"
 env_var  "PORT", "Port to listen on"
 action :server do |args|
   if !ENV['HOST'] or !ENV['PORT']
-    say "Please set the HOST and PORT environment variables"
+    puts "Please set the HOST and PORT environment variables"
   else
-    say "Listening on #{ENV['HOST']}:#{ENV['PORT']}"
+    puts "Listening on #{ENV['HOST']}:#{ENV['PORT']}"
   end
 end
 
@@ -23,8 +23,8 @@ env_var "USER", "SSH user", "SSH Environment Variables"
 env_var "PASS", "SSH password", "SSH Environment Variables"
 action :ssh do |args|
   if !ENV['USER'] or !ENV['PASS']
-    say "Please set the USER and PASS environment variables"
+    puts "Please set the USER and PASS environment variables"
   else
-    say "Connecting as #{ENV['USER']}:#{ENV['PASS']}"
+    puts "Connecting as #{ENV['USER']}:#{ENV['PASS']}"
   end
 end

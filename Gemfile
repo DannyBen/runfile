@@ -1,12 +1,11 @@
 source "https://rubygems.org"
 
-gemspec
+gem 'runfile-tasks'
+gem 'cucumber'
+gem 'rspec-expectations'
+gem 'rdoc'
+gem 'similar_text'
+gem 'byebug'
+gem 'colsole'
 
-group :development do
-  gem 'runfile-tasks'
-  gem 'cucumber'
-  gem 'rspec-expectations'
-  gem 'rdoc'
-  gem 'similar_text'
-  gem 'byebug'
-end
+gemspec

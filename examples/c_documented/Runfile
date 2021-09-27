@@ -3,6 +3,10 @@
 # each Runfile may have a summary and a version. Both are optional.
 #---
 
+# optionally, include colsole, for easy color output (for the method 'say')
+require 'colsole'
+include Colsole
+
 # title sets the title of the application (default: 'Runfile').
 title "Runner"
 

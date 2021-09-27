@@ -1,5 +1,4 @@
 require 'docopt'
-require 'colsole'
 
 module Runfile
   # The DocoptHelper class handles the dynamic generation of the 
@@ -7,7 +6,7 @@ module Runfile
   # to call Docopt so it returns the parsed arguments or halts with
   # usage message).
   class DocoptHelper
-    include Colsole
+    using Refinements
 
     # The constructor expects to an object that responds to all the 
     # textual details needed to generate a docopt document (name, version, 
@@ -30,7 +29,7 @@ module Runfile
     # Generate a document based on all the actions, help messages
     # and options we have collected from the Runfile DSL.
     def docopt
-      width = detect_terminal_size[0]
+      width = Terminal.width
       doc = []
       doc << (@version ? "#{@name} #{@version}" : "#{@name}")
       doc << "#{@summary}" if @summary
@@ -67,7 +66,7 @@ module Runfile
         doc << "Commands:" unless caption_printed
         caption_printed = true
         helpline = "      #{action.help}"
-        wrapped  = word_wrap helpline, width
+        wrapped  = helpline.word_wrap width
         doc << "  #{action.usage}\n#{wrapped}\n" unless action.usage == false
       end
       doc
@@ -99,7 +98,7 @@ module Runfile
       base_command = @superspace ? "run #{@superspace}" : "run"
       @examples.each do |command|
         helpline = "  #{base_command} #{command}"
-        wrapped  = word_wrap helpline, width
+        wrapped  = helpline.word_wrap width
         doc << "#{wrapped}"
       end
       doc
@@ -113,7 +112,7 @@ module Runfile
         doc << "#{scope}:"
         values.each do |label, text|
           helpline = "      #{text}"
-          wrapped  = word_wrap helpline, width
+          wrapped  = helpline.word_wrap width
           doc << "  #{label}\n#{wrapped}\n"
         end
       end

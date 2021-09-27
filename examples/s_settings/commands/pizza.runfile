@@ -2,5 +2,5 @@ title   "Pizza"
 summary "A sample Runfile"
 
 action :order do
-  say "Order Pizza"
+  puts "Order Pizza"
 end

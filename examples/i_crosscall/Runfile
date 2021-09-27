@@ -3,14 +3,14 @@
 # run it from the command prompt.
 
 action :jog do
-  say "jog"
+  puts "jog"
 end
 
 usage "jump [--high --twice]"
 action :jump do |args|
   word = args['--high'] ? "JUMP" : "jump"
-  say word
-  say word if args['--twice']
+  puts word
+  puts word if args['--twice']
 end
 
 # this action calls other actions, including one in a different
@@ -24,7 +24,7 @@ end
 command "eat"
 
 action :cake do
-  say "time for cake"
+  puts "time for cake"
 end
 
 action :'two-cakes' do

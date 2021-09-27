@@ -2,5 +2,5 @@ title   "Beer"
 summary "A sample Runfile"
 
 action :drink do
-  say "Drink Beer"
+  puts "Drink Beer"
 end

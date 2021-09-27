@@ -174,7 +174,6 @@ module Runfile
       if settings.shortcuts and settings.shortcuts[possible_candidate]
         shortcut_value = settings.shortcuts[argv[0]]
         expanded = shortcut_value.split ' '
-        say "!txtblu!# #{possible_candidate} > #{shortcut_value}"
         argv.shift
         argv = expanded + argv
       end
