@@ -33,12 +33,12 @@ end
 
 help   "Run YARD server"
 action :yard do
-  run "yard server -p3000 -B0.0.0.0 -r"
+  system "yard server -p3000 -B0.0.0.0 -r"
 end
 
 help   "Generate changelog and append old changelog"
 action :changelog do
-  run "git changelog --save"
+  system "git changelog --save"
   # append older changelog (prior to switching to git-changelog)
-  run "cat .changelog.old.md >> CHANGELOG.md"
+  system "cat .changelog.old.md >> CHANGELOG.md"
 end

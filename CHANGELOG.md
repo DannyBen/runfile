@@ -4,6 +4,12 @@ Change Log
 Untagged - Latest
 ----------------------------------------
 
+- Remove Colsole and Exec modules
+
+
+v0.11.2 - 2020-11-06
+----------------------------------------
+
 - Add 'env_var' DSL command to specify environment variables used by the Runfile
 
 

@@ -83,51 +83,6 @@ module Runfile
       Runner.instance.cross_call command_string
     end
 
-    # Run a command, wait until it is done and continue
-    #   run 'rails server'
-    def run(cmd)
-      ExecHandler.instance.run cmd
-    end
-
-    # Run a command, wait until it is done, then exit
-    #   run! 'rails server'
-    def run!(cmd)
-      ExecHandler.instance.run! cmd
-    end
-
-    # Run a command in the background, optionally log to a log file and save
-    # the process ID in a pid file
-    #   run_bg 'rails server', pid: 'rails', log: 'tmp/log.log'
-    def run_bg(cmd, pid: nil, log: '/dev/null')
-      ExecHandler.instance.run_bg cmd, pid: pid, log: log
-    end
-
-    # Stop a command started with 'run_bg'. Provide the name of he pid file you 
-    # used in 'run_bg'
-    #   stop_bg 'rails'
-    def stop_bg(pid)
-      ExecHandler.instance.stop_bg pid
-    end
-
-    # Set a block to be called before each run. The block should return
-    # the command to run, since this is intended to let the block modify
-    # the command if it needs to.
-    #   before_run do |command|
-    #     puts "BEFORE #{command}"
-    #     command
-    #   end
-    def before_run(&block)
-      ExecHandler.instance.before_run(&block)
-    end
-
-    # Set a block to be called after each run
-    #   before_run do |command|
-    #     puts "AFTER #{command}"
-    #   end
-    def after_run(&block)
-      ExecHandler.instance.after_run(&block)
-    end
-
     # Also allow to use 'endcommand' instead of 'command' to end
     # a command namespace definition
     alias_method :endcommand, :command
