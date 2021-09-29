@@ -84,6 +84,19 @@ Options:
 - [User Guide](https://runfile.dannyb.co/)
 - [Learn by Example](https://github.com/DannyBen/runfile/tree/master/examples#readme)
 
+## Breaking changes in 0.12.0
+
+Note that version 0.12.0 removes several commands from the DSL. 
+If you were using any of the Colsole commands (`say`, `resay`, etc.), or any of
+the `run`, `run_bg` commands, you will have to adjust your Runfile since they are
+no longer available.
+
+For convenience, you can simply `require runfile/compatibility` at the top of 
+your Runfile, to still have this functionality included.
+
+More info and alternative solutions in
+[this pull request](https://github.com/DannyBen/runfile/pull/46).
+
 ## Contributing / Support
 
 If you experience any issue, have a question or a suggestion, or if you wish
