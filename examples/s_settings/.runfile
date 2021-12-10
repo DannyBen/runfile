@@ -10,7 +10,7 @@ helper: helper.rb
 
 # Optional: Message to show before the list of files
 # This string supports color markers
-intro: "!txtgrn!My Command Line"
+intro: "My Command Line"
 
 # Optional: An array of shortcut commands
 # Each of the keys here will be expanded to their values before Runfile

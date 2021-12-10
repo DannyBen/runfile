@@ -7,3 +7,5 @@ require 'runfile/runfile_helper'
 require 'runfile/action'
 require 'runfile/runner'
 require 'runfile/dsl'
+
+require 'byebug' if ENV['BYEBUG']

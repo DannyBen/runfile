@@ -1,22 +1,22 @@
 summary "A more realistic Runfile sample"
 version "0.1.0"
 
-usage  "compile <source> <dest> [--quick]"
-help   "Compile <source> to <dest>"
+usage  "compile SOURCE DEST [--quick]"
+help   "Compile SOURCE to DEST"
 option "-q --quick", "Make everything quicker"
 action :compile do |args|
-  puts "Compiling #{args['<source>']}... "
+  puts "Compiling #{args['SOURCE']}... "
   sleep 3 unless args['--quick']
   puts "done"
-  puts "Output is saved to #{args['<dest>']}"
+  puts "Output is saved to #{args['DEST']}"
 end
 
-usage  "download <url> [<outfile>] [-CIq]"
-help   "Download HTML and images from <url>. Use the --quick flag to download quickly."
+usage  "download URL [<outfile>] [-CIq]"
+help   "Download HTML and images from URL. Use the --quick flag to download quickly."
 option "-C --no-cache", "Bypass cache" 
 option "-I --no-img"  , "Do not download images"
 action :download do |args|
-  puts "Downloading #{args['<url>']}... "
+  puts "Downloading #{args['URL']}... "
   sleep 3 unless args['--quick']
   puts "downloaded"
   puts "cache was bypassed" if args['--no-cache']

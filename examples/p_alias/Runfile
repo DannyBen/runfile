@@ -8,10 +8,10 @@ action :server, :s do
 end
 
 # For cases with other patameters, specify the usage pattern:
-usage  "(greet|g) <name>"
-help   "Say hello to <name>"
+usage  "(greet|g) NAME"
+help   "Say hello to NAME"
 action :greet, :g do |args|
-  puts "Hello #{args['<name>']}" 
+  puts "Hello #{args['NAME']}" 
 end
 
 # Start a namespace, to ensure this works in a napespaced form

@@ -72,15 +72,15 @@ module Runfile
     end
 
     # Show some helpful tips, and a list of available runfiles
-    def show_make_help(runfiles, compact=false)
+    def show_make_help(runfiles, compact=nil)
       puts "Runfile engine v#{Runfile::VERSION}" unless compact
       if runfiles.size < 3 and !compact
         puts "\nTip: Type 'run new' or 'run new name' to create a runfile.\nFor global access, place named.runfiles in ~/runfile/ or in /etc/runfile/."
       end
+      
       if runfiles.empty? 
         puts "\nRunfile not found."
       else
-        puts ""
         compact ? say_runfile_usage(runfiles) : say_runfile_list(runfiles)
       end
     end
@@ -125,9 +125,8 @@ module Runfile
     # Output the list of available runfiles without filename
     def say_runfile_usage(runfiles)
       runfiles_as_columns = get_runfiles_as_columns runfiles
-      
-      puts "#{settings.intro}\n" if settings.intro
-      puts "Usage: run <file>"
+      puts "#{settings.intro}\n\n" if settings.intro
+      puts "Commands:"
       puts runfiles_as_columns
 
       show_shortcuts if settings.shortcuts

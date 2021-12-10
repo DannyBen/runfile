@@ -1,5 +1,5 @@
-usage  "greet <name>"
-help   "Say hello to <name>"
+usage  "greet NAME"
+help   "Say hello to NAME"
 action :greet do |args|
-  puts "Hello #{args['<name>']}" 
+  puts "Hello #{args['NAME']}" 
 end

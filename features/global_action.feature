@@ -1,7 +1,7 @@
 Feature: Global Action
   In order to allow more natural commands
   Users can create actions where the first argument is not an ation
-  Like "run <file>"
+  Like "run FILE"
 
 Scenario: Show proper usage
   Given I am in the "examples/n_global_action" folder

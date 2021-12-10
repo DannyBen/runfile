@@ -20,7 +20,7 @@ Scenario: Create a runfile
    When I run "run new"
    Then the output should read "Runfile created"
     And the file "Runfile" should exist
-    And the file "Runfile" should contain "hello [<name> --shout]"
+    And the file "Runfile" should contain "hello [NAME --shout]"
 
 Scenario: Create a named runfile
   Given I am in the "sandbox" folder
@@ -44,6 +44,6 @@ Scenario: Dont show the new tip if the user is already trained
 Scenario: Dont show the new tip if .runfile is present
   Given I am in the "examples/s_settings" folder
    When I run "run new"
-   Then the output should match "Usage: run <file>"
+   Then the output should match "Commands:"
     And the output should not match "Type 'run new'"
   

@@ -2,11 +2,11 @@ title   "Greeter"
 summary "A sample Runfile"
 version "0.1.0"
 
-usage  "hello [<name> --shout]"
+usage  "hello [NAME --shout]"
 help   "Say hello"
 option "-s --shout", "Greet louder"
 action :hello do |args|
-  message = "Hello #{args['<name>']}"
+  message = "Hello #{args['NAME']}"
   
   if args['--shout']
     puts message.upcase
