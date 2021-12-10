@@ -1,12 +1,12 @@
 Runfile
 
 Usage:
-  run greet <name>
+  run greet NAME
   run (-h|--help)
 
 Commands:
-  greet <name>
-      Say hello to <name>
+  greet NAME
+      Say hello to NAME
 
 Options:
   -h --help

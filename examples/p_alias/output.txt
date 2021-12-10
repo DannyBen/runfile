@@ -1,5 +1,5 @@
 Usage:
   run (server|s)
-  run (greet|g) <name>
+  run (greet|g) NAME
   run watch (dog|d)
   run (-h|--help)

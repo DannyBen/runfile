@@ -5,12 +5,12 @@
 # Example 1: Not namespaced
 # Examples will be preceded by "run ..."
 
-usage   "copy <file> [--force]"
+usage   "copy FILE [--force]"
 option  "--force", "Overwrite target", "Copy Options"
 example "copy somefile.txt --force"
 example "copy somefile.txt"
 action :copy do |args|
-  puts "Copying #{args['<file>']}"
+  puts "Copying #{args['FILE']}"
 end
 
 # Example 2: Namespaced

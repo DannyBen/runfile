@@ -1,8 +1,8 @@
 Runfile
 
 Usage:
-  run copy <file> [--force]
-  run rename <file> [--yes]
+  run copy FILE [--force]
+  run rename FILE [--yes]
   run show [--all]
   run (-h|--help)
 

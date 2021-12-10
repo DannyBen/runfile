@@ -2,13 +2,13 @@ Runfile
 
 Usage:
   run (server|s)
-  run (greet|g) <name>
+  run (greet|g) NAME
   run watch (dog|d)
   run (-h|--help)
 
 Commands:
-  (greet|g) <name>
-      Say hello to <name>
+  (greet|g) NAME
+      Say hello to NAME
 
 Options:
   -h --help

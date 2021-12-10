@@ -27,12 +27,12 @@ version "0.1.0"
 
 # usage sets the one line usage pattern of this command.
 # optional for commands without any arguments.
-usage "greet <name> [--long --color]"
+usage "greet NAME [--long --color]"
 
 # help sets the short description of this command.
 # longer lines will be automatically wrapped based on the width of 
 # the terminal.
-help "Say hello to <name>. Use --long to show a longer greeting, and this line is long on purpose to see how it is displayed."
+help "Say hello to NAME. Use --long to show a longer greeting, and this line is long on purpose to see how it is displayed."
 
 # option sets the help text of --flags.
 # the command accepts two parameters: the flag syntax and the help 
@@ -75,9 +75,9 @@ example "greet Danny --color"
 action :greet do |args|
   color = args['--color'] ? '!txtgrn!' : ""
   if args['--long'] 
-    say "#{color}Hello #{args['<name>']}, welcome back"
+    say "#{color}Hello #{args['NAME']}, welcome back"
   else 
-    say "#{color}Hello #{args['<name>']}" 
+    say "#{color}Hello #{args['NAME']}" 
   end
 end
 

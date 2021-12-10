@@ -8,7 +8,7 @@ Background:
 
 Scenario: See list of runfiles in the configured folder
    When I run "run"
-   Then the output should match "Usage: run <file>"
+   Then the output should match "Commands"
     And the output should match "beer.*pizza"
 
 Scenario: See usage of a runfile in the folder

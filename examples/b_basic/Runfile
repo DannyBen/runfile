@@ -8,8 +8,8 @@ summary "The first ever Runfile program"
 version "0.1.0"
 
 # define the `greet` command syntax and options
-usage  "greet <name> [--long --color]"
-help   "Say hello to <name>"
+usage  "greet NAME [--long --color]"
+help   "Say hello to NAME"
 option "--long", "Show a longer greeting"
 option "--color", "Use colored output"
 
@@ -17,8 +17,8 @@ option "--color", "Use colored output"
 action :greet do |args|
   color = args['--color'] ? '!txtgrn!' : ""
   if args['--long'] 
-    say "#{color}Hello #{args['<name>']}, welcome back"
+    say "#{color}Hello #{args['NAME']}, welcome back"
   else 
-    say "#{color}Hello #{args['<name>']}" 
+    say "#{color}Hello #{args['NAME']}" 
   end
 end

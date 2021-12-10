@@ -5,16 +5,16 @@
 # 
 # run 'run -h' to see how it works
 
-usage  "copy <file> [--force]"
+usage  "copy FILE [--force]"
 option "--force", "Overwrite target", "Copy Options"
 action :copy do |args|
-  puts "Copying #{args['<file>']}"
+  puts "Copying #{args['FILE']}"
 end
 
-usage  "rename <file> [--yes]"
+usage  "rename FILE [--yes]"
 option "--yes", "Rename even if read only", "Rename Options"
 action :rename do |args|
-  puts "Renaming #{args['<file>']}"
+  puts "Renaming #{args['FILE']}"
 end
 
 # the option below will be added as usual, to the 'Options:' group

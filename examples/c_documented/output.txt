@@ -2,15 +2,15 @@ Runner 0.1.0
 The first ever Runfile program
 
 Usage:
-  run greet <name> [--long --color]
+  run greet NAME [--long --color]
   run jump around
   run jump up [--high]
   run (-h|--help|--version)
 
 Commands:
-  greet <name> [--long --color]
-      Say hello to <name>. Use --long to show a longer greeting, and this line
-      is long on purpose to see how it is displayed.
+  greet NAME [--long --color]
+      Say hello to NAME. Use --long to show a longer greeting, and this line is
+      long on purpose to see how it is displayed.
 
 Options:
   --long

@@ -1,7 +1,7 @@
 Runfile
 
 Usage:
-  run copy <file> [--force]
+  run copy FILE [--force]
   run server start [--daemon]
   run (-h|--help)
 

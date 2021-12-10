@@ -7,18 +7,18 @@
 require 'colsole'
 include Colsole
 
-usage  "<file> <user> [--color]"
+usage  "FILE USER [--color]"
 help   "This is an action without a command"
 option "--color", "Use color"
 action :global do |args|
   color = args['--color'] ? '!txtgrn!' : ""
-  say "#{color}This is a global action with file=#{args['<file>']} and user=#{args['<user>']}"
+  say "#{color}This is a global action with file=#{args['FILE']} and user=#{args['USER']}"
 end
 
 # this is a "regular" action. although the command 'run copy file'
-# may also match the global pattern 'run <file> <user>', this action
+# may also match the global pattern 'run FILE USER', this action
 # will take precedence over the global action.
-usage  "copy <file>"
+usage  "copy FILE"
 help   "This is an action with a 'copy' command"
 action :copy do
   say "When I say COPY you say PASTE."

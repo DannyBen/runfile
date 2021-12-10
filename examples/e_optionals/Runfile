@@ -2,9 +2,9 @@ action :explain do
   puts "Actions without arguments do not need 'usage'"
 end
 
-usage "greet <name>"
+usage "greet NAME"
 action :greet do |args|
-  puts "Hello #{args['<name>']}" 
+  puts "Hello #{args['NAME']}" 
 end
 
 help "Say bye"

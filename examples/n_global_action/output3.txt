@@ -1,15 +1,15 @@
 Runfile
 
 Usage:
-  run <file> <user> [--color]
-  run copy <file>
+  run FILE USER [--color]
+  run copy FILE
   run (-h|--help)
 
 Commands:
-  <file> <user> [--color]
+  FILE USER [--color]
       This is an action without a command
 
-  copy <file>
+  copy FILE
       This is an action with a 'copy' command
 
 Options:
