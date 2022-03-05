@@ -5,4 +5,4 @@ Feature: Graceful Errors
 Scenario: Run a Runfile that generates an error
   Given I am in the "examples/x_graceful_error" folder
    When I run "run"
-   Then the error output should be like "output.txt"
+   Then the error output should contain "undefined local variable or method `boo'"
