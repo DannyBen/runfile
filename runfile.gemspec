@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables = ["run", "run!"]
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.4.0"
+  s.required_ruby_version = ">= 2.6.0"
 
   s.metadata    = {
     "homepage_uri"    => "https://github.com/DannyBen/runfile",
