@@ -1,21 +1,47 @@
 module Runfile
-
-  # The Action class represents a single Runfile action.
-  # This object holds all the information needed to execute it and
-  # show its help text (excluding the options, as they are considered
-  # global throughout the application)
+  # Represents a single action inside a {Userfile} and executes its block
+  # on demand. Properties of this class are populated by the {DSL} module when
+  # running a {Userfile}.
   class Action
-    attr :usage, :help
+    include Inspectable
 
-    def initialize(block, usage, help)
-      @usage = usage
-      @help  = help
-      @block = block
+    attr_reader :name, :shortcut
+    attr_accessor :block, :help, :prefix
+
+    def run(args = {})
+      block.call args
     end
 
-    # Call the provided block
-    def execute(args)
-      @block.yield args
+    def inspectable
+      { name: name, prefix: prefix, shortcut: shortcut }
+    end
+
+    def name=(value)
+      @name = value&.to_s
+    end
+
+    def shortcut=(value)
+      @shortcut = value&.to_s
+    end
+
+    def full_name
+      @full_name ||= if shortcut
+        "#{prefix} (#{name} | #{shortcut})".strip
+      else
+        "#{prefix} #{name}".strip
+      end
+    end
+
+    def names
+      name ? [name, shortcut].compact : ['(default)']
+    end
+
+    def implicit_usages
+      usages.empty? ? [full_name] : usages
+    end
+
+    def usages
+      @usages ||= []
     end
   end
 end

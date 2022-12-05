@@ -1,0 +1,12 @@
+title   "Greeter"
+summary "A sample runfile"
+
+usage  "hello [NAME --shout]"
+help   "Say hello"
+option "--shout, -s", "Greet louder"
+action 'asd' do |args|
+  message = "Hello #{args['NAME']}"
+  message = "#{message.updase}!" if args['--shout']
+  
+  puts message
+end

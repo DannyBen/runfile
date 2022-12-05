@@ -1,0 +1,9 @@
+Default action in a named file
+
+Usage:
+  run server
+  run server (--help | -h)
+
+Options:
+  --help, -h
+    Show this message

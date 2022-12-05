@@ -1,5 +1,0 @@
-Usage:
-  run jump
-  run jump around
-  run jump up
-  run (-h|--help)

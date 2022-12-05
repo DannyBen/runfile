@@ -1,7 +1,11 @@
 *.gem
 .yardoc
+/coverage
 /dev
 /doc
 /gems
-/sandbox
+/spec/status.txt
+/spec/tmp
+/tmp
+/yardoc
 Gemfile.lock

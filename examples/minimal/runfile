@@ -1,0 +1,4 @@
+# $ run greet : execute this block
+action :greet do
+  say 'g`Hello World`'
+end

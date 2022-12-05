@@ -1,0 +1,4 @@
+--help
+test
+server --help
+server

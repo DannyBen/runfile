@@ -1,6 +1,0 @@
-title   "Load Checker"
-summary "Test that our helper was loaded"
-
-action :check do
-  find_me_in_helper
-end

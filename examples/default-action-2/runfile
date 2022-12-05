@@ -1,0 +1,11 @@
+title 'Default action and other actions'
+
+# $ run : will execute this block instead of showing usage
+action do
+  say 'Running DEFAULT action'
+end
+
+# $ run test
+action :test do
+  say 'Running TEST action'
+end

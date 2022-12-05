@@ -1,0 +1,22 @@
+The New Runfile
+
+  Testing the new Runfile
+
+Usage:
+  run say MESSAGE...
+  run (--help | -h)
+
+Commands:
+  nb`say`
+    Say something
+
+Parameters:
+  MESSAGE
+    Message to say
+
+Options:
+  --help, -h
+    Show this message
+
+Examples:
+  run say hello world

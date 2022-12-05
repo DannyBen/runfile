@@ -1,0 +1,11 @@
+title 'The New Runfile'
+summary 'Testing the new Runfile'
+
+# Import the docker.runfile from the external gem, and pass image_name as
+# argument to its action
+import_gem 'sample_import_gem', 'docker', image_name: "me/my-image-name"
+
+usage "say MESSAGE"
+action 'say' do |args|
+  say "in main runfile, with #{args['MESSAGE']}"
+end

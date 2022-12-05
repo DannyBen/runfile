@@ -1,0 +1,11 @@
+# $ run server start
+# $ run server s
+action :start, :s do
+  say 'START'
+end
+
+# $ run server stop
+# $ run server st
+action :stop, :st do
+  say 'STOP'
+end

@@ -1,0 +1,26 @@
+Multiple runfiles
+
+  Named runfiles in this directory will be blended seamlessly
+
+Usage:
+  run say MESSAGE [options]
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`say`
+    Say something
+
+  nb`server`
+    Server management commands
+
+Parameters:
+  MESSAGE
+    Message to say
+
+Options:
+  --color, -c CODE
+    One letter color code [default: g]
+
+  --help, -h
+    Show this message

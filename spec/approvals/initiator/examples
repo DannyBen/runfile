@@ -1,0 +1,21 @@
+[4mAvailable Examples[0m
+
+  default-action
+  default-action-2
+  different-name
+  example
+  example-multiline
+  execute
+  full
+  import
+  minimal
+  multiple-runfiles
+  named-only
+  naval-fate
+  shortcut
+
+Run [32mrun example EXAMPLE[0m with any of these examples to copy the files
+to the current directory.
+
+If you are not sure, try [32mrun example naval-fate[0m.
+

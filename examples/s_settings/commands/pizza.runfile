@@ -1,6 +1,0 @@
-title   "Pizza"
-summary "A sample Runfile"
-
-action :order do
-  puts "Order Pizza"
-end

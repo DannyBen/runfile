@@ -1,40 +1,13 @@
-require "runfile-tasks"
-require "yaml"
-require "colsole"
-require "byebug"
-
-include Colsole
+require 'yaml'
+require 'byebug'
 
 title   "Runfile Runfile"
 summary "Runfile tasks for building the Runfile gem"
 version Runfile::VERSION
 
-RunfileTasks::RubyGems.all 'runfile'
-RunfileTasks::Testing.cucumber
-RunfileTasks::Docs.rdoc
-
-help   "Download a fresh copy of clicumber stepdefs"
-action :clicumber do
-  file = "features/step_definitions/clicumber.rb"
-  url  = "https://raw.githubusercontent.com/DannyBen/clicumber/master/features/step_definitions/clicumber.rb"
-  exec "curl -o '#{file}' #{url}"
-end
-
-help   "Rename (toggle) the ~/runfile folder so we can run tests"
-action :pretest do
-  if File.directory? "#{Dir.home}/runfile"
-    File.rename "#{Dir.home}/runfile", "#{Dir.home}/runfile_"
-    say "Global runfiles !txtred!disabled"
-  elsif File.directory? "#{Dir.home}/runfile_"
-    File.rename "#{Dir.home}/runfile_", "#{Dir.home}/runfile"
-    say "Global runfiles !txtgrn!enabled"
-  end
-end
-
-help   "Run YARD server"
-action :yard do
-  system "yard server -p3000 -B0.0.0.0 -r"
-end
+# RunfileTasks::RubyGems.all 'runfile'
+# RunfileTasks::Testing.cucumber
+# RunfileTasks::Docs.rdoc
 
 help   "Generate changelog and append old changelog"
 action :changelog do

@@ -1,0 +1,4 @@
+--help
+say hello
+docker --help
+docker build

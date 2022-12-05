@@ -1,11 +1,12 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem 'runfile-tasks'
-gem 'cucumber'
-gem 'rspec-expectations'
-gem 'rdoc'
-gem 'similar_text'
+# gem 'yard'
 gem 'byebug'
-gem 'colsole'
+gem 'lp'
+gem 'pretty_trace'
+gem 'rspec'
+gem 'rspec_approvals'
+gem 'sample_import_gem', path: 'spec/fixtures/sample_import_gem'
+gem 'simplecov'
 
 gemspec

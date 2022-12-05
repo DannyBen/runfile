@@ -1,0 +1,20 @@
+Execute other actions
+
+  Shows how to call other actions from within an action
+
+Usage:
+  run (greet | g)
+  run s
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`s`
+    Shortcut to nu`server start`
+
+  nb`server`
+    Run nu`run server --help` for more information
+
+Options:
+  --help, -h
+    Show this message

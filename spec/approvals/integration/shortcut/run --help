@@ -1,0 +1,16 @@
+Shortcut for an action
+
+  Providing an alias shortcut for actions can be done in one of two ways
+
+Usage:
+  run (greet | g)
+  run (salute | s) [--red]
+  run (toast | t)
+  run (--help | -h)
+
+Options:
+  --red
+    In red
+
+  --help, -h
+    Show this message

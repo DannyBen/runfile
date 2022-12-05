@@ -1,6 +1,0 @@
-title   "Beer"
-summary "A sample Runfile"
-
-action :drink do
-  puts "Drink Beer"
-end

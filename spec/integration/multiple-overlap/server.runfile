@@ -1,0 +1,11 @@
+title 'Server commands'
+summary 'Server commands'
+
+help 'Start the server'
+action(:start) { say 'Server Start' }
+
+help 'Stop the server'
+action(:stop) { say 'Server Stop' }
+
+help 'Greet in the server'
+action(:greet) { say 'Server Greet' }

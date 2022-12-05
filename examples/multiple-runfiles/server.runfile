@@ -1,0 +1,13 @@
+summary 'Server management commands'
+
+action 'start' do |_args|
+  say 'g`Starting server`'
+end
+
+usage 'stop [--force]'
+help  'Stop the server, with optional hard quit'
+option '--force, -f', 'Force quit'
+action 'stop' do |args|
+  say 'r`Stopping server`'
+  say 'rib` FORCE QUIT `' if args['--force']
+end

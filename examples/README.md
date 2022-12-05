@@ -1,16 +1,8 @@
-Runfile Examples
-================
+# Examples
 
-This folder contains various Runfile examples.
+Each folder here contains a succinct example demonstrating one or two aspects
+of how Runfile works.
 
-Each folder contains a single Runfile that demonstrates one aspect of the 
-system.
-
-To see how they work:
-
-	$ cd example_folder
-	$ run --help
-	$ vi Runfile
-
-
-The examples in this folder are also used for testing purposes.
+You can test these examples by copying / downloading these files, or by simply
+running `run example --help` from the command line (in a folder that does not
+already contain runfiles).

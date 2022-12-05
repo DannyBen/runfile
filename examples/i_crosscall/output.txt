@@ -1,4 +1,0 @@
-JUMP
-JUMP
-jog
-time for cake

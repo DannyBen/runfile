@@ -1,0 +1,5 @@
+Usage:
+  run new
+  run example [NAME]
+  run --help | -h
+  run --version

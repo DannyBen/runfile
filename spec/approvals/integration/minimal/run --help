@@ -1,0 +1,7 @@
+Usage:
+  run greet
+  run (--help | -h)
+
+Options:
+  --help, -h
+    Show this message

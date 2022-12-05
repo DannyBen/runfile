@@ -1,0 +1,7 @@
+action 'build' do
+  image_name = context[:image_name]
+  say 'in a real implementation, we will run:'
+  say "$ m`docker build --tag #{image_name} .`"
+  say ''
+  say "Note that image name (#{image_name}) came from the caller"
+end

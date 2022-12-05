@@ -1,0 +1,16 @@
+title 'Example with a multiline examples'
+summary 'Showing examples with --help'
+
+example <<~EXAMPLES
+  nb`Build only`
+  $ run build
+
+  nb`Build and install`
+  $ run build --install
+EXAMPLES
+
+usage 'build [--install]'
+action 'build' do |args|
+  say 'Building'
+  say 'Installing' if args['--install']
+end

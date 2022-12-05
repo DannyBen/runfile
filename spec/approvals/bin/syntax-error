@@ -1,0 +1,2 @@
+[7m[1m[31m NameError [0m in [4mrunfile:1[0m
+undefined local variable or method `nicely' for #<Runfile::Userfile name=nil, path="runfile">

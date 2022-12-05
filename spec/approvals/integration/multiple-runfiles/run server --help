@@ -1,0 +1,19 @@
+server
+
+  Server management commands
+
+Usage:
+  run server start
+  run server stop [--force]
+  run server (--help | -h)
+
+Commands:
+  nb`stop`
+    Stop the server, with optional hard quit
+
+Options:
+  --force, -f
+    Force quit
+
+  --help, -h
+    Show this message

@@ -1,0 +1,21 @@
+Importing other funfiles
+
+  Reference other runfiles to blend them seamlessly as one command line
+  interface
+
+Usage:
+  run say MESSAGE
+  run server
+  run spec
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`server`
+    Server management commands
+
+  nb`spec`
+    Run nu`run spec --help` for more information
+
+Options:
+  --help, -h
+    Show this message

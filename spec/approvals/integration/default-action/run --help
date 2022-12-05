@@ -1,0 +1,11 @@
+Default action
+
+  Defining an action without a name will execute immediately
+
+Usage:
+  run MESSAGE
+  run (--help | -h)
+
+Options:
+  --help, -h
+    Show this message
