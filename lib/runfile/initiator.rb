@@ -73,6 +73,7 @@ module Runfile
       @examples ||= Dir["#{examples_dir}/*"]
         .select { |f| File.directory?  f }
         .map { |f| File.basename f }
+        .sort
     end
 
     def examples_dir
