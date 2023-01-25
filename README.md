@@ -29,7 +29,7 @@ command line "toolbelt" for your projects, you can use it regardless.
 ## Pre-release Notice
 
 Note that this README describes the not yet released 1.0.0 version.  
-See [bashly.dannyb.co](https://bashly.dannyb.co/) for the stable release
+See [runfile.dannyb.co](https://runfile.dannyb.co/) for the stable release
 documentation.
 
 During the pre-release phase, the `run` executable is called `runn` instead, 
