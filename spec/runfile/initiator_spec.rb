@@ -41,7 +41,7 @@ describe Initiator do
         Dir.chdir 'spec/tmp' do
           expect { subject.run %w[example invalid-example] }
             .to raise_approval('initiator/example-invalid')
-            .diff(3)
+            .diff(4)
         end
       end
     end

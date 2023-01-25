@@ -19,7 +19,7 @@ describe GemFinder do
       let(:gemname) { 'no-such-gem-hopefully' }
 
       it 'raises an error' do
-        expect { subject.find gemname }.to raise_approval('gem_finder/invalid-gem').diff(3)
+        expect { subject.find gemname }.to raise_approval('gem_finder/invalid-gem').diff(4)
       end
     end
 
