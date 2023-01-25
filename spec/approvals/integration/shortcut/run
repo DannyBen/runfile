@@ -1,0 +1,5 @@
+Usage:
+  run (greet | g)
+  run (salute | s) [--red]
+  run (toast | t)
+  run (--help | -h)

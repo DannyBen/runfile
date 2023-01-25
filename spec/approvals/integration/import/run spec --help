@@ -1,0 +1,15 @@
+spec
+
+Usage:
+  run spec [--continue --failed]
+  run spec (--help | -h)
+
+Options:
+  --continue, -c
+    Continue testing
+
+  --failed, -f
+    Retest failed specs
+
+  --help, -h
+    Show this message

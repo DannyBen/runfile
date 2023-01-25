@@ -1,0 +1,10 @@
+title 'Example with example'
+summary 'Showing examples with --help'
+
+usage 'build [--install]'
+example 'run build'
+example 'run build --install'
+action 'build' do |args|
+  say 'Building'
+  say 'Installing' if args['--install']
+end

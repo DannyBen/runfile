@@ -1,0 +1,3 @@
+#<Runfile::SyntaxError: The third argument to nub`import_gem` must be a hash
+got rb`"error here, must be a hash"`
+>

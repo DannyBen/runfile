@@ -1,0 +1,5 @@
+--help
+greet
+server greet
+stop
+server stop

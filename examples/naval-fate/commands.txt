@@ -1,0 +1,4 @@
+--help
+new Summer
+move Summer 30 44 --speed 25
+mine set 30 44 --moored

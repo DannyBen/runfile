@@ -1,0 +1,24 @@
+title 'Complete Runfile'
+summary 'A runfile with all (most) features'
+version '0.2.0'
+
+help    'Say something'
+usage   '(say|s) MESSAGE [options]'
+option  '--color, -c CODE', 'One letter color code [default: g]'
+option  '--bold, -b', 'Show in bold'
+param   'MESSAGE', 'Message to say'
+env_var 'COLOR', 'Set color code (same as --color)'
+example 'run say hello'
+example 'run say hello -cr --bold'
+action :say, :s do |args|
+  color = args['--color']
+  color += 'b' if args['--bold']
+  say "#{color}`Hello #{args['MESSAGE']}`"
+end
+
+usage  'ping [--red]'
+help   'Respond with PONG'
+option '--red, -r', 'PONG in red'
+action :ping do |args|
+  say args['--red'] ? 'r`PONG`' : 'g`PONG`'
+end

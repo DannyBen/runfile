@@ -1,11 +1,13 @@
-require 'runfile/version'
-require 'runfile/terminal'
-require 'runfile/refinements'
-require 'runfile/settings'
-require 'runfile/docopt_helper'
-require 'runfile/runfile_helper'
-require 'runfile/action'
-require 'runfile/runner'
-require 'runfile/dsl'
+require 'gtx'
+require 'docopt'
+require 'colsole'
+require 'requires'
 
-require 'byebug' if ENV['BYEBUG']
+requires 'runfile/exceptions'
+requires 'runfile/concerns'
+requires 'runfile'
+
+if ENV['BYEBUG']
+  require 'byebug'
+  require 'lp'
+end

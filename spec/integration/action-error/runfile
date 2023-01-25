@@ -1,0 +1,4 @@
+action 'greet' do
+  1 / 0
+  say "g`Hello World`"
+end

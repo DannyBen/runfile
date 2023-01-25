@@ -1,8 +1,0 @@
-# this example is used by the test script to test graceful errors
-
-i made a boo boo
-
-action :global do
-
-end
-

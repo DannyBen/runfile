@@ -1,0 +1,44 @@
+Complete Runfile
+
+  A runfile with all (most) features
+
+Usage:
+  run (say|s) MESSAGE [options]
+  run ping [--red]
+  run (--help | -h)
+  run --version
+
+Commands:
+  nb`say, s`
+    Say something
+
+  nb`ping`
+    Respond with PONG
+
+Parameters:
+  MESSAGE
+    Message to say
+
+Options:
+  --color, -c CODE
+    One letter color code [default: g]
+
+  --bold, -b
+    Show in bold
+
+  --red, -r
+    PONG in red
+
+  --help, -h
+    Show this message
+
+  --version
+    Show version number
+
+Environment Variables:
+  COLOR
+    Set color code (same as --color)
+
+Examples:
+  run say hello
+  run say hello -cr --bold

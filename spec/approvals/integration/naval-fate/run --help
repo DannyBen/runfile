@@ -1,0 +1,44 @@
+Naval Fate
+
+  Command line example adapted from Docopt's Naval Fate
+  Source bu`http://docopt.org/`
+
+Usage:
+  run new SHIPS...
+  run move SHIP X Y [--speed KN]
+  run mine (set | remove) X Y  [--moored | --drifting]
+  run (--help | -h)
+  run --version
+
+Commands:
+  nb`new`
+    Deploy one or more ships
+
+  nb`move`
+    Move the given ship
+
+  nb`mine`
+    Set or remove a mine
+
+Parameters:
+  SHIPS
+    One ore more ship names
+
+  SHIP
+    Ship name
+
+Options:
+  --speed, -s KN
+    Speed in knots [default: 20]
+
+  --moored
+    Moored (anchored) mine
+
+  --drifting
+    Drifting mine
+
+  --help, -h
+    Show this message
+
+  --version
+    Show version number

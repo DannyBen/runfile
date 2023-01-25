@@ -1,0 +1,14 @@
+title 'Execute other actions'
+summary 'Shows how to call other actions from within an action'
+
+# $ run greet
+# $ run g
+action :greet, :g do |_args|
+  say 'GREET'
+end
+
+# $ run s
+help 'Shortcut to nu`server start`'
+action :s do
+  execute 'server start'
+end

@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'runfile'
+
+exit_code = Runfile::Entrypoint.new.run!
+exit exit_code if exit_code.is_a? Integer

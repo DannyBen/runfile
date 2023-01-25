@@ -1,0 +1,6 @@
+Usage:
+  run new SHIPS...
+  run move SHIP X Y [--speed KN]
+  run mine (set | remove) X Y  [--moored | --drifting]
+  run (--help | -h)
+  run --version

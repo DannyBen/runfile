@@ -1,0 +1,11 @@
+title 'Server commands'
+
+# $ run server stop
+action :stop do
+  say 'stop server'
+end
+
+# $ run server start
+action :start do
+  say 'start server'
+end

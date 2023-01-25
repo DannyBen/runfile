@@ -1,0 +1,93 @@
+if implicit_title
+  = implicit_title
+  >
+end
+
+if summary
+  = implicit_title ? word_wrap("  #{summary}") : word_wrap(summary)
+  >
+end
+
+> Usage:
+actions.each do |name, action|
+  action.implicit_usages.each do |usage|
+    = "  run #{usage}".rstrip
+  end
+end
+
+delegates.keys.each do |name|
+  = "  run #{name}"
+end
+
+if delegates.any?
+>   run [COMMAND] (--help | -h)
+elsif name
+>   run {{ name }} (--help | -h)
+else
+>   run (--help | -h)
+end
+
+if version
+>   run --version
+end
+>
+
+if commands.any? || delegates.any?
+  > Commands:
+  commands.each do |action|
+    = "  nb`#{action.names.join(', ')}`"
+    = word_wrap "    #{action.help}"
+    >
+  end
+
+  delegates.each do |name, userfile|
+    summary = userfile.summary || userfile.title ||
+      "Run nu`run #{name} --help` for more information"
+
+    = "  nb`#{name}`"
+    = word_wrap "    #{summary}"
+    >
+  end
+end
+
+if params.any?
+  > Parameters:
+  params.each do |name, help|
+    = "  #{name}"
+    = word_wrap "    #{help}"
+    >
+  end
+end
+
+> Options:
+options.each do |name, help|
+  = "  #{name}"
+  = word_wrap "    #{help}"
+  >
+end
+>   --help, -h
+>     Show this message
+>
+if version
+  >   --version
+  >     Show version number
+  >
+end
+
+if env_vars.any?
+  > Environment Variables:
+  env_vars.each do |name, help|
+    = "  #{name}"
+    = word_wrap "    #{help}"
+  end
+  >
+end
+
+
+if examples.any?
+  > Examples:
+  examples.each do |text|
+    = word_wrap "  #{text}"
+  end
+  >
+end

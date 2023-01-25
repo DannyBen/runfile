@@ -1,0 +1,11 @@
+title 'Multiple runfiles'
+summary 'Named runfiles in this directory will be blended seamlessly'
+
+help   'Say something'
+usage  'say MESSAGE [options]'
+option '--color, -c CODE', 'One letter color code [default: g]'
+param  'MESSAGE', 'Message to say'
+action :say do |args|
+  color = args['--color']
+  say "#{color}`Hello #{args['MESSAGE']}`"
+end

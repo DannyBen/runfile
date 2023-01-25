@@ -1,0 +1,3 @@
+Usage:
+  run say MESSAGE...
+  run (--help | -h)

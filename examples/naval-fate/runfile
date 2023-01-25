@@ -1,0 +1,47 @@
+title 'Naval Fate'
+version '1.2.1'
+summary <<~SUMMARY
+  Command line example adapted from Docopt's Naval Fate
+  Source bu`http://docopt.org/`
+SUMMARY
+
+usage 'new SHIPS...'
+help  'Deploy one or more ships'
+param 'SHIPS', 'One ore more ship names'
+action :new do |args|
+  args['SHIPS'].each do |ship|
+    say "Deployed g`#{ship}`"
+  end
+end
+
+usage  'move SHIP X Y [--speed KN]'
+help   'Move the given ship'
+param  'SHIP', 'Ship name'
+option '--speed, -s KN', 'Speed in knots [default: 20]'
+action :move do |args|
+  ship = args['SHIP']
+  x = args['X']
+  y = args['Y']
+  speed = args['--speed']
+
+  say "Moving g`#{ship}` to b`#{x},#{y}` at m`#{speed}kn`"
+end
+
+usage  'mine (set | remove) X Y  [--moored | --drifting]'
+help   'Set or remove a mine'
+option '--moored', 'Moored (anchored) mine'
+option '--drifting', 'Drifting mine'
+action :mine do |args|
+  action = args['set'] ? 'Setting' : 'Removing'
+  x = args['X']
+  y = args['Y']
+  type = if args['--moored']
+    'moored'
+  elsif args['--drifting']
+    'drifting'
+  else
+    'bottom'
+  end
+
+  say "#{action} a #{type} mine at #{x},#{y}"
+end

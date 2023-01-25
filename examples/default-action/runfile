@@ -1,0 +1,9 @@
+title 'Default action'
+summary 'Defining an action without a name will execute immediately'
+
+# $ run Hello : will execute this block instead of showing usage
+# $ run       : will still show usage since MESSAGE is a required argument
+usage 'MESSAGE'
+action do |args|
+  say "Action executed with #{args['MESSAGE']}"
+end

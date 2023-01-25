@@ -1,0 +1,3 @@
+--help
+server start
+s

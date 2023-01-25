@@ -1,4 +1,0 @@
-Usage:
-  run (wakeup|code|sleep)
-  run weekend (wakeup|play|sleep)
-  run (-h|--help)

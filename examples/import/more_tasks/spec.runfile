@@ -1,0 +1,7 @@
+usage '[--continue --failed]'
+option '--continue, -c', 'Continue testing'
+option '--failed, -f', 'Retest failed specs'
+action do |args|
+  say 'spec action'
+  p args
+end

@@ -1,0 +1,9 @@
+title 'The New Runfile'
+summary 'Testing the new Runfile'
+
+import_gem 'sample_import_gem', 'docker', "error here, must be a hash"
+
+usage "say MESSAGE"
+action 'say' do |args|
+  say "in main runfile, with #{args['MESSAGE']}"
+end

@@ -1,0 +1,6 @@
+title 'Default action in a named file'
+
+# $ run server
+action do
+  say 'Starting server'
+end

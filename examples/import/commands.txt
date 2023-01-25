@@ -1,0 +1,9 @@
+--help
+server --help
+spec --help
+say
+say Hello
+server
+server stop --force
+spec
+spec -fc

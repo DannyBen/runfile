@@ -1,0 +1,18 @@
+Example with a multiline examples
+
+  Showing examples with --help
+
+Usage:
+  run build [--install]
+  run (--help | -h)
+
+Options:
+  --help, -h
+    Show this message
+
+Examples:
+  nb`Build only`
+  $ run build
+  
+  nb`Build and install`
+  $ run build --install

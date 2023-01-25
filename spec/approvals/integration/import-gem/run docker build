@@ -1,0 +1,4 @@
+in a real implementation, we will run:
+$ [35mdocker build --tag me/my-image-name .[0m
+
+Note that image name (me/my-image-name) came from the caller

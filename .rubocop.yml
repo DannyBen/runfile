@@ -1,0 +1,29 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+inherit_gem:
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
+
+inherit_mode:
+  merge:
+    - Include
+    - Exclude
+
+AllCops:
+  TargetRubyVersion: 2.7
+  Include:
+    - '**/runfile'
+    - '**/*.runfile'
+  Exclude:
+    - int/**/*
+    - debug.rb
+    - dev/**/*
+    - spec/integration/**/*
+    - spec/tmp/**/*
+
+RSpec/ExampleLength:
+  Exclude:
+    - spec/behaviors/**/*

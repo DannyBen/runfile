@@ -1,0 +1,5 @@
+Usage:
+  run (say|s) MESSAGE [options]
+  run ping [--red]
+  run (--help | -h)
+  run --version

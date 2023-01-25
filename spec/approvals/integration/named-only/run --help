@@ -1,0 +1,15 @@
+Usage:
+  run deploy
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`deploy`
+    With a default action
+
+  nb`server`
+    Server commands
+
+Options:
+  --help, -h
+    Show this message

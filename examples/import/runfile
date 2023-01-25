@@ -1,0 +1,10 @@
+title 'Importing other funfiles'
+summary 'Reference other runfiles to blend them seamlessly as one command line interface'
+
+import 'tasks/*'
+import 'more_tasks/spec'
+
+usage 'say MESSAGE'
+action 'say' do |args|
+  say "in main runfile, with #{args['MESSAGE']}"
+end

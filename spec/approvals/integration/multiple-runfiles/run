@@ -1,0 +1,4 @@
+Usage:
+  run say MESSAGE [options]
+  run server
+  run [COMMAND] (--help | -h)

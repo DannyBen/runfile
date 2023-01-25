@@ -1,0 +1,7 @@
+--help
+--version
+s Shortcut
+say Hello
+say Hello --color r
+say Hello -cr --bold
+ping --red

@@ -1,0 +1,4 @@
+--help
+server --help
+server start
+say hi

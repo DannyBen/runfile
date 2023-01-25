@@ -1,0 +1,15 @@
+Default action and other actions
+
+Usage:
+  run
+  run test
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`server`
+    Default action in a named file
+
+Options:
+  --help, -h
+    Show this message

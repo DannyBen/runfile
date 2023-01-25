@@ -1,4 +1,0 @@
-Usage:
-  run FILE USER [--color]
-  run copy FILE
-  run (-h|--help)

@@ -1,0 +1,8 @@
+--help
+greet
+g
+salute
+s
+s --red
+toast
+t

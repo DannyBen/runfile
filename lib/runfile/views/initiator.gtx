@@ -1,0 +1,28 @@
+> Runfile
+>
+>   Local command line for your projects
+>
+> Usage:
+>   run new
+>   run example [NAME]
+>   run --help | -h
+>   run --version
+>
+> Commands:
+>   nb`new`
+>     Create a new runfile in the current directory
+>
+>   nb`example`
+>     Copy one of the examples to the current directory
+>     Run without arguments to see the list of examples
+>
+> Options:
+>   --help, -h
+>     Show this message
+>
+>   --version
+>     Show version number
+>
+> Documentation:
+>   bu`https://runfile.dannyb.co`
+>
