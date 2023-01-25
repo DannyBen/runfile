@@ -20,7 +20,9 @@ describe Userfile do
   context 'when action is not properly defined' do
     it 'raises an error' do
       Dir.chdir 'spec/integration/action-not-found' do
-        expect { subject.run %w[hello] }.to raise_approval('userfile/action-not-found')
+        expect { subject.run %w[hello] }
+          .to raise_approval('userfile/action-not-found')
+          .diff(3)
       end
     end
   end
@@ -28,7 +30,7 @@ describe Userfile do
   context 'when using import_gem with invalid context argument' do
     it 'raises an error' do
       Dir.chdir 'spec/integration/import-gem-error' do
-        expect { subject.run }.to raise_approval('userfile/import-gem-error')
+        expect { subject.run }.to raise_approval('userfile/import-gem-error').diff(3)
       end
     end
   end

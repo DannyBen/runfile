@@ -39,7 +39,9 @@ describe Initiator do
     context 'with "example invalid-example"' do
       it 'raises an error' do
         Dir.chdir 'spec/tmp' do
-          expect { subject.run %w[example invalid-example] }.to raise_approval('initiator/example-invalid')
+          expect { subject.run %w[example invalid-example] }
+            .to raise_approval('initiator/example-invalid')
+            .diff(3)
         end
       end
     end
