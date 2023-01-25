@@ -29,7 +29,8 @@ command line "toolbelt" for your projects, you can use it regardless.
 ## Pre-release Notice
 
 Note that this README describes the not yet released 1.0.0 version.  
-See https://bashly.dannyb.co/ for the stable release documentation.
+See [bashly.dannyb.co](https://bashly.dannyb.co/) for the stable release
+documentation.
 
 During the pre-release phase, the `run` executable is called `runn` instead, 
 to allow running both the stable and pre-release version side by side.
