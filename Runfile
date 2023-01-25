@@ -1,13 +1,8 @@
-require 'yaml'
-require 'byebug'
-
 title   "Runfile Runfile"
 summary "Runfile tasks for building the Runfile gem"
 version Runfile::VERSION
 
-# RunfileTasks::RubyGems.all 'runfile'
-# RunfileTasks::Testing.cucumber
-# RunfileTasks::Docs.rdoc
+import 'tasks/gem'
 
 help   "Generate changelog and append old changelog"
 action :changelog do

@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
     'README.md',
     'lib/**/*.rb',
     'lib/runfile/templates/*',
+    'lib/runfile/views/*.gtx',
     'examples/**/{runfile,*.runfile,*.rb}',
   ]
   s.executables = ['runn'] # TODO: Change to run

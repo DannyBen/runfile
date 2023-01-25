@@ -65,7 +65,8 @@ usage  'hello [NAME --shout]'
 help   'Say hello'
 option '--shout, -s', 'Greet louder'
 action 'hello' do |args|
-  message = "Hello #{args['NAME']}"
+  name = args['NAME'] || 'You...'
+  message = "Hello #{name}"
   message = "#{message.upcase}!" if args['--shout']
 
   say "gu`#{message}`"
@@ -160,7 +161,7 @@ do it. Colsole is bundled and available in actions.
 ### Long flags before short flags
 
 This is a cosmetic change for consistency. All generated output shows long flags
-before short flags `(--force | -f)` instead of `(-f|--force)`. Update your custom
+before short flags `--force, -f` instead of `-f, --force`. Update your custom
 `usage` directives accordingly.
 
 ### RunfileTasks
