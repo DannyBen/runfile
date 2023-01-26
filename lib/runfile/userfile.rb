@@ -84,12 +84,16 @@ module Runfile
     end
 
     def run_local(argv)
+      exit_code = nil
+      
       Runner.run docopt, argv: argv, version: version do |args|
         action = find_action(args)
         raise ActionNotFound, 'Cannot find action. Is it properly defined?' unless action
 
-        action.run args
+        exit_code = action.run args
       end
+      
+      exit_code if exit_code.is_a? Integer
     end
 
     def meta

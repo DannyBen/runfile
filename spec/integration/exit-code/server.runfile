@@ -1,0 +1,4 @@
+action do
+  say "SERVER exiting with non zero"
+  22
+end
