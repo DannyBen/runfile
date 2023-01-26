@@ -2,7 +2,7 @@ title   "Runfile Runfile"
 summary "Runfile tasks for building the Runfile gem"
 version Runfile::VERSION
 
-import 'tasks/gem', name: 'runfile'
+import_gem 'runfile-tasks/gem', gemname: 'runfile'
 
 help   "Generate changelog and append old changelog"
 action :changelog do
