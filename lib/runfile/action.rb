@@ -17,16 +17,17 @@ module Runfile
       end
     end
 
+    def inspectable
+      { name: name, prefix: prefix, shortcut: shortcut, host: host }
+    end
+
     def validate_context
       host.required_contexts.each do |varname, default|
         next if host.context[varname]
         raise UserError, "Need #{varname}" if default.nil?
+
         host.context[varname] = default
       end
-    end
-
-    def inspectable
-      { name: name, prefix: prefix, shortcut: shortcut, host: host }
     end
 
     def name=(value)

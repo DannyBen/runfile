@@ -20,6 +20,6 @@ action 'deploy' do
   if context[:allow_deploy]
     say 'DEPLOYING'
   else
-    say! "r`Deployment not allowed`"
+    say! 'r`Deployment not allowed`'
   end
 end
