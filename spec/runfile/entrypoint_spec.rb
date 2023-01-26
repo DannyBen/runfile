@@ -35,6 +35,13 @@ describe Entrypoint do
       expect { subject.run! }.to output(/some error/).to_stderr
     end
 
+    it 'exits displays backtrace on exceptions when DEBUG=1' do
+      ENV['DEBUG'] = '1'
+      allow(subject).to receive(:run).and_raise(StandardError, 'some error')
+      expect { subject.run! }.to output(%r{lib/rspec}).to_stderr
+      ENV['DEBUG'] = nil
+    end
+
     context 'when the masterfile action ends with an integer value' do
       let(:argv) { %w[] }
 

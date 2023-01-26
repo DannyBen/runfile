@@ -1,2 +1,4 @@
 [7m[1m[31m ZeroDivisionError [0m in [4mrunfile:2[0m
 divided by 0
+
+Prefix with [4mDEBUG=1[0m for full backtrace

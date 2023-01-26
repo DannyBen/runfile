@@ -25,7 +25,7 @@ module Runfile
       say e.message
       1
     rescue Runfile::UserError => e
-      puts e.backtrace.reverse if ENV['DEBUG']
+      allow_debug e
       say! "mib` #{e.class} `"
       say! e.message
       1
@@ -33,15 +33,23 @@ module Runfile
       say! 'm`Goodbye`', replace: true
       1
     rescue => e
-      puts e.backtrace.reverse if ENV['DEBUG']
+      allow_debug e
       origin = e.backtrace_locations.first
       location = "#{origin.path}:#{origin.lineno}"
       say! "rib` #{e.class} ` in nu`#{location}`"
       say! e.message
+      say! "\nPrefix with nu`DEBUG=1` for full backtrace" unless ENV['DEBUG']
       1
     end
 
   private
+
+    def allow_debug(e)
+      return unless ENV['DEBUG']
+
+      say! e.backtrace.reverse.join("\n")
+      say! '---'
+    end
 
     def meta
       @meta ||= Meta.new
