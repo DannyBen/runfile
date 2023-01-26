@@ -167,7 +167,8 @@ before short flags `--force, -f` instead of `-f, --force`. Update your custom
 
 ### RunfileTasks
 
-The `RunfileTasks` gem is not yet compatible. It will be later on.
+The `RunfileTasks` gem is also released as a pre-release, if you are using it
+make sure to install the latest release candidate.
 
 ## Contributing / Support
 
