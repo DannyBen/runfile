@@ -48,6 +48,14 @@ module Runfile
       params[name] = help
     end
 
+    def require_context(varname, default: nil)
+      required_contexts[varname] = default
+    end
+
+    def required_contexts
+      @required_contexts ||= {}
+    end
+
     def shortcut(name)
       current_action.shortcut = name
     end

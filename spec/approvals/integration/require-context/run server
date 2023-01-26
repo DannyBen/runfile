@@ -1,0 +1,4 @@
+[32mContext[0m:
+{:image=>"my-rails-app", :allow_deploy=>true, :env=>"development"}
+[32mArgs[0m:
+{"server"=>true, "deploy"=>false, "--help"=>false}

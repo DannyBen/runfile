@@ -9,9 +9,19 @@ module Runfile
     attr_accessor :block, :help, :host
 
     def run(args = {})
+      validate_context
+
       instance_eval do
         host.helpers.each { |b| b.call args }
         block.call args
+      end
+    end
+
+    def validate_context
+      host.required_contexts.each do |varname, default|
+        next if host.context[varname]
+        raise UserError, "Need #{varname}" if default.nil?
+        host.context[varname] = default
       end
     end
 

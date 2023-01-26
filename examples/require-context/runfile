@@ -1,0 +1,7 @@
+title 'DevOps Toolbox'
+
+import 'server', image: 'my-rails-app', allow_deploy: true
+
+action 'ping' do
+  say 'PONG'
+end
