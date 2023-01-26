@@ -1,0 +1,4 @@
+action do
+  say "main runfile exiting with non zero"
+  11
+end

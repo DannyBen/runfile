@@ -34,5 +34,29 @@ describe Entrypoint do
       allow(subject).to receive(:run).and_raise(StandardError, 'some error')
       expect { subject.run! }.to output(/some error/).to_stderr
     end
+
+    context 'when the masterfile action ends with an integer value' do
+      let(:argv) { %w[] }
+
+      it 'returns it as an exit code from the masterfile' do
+        Dir.chdir 'spec/integration/exit-code' do
+          exit_code = nil
+          expect { exit_code = subject.run! }.to output_approval('entrypoint/exit-code')
+          expect(exit_code).to eq 11
+        end
+      end
+    end
+
+    context 'when the delegate action ends with an integer value' do
+      let(:argv) { %w[server] }
+
+      it 'returns it as an exit code from the masterfile' do
+        Dir.chdir 'spec/integration/exit-code' do
+          exit_code = nil
+          expect { exit_code = subject.run! }.to output_approval('entrypoint/exit-code-delegate')
+          expect(exit_code).to eq 22
+        end
+      end
+    end
   end
 end
