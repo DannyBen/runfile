@@ -48,7 +48,7 @@ module Runfile
       dir = "#{examples_dir}/#{name}"
       raise UserError, "No such example: nu`#{name}`" unless Dir.exist? dir
 
-      files = Dir.chdir(dir) { Dir['**/{runfile,*.runfile,*.rb}'] }
+      files = Dir.chdir(dir) { Dir['**/{runfile,*.runfile,*.rb}'] }.sort
       files.each { |file| safe_copy dir, file }
       say_tip
     end
