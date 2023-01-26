@@ -11,6 +11,7 @@ Untagged - Latest
 - Add context to import directive
 - Refactor imports
 - Allow import_gem to have no path and import all
+- Add support for helpers to improve context isolation
 
 
 v0.12.0 - 2021-09-29
