@@ -1,6 +1,18 @@
 Change Log
 ========================================
 
+Untagged - Latest
+----------------------------------------
+
+- Maintenance update
+- Drop support for Ruby < 2.6
+- Complete rebuild from scratch
+- Drop support for Ruby 2.6
+- Add context to import directive
+- Refactor imports
+- Allow import_gem to have no path and import all
+
+
 v0.12.0 - 2021-09-29
 ----------------------------------------
 
