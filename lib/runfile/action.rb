@@ -6,17 +6,27 @@ module Runfile
     include Inspectable
 
     attr_reader :name, :shortcut
-    attr_accessor :block, :help, :prefix, :helpers
+    attr_accessor :block, :help, :host
 
     def run(args = {})
+      validate_context
+
       instance_eval do
-        (helpers || []).each { |b| b.call args }
+        host.helpers.each { |b| b.call args }
         block.call args
       end
     end
 
+    def validate_context
+      host.required_contexts.each do |varname, default|
+        next if host.context[varname]
+        raise UserError, "Need #{varname}" if default.nil?
+        host.context[varname] = default
+      end
+    end
+
     def inspectable
-      { name: name, prefix: prefix, shortcut: shortcut }
+      { name: name, prefix: prefix, shortcut: shortcut, host: host }
     end
 
     def name=(value)
@@ -29,10 +39,14 @@ module Runfile
 
     def full_name
       @full_name ||= if shortcut
-        "#{prefix} (#{name} | #{shortcut})".strip
+        "#{host.name} (#{name} | #{shortcut})".strip
       else
-        "#{prefix} #{name}".strip
+        "#{host.name} #{name}".strip
       end
+    end
+
+    def prefix
+      host&.name
     end
 
     def names

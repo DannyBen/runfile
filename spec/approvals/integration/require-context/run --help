@@ -1,0 +1,14 @@
+DevOps Toolbox
+
+Usage:
+  run ping
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`server`
+    Build and manage all the servers
+
+Options:
+  --help, -h
+    Show this message

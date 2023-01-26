@@ -1,0 +1,16 @@
+Server commands
+
+  Build and manage all the servers
+
+Usage:
+  run server
+  run server deploy
+  run server (--help | -h)
+
+Commands:
+  nb`deploy`
+    Deploy to production
+
+Options:
+  --help, -h
+    Show this message

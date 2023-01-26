@@ -1,0 +1,5 @@
+--help
+ping
+server --help
+server
+server deploy

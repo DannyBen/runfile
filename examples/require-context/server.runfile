@@ -1,0 +1,25 @@
+title   'Server commands'
+summary 'Build and manage all the servers'
+
+# Declare that we need three variables in the `import` directive
+# One mandatory (:image) and two with a default fallback values
+require_context :image
+require_context :allow_deploy, default: false
+require_context :env,          default: 'development'
+
+# $ run server : default command
+action do |args|
+  say 'g`Context`:'
+  p context
+  say 'g`Args`:'
+  p args
+end
+
+help   'Deploy to production'
+action 'deploy' do
+  if context[:allow_deploy]
+    say 'DEPLOYING'
+  else
+    say! "r`Deployment not allowed`"
+  end
+end
