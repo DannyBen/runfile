@@ -7,7 +7,7 @@ helpers do
   end
 end
 
-# $ run ls : can call helper methods 
+# $ run ls : can call helper methods
 help   'Show files'
 usage  'ls [--json]'
 option '--json, -j', 'Output in JSON format'

@@ -10,10 +10,7 @@ module Runfile
       current_action.shortcut = shortcut if shortcut
       current_action.prefix = action_prefix if action_prefix
       current_action.helpers = helper_blocks if helper_blocks.any?
-
-      actions[name || :default] = current_action
-      @default_action = current_action unless name
-      @current_action = nil
+      finalize_current_action name
     end
 
     def env_var(name, help)
@@ -118,6 +115,12 @@ module Runfile
     end
 
   private
+
+    def finalize_current_action(name)
+      actions[name || :default] = current_action
+      @default_action = current_action unless name
+      @current_action = nil
+    end
 
     def current_action
       @current_action ||= Action.new

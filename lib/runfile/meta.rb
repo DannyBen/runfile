@@ -57,7 +57,7 @@ module Runfile
             result.push userfile
           end
         end
-        
+
         result.to_h { |file| [file.name, file] }
       end
     end
