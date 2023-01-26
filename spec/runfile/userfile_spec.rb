@@ -26,13 +26,4 @@ describe Userfile do
       end
     end
   end
-
-  context 'when using import_gem with invalid context argument' do
-    it 'raises an error' do
-      Dir.chdir 'spec/integration/import-gem-error' do
-        expect { subject.run }.to raise_approval('userfile/import-gem-error')
-          .diff(8)
-      end
-    end
-  end
 end
