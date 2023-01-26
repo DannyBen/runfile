@@ -33,6 +33,7 @@ module Runfile
 
     def import_gem(pathspec, context = nil)
       gem_name, glob = pathspec.split('/', 2)
+      glob ||= '*'
       path = GemFinder.find gem_name, glob
       imports[path] = context
     end

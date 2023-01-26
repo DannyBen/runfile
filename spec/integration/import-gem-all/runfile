@@ -1,7 +1,7 @@
 title 'The New Runfile'
 summary 'Testing the new Runfile'
 
-import_gem 'sample_import_gem', 'docker', "error here, must be a hash"
+import_gem 'sample_import_gem', image_name: 'my/image'
 
 usage "say MESSAGE"
 action 'say' do |args|
