@@ -1,11 +1,10 @@
-# $ run server start
-# $ run server s
-action :start, :s do
-  say 'START'
+title 'Server commands'
+
+action :build do
+  say 'build'
+  execute 'server install'
 end
 
-# $ run server stop
-# $ run server st
-action :stop, :st do
-  say 'STOP'
+action :install do
+  say 'install'
 end
