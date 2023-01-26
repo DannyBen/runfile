@@ -3,8 +3,6 @@
 
 require 'fileutils'
 
-gemname = 'runfile'
-
 help   'Build and optionally install the gem'
 usage  '(build | b) [--install]'
 option '--install, -i', 'Install after building'
@@ -14,12 +12,12 @@ action :build, :b do |args|
   say "Running: m`#{cmd}`"
   FileUtils.mkdir_p 'tmp'
   system cmd
-  
-  execute "gem install" if args['--install']
+
+  execute 'gem install' if args['--install']
 end
 
 help   'Install gem from tmp directory'
-action :install do |args|
+action :install do |_args|
   gemfile = "tmp/#{gemname}.gem"
   cmd = "gem install --local #{gemfile}"
 
@@ -31,6 +29,7 @@ help   'Publish gem to rubygems'
 action :publish do
   gemfile = "tmp/#{gemname}.gem"
   raise "File not found #{gemfile}" unless File.exist? gemfile
+
   cmd = "gem push #{gemfile}"
   say "Running: m`#{cmd}`"
   system cmd
@@ -43,4 +42,8 @@ action :yank do |args|
   cmd = "gem yank #{gemname} -v #{version}"
   say "Running: m`#{cmd}`"
   system cmd
+end
+
+def gemname
+  context[:name]
 end
