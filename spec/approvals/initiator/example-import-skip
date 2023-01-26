@@ -1,0 +1,6 @@
+Copied   [32mmore_tasks/spec.runfile[0m
+Copied   [32mrunfile[0m
+[31mSkipped  tasks/server.runfile[0m (exists)
+
+Run [32mrun[0m or [32mrun --help[0m to see your runfile
+Delete the copied files to go back to the initial state

@@ -46,10 +46,10 @@ module Runfile
 
     def create_example(name)
       dir = "#{examples_dir}/#{name}"
-      files = Dir["#{dir}/{runfile,*.runfile,*.rb}"]
-      raise UserError, "No such example: nu`#{name}`" if files.empty?
+      raise UserError, "No such example: nu`#{name}`" unless Dir.exist? dir
 
-      files.each { |file| safe_copy file }
+      files = Dir.chdir(dir) { Dir['**/{runfile,*.runfile,*.rb}'] }.sort
+      files.each { |file| safe_copy dir, file }
       say_tip
     end
 
@@ -59,19 +59,22 @@ module Runfile
       say 'Delete the copied files to go back to the initial state'
     end
 
-    def safe_copy(file)
-      target = File.basename file
-      # This will never happen since if there is a runfile, the initiator will
-      # not be called. Nonetheless, keep it for safety
-      return if File.exist? target
+    def safe_copy(source_dir, target_file)
+      source_file = "#{source_dir}/#{target_file}"
 
-      FileUtils.cp file, '.'
-      say "Copied g`#{target}`"
+      if File.exist? target_file
+        say "r`Skipped  #{target_file}` (exists)"
+        return
+      end
+
+      FileUtils.mkdir_p File.dirname(target_file)
+      FileUtils.cp source_file, target_file
+      say "Copied   g`#{target_file}`"
     end
 
     def examples
       @examples ||= Dir["#{examples_dir}/*"]
-        .select { |f| File.directory?  f }
+        .select { |f| File.directory? f }
         .map { |f| File.basename f }
         .sort
     end
