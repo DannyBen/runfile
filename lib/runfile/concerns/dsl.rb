@@ -9,10 +9,8 @@ module Runfile
       current_action.name = name
       current_action.shortcut = shortcut if shortcut
       current_action.prefix = action_prefix if action_prefix
-
-      actions[name || :default] = current_action
-      @default_action = current_action unless name
-      @current_action = nil
+      current_action.helpers = helper_blocks if helper_blocks.any?
+      finalize_current_action name
     end
 
     def env_var(name, help)
@@ -25,6 +23,11 @@ module Runfile
 
     def help(message)
       current_action.help = message
+    end
+
+    def helpers(&block)
+      helper_blocks.push block if block
+      helper_blocks
     end
 
     def import(pathspec, context = nil)
@@ -99,6 +102,10 @@ module Runfile
       @examples ||= []
     end
 
+    def helper_blocks
+      @helper_blocks ||= []
+    end
+
     def options
       @options ||= {}
     end
@@ -108,6 +115,12 @@ module Runfile
     end
 
   private
+
+    def finalize_current_action(name)
+      actions[name || :default] = current_action
+      @default_action = current_action unless name
+      @current_action = nil
+    end
 
     def current_action
       @current_action ||= Action.new

@@ -6,10 +6,13 @@ module Runfile
     include Inspectable
 
     attr_reader :name, :shortcut
-    attr_accessor :block, :help, :prefix
+    attr_accessor :block, :help, :prefix, :helpers
 
     def run(args = {})
-      block.call args
+      instance_eval do
+        (helpers || []).each { |b| b.call args }
+        block.call args
+      end
     end
 
     def inspectable

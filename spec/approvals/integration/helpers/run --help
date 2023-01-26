@@ -1,0 +1,14 @@
+Usage:
+  run ls [--json]
+  run (--help | -h)
+
+Commands:
+  nb`ls`
+    Show files
+
+Options:
+  --json, -j
+    Output in JSON format
+
+  --help, -h
+    Show this message
