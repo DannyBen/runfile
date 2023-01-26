@@ -8,8 +8,7 @@ module Runfile
       current_action.block = block
       current_action.name = name
       current_action.shortcut = shortcut if shortcut
-      current_action.prefix = action_prefix if action_prefix
-      current_action.helpers = helper_blocks if helper_blocks.any?
+      current_action.host = self
       finalize_current_action name
     end
 
@@ -66,7 +65,7 @@ module Runfile
     end
 
     def usage(message)
-      message = "#{action_prefix} #{message}" if action_prefix
+      message = "#{name} #{message}" if name
       current_action.usages.push message
     end
 
@@ -81,10 +80,6 @@ module Runfile
     end
 
     # Evaluation Artifacts
-
-    def action_prefix
-      nil
-    end
 
     def actions
       @actions ||= {}
