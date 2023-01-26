@@ -43,23 +43,23 @@ module Runfile
       @masterfile ||= Userfile.load_file masterfile_path
     end
 
-    # def title
-    #   masterfile&.title
-    # end
-
-    # def summary
-    #   masterfile&.summary
-    # end
-
     def globs
-      @globs ||= (masterfile ? ['*'] + masterfile.imports : ['*'])
+      @globs ||= (masterfile ? ['*'] + masterfile.imports.keys : ['*'])
     end
 
     def external_files
-      @external_files ||= globs
-        .map { |glob| Dir["#{glob}.runfile"].sort }
-        .flatten
-        .to_h { |file| [File.basename(file, '.runfile'), Userfile.load_file(file)] }
+      @external_files ||= begin
+        result = []
+        globs.each do |glob|
+          Dir["#{glob}.runfile"].sort.each do |file|
+            userfile = Userfile.load_file(file)
+            userfile.context = masterfile.imports[glob] if masterfile
+            result.push userfile
+          end
+        end
+        
+        result.to_h { |file| [file.name, file] }
+      end
     end
   end
 end

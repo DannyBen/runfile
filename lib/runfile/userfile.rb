@@ -44,11 +44,11 @@ module Runfile
     end
 
     def inspectable
-      { name: name, path: path }
+      { name: name, path: path, context: context }
     end
 
     def run(argv = [])
-      found_delegate = delegate argv[0]
+      found_delegate = delegates[argv[0]]
       if found_delegate
         found_delegate.run argv
       else
@@ -90,14 +90,6 @@ module Runfile
 
         action.run args
       end
-    end
-
-    def delegate(name)
-      return nil unless delegates.has_key? name
-
-      result = delegates[name]
-      result.context = contexts[name]
-      result
     end
 
     def meta

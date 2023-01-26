@@ -28,16 +28,13 @@ module Runfile
     end
 
     def import(pathspec, context = nil)
-      imports.push pathspec
-      return unless context.is_a?(Hash) && !pathspec.include?('*')
-      
-      contexts[File.basename(pathspec)] = context 
+      imports[pathspec] = context
     end
 
-    def import_gem(gem_name, runfile_path, context = nil)
-      path = GemFinder.find gem_name, runfile_path
-      imports.push path
-      contexts[runfile_path] = context if context.is_a? Hash
+    def import_gem(pathspec, context = nil)
+      gem_name, glob = pathspec.split('/', 2)
+      path = GemFinder.find gem_name, glob
+      imports[path] = context
     end
 
     def option(name, help)
@@ -85,10 +82,6 @@ module Runfile
       nil
     end
 
-    def contexts
-      @contexts ||= {}
-    end
-
     def actions
       @actions ||= {}
     end
@@ -110,7 +103,7 @@ module Runfile
     end
 
     def imports
-      @imports ||= []
+      @imports ||= {}
     end
 
   private

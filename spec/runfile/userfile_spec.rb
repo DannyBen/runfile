@@ -5,7 +5,7 @@ describe Userfile do
     subject { described_class.new 'code', name: 'test', path: '/path' }
 
     it 'is inspectable' do
-      expect(subject.inspect).to eq '#<Runfile::Userfile name="test", path="/path">'
+      expect(subject.inspect).to match_approval('userfile/inspect')
     end
   end
 
