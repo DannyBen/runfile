@@ -33,11 +33,15 @@ module Runfile
       say! 'm`Goodbye`', replace: true
       1
     rescue => e
-      puts e.backtrace.reverse if ENV['DEBUG']
+      if ENV['DEBUG']
+        say! e.backtrace.reverse.join("\n")
+        say! '---'
+      end
       origin = e.backtrace_locations.first
       location = "#{origin.path}:#{origin.lineno}"
       say! "rib` #{e.class} ` in nu`#{location}`"
       say! e.message
+      say! "\nPrefix with nu`DEBUG=1` for full backtrace" unless ENV['DEBUG']
       1
     end
 
