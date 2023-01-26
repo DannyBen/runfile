@@ -1,6 +1,7 @@
 summary 'Server management commands'
 
 action 'start' do |_args|
+  say "Context: #{context[:anything]}"
   say 'g`Starting server`'
 end
 

@@ -2,7 +2,7 @@ title 'Importing other funfiles'
 summary 'Reference other runfiles to blend them seamlessly as one command line interface'
 
 import 'tasks/*'
-import 'more_tasks/spec'
+import 'more_tasks/spec', anything: 'Context Values'
 
 usage 'say MESSAGE'
 action 'say' do |args|

@@ -10,12 +10,6 @@ module Runfile
       current_action.shortcut = shortcut if shortcut
       current_action.prefix = action_prefix if action_prefix
 
-      # if default_action && name
-      #   raise SyntaxError, <<~ERROR
-      #     Cannot define action nub`#{name}` since a default action was already defined
-      #   ERROR
-      # end
-
       actions[name || :default] = current_action
       @default_action = current_action unless name
       @current_action = nil
@@ -33,21 +27,17 @@ module Runfile
       current_action.help = message
     end
 
-    def import(pathspec)
+    def import(pathspec, context = nil)
       imports.push pathspec
+      return unless context.is_a?(Hash) && !pathspec.include?('*')
+      
+      contexts[File.basename(pathspec)] = context 
     end
 
     def import_gem(gem_name, runfile_path, context = nil)
-      if context && !context.is_a?(Hash)
-        raise SyntaxError, <<~ERROR
-          The third argument to nub`import_gem` must be a hash
-          got rb`#{context.inspect}`
-        ERROR
-      end
-
       path = GemFinder.find gem_name, runfile_path
       imports.push path
-      contexts[runfile_path] = context if context
+      contexts[runfile_path] = context if context.is_a? Hash
     end
 
     def option(name, help)
