@@ -9,6 +9,7 @@ module Runfile
       current_action.name = name
       current_action.shortcut = shortcut if shortcut
       current_action.prefix = action_prefix if action_prefix
+      current_action.helpers = helper_blocks if helper_blocks.any?
 
       actions[name || :default] = current_action
       @default_action = current_action unless name
@@ -25,6 +26,11 @@ module Runfile
 
     def help(message)
       current_action.help = message
+    end
+
+    def helpers(&block)
+      helper_blocks.push block if block
+      helper_blocks
     end
 
     def import(pathspec, context = nil)
@@ -97,6 +103,10 @@ module Runfile
 
     def examples
       @examples ||= []
+    end
+
+    def helper_blocks
+      @helper_blocks ||= []
     end
 
     def options

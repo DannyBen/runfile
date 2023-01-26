@@ -1,0 +1,20 @@
+require 'json'
+
+# Define helper methods
+helpers do
+  def files
+    Dir['*'].sort
+  end
+end
+
+# $ run ls : can call helper methods 
+help   'Show files'
+usage  'ls [--json]'
+option '--json, -j', 'Output in JSON format'
+action :ls do |args|
+  if args['--json']
+    puts files.to_json
+  else
+    puts files.join("\n")
+  end
+end
