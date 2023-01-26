@@ -25,7 +25,7 @@ module Runfile
       say e.message
       1
     rescue Runfile::UserError => e
-      allow_debug
+      allow_debug e
       say! "mib` #{e.class} `"
       say! e.message
       1
@@ -33,7 +33,7 @@ module Runfile
       say! 'm`Goodbye`', replace: true
       1
     rescue => e
-      allow_debug
+      allow_debug e
       origin = e.backtrace_locations.first
       location = "#{origin.path}:#{origin.lineno}"
       say! "rib` #{e.class} ` in nu`#{location}`"
@@ -44,7 +44,7 @@ module Runfile
 
   private
 
-    def allow_debug
+    def allow_debug(e)
       return unless ENV['DEBUG']
 
       say! e.backtrace.reverse.join("\n")
