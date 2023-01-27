@@ -1,0 +1,15 @@
+Usage:
+  run hello [NAME]
+  run util
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`hello`
+    Say hello
+
+  nb`util`
+    Run nu`run util --help` for more information
+
+Options:
+  --help, -h
+    Show this message

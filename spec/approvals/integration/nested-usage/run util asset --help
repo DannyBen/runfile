@@ -1,0 +1,15 @@
+Usage:
+  run util asset info
+  run util asset download
+  run util asset (--help | -h)
+
+Commands:
+  nb`info`
+    Show info
+
+  nb`download`
+    Download stuff
+
+Options:
+  --help, -h
+    Show this message

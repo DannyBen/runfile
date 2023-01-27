@@ -1,0 +1,15 @@
+Usage:
+  run util asset
+  run util cache
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`asset`
+    Run nu`run util asset --help` for more information
+
+  nb`cache`
+    Run nu`run util cache --help` for more information
+
+Options:
+  --help, -h
+    Show this message

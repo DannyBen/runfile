@@ -1,0 +1,7 @@
+import 'util'
+
+usage  'hello [NAME]'
+help   'Say hello'
+action 'hello' do |args|
+  say "Hello #{args['NAME'] || 'there'}"
+end
