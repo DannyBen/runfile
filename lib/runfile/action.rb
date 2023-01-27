@@ -8,16 +8,13 @@ module Runfile
     attr_reader :name, :shortcut
     attr_accessor :block, :help, :host
 
-    def full_name
-      @full_name ||= if shortcut
-        "#{prefix} (#{name} | #{shortcut})".strip
-      else
-        "#{prefix} #{name}".strip
-      end
+    def command_string
+      result = names.join(', ')
+      result.empty? ? '(default)' : result
     end
 
     def implicit_usages
-      usages.empty? ? [full_name] : usages
+      usages.empty? ? [usage_string] : usages
     end
 
     def inspectable
@@ -47,6 +44,14 @@ module Runfile
 
     def shortcut=(value)
       @shortcut = value&.to_s
+    end
+
+    def usage_string
+      @full_name ||= if shortcut
+        "#{prefix} (#{name} | #{shortcut})".strip
+      else
+        "#{prefix} #{name}".strip
+      end
     end
 
     def usages

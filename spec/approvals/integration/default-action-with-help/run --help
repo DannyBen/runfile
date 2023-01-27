@@ -1,0 +1,11 @@
+Usage:
+  run
+  run (--help | -h)
+
+Commands:
+  nb`(default)`
+    Say hello
+
+Options:
+  --help, -h
+    Show this message

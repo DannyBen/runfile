@@ -1,0 +1,8 @@
+# Normally, a default action should not have a help text.
+# Instead, its purpose should be declared in the title or summary.
+# However, in case it is, then in the --help text its command will be named
+# "(default)"
+help   'Say hello'
+action do
+  puts 'Hello'
+end

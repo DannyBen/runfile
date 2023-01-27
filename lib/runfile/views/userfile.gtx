@@ -34,7 +34,7 @@ end
 if commands.any? || guests.any?
   > Commands:
   commands.each do |action|
-    = "  nb`#{action.names.join(', ')}`"
+    = "  nb`#{action.command_string}`"
     = word_wrap "    #{action.help}"
     >
   end
