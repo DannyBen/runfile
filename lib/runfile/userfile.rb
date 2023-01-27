@@ -40,7 +40,7 @@ module Runfile
     end
 
     def full_name
-      id.join ' '
+      @full_name ||= id.join ' '
     end
 
     def guests
@@ -56,7 +56,7 @@ module Runfile
     end
 
     def id
-      if host
+      @id ||= if host
         (host.id + [name]).compact
       else
         [name].compact
@@ -72,7 +72,7 @@ module Runfile
     end
 
     def rootfile?
-      basename.casecmp? 'runfile'
+      @rootfile ||= basename.casecmp? 'runfile'
     end
 
     def run(argv = [])
