@@ -21,7 +21,7 @@ module Runfile
     end
 
     def inspectable
-      { name: name, prefix: prefix, 'host.path': host.path }
+      { name: name, prefix: prefix, 'host.path': host&.path }
     end
 
     def run(args = {})

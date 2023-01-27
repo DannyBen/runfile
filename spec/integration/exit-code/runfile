@@ -1,4 +1,6 @@
+import 'server'
+
 action do
-  say "main runfile exiting with non zero"
+  say "rootfile exiting with non zero"
   11
 end

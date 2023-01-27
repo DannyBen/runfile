@@ -120,7 +120,8 @@ module Runfile
   private
 
     def finalize_current_action(name)
-      actions[name || :default] = current_action
+      key = name.empty? ? :default : name
+      actions[key] = current_action
       @default_action = current_action unless name
       @current_action = nil
     end

@@ -1,0 +1,17 @@
+Primary Runfile (Rootfile)
+
+Usage:
+  run welcome
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`welcome`
+    Say hello
+
+  nb`server`
+    Manage all the servers
+
+Options:
+  --help, -h
+    Show this message

@@ -1,5 +1,3 @@
-docker
-
 Usage:
   run docker build
   run docker (--help | -h)

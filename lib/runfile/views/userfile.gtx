@@ -20,7 +20,7 @@ if guests.any?
     = "  run #{userfile.full_name}"
   end
   >   run [COMMAND] (--help | -h)
-elsif full_name
+elsif full_name && !full_name.empty?
   >   run {{ full_name }} (--help | -h)
 else
   >   run (--help | -h)

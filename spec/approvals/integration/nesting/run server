@@ -1,0 +1,5 @@
+Usage:
+  run server build
+  run server start
+  run server deploy
+  run [COMMAND] (--help | -h)

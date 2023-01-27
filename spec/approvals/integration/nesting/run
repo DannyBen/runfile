@@ -1,0 +1,4 @@
+Usage:
+  run welcome
+  run server
+  run [COMMAND] (--help | -h)

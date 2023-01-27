@@ -1,6 +1,0 @@
---help
-deploy
-deploy --help
-server
-server --help
-server start

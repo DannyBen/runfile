@@ -1,0 +1,8 @@
+--help
+welcome
+server
+server --help
+server build
+server deploy
+server deploy --help
+server deploy production

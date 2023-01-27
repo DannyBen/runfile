@@ -1,5 +1,7 @@
 title 'Default action and other actions'
 
+import 'server'
+
 # $ run : will execute this block instead of showing usage
 action do
   say 'Running DEFAULT action'

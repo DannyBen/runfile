@@ -1,7 +1,0 @@
-title 'Deployment commands'
-summary 'With a default action'
-
-# $ run deploy
-action do
-  say 'deploy command'
-end

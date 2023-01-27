@@ -8,7 +8,7 @@ module Runfile
     include DSL
 
     attr_reader :path, :host
-    attr_writer :context
+    attr_accessor :context
 
     def initialize(path, context: nil, host: nil)
       @path = path
@@ -56,7 +56,7 @@ module Runfile
     end
 
     def rootfile?
-      basename.downcase == 'runfile'
+      basename.casecmp? 'runfile'
     end
 
     def run(argv = [])
@@ -78,8 +78,14 @@ module Runfile
     end
 
     def guests
-      @guests ||= Dir.glob(globs).sort.map do |guest_path, context|
-        Userfile.new guest_path, context: context, host: self
+      @guests ||= begin
+        result = imports.map do |glob, context|
+          Dir.glob("#{glob}.runfile").sort.map do |guest_path|
+            Userfile.new guest_path, context: context, host: self
+          end
+        end
+
+        result.flatten
       end
     end
 
@@ -96,13 +102,18 @@ module Runfile
     def find_guest(argv)
       guests.find do |guest|
         guest_id_size = guest.id.size
-        next if guest_id_size == 0
+        next if guest_id_size.zero?
+
         argv.first(guest_id_size) == guest.id
       end
     end
 
     def run_local(argv)
       exit_code = nil
+      # This is here to allow guests to provide their own title/summary as
+      # the help message for the Commands block.
+      # TODO: Relatively costly. Consider alternatives.
+      guests.each(&:eval_code)
 
       Runner.run docopt, argv: argv, version: version do |args|
         action = find_action(args)
