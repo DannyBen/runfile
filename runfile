@@ -1,12 +1,12 @@
-title   "Runfile Runfile"
-summary "Runfile tasks for building the Runfile gem"
+title   'Runfile Runfile'
+summary 'Runfile tasks for building the Runfile gem'
 version Runfile::VERSION
 
 import_gem 'runfile-tasks/gem', gemname: 'runfile'
 
-help   "Generate changelog and append old changelog"
+help   'Generate changelog and append old changelog'
 action :changelog do
-  system "git changelog --save"
+  system 'git changelog --save'
   # append older changelog (prior to switching to git-changelog)
-  system "cat .changelog.old.md >> CHANGELOG.md"
+  system 'cat .changelog.old.md >> CHANGELOG.md'
 end

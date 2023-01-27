@@ -1,0 +1,11 @@
+Usage:
+  run server deploy production
+  run server deploy (--help | -h)
+
+Commands:
+  nb`production`
+    Deploy to production
+
+Options:
+  --help, -h
+    Show this message

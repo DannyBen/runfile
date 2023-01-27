@@ -1,0 +1,15 @@
+title 'Server commands'
+summary 'Manage all the servers'
+
+# Import all the runfiles in the deploy folder
+import 'deploy/*'
+
+help   'Build server'
+action :build do
+  say 'Building...'
+end
+
+help   'Start server'
+action :start do
+  say 'Server starting...'
+end

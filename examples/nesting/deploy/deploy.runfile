@@ -1,0 +1,4 @@
+help   'Deploy to production'
+action 'production' do
+  say 'Deploying to production'
+end

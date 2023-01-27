@@ -1,0 +1,9 @@
+title 'Primary Runfile (Rootfile)'
+
+# import server.runfile
+import 'server'
+
+help   'Say hello'
+action :welcome do
+  say 'Welcome to Runfile'
+end

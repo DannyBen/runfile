@@ -1,14 +1,16 @@
+Primary Runfile (Rootfile)
+
 Usage:
-  run deploy
+  run welcome
   run server
   run [COMMAND] (--help | -h)
 
 Commands:
-  nb`deploy`
-    With a default action
+  nb`welcome`
+    Say hello
 
   nb`server`
-    Server commands
+    Manage all the servers
 
 Options:
   --help, -h

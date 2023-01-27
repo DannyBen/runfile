@@ -11,12 +11,16 @@ module Runfile
       @argv = argv
     end
 
+    def handler
+      rootfile || Initiator.new
+    end
+
     def inspectable
       { argv: argv }
     end
 
     def run
-      meta.handler(argv).run argv
+      handler.run argv
     end
 
     def run!
@@ -51,8 +55,12 @@ module Runfile
       say! '---'
     end
 
-    def meta
-      @meta ||= Meta.new
+    def rootfile
+      if File.exist? 'runfile'
+        Userfile.new 'runfile'
+      elsif File.exist? 'Runfile'
+        Userfile.new 'Runfile'
+      end
     end
   end
 end

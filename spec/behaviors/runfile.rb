@@ -15,7 +15,7 @@ shared_examples 'a runfile' do |workspace, approvals_base|
         filename = command.gsub(/[^a-zA-Z0-9\-\ ]/, '_')
         filename = filename.empty? ? 'run' : "run #{filename}"
         fixture_name = "#{approvals_base}/#{workspace_name}/#{filename}"
-        say "    gb`$` run #{command}".rstrip
+        say "    gb`$` [m`#{workspace}`] run #{command}".rstrip
         begin
           argv = Shellwords.split command
           entrypoint = Entrypoint.new argv

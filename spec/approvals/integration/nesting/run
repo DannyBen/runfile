@@ -1,5 +1,4 @@
 Usage:
   run welcome
-  run greet
   run server
   run [COMMAND] (--help | -h)

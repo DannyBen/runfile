@@ -1,5 +1,7 @@
 title 'Overlap'
 summary 'Testing overlapping commands between runfiles in the same directories'
 
-action(:greet) { say "Greetings from masterfile" }
-action(:stop) { say "Stop from masterfile" }
+import 'server'
+
+action(:greet) { say "Greetings from rootfile" }
+action(:stop) { say "Stop from rootfile" }

@@ -1,0 +1,23 @@
+Server commands
+
+  Manage all the servers
+
+Usage:
+  run server build
+  run server start
+  run server deploy
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`build`
+    Build server
+
+  nb`start`
+    Start server
+
+  nb`deploy`
+    Run nu`run server deploy --help` for more information
+
+Options:
+  --help, -h
+    Show this message

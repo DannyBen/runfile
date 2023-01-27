@@ -2,17 +2,15 @@
 
   default-action
   default-action-2
-  different-name
   example
   example-multiline
-  execute
   full
   helpers
   import
   minimal
   multiple-runfiles
-  named-only
   naval-fate
+  nesting
   require-context
   shortcut
 

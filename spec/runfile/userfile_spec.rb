@@ -1,19 +1,9 @@
 describe Userfile do
-  subject { described_class.load_file 'runfile' }
+  subject { described_class.new 'runfile' }
 
   describe '#inspect' do
-    subject { described_class.new 'code', name: 'test', path: '/path' }
-
     it 'is inspectable' do
       expect(subject.inspect).to match_approval('userfile/inspect')
-    end
-  end
-
-  context 'when initialized without a path' do
-    subject { described_class.new 'title "hello"' }
-
-    it 'calls eval without a path' do
-      expect(subject.title).to eq 'hello'
     end
   end
 

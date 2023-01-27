@@ -6,10 +6,10 @@ module Runfile
 
     def action(name = nil, shortcut = nil, &block)
       current_action.block = block
-      current_action.name = name
-      current_action.shortcut = shortcut if shortcut
+      current_action.name = name.to_s
+      current_action.shortcut = shortcut.to_s if shortcut
       current_action.host = self
-      finalize_current_action name
+      finalize_current_action name.to_s
     end
 
     def env_var(name, help)
@@ -57,7 +57,7 @@ module Runfile
     end
 
     def shortcut(name)
-      current_action.shortcut = name
+      current_action.shortcut = name.to_s
     end
 
     def summary(text = nil)
@@ -81,10 +81,6 @@ module Runfile
       return @version unless text
 
       @version = text
-    end
-
-    def execute(command_line)
-      run Shellwords.split(command_line)
     end
 
     # Evaluation Artifacts
@@ -120,7 +116,8 @@ module Runfile
   private
 
     def finalize_current_action(name)
-      actions[name || :default] = current_action
+      key = name.empty? ? :default : name
+      actions[key] = current_action
       @default_action = current_action unless name
       @current_action = nil
     end

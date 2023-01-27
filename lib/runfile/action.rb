@@ -8,6 +8,22 @@ module Runfile
     attr_reader :name, :shortcut
     attr_accessor :block, :help, :host
 
+    def full_name
+      @full_name ||= if shortcut
+        "#{prefix} (#{name} | #{shortcut})".strip
+      else
+        "#{prefix} #{name}".strip
+      end
+    end
+
+    def implicit_usages
+      usages.empty? ? [full_name] : usages
+    end
+
+    def inspectable
+      { name: name, prefix: prefix, 'host.path': host&.path }
+    end
+
     def run(args = {})
       validate_context
 
@@ -17,8 +33,24 @@ module Runfile
       end
     end
 
-    def inspectable
-      { name: name, prefix: prefix, shortcut: shortcut, host: host }
+    def name=(value)
+      @name = value&.to_s
+    end
+
+    def names
+      name ? [name, shortcut].compact : ['(default)']
+    end
+
+    def prefix
+      host&.full_name
+    end
+
+    def shortcut=(value)
+      @shortcut = value&.to_s
+    end
+
+    def usages
+      @usages ||= []
     end
 
     def validate_context
@@ -28,38 +60,6 @@ module Runfile
 
         host.context[varname] = default
       end
-    end
-
-    def name=(value)
-      @name = value&.to_s
-    end
-
-    def shortcut=(value)
-      @shortcut = value&.to_s
-    end
-
-    def full_name
-      @full_name ||= if shortcut
-        "#{host.name} (#{name} | #{shortcut})".strip
-      else
-        "#{host.name} #{name}".strip
-      end
-    end
-
-    def prefix
-      host&.name
-    end
-
-    def names
-      name ? [name, shortcut].compact : ['(default)']
-    end
-
-    def implicit_usages
-      usages.empty? ? [full_name] : usages
-    end
-
-    def usages
-      @usages ||= []
     end
   end
 end

@@ -1,6 +1,4 @@
-server
-
-  Server management commands
+Server management commands
 
 Usage:
   run server start

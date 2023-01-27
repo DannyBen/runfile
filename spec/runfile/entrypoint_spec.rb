@@ -42,10 +42,10 @@ describe Entrypoint do
       ENV['DEBUG'] = nil
     end
 
-    context 'when the masterfile action ends with an integer value' do
+    context 'when the rootfile action ends with an integer value' do
       let(:argv) { %w[] }
 
-      it 'returns it as an exit code from the masterfile' do
+      it 'returns it as an exit code' do
         Dir.chdir 'spec/integration/exit-code' do
           exit_code = nil
           expect { exit_code = subject.run! }.to output_approval('entrypoint/exit-code')
@@ -57,7 +57,7 @@ describe Entrypoint do
     context 'when the delegate action ends with an integer value' do
       let(:argv) { %w[server] }
 
-      it 'returns it as an exit code from the masterfile' do
+      it 'returns it as an exit code' do
         Dir.chdir 'spec/integration/exit-code' do
           exit_code = nil
           expect { exit_code = subject.run! }.to output_approval('entrypoint/exit-code-delegate')

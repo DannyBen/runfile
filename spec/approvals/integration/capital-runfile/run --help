@@ -1,6 +1,6 @@
 Usage:
-  run docker build
-  run docker (--help | -h)
+  run greet
+  run (--help | -h)
 
 Options:
   --help, -h

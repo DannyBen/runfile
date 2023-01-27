@@ -7,70 +7,82 @@ module Runfile
     include Inspectable
     include DSL
 
-    attr_reader :code, :name, :path
-    attr_writer :context
-    alias action_prefix name
+    attr_reader :path, :host
+    attr_accessor :context
 
-    class << self
-      def load_file(path)
-        if masterfile? path
-          name = nil
-        else
-          name = File.basename path, '.runfile'
-          path = "#{path}.runfile" unless path.end_with? '.runfile'
-        end
-
-        code = File.read path
-        new code, name: name, path: path
-      end
-
-      def masterfile?(path)
-        Meta::MASTERFILE_NAMES.include? path
-      end
+    def initialize(path, context: nil, host: nil)
+      @path = path
+      @host = host
+      @context = context || {}
     end
 
-    def initialize(code = nil, name: nil, path: nil)
-      @code = code
-      @name = name
-      @path = path
+    def basename
+      @basename ||= File.basename(path, '.runfile')
+    end
 
-      return unless @code
+    def code
+      @code ||= File.read(path)
+    end
 
-      if path
-        instance_eval @code, @path
+    def eval_code
+      return if evaluated?
+
+      @evaluated = true
+      instance_eval code, path
+    end
+
+    def evaluated?
+      @evaluated
+    end
+
+    def full_name
+      id.join ' '
+    end
+
+    def id
+      if host
+        (host.id + [name]).compact
       else
-        instance_eval @code
+        [name].compact
       end
     end
 
     def inspectable
-      { name: name, path: path, context: context }
+      { name: name, path: path }
+    end
+
+    def name
+      @name ||= (rootfile? ? nil : basename.downcase)
+    end
+
+    def rootfile?
+      basename.casecmp? 'runfile'
     end
 
     def run(argv = [])
-      found_delegate = delegates[argv[0]]
-      if found_delegate
-        found_delegate.run argv
+      eval_code
+      found_guest = find_guest argv
+      if found_guest
+        found_guest.run argv
       else
         run_local argv
       end
     end
 
-    def context
-      @context ||= {}
-    end
-
-    def implicit_title
-      title || name
-    end
-
-    # Returns an array of actions that have help defined
     def commands
       actions.values.select(&:help)
     end
 
-    def delegates
-      @delegates ||= (name ? {} : meta.external_files)
+    def guests
+      @guests ||= begin
+        result = imports.map do |glob, context|
+          Dir.glob("#{glob}.runfile").sort.map do |guest_path|
+            Userfile.new guest_path, context: context, host: self
+          end
+        end
+
+        result.flatten
+      end
     end
 
   private
@@ -83,8 +95,21 @@ module Runfile
         actions[:default]
     end
 
+    def find_guest(argv)
+      guests.find do |guest|
+        guest_id_size = guest.id.size
+        next if guest_id_size.zero?
+
+        argv.first(guest_id_size) == guest.id
+      end
+    end
+
     def run_local(argv)
       exit_code = nil
+      # This is here to allow guests to provide their own title/summary as
+      # the help message for the Commands block.
+      # TODO: Relatively costly. Consider alternatives.
+      guests.each(&:eval_code)
 
       Runner.run docopt, argv: argv, version: version do |args|
         action = find_action(args)
@@ -94,10 +119,6 @@ module Runfile
       end
 
       exit_code if exit_code.is_a? Integer
-    end
-
-    def meta
-      @meta ||= Meta.new
     end
 
     def docopt
