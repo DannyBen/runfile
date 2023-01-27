@@ -83,10 +83,6 @@ module Runfile
       @version = text
     end
 
-    def execute(command_line)
-      run Shellwords.split(command_line)
-    end
-
     # Evaluation Artifacts
 
     def actions
