@@ -3,5 +3,5 @@ summary 'Testing overlapping commands between runfiles in the same directories'
 
 import 'server'
 
-action(:greet) { say "Greetings from masterfile" }
-action(:stop) { say "Stop from masterfile" }
+action(:greet) { say "Greetings from rootfile" }
+action(:stop) { say "Stop from rootfile" }
