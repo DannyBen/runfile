@@ -82,6 +82,15 @@ if env_vars.any?
   end
 end
 
+if transforms.any?
+  > Shortcuts:
+  maxlen = transforms.keys.map(&:size).max
+  transforms.each do |from, to|
+    = "  nb`#{from.ljust maxlen}`   #{to}"
+  end
+  >
+end
+
 if examples.any?
   > Examples:
   examples.each do |text|

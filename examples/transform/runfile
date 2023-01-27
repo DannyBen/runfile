@@ -1,0 +1,12 @@
+import 'server'
+
+# Create command shortcuts
+transform 'sayhi', 'hello "new runfile user"'
+transform 's', 'server start'
+
+usage  'hello [NAME]'
+help   'Say hello'
+action 'hello' do |args|
+  name = args['NAME'] || 'You...'
+  say "Hello g`#{name}`"
+end
