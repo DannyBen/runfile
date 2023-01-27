@@ -75,7 +75,7 @@ module Runfile
     def usage(message)
       message = "#{name} #{message}" if name
       message = "#{host.full_name} #{message}".strip if host
-      current_action.usages.push "#{message}"
+      current_action.usages.push message
     end
 
     def version(text = nil)
