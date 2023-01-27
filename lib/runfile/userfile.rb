@@ -73,10 +73,6 @@ module Runfile
       actions.values.select(&:help)
     end
 
-    def globs
-      @globs ||= imports.keys.map { |g| "#{g}.runfile" }
-    end
-
     def guests
       @guests ||= begin
         result = imports.map do |glob, context|
