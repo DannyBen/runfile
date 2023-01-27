@@ -78,8 +78,8 @@ if env_vars.any?
   env_vars.each do |name, help|
     = "  #{name}"
     = word_wrap "    #{help}"
+    >
   end
-  >
 end
 
 if examples.any?

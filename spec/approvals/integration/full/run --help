@@ -39,6 +39,9 @@ Environment Variables:
   COLOR
     Set color code (same as --color)
 
+  API_KEY
+    Set API Key
+
 Examples:
   run say hello
   run say hello -cr --bold

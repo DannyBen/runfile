@@ -172,6 +172,12 @@ This is a cosmetic change for consistency. All generated output shows long flags
 before short flags `--force, -f` instead of `-f, --force`. Update your custom
 `usage` directives accordingly.
 
+### Examples no longer add implicit 'run'
+
+If you were using the `example` directive, it will no longer add the initial
+`run` in front of your examples. Add it yourself. This is intended to allow
+providing more elaborate examples.
+
 ### RunfileTasks
 
 The `RunfileTasks` gem is also released as a pre-release, if you are using it

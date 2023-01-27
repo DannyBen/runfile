@@ -8,6 +8,7 @@ option  '--color, -c CODE', 'One letter color code [default: g]'
 option  '--bold, -b', 'Show in bold'
 param   'MESSAGE', 'Message to say'
 env_var 'COLOR', 'Set color code (same as --color)'
+env_var 'API_KEY', 'Set API Key'
 example 'run say hello'
 example 'run say hello -cr --bold'
 action :say, :s do |args|
