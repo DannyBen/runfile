@@ -24,6 +24,10 @@ module Runfile
       @code ||= File.read(path)
     end
 
+    def commands
+      actions.values.select(&:help)
+    end
+
     def eval_code
       return if evaluated?
 
@@ -37,6 +41,18 @@ module Runfile
 
     def full_name
       id.join ' '
+    end
+
+    def guests
+      @guests ||= begin
+        result = imports.map do |glob, context|
+          Dir.glob("#{glob}.runfile").sort.map do |guest_path|
+            Userfile.new guest_path, context: context, host: self
+          end
+        end
+
+        result.flatten
+      end
     end
 
     def id
@@ -61,7 +77,10 @@ module Runfile
 
     def run(argv = [])
       eval_code
+      argv = transform_argv argv if argv.any?
+
       found_guest = find_guest argv
+
       if found_guest
         found_guest.run argv
       else
@@ -69,23 +88,11 @@ module Runfile
       end
     end
 
-    def commands
-      actions.values.select(&:help)
-    end
-
-    def guests
-      @guests ||= begin
-        result = imports.map do |glob, context|
-          Dir.glob("#{glob}.runfile").sort.map do |guest_path|
-            Userfile.new guest_path, context: context, host: self
-          end
-        end
-
-        result.flatten
-      end
-    end
-
   private
+
+    def docopt
+      @docopt ||= render 'userfile', context: self
+    end
 
     def find_action(args)
       acts = actions.values
@@ -121,8 +128,12 @@ module Runfile
       exit_code if exit_code.is_a? Integer
     end
 
-    def docopt
-      @docopt ||= render 'userfile', context: self
+    def transform_argv(argv)
+      transforms.each do |from, to|
+        return Shellwords.split(to) + argv[1..] if from == argv[0]
+      end
+
+      argv
     end
   end
 end

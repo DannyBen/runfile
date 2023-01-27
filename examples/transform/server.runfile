@@ -1,0 +1,3 @@
+action :start do
+  puts 'server is starting...'
+end

@@ -56,6 +56,10 @@ module Runfile
       @required_contexts ||= {}
     end
 
+    def transform(from, to)
+      transforms[from] = to
+    end
+
     def shortcut(name)
       current_action.shortcut = name.to_s
     end
@@ -106,12 +110,16 @@ module Runfile
       @helper_blocks ||= []
     end
 
+    def imports
+      @imports ||= {}
+    end
+
     def options
       @options ||= {}
     end
 
-    def imports
-      @imports ||= {}
+    def transforms
+      @transforms ||= {}
     end
 
   private

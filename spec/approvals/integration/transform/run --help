@@ -1,0 +1,19 @@
+Usage:
+  run hello [NAME]
+  run server
+  run [COMMAND] (--help | -h)
+
+Commands:
+  nb`hello`
+    Say hello
+
+  nb`server`
+    Run nu`run server --help` for more information
+
+Options:
+  --help, -h
+    Show this message
+
+Shortcuts:
+  nb`sayhi`   hello "new runfile user"
+  nb`s    `   server start
