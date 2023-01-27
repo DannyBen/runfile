@@ -138,7 +138,7 @@ Request](https://github.com/DannyBen/runfile/pull/50).
 
 ### Upgrading to 1.0.0
 
-### No more `.runfile.yml` config
+### No more `.runfile` config
 
 If you have used the multi-runfile config file, this no longer exists.
 Use a standard `runfile` instead, along with the `import` directive.
@@ -148,6 +148,13 @@ Use a standard `runfile` instead, along with the `import` directive.
 If you have used the `action :global do` notation, this is replaced with the
 simpler use `action do` instead. Also, there is no more need for
 empty `usage ''`, just delete it if you have it in your runfiles.
+
+### No more `execute` directive
+
+If you have used it to cross-call other actions, it is no longer available. As
+an alternative, you can define common code in separate classes and `require`
+them, or use the new `helpers` directive to define functions that will be
+available to all actions.
 
 ### No more need for `trap(:INT)`
 

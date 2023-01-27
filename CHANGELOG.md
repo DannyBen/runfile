@@ -12,6 +12,12 @@ Untagged - Latest
 - Refactor imports
 - Allow import_gem to have no path and import all
 - Add support for helpers to improve context isolation
+- Add require_context directive
+- Fix example copy
+- Match the exit code with the last action value, if it is an integer
+- Add DEBUG=1 tip on general exception
+- Refactor Userfile
+- Drop support for eecute directive
 
 
 v0.12.0 - 2021-09-29
