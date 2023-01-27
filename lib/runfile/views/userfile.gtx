@@ -1,10 +1,10 @@
-if implicit_title
-  = implicit_title
+if title
+  = title
   >
 end
 
 if summary
-  = implicit_title ? word_wrap("  #{summary}") : word_wrap(summary)
+  = title ? word_wrap("  #{summary}") : word_wrap(summary)
   >
 end
 
@@ -15,16 +15,15 @@ actions.each do |name, action|
   end
 end
 
-delegates.keys.each do |name|
-  = "  run #{name}"
-end
-
-if delegates.any?
->   run [COMMAND] (--help | -h)
-elsif name
->   run {{ name }} (--help | -h)
+if guests.any?
+  guests.each do |userfile|
+    = "  run #{userfile.full_name}"
+  end
+  >   run [COMMAND] (--help | -h)
+elsif full_name
+  >   run {{ full_name }} (--help | -h)
 else
->   run (--help | -h)
+  >   run (--help | -h)
 end
 
 if version
@@ -32,7 +31,7 @@ if version
 end
 >
 
-if commands.any? || delegates.any?
+if commands.any? || guests.any?
   > Commands:
   commands.each do |action|
     = "  nb`#{action.names.join(', ')}`"
@@ -40,11 +39,11 @@ if commands.any? || delegates.any?
     >
   end
 
-  delegates.each do |name, userfile|
+  guests.each do |userfile|
     summary = userfile.summary || userfile.title ||
-      "Run nu`run #{name} --help` for more information"
+      "Run nu`run #{userfile.full_name} --help` for more information"
 
-    = "  nb`#{name}`"
+    = "  nb`#{userfile.name}`"
     = word_wrap "    #{summary}"
     >
   end
@@ -82,7 +81,6 @@ if env_vars.any?
   end
   >
 end
-
 
 if examples.any?
   > Examples:

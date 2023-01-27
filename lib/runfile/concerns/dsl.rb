@@ -6,10 +6,10 @@ module Runfile
 
     def action(name = nil, shortcut = nil, &block)
       current_action.block = block
-      current_action.name = name
-      current_action.shortcut = shortcut if shortcut
+      current_action.name = name.to_s
+      current_action.shortcut = shortcut.to_s if shortcut
       current_action.host = self
-      finalize_current_action name
+      finalize_current_action name.to_s
     end
 
     def env_var(name, help)
@@ -57,7 +57,7 @@ module Runfile
     end
 
     def shortcut(name)
-      current_action.shortcut = name
+      current_action.shortcut = name.to_s
     end
 
     def summary(text = nil)

@@ -3,7 +3,7 @@ module Runfile
   class Meta
     include Inspectable
 
-    MASTERFILE_NAMES = %w[runfile Runfile runfile.rb]
+    # MASTERFILE_NAMES = %w[runfile Runfile]
 
     def masterfile_path
       @masterfile_path ||= begin
