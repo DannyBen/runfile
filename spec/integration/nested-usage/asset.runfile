@@ -1,0 +1,10 @@
+help  'Show info'
+action :info do
+  puts "asset info"
+end
+
+usage 'download'
+help  'Download stuff'
+action :download do
+  puts "asset download complete"
+end

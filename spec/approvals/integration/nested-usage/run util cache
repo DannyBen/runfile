@@ -1,0 +1,3 @@
+Usage:
+  run util cache purge
+  run util cache (--help | -h)

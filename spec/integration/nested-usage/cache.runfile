@@ -1,0 +1,3 @@
+action :purge do
+  puts "purged cache"
+end
