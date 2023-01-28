@@ -47,7 +47,7 @@ module Runfile
     end
 
     def usage_string
-      @full_name ||= if shortcut
+      @usage_string ||= if shortcut
         "#{prefix} (#{name} | #{shortcut})".strip
       else
         "#{prefix} #{name}".strip
