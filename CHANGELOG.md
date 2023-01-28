@@ -18,6 +18,8 @@ Untagged - Latest
 - Add DEBUG=1 tip on general exception
 - Refactor Userfile
 - Drop support for eecute directive
+- Add transofrm directive, to create argv shortcuts
+- Rename 'transform' directive to 'shortcut'
 
 
 v0.12.0 - 2021-09-29
