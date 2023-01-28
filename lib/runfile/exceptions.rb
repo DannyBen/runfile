@@ -10,4 +10,5 @@ module Runfile
   class ActionNotFound < UserError; end
   class GemNotFound < UserError; end
   class SyntaxError < UserError; end
+  class DocoptError < SyntaxError; end
 end

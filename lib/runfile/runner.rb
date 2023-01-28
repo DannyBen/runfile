@@ -14,6 +14,8 @@ module Runfile
         Docopt.docopt docopt, argv: argv, version: version
       rescue Docopt::Exit => e
         raise ExitWithUsage, e.message
+      rescue Docopt::DocoptLanguageError => e
+        raise DocoptError, "There is an error in your runfile:\nnb`#{e.message}`"
       end
     end
   end

@@ -26,7 +26,7 @@ module Runfile
 
       instance_eval do
         host.helpers.each { |b| b.call args }
-        block.call args
+        block.call args if block
       end
     end
 
