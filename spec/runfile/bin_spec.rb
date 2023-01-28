@@ -1,5 +1,5 @@
 describe 'bin/run' do
-  let(:bin) { File.expand_path('bin/runn', '../../../') }
+  let(:bin) { File.expand_path('bin/run', '../../../') }
 
   context 'when the file contains a syntax error' do
     it 'errors gracefully' do

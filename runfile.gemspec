@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
     'lib/runfile/views/*.gtx',
     'examples/**/{runfile,*.runfile,*.rb}',
   ]
-  s.executables = ['runn'] # TODO: Change to run
+  s.executables = ['run']
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.7'

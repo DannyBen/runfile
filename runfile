@@ -4,7 +4,7 @@ version Runfile::VERSION
 
 import_gem 'runfile-tasks/gem', gemname: 'runfile'
 
-transform 'gi', 'gem build --install'
+shortcut 'gi', 'gem build --install'
 
 help   'Generate changelog and append old changelog'
 action :changelog do
