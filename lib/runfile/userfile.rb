@@ -129,7 +129,7 @@ module Runfile
     end
 
     def transform_argv(argv)
-      transforms.each do |from, to|
+      shortcuts.each do |from, to|
         return Shellwords.split(to) + argv[1..] if from == argv[0]
       end
 

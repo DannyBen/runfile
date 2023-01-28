@@ -1,8 +1,3 @@
 --help
-greet
-g
-salute
+sayhi
 s
-s --red
-toast
-t

@@ -1,0 +1,21 @@
+title 'Shortcut for an action'
+summary 'Providing an alias shortcut for actions'
+
+# $ run greet :
+# $ run g     : will both execute this block
+action :greet, :g do
+  say 'r`Greetings`'
+end
+
+# $ run salute
+# $ run s --red
+#
+# Notice the explicit `usage` which is required when when parameters (--red)
+# are needed. In this case, to support the shortcut you need to provide it
+# as (salute | s)
+usage '(salute | s) [--red]'
+option '--red', 'In red'
+action :salute, :s do |args|
+  color = args['--red'] ? 'r' : 'b'
+  say "#{color}`Salutations`"
+end
