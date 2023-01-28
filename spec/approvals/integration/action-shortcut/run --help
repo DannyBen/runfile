@@ -1,0 +1,15 @@
+Shortcut for an action
+
+  Providing an alias shortcut for actions
+
+Usage:
+  run (greet | g)
+  run (salute | s) [--red]
+  run (--help | -h)
+
+Options:
+  --red
+    In red
+
+  --help, -h
+    Show this message

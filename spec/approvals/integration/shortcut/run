@@ -1,5 +1,4 @@
 Usage:
-  run (greet | g)
-  run (salute | s) [--red]
-  run (toast | t)
-  run (--help | -h)
+  run hello [NAME]
+  run server
+  run [COMMAND] (--help | -h)

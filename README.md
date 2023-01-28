@@ -32,9 +32,6 @@ Note that this README describes the not yet released 1.0.0 version.
 See [runfile.dannyb.co](https://runfile.dannyb.co/) for the stable release
 documentation.
 
-During the pre-release phase, the `run` executable is called `runn` instead, 
-to allow running both the stable and pre-release version side by side.
-
 ## Demo
 
 ![Runfile Demo](demo.svg "Runfile Demo")
@@ -55,8 +52,8 @@ $ vi runfile     # edit the runfile
 
 ## Example
 
-A simple `runfile` looks like this. You can get this template by running `run
-new` ()in a directory without other runfiles).
+A simple `runfile` looks like this. You can get this template by running 
+`run new` (in a directory without other runfiles).
 
 ```ruby
 title   'Greeter'

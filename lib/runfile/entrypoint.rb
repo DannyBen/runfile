@@ -56,9 +56,9 @@ module Runfile
     end
 
     def rootfile
-      if File.exist? 'runfile'
+      if File.file? 'runfile'
         Userfile.new 'runfile'
-      elsif File.exist? 'Runfile'
+      elsif File.file? 'Runfile'
         Userfile.new 'Runfile'
       end
     end

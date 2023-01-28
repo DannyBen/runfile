@@ -82,10 +82,10 @@ if env_vars.any?
   end
 end
 
-if transforms.any?
+if shortcuts.any?
   > Shortcuts:
-  maxlen = transforms.keys.map(&:size).max
-  transforms.each do |from, to|
+  maxlen = shortcuts.keys.map(&:size).max
+  shortcuts.each do |from, to|
     = "  nb`#{from.ljust maxlen}`   #{to}"
   end
   >

@@ -19,9 +19,9 @@ F12::
   Type("cd ./support/demo")
   Type("rm cast.json {;} asciinema rec cast.json")
 
-  Type("runn")
+  Type("run")
 
-  Type("runn new")
+  Type("run new")
   Type("vimcat runfile", 4000)
   ; Type(":exit", 500)
 
