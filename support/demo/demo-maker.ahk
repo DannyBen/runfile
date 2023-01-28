@@ -54,7 +54,8 @@ F12::
   
   ; Teardown
   Type("exit")
-  Type("agg --font-size 20 cast.json ../cast.gif")
+  Type("agg --font-size 20 cast.json cast.gif")
+  Type("gifsicle -i cast.gif -O3 --colors 256 -o ../cast.gif")
   Sleep 400
   Type("cd ../../")
   Type("{#} Done")
