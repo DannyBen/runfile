@@ -34,7 +34,7 @@ documentation.
 
 ## Demo
 
-![Runfile Demo](demo.svg "Runfile Demo")
+![Runfile Demo](support/cast.gif "Runfile Demo")
 
 ## Install
 
