@@ -11,6 +11,7 @@ describe Runner do
   describe '#run' do
     it 'raises Runfile::SyntaxError on docopt error' do
       expect { subject.run docopt }.to raise_approval('runner/docopt-error')
+        .diff(8)
     end
   end
 end
