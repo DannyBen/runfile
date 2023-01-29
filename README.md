@@ -111,7 +111,7 @@ Options:
     Show this message
 ```
 
-## Examples
+### More Examples
 
 You can learn almost everything there is to know about runfile from the
 [examples](https://github.com/DannyBen/runfile/tree/master/examples#readme).
