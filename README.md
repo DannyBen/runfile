@@ -10,7 +10,8 @@
 ---
 
 A beautiful command line utility builder  
-Rake-inspired - Docopt inside
+Rake-inspired ✦ Docopt inside  
+**[runfile.dannyb.co](https://runfile.dannyb.co)**
 
 ---
 
@@ -135,55 +136,61 @@ Request](https://github.com/DannyBen/runfile/pull/50).
 
 ### Upgrading to 1.0.0
 
-### No more `.runfile` config
+<details>
+  <summary>Show section</summary>
 
-If you have used the multi-runfile config file, this no longer exists.
-Use a standard `runfile` instead, along with the `import` directive.
+  ### No more `.runfile` config
 
-### No more `action :global`
+  If you have used the multi-runfile config file, this no longer exists.
+  Use a standard `runfile` instead, along with the `import` directive.
 
-If you have used the `action :global do` notation, this is replaced with the
-simpler use `action do` instead. Also, there is no more need for
-empty `usage ''`, just delete it if you have it in your runfiles.
+  ### No more `action :global`
 
-### No more `execute` directive
+  If you have used the `action :global do` notation, this is replaced with the
+  simpler use `action do` instead. Also, there is no more need for
+  empty `usage ''`, just delete it if you have it in your runfiles.
 
-If you have used it to cross-call other actions, it is no longer available. As
-an alternative, you can define common code in separate classes and `require`
-them, or use the new `helpers` directive to define functions that will be
-available to all actions.
+  ### No more `execute` directive
 
-### Code outside of actions should be inside `helpers`
+  If you have used it to cross-call other actions, it is no longer available. As
+  an alternative, you can define common code in separate classes and `require`
+  them, or use the new `helpers` directive to define functions that will be
+  available to all actions.
 
-If your runfiles include other ruby code, especially `def method`, you should
-now use the new `helpers` block and tuck this code inside it.
+  ### Code outside of actions should be inside `helpers`
 
-### No more need for `trap(:INT)`
+  If your runfiles include other ruby code, especially `def method`, you should
+  now use the new `helpers` block and tuck this code inside it.
 
-If your old runfiles trap the `Interrupt` signal, there is no longer a need to
-do so, as it is trapped by default.
+  ### No more need for `trap(:INT)`
 
-### Colsole is included
+  If your old runfiles trap the `Interrupt` signal, there is no longer a need to
+  do so, as it is trapped by default.
 
-If your runfiles `required` and `include` Colsole, there is no longer a need to 
-do it. Colsole is bundled and available in actions.
+  ### Colsole is included
 
-### Long flags before short flags
+  If your runfiles `required` and `include` Colsole, there is no longer a need to 
+  do it. Colsole is bundled and available in actions.
 
-This is a cosmetic change for consistency. All generated output shows long flags
-before short flags `--force, -f` instead of `-f, --force`. Update your custom
-`usage` directives accordingly.
+  ### Long flags before short flags
 
-### Examples no longer add implicit 'run'
+  This is a cosmetic change for consistency. All generated output shows long flags
+  before short flags `--force, -f` instead of `-f, --force`. Update your custom
+  `usage` directives accordingly.
 
-If you were using the `example` directive, it will no longer add the initial
-`run` in front of your examples. Add it yourself. This is intended to allow
-providing more elaborate examples.
+  ### Examples no longer add implicit 'run'
 
-### RunfileTasks
+  If you were using the `example` directive, it will no longer add the initial
+  `run` in front of your examples. Add it yourself. This is intended to allow
+  providing more elaborate examples.
 
-The `RunfileTasks` gem is also released as a pre-release, if you are using it
-make sure to install the latest release candidate.
+  ### RunfileTasks
+
+  The `RunfileTasks` gem is also released as a pre-release, if you are using it
+  make sure to install the latest release candidate.
+
+</details>
+
 
 ## Contributing / Support
 
