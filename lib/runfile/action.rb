@@ -1,7 +1,7 @@
 module Runfile
   # Represents a single action inside a {Userfile} and executes its block
   # on demand. Properties of this class are populated by the {DSL} module when
-  # running a {Userfile}.
+  # the runfile is executed.
   class Action
     include Inspectable
 

@@ -1,6 +1,6 @@
 module Runfile
   # Finds the path of an installed or bundled gem
-  # Adapted from Rubocop <https://github.com/rubocop/rubocop/blob/master/lib/rubocop/config_loader_resolver.rb#L268>
+  # Adapted from [Rubocop](https://github.com/rubocop/rubocop/blob/master/lib/rubocop/config_loader_resolver.rb#L268)
   class GemFinder
     class << self
       def find(gem_name, file = nil)

@@ -9,15 +9,15 @@
 
 ---
 
-A beautiful command line application framework  
+A beautiful command line utility builder  
 Rake-inspired - Docopt inside
 
 ---
 
 </div>
 
-**Runfile** lets you create command line applications in a way similar 
-to [Rake](https://github.com/ruby/rake), but with the full power of 
+**Runfile** lets you create command line tools in a way similar to
+[Rake](https://github.com/ruby/rake), but with the full power of 
 [Docopt](http://docopt.org/) command line options.
 
 You create a `runfile`, and execute commands with 
@@ -153,9 +153,14 @@ an alternative, you can define common code in separate classes and `require`
 them, or use the new `helpers` directive to define functions that will be
 available to all actions.
 
+### Code outside of actions should be inside `helpers`
+
+If your runfiles include other ruby code, especially `def method`, you should
+now use the new `helpers` block and tuck this code inside it.
+
 ### No more need for `trap(:INT)`
 
-If your old runfiles trap the `Interrupt` signal, there i no longer a need to
+If your old runfiles trap the `Interrupt` signal, there is no longer a need to
 do so, as it is trapped by default.
 
 ### Colsole is included

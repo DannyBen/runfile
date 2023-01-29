@@ -1,0 +1,2 @@
+--readme support/yardoc-readme.md
+--exclude lib/runfile/exceptions.rb
