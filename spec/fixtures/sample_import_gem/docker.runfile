@@ -1,3 +1,5 @@
+require_context :image_name
+
 action 'build' do
   image_name = context[:image_name]
   say 'in a real implementation, we will run:'

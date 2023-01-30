@@ -2,8 +2,6 @@ module Runfile
   module DSL
     # Commands
 
-    attr_reader :default_action
-
     def action(name = nil, shortcut = nil, &block)
       current_action.block = block
       current_action.name = name.to_s
@@ -123,7 +121,6 @@ module Runfile
     def finalize_current_action(name)
       key = name.empty? ? :default : name
       actions[key] = current_action
-      @default_action = current_action unless name
       @current_action = nil
     end
 
