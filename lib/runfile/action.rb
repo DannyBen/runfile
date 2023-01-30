@@ -34,10 +34,6 @@ module Runfile
       @name = value&.to_s
     end
 
-    def names
-      name ? [name, shortcut].compact : ['(default)']
-    end
-
     def prefix
       host&.full_name
     end
@@ -56,6 +52,12 @@ module Runfile
 
     def usages
       @usages ||= []
+    end
+
+  private
+
+    def names
+      name.empty? ? [] : [name, shortcut].compact
     end
 
     def validate_context

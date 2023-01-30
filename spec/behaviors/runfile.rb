@@ -12,6 +12,12 @@ shared_examples 'a runfile' do |workspace, approvals_base|
       commands = File.readlines command_file, chomp: true
       commands.unshift ''
       commands.each do |command|
+        mode = :normal
+        if command[0] == '!'
+          mode = :exception
+          command = command[1..]
+        end
+
         filename = command.gsub(/[^a-zA-Z0-9\-\ ]/, '_')
         filename = filename.empty? ? 'run' : "run #{filename}"
         fixture_name = "#{approvals_base}/#{workspace_name}/#{filename}"
@@ -19,7 +25,11 @@ shared_examples 'a runfile' do |workspace, approvals_base|
         begin
           argv = Shellwords.split command
           entrypoint = Entrypoint.new argv
-          expect { entrypoint.run }.to output_approval fixture_name
+          if mode == :exception
+            expect { entrypoint.run }.to raise_approval(fixture_name).diff(4)
+          else
+            expect { entrypoint.run }.to output_approval fixture_name
+          end
         rescue Runfile::ExitWithUsage => e
           result = e.message
           expect(result).to match_approval fixture_name
