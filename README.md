@@ -27,12 +27,6 @@ You create a `runfile`, and execute commands with
 Runfile is designed primarily for Ruby developers, but if you need to add a 
 command line "toolbelt" for your projects, you can use it regardless.
 
-## Pre-release Notice
-
-Note that this README describes the not yet released 1.0.0 version.  
-See [runfile.dannyb.co](https://runfile.dannyb.co/) for the stable release
-documentation.
-
 ## Demo
 
 ![Runfile Demo](support/cast.gif "Runfile Demo")
@@ -130,9 +124,9 @@ Note that the current user guide is for the stable version 0.12.0.
 
 ## Breaking Changes in 1.0.0
 
-If you are using a version earlier than 1.0, note that the upcoming release
-1.0.0 includes some breaking changes. You can read more about them in
-[this Pull Request](https://github.com/DannyBen/runfile/pull/50).
+If you are using a version earlier than 1.0, note that version 1.0.0 includes
+some breaking changes. You can read more about them in [this Pull Request]
+(https://github.com/DannyBen/runfile/pull/50).
 
 ### Upgrading to 1.0.0
 
