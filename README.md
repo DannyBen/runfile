@@ -125,8 +125,8 @@ Note that the current user guide is for the stable version 0.12.0.
 ## Breaking Changes in 1.0.0
 
 If you are using a version earlier than 1.0, note that version 1.0.0 includes
-some breaking changes. You can read more about them in [this Pull Request]
-(https://github.com/DannyBen/runfile/pull/50).
+some breaking changes. You can read more about them in
+[this Pull Request](https://github.com/DannyBen/runfile/pull/50).
 
 ### Upgrading to 1.0.0
 
