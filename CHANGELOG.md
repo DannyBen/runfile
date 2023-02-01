@@ -1,7 +1,7 @@
 Change Log
 ========================================
 
-Untagged - Latest
+v1.0.0 - 2023-02-01
 ----------------------------------------
 
 - Maintenance update
@@ -20,6 +20,7 @@ Untagged - Latest
 - Drop support for eecute directive
 - Add transofrm directive, to create argv shortcuts
 - Rename 'transform' directive to 'shortcut'
+- Catch DocoptLanguageError and reraise Runfile::SyntaxError
 
 
 v0.12.0 - 2021-09-29
