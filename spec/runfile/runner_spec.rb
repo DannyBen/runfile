@@ -1,10 +1,11 @@
 describe Runner do
   subject { described_class }
+
   let(:docopt) { 'Usage: backup [PATH --force]' }
 
   describe '#run' do
     it 'returns the args' do
-      expect(subject.run docopt, argv: %w[backup]).to eq({"--force"=>false, "PATH"=>"backup"})
+      expect(subject.run docopt, argv: %w[backup]).to eq({ '--force' => false, 'PATH' => 'backup' })
     end
 
     context 'with invalid docopt' do
