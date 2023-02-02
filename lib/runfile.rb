@@ -1,5 +1,5 @@
 require 'gtx'
-require 'docopt_ng/docopt'
+require 'docopt_ng'
 require 'colsole'
 require 'requires'
 
