@@ -77,7 +77,7 @@ module Runfile
 
     def run(argv = [])
       eval_code
-      argv = transform_argv argv if argv.any?
+      argv = expand_shortcuts argv if argv.any?
 
       found_guest = find_guest argv
 
@@ -128,9 +128,19 @@ module Runfile
       exit_code if exit_code.is_a? Integer
     end
 
-    def transform_argv(argv)
+    # Shortcuts will always appear after the name, so we split argv to
+    # name (array), shortcut wannabe (string), rest of the args (array).
+    # Then, if the shortcut wannabe is a match, we stitch the new argv back
+    # together, with its expansion.
+    def expand_shortcuts(argv)
+      size = id.size
+
+      p1 = argv[0...size]
+      p2 = argv[size]
+      p3 = argv[(size + 1)..]
+
       shortcuts.each do |from, to|
-        return Shellwords.split(to) + argv[1..] if from == argv[0]
+        return p1 + Shellwords.split(to) + p3 if from == p2
       end
 
       argv

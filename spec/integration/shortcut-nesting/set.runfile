@@ -1,0 +1,3 @@
+shortcut 'g', 'go'
+action { puts 'On your marks... Get Ready... Get Set...' }
+action(:go) { puts 'On your marks... Get Ready... Get Set... Go!' }

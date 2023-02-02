@@ -1,0 +1,3 @@
+import 'set'
+shortcut 's', 'set'
+action { puts 'On your marks... Get Ready...' }
