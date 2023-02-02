@@ -77,9 +77,11 @@ module Runfile
 
     def run(argv = [])
       eval_code
-      argv = expand_shortcuts argv if argv.any?
 
-      found_guest = find_guest argv
+      if argv.any?
+        argv = expand_shortcuts argv
+        found_guest = find_guest argv
+      end
 
       if found_guest
         found_guest.run argv
