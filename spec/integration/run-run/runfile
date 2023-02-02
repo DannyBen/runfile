@@ -1,0 +1,5 @@
+import :forrest
+
+action :run do
+  puts 'root run action'
+end
