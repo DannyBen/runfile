@@ -27,7 +27,7 @@ module Runfile
       run
     rescue Runfile::ExitWithUsage => e
       say e.message
-      1
+      e.exit_code
     rescue Runfile::UserError => e
       allow_debug e
       say! "mib` #{e.class} `"
