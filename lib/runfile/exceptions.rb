@@ -5,7 +5,15 @@ module Runfile
 
   class Error < StandardError; end
   class UserError < Error; end
-  class ExitWithUsage < Error; end
+
+  class ExitWithUsage < Error
+    attr_reader :exit_code
+
+    def initialize(message = '', exit_code: nil)
+      @exit_code = exit_code || 1
+      super message
+    end
+  end
 
   class ActionNotFound < UserError; end
   class GemNotFound < UserError; end

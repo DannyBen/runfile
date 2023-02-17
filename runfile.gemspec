@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   }
 
   s.add_runtime_dependency 'colsole', '>= 0.8.2', '< 2.0'
-  s.add_runtime_dependency 'docopt_ng', '~> 0.7'
+  s.add_runtime_dependency 'docopt_ng', '~> 0.7', '>= 0.7.1'
   s.add_runtime_dependency 'gtx', '~> 0.1'
   s.add_runtime_dependency 'requires', '>= 0.2', '< 2.0'
 end

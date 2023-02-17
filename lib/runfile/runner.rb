@@ -13,7 +13,7 @@ module Runfile
       def call_docopt(docopt, version: nil, argv: nil)
         DocoptNG.docopt docopt, argv: argv, version: version
       rescue DocoptNG::Exit => e
-        raise ExitWithUsage, e.message
+        raise ExitWithUsage.new(exit_code: e.exit_code), e.message
       rescue DocoptNG::DocoptLanguageError => e
         raise DocoptError, "There is an error in your runfile:\nnb`#{e.message}`"
       end
