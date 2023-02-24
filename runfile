@@ -10,5 +10,5 @@ help   'Generate changelog and append old changelog'
 action :changelog do
   system 'git changelog --save'
   # append older changelog (prior to switching to git-changelog)
-  system 'cat .changelog.old.md >> CHANGELOG.md'
+  system 'cat support/.changelog.old.md >> CHANGELOG.md'
 end
