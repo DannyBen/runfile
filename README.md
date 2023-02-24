@@ -120,68 +120,69 @@ $ run example --help
 
 For a more formal documentation, see the [User Guide](https://runfile.dannyb.co/).
 
-Note that the current user guide is for the stable version 0.12.0.
-
 ## Breaking Changes in 1.0.0
-
-If you are using a version earlier than 1.0, note that version 1.0.0 includes
-some breaking changes. You can read more about them in
-[this Pull Request](https://github.com/DannyBen/runfile/pull/50).
-
-### Upgrading to 1.0.0
 
 <details>
   <summary>Show section</summary>
 
-  ### No more `.runfile` config
+  ---
+
+  If you are using a version earlier than 1.0, note that version 1.0.0 includes
+  some breaking changes. You can read more about them in
+  [this Pull Request](https://github.com/DannyBen/runfile/pull/50).
+
+  ### Upgrading to 1.0.0
+
+  #### No more `.runfile` config
 
   If you have used the multi-runfile config file, this no longer exists.
   Use a standard `runfile` instead, along with the `import` directive.
 
-  ### No more `action :global`
+  #### No more `action :global`
 
   If you have used the `action :global do` notation, this is replaced with the
   simpler use `action do` instead. Also, there is no more need for
   empty `usage ''`, just delete it if you have it in your runfiles.
 
-  ### No more `execute` directive
+  #### No more `execute` directive
 
   If you have used it to cross-call other actions, it is no longer available. As
   an alternative, you can define common code in separate classes and `require`
   them, or use the new `helpers` directive to define functions that will be
   available to all actions.
 
-  ### Code outside of actions should be inside `helpers`
+  #### Code outside of actions should be inside `helpers`
 
   If your runfiles include other ruby code, especially `def method`, you should
   now use the new `helpers` block and tuck this code inside it.
 
-  ### No more need for `trap(:INT)`
+  #### No more need for `trap(:INT)`
 
   If your old runfiles trap the `Interrupt` signal, there is no longer a need to
   do so, as it is trapped by default.
 
-  ### Colsole is included
+  #### Colsole is included
 
   If your runfiles `required` and `include` Colsole, there is no longer a need to 
   do it. Colsole is bundled and available in actions.
 
-  ### Long flags before short flags
+  #### Long flags before short flags
 
   This is a cosmetic change for consistency. All generated output shows long flags
   before short flags `--force, -f` instead of `-f, --force`. Update your custom
   `usage` directives accordingly.
 
-  ### Examples no longer add implicit 'run'
+  #### Examples no longer add implicit 'run'
 
   If you were using the `example` directive, it will no longer add the initial
   `run` in front of your examples. Add it yourself. This is intended to allow
   providing more elaborate examples.
 
-  ### RunfileTasks
+  #### RunfileTasks
 
-  The `RunfileTasks` gem is also released as a pre-release, if you are using it
-  make sure to install the latest release candidate.
+  The [runfile-tasks gem](https://github.com/dannyben/runfile-tasks) is also
+  updated to 1.x, with a modified syntax. If you are using it, make sure to
+  upgrade it as well.
 
 </details>
 
