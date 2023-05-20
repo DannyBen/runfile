@@ -1,4 +1,4 @@
-[7m[1m[31m NameError [0m in [4mrunfile:1[0m
+[7m[1m[31m NameError [0m in [4mrunfile:1:in 'eval_code'[0m
 undefined local variable or method `nicely' for #<Runfile::Userfile name=nil, path="runfile">
 
 Prefix with [4mDEBUG=1[0m for full backtrace
