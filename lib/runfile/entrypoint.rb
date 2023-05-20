@@ -38,9 +38,7 @@ module Runfile
       1
     rescue => e
       allow_debug e
-      origin = e.backtrace_locations.first
-      location = "#{origin.path}:#{origin.lineno}"
-      say! "rib` #{e.class} ` in nu`#{location}`"
+      say! "rib` #{e.class} ` in nu`#{origin(e)}`"
       say! e.message
       say! "\nPrefix with nu`DEBUG=1` for full backtrace" unless ENV['DEBUG']
       1
@@ -53,6 +51,11 @@ module Runfile
 
       say! e.backtrace.reverse.join("\n")
       say! '---'
+    end
+
+    def origin(e)
+      (e.backtrace_locations&.first.to_s || e.backtrace&.first || 'unknown')
+        .tr '`', "'"
     end
 
     def rootfile
