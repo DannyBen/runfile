@@ -13,7 +13,7 @@ inherit_mode:
     - Exclude
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   Include:
     - '**/runfile'
     - '**/*.runfile'

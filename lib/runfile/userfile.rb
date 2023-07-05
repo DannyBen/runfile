@@ -46,7 +46,7 @@ module Runfile
     def guests
       @guests ||= begin
         result = imports.map do |glob, context|
-          Dir.glob("#{glob}.runfile").sort.map do |guest_path|
+          Dir.glob("#{glob}.runfile").map do |guest_path|
             Userfile.new guest_path, context: context, host: self
           end
         end

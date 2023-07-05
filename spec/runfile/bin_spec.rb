@@ -1,6 +1,6 @@
 describe 'bin/run' do
   let(:bin) { File.expand_path('bin/run', '../../../') }
-  let(:leeway) { RUBY_VERSION < "3.2.0" ? 0 : 33 }
+  let(:leeway) { RUBY_VERSION < '3.2.0' ? 0 : 33 }
 
   context 'when the file contains a syntax error' do
     it 'errors gracefully' do
