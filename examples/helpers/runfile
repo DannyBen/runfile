@@ -3,7 +3,7 @@ require 'json'
 # Define helper methods
 helpers do
   def files
-    Dir['*'].sort
+    Dir['*']
   end
 end
 
