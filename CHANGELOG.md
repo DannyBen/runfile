@@ -1,6 +1,14 @@
 Change Log
 ========================================
 
+v1.0.2 - 2023-07-05
+----------------------------------------
+
+- Change --version and --help to exit with 0
+- Update backtrace location report on error
+- Drop support for Ruby 2.x
+
+
 v1.0.1 - 2023-02-09
 ----------------------------------------
 
