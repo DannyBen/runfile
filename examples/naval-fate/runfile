@@ -7,7 +7,7 @@ SUMMARY
 
 usage 'new SHIPS...'
 help  'Deploy one or more ships'
-param 'SHIPS', 'One ore more ship names'
+param 'SHIPS', 'One or more ship names'
 action :new do |args|
   args['SHIPS'].each do |ship|
     say "Deployed g`#{ship}`"

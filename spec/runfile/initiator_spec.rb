@@ -19,7 +19,7 @@ describe Initiator do
     end
 
     context 'with "example"' do
-      it 'shows the lsit of examples' do
+      it 'shows the list of examples' do
         Dir.chdir 'spec/tmp' do
           expect { subject.run %w[example] }.to output_approval('initiator/examples')
         end

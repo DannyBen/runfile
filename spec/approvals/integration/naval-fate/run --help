@@ -22,7 +22,7 @@ Commands:
 
 Parameters:
   SHIPS
-    One ore more ship names
+    One or more ship names
 
   SHIP
     Ship name
