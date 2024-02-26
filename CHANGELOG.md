@@ -1,7 +1,7 @@
 Change Log
 ========================================
 
-v1.0.2 - 2023-07-05
+v1.0.2 - 2023-11-14
 ----------------------------------------
 
 - Change --version and --help to exit with 0
@@ -56,6 +56,7 @@ v0.11.2 - 2020-11-06
 - Add 'env_var' DSL command to specify environment variables used by the Runfile
 
 
+<!-- break v0.11.1 -->
 ## [v0.11.1](https://github.com/DannyBen/runfile/tree/v0.11.1) (2020-05-07)
 
 [Full Changelog](https://github.com/DannyBen/runfile/compare/v0.11.0...v0.11.1)
@@ -300,4 +301,3 @@ v0.11.2 - 2020-11-06
 ## [v0.1.2](https://github.com/DannyBen/runfile/tree/v0.1.2) (2015-05-15)
 
 [Full Changelog](https://github.com/DannyBen/runfile/compare/b0adc11238098d2a72f2ace2a98e2c1ed4e6c8c4...v0.1.2)
-
