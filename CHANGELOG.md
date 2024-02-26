@@ -16,6 +16,7 @@ v1.0.1 - 2023-02-09
 - Fix shortcuts in named runfiles
 
 
+<!-- break v1.0.0 -->
 v1.0.0 - 2023-02-01
 ----------------------------------------
 
@@ -33,7 +34,7 @@ v1.0.0 - 2023-02-01
 - Add DEBUG=1 tip on general exception
 - Refactor Userfile
 - Drop support for eecute directive
-- Add transofrm directive, to create argv shortcuts
+- Add transform directive, to create argv shortcuts
 - Rename 'transform' directive to 'shortcut'
 - Catch DocoptLanguageError and reraise Runfile::SyntaxError
 
@@ -56,14 +57,13 @@ v0.11.2 - 2020-11-06
 - Add 'env_var' DSL command to specify environment variables used by the Runfile
 
 
-<!-- break v0.11.1 -->
 ## [v0.11.1](https://github.com/DannyBen/runfile/tree/v0.11.1) (2020-05-07)
 
 [Full Changelog](https://github.com/DannyBen/runfile/compare/v0.11.0...v0.11.1)
 
 **Merged pull requests:**
 
-- Ruby 2.7 compatibilty [\#42](https://github.com/DannyBen/runfile/pull/42) ([DannyBen](https://github.com/DannyBen))
+- Ruby 2.7 compatibility [\#42](https://github.com/DannyBen/runfile/pull/42) ([DannyBen](https://github.com/DannyBen))
 - Switch to github actions [\#41](https://github.com/DannyBen/runfile/pull/41) ([DannyBen](https://github.com/DannyBen))
 - Test with Ruby 2.7 [\#40](https://github.com/DannyBen/runfile/pull/40) ([DannyBen](https://github.com/DannyBen))
 - Maintenance update [\#39](https://github.com/DannyBen/runfile/pull/39) ([DannyBen](https://github.com/DannyBen))
