@@ -4,57 +4,63 @@ Change Log
 v1.0.2 - 2023-11-14
 ----------------------------------------
 
-- Change --version and --help to exit with 0
-- Update backtrace location report on error
-- Drop support for Ruby 2.x
+- Change --version and --help to exit with 0 [`dfca55a`](https://github.com/DannyBen/runfile/commit/dfca55a)
+- Update backtrace location report on error [`34d275d`](https://github.com/DannyBen/runfile/commit/34d275d)
+- Drop support for Ruby 2.x [`b35e422`](https://github.com/DannyBen/runfile/commit/b35e422)
+- Compare [`v1.0.1..v1.0.2`](https://github.com/dannyben/runfile/compare/v1.0.1..v1.0.2)
 
 
 v1.0.1 - 2023-02-09
 ----------------------------------------
 
-- Fix inability to use 'run' as an action name
-- Fix shortcuts in named runfiles
+- Fix inability to use 'run' as an action name [`e182efc`](https://github.com/DannyBen/runfile/commit/e182efc)
+- Fix shortcuts in named runfiles [`6d2906b`](https://github.com/DannyBen/runfile/commit/6d2906b)
+- Compare [`v1.0.0..v1.0.1`](https://github.com/dannyben/runfile/compare/v1.0.0..v1.0.1)
 
 
 <!-- break v1.0.0 -->
 v1.0.0 - 2023-02-01
 ----------------------------------------
 
-- Maintenance update
-- Drop support for Ruby < 2.6
-- Complete rebuild from scratch
-- Drop support for Ruby 2.6
-- Add context to import directive
-- Refactor imports
-- Allow import_gem to have no path and import all
-- Add support for helpers to improve context isolation
-- Add require_context directive
-- Fix example copy
-- Match the exit code with the last action value, if it is an integer
-- Add DEBUG=1 tip on general exception
-- Refactor Userfile
-- Drop support for eecute directive
-- Add transform directive, to create argv shortcuts
-- Rename 'transform' directive to 'shortcut'
-- Catch DocoptLanguageError and reraise Runfile::SyntaxError
+- Maintenance update [`deb9503`](https://github.com/DannyBen/runfile/commit/deb9503)
+- Drop support for Ruby < 2.6 [`23f8a27`](https://github.com/DannyBen/runfile/commit/23f8a27)
+- Complete rebuild from scratch [`25e9b2f`](https://github.com/DannyBen/runfile/commit/25e9b2f)
+- Drop support for Ruby 2.6 [`0d4e493`](https://github.com/DannyBen/runfile/commit/0d4e493)
+- Add context to import directive [`45cdb99`](https://github.com/DannyBen/runfile/commit/45cdb99)
+- Refactor imports [`dc4106b`](https://github.com/DannyBen/runfile/commit/dc4106b)
+- Allow import_gem to have no path and import all [`4f8c8e0`](https://github.com/DannyBen/runfile/commit/4f8c8e0)
+- Add support for helpers to improve context isolation [`6158da2`](https://github.com/DannyBen/runfile/commit/6158da2)
+- Add require_context directive [`348a53d`](https://github.com/DannyBen/runfile/commit/348a53d)
+- Fix example copy [`ec1bc1f`](https://github.com/DannyBen/runfile/commit/ec1bc1f)
+- Match the exit code with the last action value, if it is an integer [`ba7c045`](https://github.com/DannyBen/runfile/commit/ba7c045)
+- Add DEBUG=1 tip on general exception [`3fab8f5`](https://github.com/DannyBen/runfile/commit/3fab8f5)
+- Refactor Userfile [`4902add`](https://github.com/DannyBen/runfile/commit/4902add)
+- Drop support for eecute directive [`693f988`](https://github.com/DannyBen/runfile/commit/693f988)
+- Add transform directive, to create argv shortcuts [`fe85c6d`](https://github.com/DannyBen/runfile/commit/fe85c6d)
+- Rename 'transform' directive to 'shortcut' [`2204335`](https://github.com/DannyBen/runfile/commit/2204335)
+- Catch DocoptLanguageError and reraise Runfile::SyntaxError [`651bd5d`](https://github.com/DannyBen/runfile/commit/651bd5d)
+- Compare [`v0.12.0..v1.0.0`](https://github.com/dannyben/runfile/compare/v0.12.0..v1.0.0)
 
 
 v0.12.0 - 2021-09-29
 ----------------------------------------
 
-- Add compatibility layer
+- Add compatibility layer [`ae10fcb`](https://github.com/DannyBen/runfile/commit/ae10fcb)
+- Compare [`v0.12.0-rc1..v0.12.0`](https://github.com/dannyben/runfile/compare/v0.12.0-rc1..v0.12.0)
 
 
 v0.12.0-rc1 - 2021-09-27
 ----------------------------------------
 
-- Remove Colsole and Exec modules
+- Remove Colsole and Exec modules [`06f37bf`](https://github.com/DannyBen/runfile/commit/06f37bf)
+- Compare [`v0.11.2..v0.12.0-rc1`](https://github.com/dannyben/runfile/compare/v0.11.2..v0.12.0-rc1)
 
 
 v0.11.2 - 2020-11-06
 ----------------------------------------
 
-- Add 'env_var' DSL command to specify environment variables used by the Runfile
+- Add 'env_var' DSL command to specify environment variables used by the Runfile [`209c475`](https://github.com/DannyBen/runfile/commit/209c475)
+- Compare [`v0.11.1..v0.11.2`](https://github.com/dannyben/runfile/compare/v0.11.1..v0.11.2)
 
 
 ## [v0.11.1](https://github.com/DannyBen/runfile/tree/v0.11.1) (2020-05-07)
