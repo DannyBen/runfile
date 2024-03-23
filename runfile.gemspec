@@ -19,7 +19,12 @@ Gem::Specification.new do |s|
   s.executables = ['run']
   s.homepage    = 'https://github.com/DannyBen/runfile'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.0'
+  s.required_ruby_version = '>= 3.1'
+
+  s.add_dependency 'colsole', '>= 0.8.2', '< 2.0'
+  s.add_dependency 'docopt_ng', '~> 0.7', '>= 0.7.1'
+  s.add_dependency 'gtx', '~> 0.1'
+  s.add_dependency 'requires', '>= 0.2', '< 2.0'
 
   s.metadata = {
     'homepage_uri'          => 'https://github.com/DannyBen/runfile',
@@ -28,9 +33,4 @@ Gem::Specification.new do |s|
     'bug_tracker_uri'       => 'https://github.com/DannyBen/runfile/issues',
     'rubygems_mfa_required' => 'true',
   }
-
-  s.add_runtime_dependency 'colsole', '>= 0.8.2', '< 2.0'
-  s.add_runtime_dependency 'docopt_ng', '~> 0.7', '>= 0.7.1'
-  s.add_runtime_dependency 'gtx', '~> 0.1'
-  s.add_runtime_dependency 'requires', '>= 0.2', '< 2.0'
 end
