@@ -3,7 +3,7 @@
 shared_examples 'a runfile' do |workspace, approvals_base|
   command_file = 'commands.txt'
   workspace_name = File.basename workspace
-  leeway = RUBY_VERSION < '3.4.0' ? 20 : 0 }
+  leeway = RUBY_VERSION < '3.4.0' ? 20 : 0
   approvals_base ||= 'integration'
 
   it 'runs as expected' do
