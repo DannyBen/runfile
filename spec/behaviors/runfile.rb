@@ -3,6 +3,7 @@
 shared_examples 'a runfile' do |workspace, approvals_base|
   command_file = 'commands.txt'
   workspace_name = File.basename workspace
+  leeway = RUBY_VERSION < '3.4.0' ? 20 : 0
   approvals_base ||= 'integration'
 
   it 'runs as expected' do
@@ -28,7 +29,7 @@ shared_examples 'a runfile' do |workspace, approvals_base|
           if mode == :exception
             expect { entrypoint.run }.to raise_approval(fixture_name).diff(4)
           else
-            expect { entrypoint.run }.to output_approval fixture_name
+            expect { entrypoint.run }.to output_approval(fixture_name).diff(leeway)
           end
         rescue Runfile::ExitWithUsage => e
           result = e.message
