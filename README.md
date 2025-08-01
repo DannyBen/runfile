@@ -3,10 +3,6 @@
 
 # Runfile - command line for your projects
 
-[![Gem Version](https://badge.fury.io/rb/runfile.svg)](https://badge.fury.io/rb/runfile)
-[![Build Status](https://github.com/DannyBen/runfile/workflows/Test/badge.svg)](https://github.com/DannyBen/runfile/actions?query=workflow%3ATest)
-[![Maintainability](https://api.codeclimate.com/v1/badges/81cf02ccfcc8531cb09f/maintainability)](https://codeclimate.com/github/DannyBen/runfile/maintainability)
-
 ---
 
 A beautiful command line utility builder  
