@@ -30,7 +30,7 @@ command line "toolbelt" for your projects, you can use it regardless.
 ## Install
 
 ```shell
-$ gem install runfile --pre
+$ gem install runfile
 ```
 
 ## Quick Start
