@@ -13,6 +13,8 @@ Rake-inspired ✦ Docopt inside
 
 </div>
 
+![repocard](repocard.svg)
+
 **Runfile** lets you create command line tools in a way similar to
 [Rake](https://github.com/ruby/rake), but with the full power of 
 [Docopt](http://docopt.org/) command line options.
